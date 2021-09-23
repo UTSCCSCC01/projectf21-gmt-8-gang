@@ -1,16 +1,16 @@
-#Motivation: 
+# Motivation: 
 The project aims to create an app that helps homeless youth by removing certains stigmas of donating to the homeless, such as the stigma that homeless youths might use the money to purchase alcohol rather than paying off their loans/mortgages. 
 We aim to create an app with its own internal currency that can only be used at certain stores. 
 We aim to work with certain restaurant chains/groceries stores that will accept this currency, so that donors will be certain their charitable donation can only be spent on specific locations (i.e Tim hortons/ Walmarts)
 
-#Installation: 
+# Installation: 
 Language used: Kotlin?
 Database: MongoDB 
 UI: 
 Jiaxuan Zhang
 
 
-#Contribution: 
+# Contribution: 
 describe the process for contributing to your project.
 
 ### Do you use git flow?
