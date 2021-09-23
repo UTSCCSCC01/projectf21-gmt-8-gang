@@ -1,0 +1,1 @@
+Any user story is done when it is at least usable for the user to the most minimal degree in the app. It should not cause any app crashes, and any feature containing data modification should modify the data consistently across the whole app (e.g. donations, payments).
