@@ -4,9 +4,17 @@ We aim to create an app with its own internal currency that can only be used at 
 We aim to work with certain restaurant chains/groceries stores that will accept this currency, so that donors will be certain their charitable donation can only be spent on specific locations (i.e Tim hortons/ Walmarts)    
 
 # Installation: 
-Front end: Android Studio (Java)
-Back end: Java
-Database: MongoDB  
+Front end: Android Studio (Java)  
+Back end: Java  
+Database: MongoDB    
+
+1. clone repo into local repository  
+2. import the BeingSeenApp directory into android studio   
+3.Go to Android Studio>Preference>Build,Execution,Deployment>Build Tools>Gradle and change the "Use Gradle from:" option to gradle-wrapper.properties (note should also be using Gradle 11)   
+4. After Android studio loads new options click on "Sync Project with Gradle files"   
+5. If there is still an error, go to File>Invalidate Cache and restart  
+6. Run app in android studio emulator: https://developer.android.com/training/basics/firstapp/running-app (You may need to download a virtual device in AVD manager)  
+7. if no errors occured the app has succesfully ran and connected to the mongodb (If it failed to connect to mongodb atlas it should throw an error)   
 
 
 # Contribution: 
