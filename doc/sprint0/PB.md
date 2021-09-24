@@ -20,11 +20,17 @@ As Willow England (A donor), I would like to get notified when a donation goal I
 
 As Willow England (A donor), I would like to add money directly to my in-app account, so that I can directly donate to people on the street.
 
+As Willow England (A donor), I would like to register a donor account so that I can donate to the homeless.
+
+As Willow England (A donor), I would like to log in with a donor account so that I can donate to the homeless.
+
 As Kodi Spence (A social service provider),  I would like to be able to distribute the in-app currency to the homeless so that I can help homeless youth more efficiently.
 
 As Kodi Spence (A social service provider),  I would like to be able to accept a homeless person's requests to sign up for a homeless account so that I can meet more demand from homeless youth who want their financial help.
 
 As Abby Smith (A homeless youth), I would like to register to use the app with a homeless account so that I can receive donations.
+
+As Abby Smith (A homeless youth), I would like to log in with a homeless account so that I can receive donations.
 
 As Abby Smith (A homeless youth), I would like to see the progress of donation goals so that I can efficiently track the process of donation.
 
