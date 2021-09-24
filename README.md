@@ -4,8 +4,8 @@ We aim to create an app with its own internal currency that can only be used at 
 We aim to work with certain restaurant chains/groceries stores that will accept this currency, so that donors will be certain their charitable donation can only be spent on specific locations (i.e Tim hortons/ Walmarts)    
 
 # Installation: 
-Front end: Kotlin   
-Back end: Spring boot   
+Front end: Android Studio (Java)
+Back end: Java
 Database: MongoDB  
 
 
