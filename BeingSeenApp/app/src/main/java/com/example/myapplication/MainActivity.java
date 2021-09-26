@@ -1,7 +1,12 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,19 +15,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClientSettings;
-import com.mongodb.ServerAddress;
-import com.mongodb.reactivestreams.client.MongoClient;
-import com.mongodb.reactivestreams.client.MongoClients;
-import com.mongodb.reactivestreams.client.MongoCollection;
-import com.mongodb.reactivestreams.client.MongoDatabase;
-
-
-
 import com.example.myapplication.databinding.ActivityMainBinding;
 
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//        connectToMongo();
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -47,30 +39,32 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+
+        // Part of API request code was inspired from source code here: https://developer.android.com/training/volley/simple
+        // Title: Send a simple request
+        // Author: Android developer documentation
+        // Date: Sep 26th, 2021
+        final TextView textView = (TextView) findViewById(R.id.text);
+
+
+        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+
+        // a simple API to test if we can connect to backend
+        String url = "http://10.0.2.2:8080/test";
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> {
+                    textView.setText("Response is: " + response);
+                }, error -> textView.setText("Error"));
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+
     }
 
-    private void connectToMongo(){
-
-//        MongoClient mongoClient = MongoClients.create("mongodb://hostOne:27017");
-
-        try {
-            ConnectionString connString = new ConnectionString(
-//                "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
-                    "mongodb+srv://user:pass@beingseencluster.tqltt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-                    // query in form "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
-            ); /// Connect with Username: user Password: pass
-            MongoClientSettings settings = MongoClientSettings.builder()
-                    .applyConnectionString(connString)
-                    .retryWrites(true)
-                    .build();
-            MongoClient mongoClient = MongoClients.create(settings);
-            MongoDatabase database = mongoClient.getDatabase("test");
-
-            System.out.println("Connection to db successful");
-        }
-        catch(Exception e){
-            System.out.println("Connection to db fail");
-        }
-    }
 
 }
+
+
+
