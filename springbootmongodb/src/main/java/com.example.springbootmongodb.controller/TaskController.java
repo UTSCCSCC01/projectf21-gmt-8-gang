@@ -3,7 +3,7 @@ package com.example.springbootmongodb.controller;
 import java.util.List;
 
 import com.example.springbootmongodb.repository.TaskRepository;
-import com.example.springbootmongodb.model.Task;
+import com.example.springbootmongodb.model.Role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,11 +23,11 @@ public class TaskController {
 
     @GetMapping("/test")
     public ResponseEntity<?> getAllTasks() {
-        List<Task> tasks =  taskRepos.findAll();
+        List<Role> tasks =  taskRepos.findAll();
         System.out.println(tasks);
 
         if (tasks.size() >= 0) {
-            return new ResponseEntity<List<Task>>(tasks, HttpStatus.OK);
+            return new ResponseEntity<List<Role>>(tasks, HttpStatus.OK);
         } else {
             return new ResponseEntity<>("\"Resource not found\"", HttpStatus.NOT_FOUND);
         }
