@@ -4,6 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../.gradle/caches/transforms-3/25012fcc08d4c5cf5a2844c1a21a6fbe/transformed/material-1.4.0/res/layout/text_view_with_theme_line_height.xml" value="0.13697916666666668" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/aboutus.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/aboutusfragment.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_main.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_home.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_notifications.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/vitto/CSCC01/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.10364583333333334" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.10364583333333334" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.153125" />
