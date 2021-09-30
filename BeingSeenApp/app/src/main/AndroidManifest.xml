@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".HyUserInterfaceActivity"
+            android:exported="true" />
+        <activity
             android:name=".HyLoginActivity"
             android:exported="true" />
         <activity
