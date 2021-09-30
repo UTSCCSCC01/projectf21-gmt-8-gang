@@ -27,7 +27,8 @@ We will follow the process of gitflow where we create new branches based on feat
 ### What do you name your branches?
 master: for master branch (current working version)   
 dev: for development branch (for current development branch that will be merged into master)   
-feature-myNewFeatureName: for a new feature branch this branch can be edited by multiple people. However, different feature branches should attempt not to work on overlapping methods  
+feature-myNewFeatureName: for a new feature branch this branch can be edited by multiple people. However, different feature branches should attempt not to work on overlapping features (an example of a feature would be feature-DonorLogin or feature-HomelessPayment..)
+feature-myNewFeatureName-taskx: for a new user story task based on a feature this branch should be predominantly edited by at most 2/3 people. Different task branches should attempt to work on overlapping methods  
 hotfix-newHotfixIssueName: for urgent hotfix that is in master/dev branch
 
 ### Do you use github issues or another ticketing website?
