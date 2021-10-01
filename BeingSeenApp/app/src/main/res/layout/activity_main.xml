@@ -44,8 +44,8 @@
 
     <Button
         android:id="@+id/LoginButton"
-        android:layout_width="75dp"
-        android:layout_height="39dp"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
