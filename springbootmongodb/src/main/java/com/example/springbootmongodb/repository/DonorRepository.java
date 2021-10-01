@@ -1,11 +1,11 @@
 package com.example.springbootmongodb.repository;
 
-import com.example.springbootmongodb.model.Task;
+import com.example.springbootmongodb.model.Donor;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TaskRepository extends MongoRepository<Task, ObjectId>{
-
+public interface DonorRepository extends MongoRepository<Donor, ObjectId> {
+    Donor findByUsername(String username);
 }
