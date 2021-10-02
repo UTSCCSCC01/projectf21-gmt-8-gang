@@ -13,7 +13,10 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name=".aboutus"
+            android:name=".Donation"
+            android:exported="true" />
+        <activity
+            android:name=".Aboutus"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
