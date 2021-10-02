@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.HomelessYouthUiFrontend;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,23 +7,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class HyUserInterfaceActivity extends AppCompatActivity {
+import com.example.myapplication.R;
+
+public class HyLoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hy_user_interface);
+        setContentView(R.layout.activity_hy_login);
 
-        //Logout Button code
-        final Button button = (Button) findViewById(R.id.HyLogoutButton);
+
+        //Login Button code
+        final Button button = (Button) findViewById(R.id.HyLoginButton);
 
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                Intent i = new Intent(getApplicationContext(),HyUserInterfaceActivity.class);
                 startActivity(i);
+
             }
         });
     }
