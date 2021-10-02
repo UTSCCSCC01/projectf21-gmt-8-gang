@@ -11,7 +11,7 @@ Database: MongoDB
 Steps to get app running:
 1. Clone repo into local repository  
 2. Import the BeingSeenApp directory into android studio   
-3. Go to Android Studio>Preference>Build,Execution,Deployment>Build Tools>Gradle and change the "Use Gradle from:" option to gradle-wrapper.properties (note should also be using Gradle 11)   
+3. Go to Android Studio(for Windows, it should be File)>Preference(for Windows, it should be Settings)>Build,Execution,Deployment>Build Tools>Gradle and change the "Use Gradle from:" option to gradle-wrapper.properties (note should also be using Gradle 11), go to Android Studio>Project Structure>Modules>Properties, make sure Compile SDK Version and Build Tools Version are specified.
 4. After Android studio loads new options click on "Sync Project with Gradle files"   
 5. If there is still an error, go to File>Invalidate Cache and restart  
 6. Run app in android studio emulator: https://developer.android.com/training/basics/firstapp/running-app (You may need to download a virtual device in AVD manager)  
