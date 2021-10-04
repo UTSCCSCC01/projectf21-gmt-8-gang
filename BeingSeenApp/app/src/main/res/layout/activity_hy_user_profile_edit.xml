@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomelessYouthUiFrontend.HyUserProfileViewActivity">
+    tools:context=".HomelessYouthUiFrontend.HyUserProfileEditActivity">
 
     <RelativeLayout
         android:id="@+id/textView"
@@ -33,10 +33,10 @@
 
 
     <Button
-        android:id="@+id/HyEditPfButton"
+        android:id="@+id/HySavePfButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit"
+        android:text="Save"
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintVertical_bias="0.01"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,10 +46,10 @@
 
 
     <Button
-        android:id="@+id/HyPfExitButton"
+        android:id="@+id/HyPfExitEditButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Done"
+        android:text="Exit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.98"
@@ -57,21 +57,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.45"
+    <EditText
+        android:layout_width="307dp"
+        android:layout_height="45dp"
         android:text="Willow England"
-        android:textSize="30dp"
+        android:textAlignment="viewStart"
         android:textColor="@color/black"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintVertical_bias="0.45" />
 
-    <TextView
+    <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
