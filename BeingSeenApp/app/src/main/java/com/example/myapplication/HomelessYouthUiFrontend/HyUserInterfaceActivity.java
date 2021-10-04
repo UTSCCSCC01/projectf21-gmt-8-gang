@@ -17,7 +17,7 @@ public class HyUserInterfaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hy_user_interface);
 
         //View Profile code
-        final Button button = (Button) findViewById(R.id.HyPfDoneButton);
+        final Button button = (Button) findViewById(R.id.HyPfExitButton);
 
         button.setOnClickListener(new View.OnClickListener() {
 

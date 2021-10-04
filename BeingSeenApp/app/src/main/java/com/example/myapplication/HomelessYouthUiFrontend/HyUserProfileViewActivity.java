@@ -17,14 +17,27 @@ public class HyUserProfileViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hy_user_profile_view);
 
         //Back to ui code
-        final Button button = (Button) findViewById(R.id.HyPfDoneButton);
+        final Button button = (Button) findViewById(R.id.HyPfExitButton);
 
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(), HyUserProfileViewActivity.class);
+                Intent i = new Intent(getApplicationContext(), HyUserInterfaceActivity.class);
+                startActivity(i);
+            }
+        });
+
+        //Edit profile
+        final Button EditPfButton = (Button) findViewById(R.id.HyEditPfButton);
+
+        EditPfButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), HyUserProfileEditActivity.class);
                 startActivity(i);
             }
         });

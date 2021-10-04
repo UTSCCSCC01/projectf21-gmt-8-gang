@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".HomelessYouthUiFrontend.HyUserProfileEditActivity"
+            android:exported="true" />
+        <activity
             android:name=".HomelessYouthUiFrontend.HyUserProfileViewActivity"
             android:exported="true" />
         <activity
