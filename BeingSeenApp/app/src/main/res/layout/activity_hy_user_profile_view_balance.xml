@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomelessYouthUiFrontend.HyUserProfileViewActivity">
+    tools:context=".HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity">
 
     <RelativeLayout
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@color/green"
-        android:layout_marginBottom="300px"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
     </RelativeLayout>
 
@@ -46,7 +44,7 @@
 
 
     <Button
-        android:id="@+id/HyPfExitButton"
+        android:id="@+id/HyPfLogoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
@@ -84,5 +82,63 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
+
+    <Switch
+        android:id="@+id/ProfileSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Balance"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="441dp"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintVertical_bias="0.65"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Donations"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="441dp"
+        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintVertical_bias="0.65"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/textCreditAmount"
+        android:layout_width="122dp"
+        android:layout_height="81dp"
+        android:text="250"
+        android:textSize="70dp"
+        android:textColor="@color/green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <TextView
+        android:id="@+id/textCreditUnit"
+        android:layout_width="122dp"
+        android:layout_height="81dp"
+        android:text="Credit(s)"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

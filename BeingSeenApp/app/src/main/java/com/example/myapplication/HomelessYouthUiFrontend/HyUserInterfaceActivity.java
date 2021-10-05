@@ -17,14 +17,14 @@ public class HyUserInterfaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hy_user_interface);
 
         //View Profile code
-        final Button button = (Button) findViewById(R.id.HyPfExitButton);
+        final Button button = (Button) findViewById(R.id.HyPfProfileButton);
 
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(), HyUserProfileViewActivity.class);
+                Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
                 startActivity(i);
             }
         });

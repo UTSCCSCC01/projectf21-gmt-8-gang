@@ -43,13 +43,11 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-
         // Part of API request code was inspired from source code here: https://developer.android.com/training/volley/simple
         // Title: Send a simple request
         // Author: Android developer documentation
         // Date: Sep 26th, 2021
         final TextView textView = (TextView) findViewById(R.id.text);
-
 
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
 
@@ -64,11 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
-
-
-
-
-
 
         //Login Button code
         final Button button = (Button) findViewById(R.id.LoginButton);

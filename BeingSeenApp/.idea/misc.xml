@@ -11,8 +11,9 @@
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.153125" />
         <entry key="app/src/main/res/layout/activity_hy_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_hy_user_interface.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_hy_user_profile_edit.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_hy_user_profile_view.xml" value="0.13502167098265594" />
+        <entry key="app/src/main/res/layout/activity_hy_user_profile_edit.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/activity_hy_user_profile_view.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_hy_user_profile_view_donation.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2113907316901248" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.11875" />
