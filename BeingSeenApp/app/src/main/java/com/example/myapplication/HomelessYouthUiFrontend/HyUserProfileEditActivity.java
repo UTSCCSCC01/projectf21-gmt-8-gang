@@ -24,20 +24,20 @@ public class HyUserProfileEditActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(), HyUserProfileViewActivity.class);
+                Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
                 startActivity(i);
             }
         });
 
         // Cancel edited profile
-        final Button CancelEditPfButton = (Button) findViewById(R.id.HyPfExitEditButton);
+        final Button CancelEditPfButton = (Button) findViewById(R.id.HyPfBackEditButton);
 
         CancelEditPfButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(), HyUserProfileViewActivity.class);
+                Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
                 startActivity(i);
             }
         });

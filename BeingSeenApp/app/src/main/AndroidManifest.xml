@@ -16,7 +16,10 @@
             android:name=".HomelessYouthUiFrontend.HyUserProfileEditActivity"
             android:exported="true" />
         <activity
-            android:name=".HomelessYouthUiFrontend.HyUserProfileViewActivity"
+            android:name=".HomelessYouthUiFrontend.HyUserProfileViewDonationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity"
             android:exported="true" />
         <activity
             android:name=".HomelessYouthUiFrontend.HyUserInterfaceActivity"
