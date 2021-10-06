@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.databinding.FragmentHomeBinding;
+import com.example.myapplication.donorsignup.DonorSignUpActivity;
+import com.example.myapplication.donorsignup.TestttActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -41,5 +44,10 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public void goToDonorSignUp(View view) {
+        Intent intent = new Intent(this.getActivity(), TestttActivity.class);
+        this.startActivity(intent);
     }
 }

@@ -1,12 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,24 +39,25 @@ public class MainActivity extends AppCompatActivity {
         // Title: Send a simple request
         // Author: Android developer documentation
         // Date: Sep 26th, 2021
-        final TextView textView = (TextView) findViewById(R.id.text);
-
-
-        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-
-        // a simple API to test if we can connect to backend
-        String url = "http://10.0.2.2:8080/test";
-
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                response -> {
-                    textView.setText("Response is: " + response);
-                }, error -> textView.setText("Error"));
-
-        // Add the request to the RequestQueue.
-        queue.add(stringRequest);
+//        final TextView textView = (TextView) findViewById(R.id.text);
+//
+//
+//        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+//
+//        // a simple API to test if we can connect to backend
+//        String url = "http://10.0.2.2:8080/test";
+//
+//        // Request a string response from the provided URL.
+//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+//                response -> {
+//                    textView.setText("Response is: " + response);
+//                }, error -> textView.setText("Error"));
+//
+//        // Add the request to the RequestQueue.
+//        queue.add(stringRequest);
 
     }
+
 
 
 }

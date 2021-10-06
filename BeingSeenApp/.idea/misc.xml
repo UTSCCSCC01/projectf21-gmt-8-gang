@@ -4,6 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../.gradle/caches/transforms-3/25012fcc08d4c5cf5a2844c1a21a6fbe/transformed/material-1.4.0/res/layout/text_view_with_theme_line_height.xml" value="0.13697916666666668" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_donor_sign_up.xml" value="0.2427536231884058" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_main.xml" value="0.1598731884057971" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_testtt.xml" value="0.23369565217391305" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.1598731884057971" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_home.xml" value="0.2427536231884058" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_notifications.xml" value="0.2427536231884058" />
         <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.10364583333333334" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.10364583333333334" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.153125" />
