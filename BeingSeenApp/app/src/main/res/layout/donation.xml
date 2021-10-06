@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:foregroundTint="@color/teal_700">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/dnt_amount_frame"
@@ -32,10 +34,10 @@
             android:capitalize="none"
             android:clickable="true"
             android:hint="Amount"
-            android:textColorHint="@color/black"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="@color/black"
+            android:textColorHint="@color/black"
             app:textInputLayoutFocusedRectEnabled="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,10 +60,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="120dp"
+        android:background="@color/teal_700"
+        android:backgroundTint="@color/teal_700"
+        android:foregroundTint="@color/teal_700"
+        android:shadowColor="@color/teal_700"
         android:text="Confirm"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textIsSelectable="false"
+        android:visibility="visible"
+        app:iconTint="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/teal_700"
+        app:strokeColor="@color/teal_700" />
 </androidx.constraintlayout.widget.ConstraintLayout>
