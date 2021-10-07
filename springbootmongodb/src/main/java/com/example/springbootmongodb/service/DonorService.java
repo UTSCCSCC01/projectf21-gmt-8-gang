@@ -3,6 +3,8 @@ package com.example.springbootmongodb.service;
 import com.example.springbootmongodb.model.Donor;
 import com.example.springbootmongodb.repository.DonorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,7 +26,11 @@ public class DonorService implements UserDetailsService {
 
         String name = foundedDonor.getUsername();
         String password = foundedDonor.getPassword();
+        String role = foundedDonor.getRole();
 
-        return new User(name, password, new ArrayList<>());
+        ArrayList<GrantedAuthority> roleList = new ArrayList<GrantedAuthority>();
+        roleList.add(new SimpleGrantedAuthority("ROLE_" + role));
+
+        return new User(name, password, roleList);
     }
 }

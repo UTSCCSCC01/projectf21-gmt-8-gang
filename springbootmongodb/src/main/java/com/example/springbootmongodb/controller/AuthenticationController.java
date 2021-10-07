@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,13 +33,16 @@ public class AuthenticationController {
     private ResponseEntity<?> registerDonor(@RequestBody AuthenticationRequest authenticationRequest) {
         String username = authenticationRequest.getUsername();
         String password = authenticationRequest.getPassword();
+        String role = authenticationRequest.getRole();
         Donor donor = new Donor();
         donor.setUsername(username);
         donor.setPassword(password);
+        donor.setRole(role);
         try {
             donorRepository.save(donor);
         } catch (Exception e) {
-            return ResponseEntity.ok(new AuthenticationResponse("Error during client registration " + username));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new AuthenticationResponse("Error during client Authentication " + username));
         }
         return ResponseEntity.ok(new AuthenticationResponse("Successful registration for " + username));
     }
@@ -47,13 +51,21 @@ public class AuthenticationController {
     private ResponseEntity<?> authenticateDonor(@RequestBody AuthenticationRequest authenticationRequest) {
         String username = authenticationRequest.getUsername();
         String password = authenticationRequest.getPassword();
+        String role = authenticationRequest.getRole();
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (Exception e) {
-            return ResponseEntity.ok(new AuthenticationResponse("Error during client Authentication " + username));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new AuthenticationResponse("Error during client Authentication " + username));
         }
 
         UserDetails loadedUser = donorService.loadUserByUsername(username);
+
+        if (!loadedUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_" + role))) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new AuthenticationResponse("Error during client Authentication " + username));
+        }
+
         String generatedToken = jwtUtils.generateToken(loadedUser);
 
         return ResponseEntity.ok(new AuthenticationResponse("Successful! Token:"+generatedToken));

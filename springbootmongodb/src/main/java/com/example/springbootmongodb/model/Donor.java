@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @AllArgsConstructor
 // @NoArgsConstructor
-@Document(collection = "Donor")
+@Document(collection = "Users")
 public class Donor {
 
     @Id
@@ -20,6 +20,7 @@ public class Donor {
 
     private String username;
     private String password;
+    private String role;
 
     public Donor() {
     }
@@ -42,5 +43,13 @@ public class Donor {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
