@@ -9,18 +9,24 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
+
+import java.io.ByteArrayOutputStream;
 
 public class HyUserProfileEditActivity extends AppCompatActivity {
 public ImageView pick;
@@ -28,6 +34,7 @@ public static final int CAMERA_REQUEST = 100;
 public static final int STORAGE_REQUEST = 101;
 String cameraPermission[];
 String storagePermission[];
+
 
 
     @Override
@@ -42,8 +49,32 @@ String storagePermission[];
 
             @Override
             public void onClick(View view) {
+                // After clicking save all objects on screen into a object
+                ImageView currentProfilePhoto = (ImageView)findViewById(R.id.pickImage);
+                EditText usernameTextboxInfo = (EditText)findViewById(R.id.HyPfEditUsername);
+                EditText descriptionTextboxInfo = (EditText)findViewById(R.id.HyPfEditDesc);
+
+                String username = usernameTextboxInfo.getText().toString();
+                String desc = descriptionTextboxInfo.getText().toString();
+
+                currentProfilePhoto.buildDrawingCache();
+                Bitmap profilePicBitmap= currentProfilePhoto.getDrawingCache();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                profilePicBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos); // bm is the bitmap object
+                byte[] b = baos.toByteArray();
+
+                String profilePic = Base64.encodeToString(b, Base64.DEFAULT);
+
+
+//                ProfileInfo pfObj = new ProfileInfo(username, desc);
+
 
                 Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+
+                /// Only for now, in future need to save as pf object and store it in mongo
+                i.putExtra("uname", username);
+                i.putExtra("desc", desc);
+                i.putExtra("pfp", profilePic);
                 startActivity(i);
             }
         });
