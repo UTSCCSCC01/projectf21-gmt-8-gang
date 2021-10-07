@@ -17,6 +17,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.myapplication.MainActivity;
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 
 public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
@@ -47,11 +48,7 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
             String desc = intent.getStringExtra("desc");
             String base64Pfp = intent.getStringExtra("pfp");
 
-            byte[] pfpbytes = Base64.decode(base64Pfp, Base64.DEFAULT);
-
-            Log.i("UNAME", uname);
-            Bitmap bmp = BitmapFactory.decodeByteArray(pfpbytes, 0, pfpbytes.length);
-
+            Bitmap bmp = ProfileInfo.decodeProfilePic(base64Pfp);
 
             ImageView currentProfilePhoto = (ImageView) findViewById(R.id.HyPfPfpDisplay);
             TextView usernameTextboxInfo = (TextView) findViewById(R.id.HyPfUnameDisplay);
@@ -64,8 +61,6 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
 
 
 
-
-        //////////
 
 
         //Edit profile

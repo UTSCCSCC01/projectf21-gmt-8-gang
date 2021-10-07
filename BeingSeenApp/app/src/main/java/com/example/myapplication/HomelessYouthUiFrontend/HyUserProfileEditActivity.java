@@ -56,17 +56,10 @@ String storagePermission[];
 
                 String username = usernameTextboxInfo.getText().toString();
                 String desc = descriptionTextboxInfo.getText().toString();
-
-                currentProfilePhoto.buildDrawingCache();
-                Bitmap profilePicBitmap= currentProfilePhoto.getDrawingCache();
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                profilePicBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos); // bm is the bitmap object
-                byte[] b = baos.toByteArray();
-
-                String profilePic = Base64.encodeToString(b, Base64.DEFAULT);
+                String profilePic = ProfileInfo.encodeProfilePic(currentProfilePhoto);
 
 
-//                ProfileInfo pfObj = new ProfileInfo(username, desc);
+                ProfileInfo pfObj = new ProfileInfo(username, desc, profilePic);
 
 
                 Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
