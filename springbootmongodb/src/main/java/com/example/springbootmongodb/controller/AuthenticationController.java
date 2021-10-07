@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -71,6 +72,13 @@ public class AuthenticationController {
         return ResponseEntity.ok(new AuthenticationResponse("Successful! Token:"+generatedToken));
 
 
+    }
+
+    // getName is just for testing if jwt is working!
+    @PostMapping("/getName")
+    private String getName() {
+        //UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return "name is: " + SecurityContextHolder.getContext().getAuthentication().getName();
     }
 
 }
