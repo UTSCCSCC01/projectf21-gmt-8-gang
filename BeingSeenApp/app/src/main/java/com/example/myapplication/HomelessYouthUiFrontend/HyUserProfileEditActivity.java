@@ -93,7 +93,7 @@ String storagePermission[];
         cameraPermission = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-        pick = (ImageView)findViewById(R.id.pickImage);
+        pick = (ImageView)findViewById(R.id.editIcon);
         pick.setOnClickListener(new View.OnClickListener(){
 
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -152,7 +152,10 @@ String storagePermission[];
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode==RESULT_OK){
                 Uri resultUri=result.getUri();
-                Picasso.with(this).load(resultUri).into(pick);
+
+                //load into actual image
+                ImageView pfpChange = (ImageView)findViewById(R.id.pickImage);
+                Picasso.with(this).load(resultUri).into(pfpChange);
             }
         }
     }
