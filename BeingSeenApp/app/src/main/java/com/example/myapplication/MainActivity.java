@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
-
+      
         //botton for about us:
         Button btn_aboutus= binding.aboutusBtn;
         btn_aboutus.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +76,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //Login Button code
+        final Button button = (Button) findViewById(R.id.LoginButton);
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(),HyLoginActivity.class);
+                startActivity(i);
+
+            }
+        });
 
     }
 
