@@ -38,7 +38,7 @@ public class AuthenticationController {
         String role = authenticationRequest.getRole();
         if(donorRepository.existsByUsername(username)){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).
-                    body(new AuthenticationResponse("Username already exists, failed to register"));
+                    body(new AuthenticationResponse("DUPLICATE_USERNAME","Username already exists, failed to register"));
         }
         Donor donor = new Donor();
         donor.setUsername(username);
@@ -48,33 +48,37 @@ public class AuthenticationController {
             donorRepository.save(donor);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(new AuthenticationResponse("Error during client Authentication " + username));
+                    .body(new AuthenticationResponse("SAVE_ERROR","Error during client Authentication " + username));
         }
-        return ResponseEntity.ok(new AuthenticationResponse("Successful registration for " + username));
+        return ResponseEntity.ok(new AuthenticationResponse("SUCCESS","Successful registration for " + username));
     }
 
     @PostMapping("/auth")
     private ResponseEntity<?> authenticateDonor(@RequestBody AuthenticationRequest authenticationRequest) {
         String username = authenticationRequest.getUsername();
         String password = authenticationRequest.getPassword();
-        String role = authenticationRequest.getRole();
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(new AuthenticationResponse("Error during client Authentication " + username));
+                    .body(new AuthenticationResponse("AUTH_ERROR","Error during client Authentication " + username));
         }
 
         UserDetails loadedUser = donorService.loadUserByUsername(username);
 
-        if (!loadedUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_" + role))) {
+        String role = "";
+        if (loadedUser.getAuthorities().contains(new SimpleGrantedAuthority(("ROLE_DONOR")))) {
+            role = "ROLE_DONOR";
+        } else if (loadedUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_HOMELESS"))) {
+            role = "ROLE_HOMELESS";
+        } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(new AuthenticationResponse("Error during client Authentication " + username));
+                    .body(new AuthenticationResponse("ROLE_DNE","Error on Identifying role for " + username));
         }
 
         String generatedToken = jwtUtils.generateToken(loadedUser);
 
-        return ResponseEntity.ok(new AuthenticationResponse("Successful! Token:"+generatedToken));
+        return ResponseEntity.ok(new AuthenticationResponse(role, generatedToken));
 
 
     }
