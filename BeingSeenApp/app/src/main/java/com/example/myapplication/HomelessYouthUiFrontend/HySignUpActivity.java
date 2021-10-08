@@ -32,10 +32,10 @@ public class HySignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hy_login);
 
-        EditText username = findViewById(R.id.HyUsername);
-        EditText password = findViewById(R.id.HyPassword);
+        EditText username = (EditText) findViewById(R.id.HyUsername);
+        EditText password = (EditText) findViewById(R.id.HyPassword);
         postData(username, password);
-
+        //username.getText()!= "" && password.getText()!= ""
 
         //Login Button code
         final Button button = findViewById(R.id.HyLoginButton);
@@ -72,17 +72,19 @@ public class HySignUpActivity extends AppCompatActivity {
                             if (Error.equals("OK")){
                                 username.setText(response.getString("username"));
                                 password.setText(response.getString("password"));
+                            } else {
+                                Toast.makeText(HySignUpActivity.this, "400 bad request", Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d("Error", "Error: " + error.getMessage());
-                Toast.makeText(HySignUpActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        VolleyLog.d("Error", "Error: " + error.getMessage());
+                        Toast.makeText(HySignUpActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
         });
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(jsonObjectRequest);
