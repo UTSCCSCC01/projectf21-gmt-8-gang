@@ -4,37 +4,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.myapplication.R;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class HyLoginActivity extends AppCompatActivity {
+
+    private HyLoginModel hyLoginModel;
+    public static final String LOGIN_TAG = "hyLogin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hy_login);
 
-        final TextView username = (TextView) findViewById(R.id.HyUsername);
-        final TextView password = (TextView) findViewById(R.id.HyPassword);
-        getData(username, password);
-
 
         //Login Button code
         final Button button = (Button) findViewById(R.id.HyLoginButton);
-
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -43,29 +33,39 @@ public class HyLoginActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(),HyUserInterfaceActivity.class);
                 startActivity(i);
 
+                logIn(view);
+
             }
         });
+
+        Log.i(LOGIN_TAG, "hy login activity started");
+        hyLoginModel = new HyLoginModel(this);
     }
 
-    private void getData(TextView username, TextView password) {
-        String url ="localhost:8080/register";
+    public void logIn(View view) {
+        EditText usernameField = (EditText) findViewById(R.id.HyUsername);
+        EditText passwordField = (EditText) findViewById(R.id.HyPassword);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                response -> {
-                    try{
-                        //Create a JSON object containing information from the API.
-                        JSONObject myJsonObject = new JSONObject(response);
-                        username.setText(myJsonObject.getString("username"));
-                        password.setText(myJsonObject.getString("password"));
-                    } catch ( JSONException e) {
-                        e.printStackTrace();
-                    }
-                },
-                volleyError -> Toast.makeText(HyLoginActivity.this, volleyError.getMessage(),
-                        Toast.LENGTH_SHORT).show()
-        );
-        // Add the request to the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-        queue.add(stringRequest);
+        String username = usernameField.getText().toString();
+        String password = passwordField.getText().toString();
+
+        if (username.isEmpty()) {
+            usernameField.setError("please enter a username");
+            usernameField.requestFocus();
+            return;
+        }
+
+        if (password.isEmpty()) {
+            passwordField.setError("please enter a password");
+            passwordField.requestFocus();
+            return;
+        }
+
+        hyLoginModel.logIn(username, password);
+
+        Log.i(LOGIN_TAG, "hy login success");
+        return;
     }
 }
+
+
