@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DonorRepository extends MongoRepository<Donor, ObjectId> {
     Donor findByUsername(String username);
+    Boolean existsByUsername(String username);
 }

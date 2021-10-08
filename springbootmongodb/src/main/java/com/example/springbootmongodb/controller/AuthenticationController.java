@@ -35,6 +35,10 @@ public class AuthenticationController {
         String username = authenticationRequest.getUsername();
         String password = authenticationRequest.getPassword();
         String role = authenticationRequest.getRole();
+        if(donorRepository.existsByUsername(username)){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).
+                    body(new AuthenticationResponse("Username already exists, failed to register"));
+        }
         Donor donor = new Donor();
         donor.setUsername(username);
         donor.setPassword(password);
