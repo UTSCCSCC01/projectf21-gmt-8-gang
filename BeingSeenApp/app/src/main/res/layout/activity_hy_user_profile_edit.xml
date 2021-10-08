@@ -21,14 +21,14 @@
         android:id="@+id/pickImage"
         android:layout_width="150dp"
         android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/profile"
+        app:layout_constraintVertical_bias="0.1"
         tools:srcCompat="@tools:sample/avatars" />
 
 
@@ -58,6 +58,7 @@
         app:layout_constraintVertical_bias="0.01" />
 
     <EditText
+        android:id="@+id/HyPfEditUsername"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -73,6 +74,7 @@
         app:layout_constraintVertical_bias="0.45" />
 
     <EditText
+        android:id="@+id/HyPfEditDesc"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -85,5 +87,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
+
+    <ImageButton
+        android:id="@+id/editIcon"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/editpen"
+        app:layout_constraintBottom_toBottomOf="@+id/pickImage"
+        app:layout_constraintEnd_toEndOf="@+id/pickImage"
+        app:layout_constraintStart_toStartOf="@+id/pickImage"
+        app:layout_constraintTop_toTopOf="@+id/pickImage"
+        app:layout_constraintVertical_bias="0.951"
+        style="?android:attr/borderlessButtonStyle"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

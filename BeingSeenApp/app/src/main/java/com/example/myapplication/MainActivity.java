@@ -10,6 +10,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.HomelessYouthUiFrontend.HyLoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -20,7 +21,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +63,19 @@ public class MainActivity extends AppCompatActivity {
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
 
+      
+        //botton for about us:
+        Button btn_aboutus= binding.aboutusBtn;
+        btn_aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent();
+                intent.setClass(MainActivity.this, Aboutus.class);
+                startActivity(intent);
+            }
+        });
+
+
         //Login Button code
         final Button button = (Button) findViewById(R.id.LoginButton);
 
@@ -76,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
 

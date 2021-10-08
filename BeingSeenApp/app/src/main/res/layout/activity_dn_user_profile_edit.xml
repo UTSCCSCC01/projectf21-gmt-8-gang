@@ -18,7 +18,7 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/pickImage"
+        android:id="@+id/DnPickImage"
         android:layout_width="150dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,6 +30,22 @@
         android:scaleType="centerCrop"
         android:src="@drawable/profile"
         tools:srcCompat="@tools:sample/avatars" />
+
+
+    <ImageButton
+        android:id="@+id/DnEditIcon"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/editpen"
+        app:layout_constraintBottom_toBottomOf="@+id/DnPickImage"
+        app:layout_constraintEnd_toEndOf="@+id/DnPickImage"
+        app:layout_constraintStart_toStartOf="@+id/DnPickImage"
+        app:layout_constraintTop_toTopOf="@+id/DnPickImage"
+        app:layout_constraintVertical_bias="0.951"
+        style="?android:attr/borderlessButtonStyle"/>
+
 
 
     <Button
@@ -58,6 +74,7 @@
         app:layout_constraintVertical_bias="0.01" />
 
     <EditText
+        android:id="@+id/DnPfEditUsername"
         android:layout_width="307dp"
         android:layout_height="45dp"
         android:text="Willow England"
@@ -72,6 +89,7 @@
         app:layout_constraintVertical_bias="0.45" />
 
     <EditText
+        android:id="@+id/DnPfEditDesc"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
