@@ -16,13 +16,13 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name=".DonationStatus"
+            android:name=".AboutUsFrontend.DonationStatus"
             android:exported="true" />
         <activity
-            android:name=".Donation"
+            android:name=".AboutUsFrontend.Donation"
             android:exported="true" />
         <activity
-            android:name=".Aboutus"
+            android:name=".AboutUsFrontend.Aboutus"
             android:exported="true" />
         <activity
             android:name=".HomelessYouthUiFrontend.HyUserProfileEditActivity"
@@ -38,6 +38,9 @@
             android:exported="true" />
         <activity
             android:name=".HomelessYouthUiFrontend.HyLoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomelessYouthUiFrontend.HySignUpActivity"
             android:exported="true" />
         <activity
             android:name=".DonorUiFrontend.DnUserProfileViewBalanceActivity"

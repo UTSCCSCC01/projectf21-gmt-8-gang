@@ -10,6 +10,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.HomelessYouthUiFrontend.HyLoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -20,8 +21,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
-
-import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
