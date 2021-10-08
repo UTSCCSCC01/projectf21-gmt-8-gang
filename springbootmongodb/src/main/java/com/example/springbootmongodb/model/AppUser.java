@@ -22,4 +22,13 @@ public class AppUser {
     private String role;
     private String profileInfo;
     private Long balance;
+
+    public AppUser(String userName, String role, String profileInfo, Long balance) {
+        this.userName = userName;
+        this.role = role;
+        this.profileInfo = profileInfo;
+        this.balance = balance;
+    }
+
+    public AppUser() {}
 }

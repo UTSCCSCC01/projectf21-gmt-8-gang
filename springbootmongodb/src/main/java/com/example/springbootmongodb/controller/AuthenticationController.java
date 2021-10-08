@@ -1,8 +1,10 @@
 package com.example.springbootmongodb.controller;
 
+import com.example.springbootmongodb.model.AppUser;
 import com.example.springbootmongodb.model.AuthenticationRequest;
 import com.example.springbootmongodb.model.AuthenticationResponse;
 import com.example.springbootmongodb.model.Donor;
+import com.example.springbootmongodb.repository.AppUserRepository;
 import com.example.springbootmongodb.repository.DonorRepository;
 import com.example.springbootmongodb.service.DonorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,8 @@ import com.example.springbootmongodb.utils.JwtUtils;
 public class AuthenticationController {
     @Autowired
     private DonorRepository donorRepository;
+    @Autowired
+    private AppUserRepository appUserRepository;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -32,26 +36,36 @@ public class AuthenticationController {
     @Autowired
     private JwtUtils jwtUtils;
     @PostMapping("/register")
-    private ResponseEntity<?> registerDonor(@RequestBody AuthenticationRequest authenticationRequest) {
+    private ResponseEntity<?> registerUser(@RequestBody AuthenticationRequest authenticationRequest) {
         String username = authenticationRequest.getUsername();
         String password = authenticationRequest.getPassword();
         String role = authenticationRequest.getRole();
+
+        // check if there are duplicate usernames
         if(donorRepository.existsByUsername(username)){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).
                     body(new AuthenticationResponse("DUPLICATE_USERNAME","Username already exists, failed to register"));
         }
-        Donor donor = new Donor();
-        donor.setUsername(username);
-        donor.setPassword(password);
-        donor.setRole(role);
-        try {
-            donorRepository.save(donor);
 
+        // creating and saving donor(user) for authentication
+        // also creating and saving AppUser for profiles
+        try {
+            Donor donor = new Donor();
+            donor.setUsername(username);
+            donor.setPassword(password);
+            donor.setRole(role);
+            donorRepository.save(donor);
+            AppUser appUser = new AppUser();
+            appUser.setUserName(username);
+            appUser.setRole(role);
+            appUser.setBalance(0L);
+            appUser.setProfileInfo("");
+            appUserRepository.save(appUser);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(new AuthenticationResponse("SAVE_ERROR","Error during client Authentication " + username));
+                    .body(new AuthenticationResponse("SAVE_ERROR","Error during saving data for  " + username +
+                            "might need to check ur formatting! (or backend code)"));
         }
-
 
         return ResponseEntity.ok(new AuthenticationResponse("SUCCESS","Successful registration for " + username));
     }
@@ -81,9 +95,7 @@ public class AuthenticationController {
 
         String generatedToken = jwtUtils.generateToken(loadedUser);
 
-        return ResponseEntity.ok(new AuthenticationResponse(role, generatedToken));
-
-
+        return ResponseEntity.ok(new AuthenticationResponse(role, "Bearer " + generatedToken));
     }
 
     // getName is just for testing if jwt is working!
