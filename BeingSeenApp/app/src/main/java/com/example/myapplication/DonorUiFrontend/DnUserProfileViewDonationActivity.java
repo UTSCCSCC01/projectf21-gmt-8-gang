@@ -31,6 +31,21 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
             }
         });
 
+
+        //when db setup
+//        ProfileInfo profileInf = new ProfileInfo();
+//        profileInf.getInfoFromDb(this);
+//
+//        ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
+//        TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
+//        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
+//
+//        usernameTextboxInfo.setText(profileInf.getUsername());
+//        descriptionTextboxInfo.setText(profileInf.getUserDescription());
+//        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+
+
+
         //Edit profile
         final Button EditPfButton = (Button) findViewById(R.id.DnEditPfButton);
 

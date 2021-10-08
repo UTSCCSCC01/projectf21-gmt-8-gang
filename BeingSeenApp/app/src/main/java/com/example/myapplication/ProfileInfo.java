@@ -25,6 +25,30 @@ public class ProfileInfo {
     String userDescription;
     String profileImage;
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUserDescription() {
+        return userDescription;
+    }
+
+    public void setUserDescription(String userDescription) {
+        this.userDescription = userDescription;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
     public ProfileInfo(String username, String userDescription, String profileImage){
         this.username = username;
         this.userDescription = userDescription;
@@ -40,6 +64,9 @@ public class ProfileInfo {
     public ProfileInfo(String username, String userDescription){
         this.username = username;
         this.userDescription = userDescription;
+    }
+
+    public ProfileInfo(){
     }
 
     public static String encodeProfilePic(ImageView image){

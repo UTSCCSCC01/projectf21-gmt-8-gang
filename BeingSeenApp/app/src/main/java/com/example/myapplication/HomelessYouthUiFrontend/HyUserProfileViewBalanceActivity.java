@@ -48,15 +48,20 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
             String desc = intent.getStringExtra("desc");
             String base64Pfp = intent.getStringExtra("pfp");
 
-            Bitmap bmp = ProfileInfo.decodeProfilePic(base64Pfp);
+            ProfileInfo profileInf = new ProfileInfo(uname, desc, base64Pfp);
+
+
+            //when db setup
+            //ProfileInfo profileInf = new ProfileInfo();
+//            profileInf.getInfoFromDb(this);
 
             ImageView currentProfilePhoto = (ImageView) findViewById(R.id.HyPfPfpDisplay);
             TextView usernameTextboxInfo = (TextView) findViewById(R.id.HyPfUnameDisplay);
             TextView descriptionTextboxInfo = (TextView) findViewById(R.id.HyPfUdescDisplay);
 
-            usernameTextboxInfo.setText(uname);
-            descriptionTextboxInfo.setText(desc);
-            currentProfilePhoto.setImageBitmap(bmp);
+            usernameTextboxInfo.setText(profileInf.getUsername());
+            descriptionTextboxInfo.setText(profileInf.getUserDescription());
+            currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
         }
 
 

@@ -45,14 +45,27 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
 
             Bitmap bmp = ProfileInfo.decodeProfilePic(base64Pfp);
 
-            ImageView currentProfilePhoto = (ImageView) findViewById(R.id.HyPfPfpDisplay);
-            TextView usernameTextboxInfo = (TextView) findViewById(R.id.HyPfUnameDisplay);
-            TextView descriptionTextboxInfo = (TextView) findViewById(R.id.HyPfUdescDisplay);
+            ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
+            TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
+            TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
 
             usernameTextboxInfo.setText(uname);
             descriptionTextboxInfo.setText(desc);
             currentProfilePhoto.setImageBitmap(bmp);
         }
+
+        //when db setup
+//        ProfileInfo profileInf = new ProfileInfo();
+//        profileInf.getInfoFromDb(this);
+//
+//        ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
+//        TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
+//        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
+//
+//        usernameTextboxInfo.setText(profileInf.getUsername());
+//        descriptionTextboxInfo.setText(profileInf.getUserDescription());
+//        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+
 
 
         //Edit profile

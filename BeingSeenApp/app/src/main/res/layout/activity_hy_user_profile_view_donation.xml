@@ -18,7 +18,7 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/HyPfPfpDisplay"
         android:layout_width="150dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,6 +58,7 @@
         app:layout_constraintVertical_bias="0.01" />
 
     <TextView
+        android:id="@+id/HyPfUnameDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -72,6 +73,7 @@
         />
 
     <TextView
+        android:id="@+id/HyPfUdescDisplay"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"

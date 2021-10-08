@@ -72,6 +72,19 @@ String storagePermission[];
             }
         });
 
+        //when db setup
+//        ProfileInfo profileInf = new ProfileInfo();
+//        profileInf.getInfoFromDb(this);
+//
+//        ImageView currentProfilePhoto = (ImageView)findViewById(R.id.pickImage);
+//        EditText usernameTextboxInfo = (EditText)findViewById(R.id.HyPfEditUsername);
+//        EditText descriptionTextboxInfo = (EditText)findViewById(R.id.HyPfEditDesc);
+//
+//        usernameTextboxInfo.setText(profileInf.getUsername());
+//        descriptionTextboxInfo.setText(profileInf.getUserDescription());
+//        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+
+
         // Cancel edited profile
         final Button CancelEditPfButton = (Button) findViewById(R.id.HyPfBackEditButton);
 

@@ -66,6 +66,20 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
             }
         });
 
+        //when db setup
+//        ProfileInfo profileInf = new ProfileInfo();
+//        profileInf.getInfoFromDb(this);
+//
+//        ImageView currentProfilePhoto = (ImageView)findViewById(R.id.DnPickImage);
+//        EditText usernameTextboxInfo = (EditText)findViewById(R.id.DnPfEditUsername);
+//        EditText descriptionTextboxInfo = (EditText)findViewById(R.id.DnPfEditDesc);
+//
+//        usernameTextboxInfo.setText(profileInf.getUsername());
+//        descriptionTextboxInfo.setText(profileInf.getUserDescription());
+//        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+
+
+
         // Cancel edited profile
         final Button CancelEditPfButton = (Button) findViewById(R.id.DnPfBackEditButton);
 
