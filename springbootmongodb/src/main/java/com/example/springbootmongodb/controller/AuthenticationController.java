@@ -54,12 +54,14 @@ public class AuthenticationController {
             donor.setUsername(username);
             donor.setPassword(password);
             donor.setRole(role);
-            donorRepository.save(donor);
+
             AppUser appUser = new AppUser();
             appUser.setUserName(username);
             appUser.setRole(role);
             appUser.setBalance(0L);
             appUser.setProfileInfo("");
+
+            donorRepository.save(donor);
             appUserRepository.save(appUser);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
