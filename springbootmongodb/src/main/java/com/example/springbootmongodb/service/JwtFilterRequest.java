@@ -19,7 +19,7 @@ import java.io.IOException;
 public class JwtFilterRequest extends OncePerRequestFilter {
     @Autowired
     private JwtUtils jwtUtils;
-
+    @Autowired
     private DonorService donorService;
 
     @Override
@@ -36,7 +36,8 @@ public class JwtFilterRequest extends OncePerRequestFilter {
             UserDetails currentUserDetails = donorService.loadUserByUsername(username);
             Boolean tokenValidated = jwtUtils.validateToken(jwtToken, currentUserDetails);
             if(tokenValidated){
-                UsernamePasswordAuthenticationToken usernamePassAuthToken = new UsernamePasswordAuthenticationToken(currentUserDetails, null);
+                UsernamePasswordAuthenticationToken usernamePassAuthToken = new UsernamePasswordAuthenticationToken(
+                        currentUserDetails, null, currentUserDetails.getAuthorities());
                 usernamePassAuthToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(usernamePassAuthToken);
             }
