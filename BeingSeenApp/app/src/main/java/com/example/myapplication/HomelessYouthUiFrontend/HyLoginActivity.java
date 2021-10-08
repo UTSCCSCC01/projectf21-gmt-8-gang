@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.myapplication.R;
 
@@ -45,8 +46,8 @@ public class HyLoginActivity extends AppCompatActivity {
         EditText usernameField = (EditText) findViewById(R.id.HyUsername);
         EditText passwordField = (EditText) findViewById(R.id.HyPassword);
 
-        String username = usernameField.getText().toString().trim();
-        String password = passwordField.getText().toString().trim();
+        String username = usernameField.getText().toString();
+        String password = passwordField.getText().toString();
 
         if (username.isEmpty()) {
             usernameField.setError("please enter a username");
