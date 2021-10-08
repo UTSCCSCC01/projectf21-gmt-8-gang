@@ -31,6 +31,9 @@
             android:name=".HomelessYouthUiFrontend.HyLoginActivity"
             android:exported="true" />
         <activity
+            android:name=".HomelessYouthUiFrontend.HySignUpActivity"
+            android:exported="true" />
+        <activity
             android:name=".DonorUiFrontend.DnUserProfileViewBalanceActivity"
             android:exported="true" />
         <activity

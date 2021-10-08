@@ -6,6 +6,8 @@ plugins {
 android {
     compileSdk 30
 
+    useLibrary 'org.apache.http.legacy'
+
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdk 21
