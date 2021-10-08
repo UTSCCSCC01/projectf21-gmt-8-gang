@@ -46,10 +46,13 @@ public class AuthenticationController {
         donor.setRole(role);
         try {
             donorRepository.save(donor);
+
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new AuthenticationResponse("SAVE_ERROR","Error during client Authentication " + username));
         }
+
+
         return ResponseEntity.ok(new AuthenticationResponse("SUCCESS","Successful registration for " + username));
     }
 
@@ -86,7 +89,7 @@ public class AuthenticationController {
     // getName is just for testing if jwt is working!
     @GetMapping("/getName")
     private String getName() {
-        //UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return "name is: " + SecurityContextHolder.getContext().getAuthentication().getName();
     }
 
