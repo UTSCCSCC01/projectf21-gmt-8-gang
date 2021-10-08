@@ -15,10 +15,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -43,8 +45,23 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                // After clicking save all objects on screen into a object
+                ImageView currentProfilePhoto = (ImageView)findViewById(R.id.DnPickImage);
+                EditText usernameTextboxInfo = (EditText)findViewById(R.id.DnPfEditUsername);
+                EditText descriptionTextboxInfo = (EditText)findViewById(R.id.DnPfEditDesc);
+
+                String username = usernameTextboxInfo.getText().toString();
+                String desc = descriptionTextboxInfo.getText().toString();
+                String profilePic = ProfileInfo.encodeProfilePic(currentProfilePhoto);
+
+                ProfileInfo pfObj = new ProfileInfo(username, desc, profilePic);
 
                 Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+
+                /// Only for now, in future need to save as pf object and store it in mongo
+                i.putExtra("uname", username);
+                i.putExtra("desc", desc);
+                i.putExtra("pfp", profilePic);
                 startActivity(i);
             }
         });
@@ -70,7 +87,7 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
         cameraPermission = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-        pick = (ImageView)findViewById(R.id.pickImage);
+        pick = (ImageView)findViewById(R.id.DnEditIcon);
         pick.setOnClickListener(new View.OnClickListener(){
 
             @RequiresApi(api = Build.VERSION_CODES.M)
@@ -129,7 +146,10 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode==RESULT_OK){
                 Uri resultUri=result.getUri();
-                Picasso.with(this).load(resultUri).into(pick);
+
+                //load into actual image
+                ImageView pfpChange = (ImageView)findViewById(R.id.DnPickImage);
+                Picasso.with(this).load(resultUri).into(pfpChange);
             }
         }
     }
