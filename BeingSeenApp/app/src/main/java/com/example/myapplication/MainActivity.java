@@ -10,6 +10,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.HomelessYouthUiFrontend.HyLoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,13 +44,11 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-
         // Part of API request code was inspired from source code here: https://developer.android.com/training/volley/simple
         // Title: Send a simple request
         // Author: Android developer documentation
         // Date: Sep 26th, 2021
         final TextView textView = (TextView) findViewById(R.id.text);
-
 
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
 
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
+
       
         //botton for about us:
         Button btn_aboutus= binding.aboutusBtn;
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(),HyLoginActivity.class);
+                Intent i = new Intent(getApplicationContext(), HyLoginActivity.class);
                 startActivity(i);
 
             }

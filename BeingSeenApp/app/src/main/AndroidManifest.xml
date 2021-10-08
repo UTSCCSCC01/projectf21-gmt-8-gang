@@ -3,6 +3,9 @@
     package="com.example.myapplication" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -22,10 +25,28 @@
             android:name=".Aboutus"
             android:exported="true" />
         <activity
-            android:name=".HyUserInterfaceActivity"
+            android:name=".HomelessYouthUiFrontend.HyUserProfileEditActivity"
             android:exported="true" />
         <activity
-            android:name=".HyLoginActivity"
+            android:name=".HomelessYouthUiFrontend.HyUserProfileViewDonationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomelessYouthUiFrontend.HyUserInterfaceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomelessYouthUiFrontend.HyLoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DonorUiFrontend.DnUserProfileViewBalanceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DonorUiFrontend.DnUserProfileViewDonationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DonorUiFrontend.DnUserProfileEditActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
@@ -37,6 +58,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/> <!-- optional (needed if default theme has no action bar) -->
     </application>
 
 </manifest>

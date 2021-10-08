@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HyLoginActivity">
+    tools:context=".HomelessYouthUiFrontend.HyLoginActivity">
 
     <Button
         android:id="@+id/HyLoginButton"
@@ -40,4 +40,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.908" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
