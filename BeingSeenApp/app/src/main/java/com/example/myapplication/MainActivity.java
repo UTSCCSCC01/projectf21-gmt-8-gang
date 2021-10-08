@@ -21,6 +21,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +64,19 @@ public class MainActivity extends AppCompatActivity {
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
 
+      
+        //botton for about us:
+        Button btn_aboutus= binding.aboutusBtn;
+        btn_aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent();
+                intent.setClass(MainActivity.this, Aboutus.class);
+                startActivity(intent);
+            }
+        });
+
+
         //Login Button code
         final Button button = (Button) findViewById(R.id.LoginButton);
 
@@ -76,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
 
