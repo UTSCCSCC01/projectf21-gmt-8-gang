@@ -20,7 +20,7 @@ public class JwtFilterRequest extends OncePerRequestFilter {
     @Autowired
     private JwtUtils jwtUtils;
     @Autowired
-    private DonorService donorService;
+    private AccountService accountService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -33,7 +33,7 @@ public class JwtFilterRequest extends OncePerRequestFilter {
         }
 
         if( username != null && SecurityContextHolder.getContext().getAuthentication() == null){
-            UserDetails currentUserDetails = donorService.loadUserByUsername(username);
+            UserDetails currentUserDetails = accountService.loadUserByUsername(username);
             Boolean tokenValidated = jwtUtils.validateToken(jwtToken, currentUserDetails);
             if(tokenValidated){
                 UsernamePasswordAuthenticationToken usernamePassAuthToken = new UsernamePasswordAuthenticationToken(

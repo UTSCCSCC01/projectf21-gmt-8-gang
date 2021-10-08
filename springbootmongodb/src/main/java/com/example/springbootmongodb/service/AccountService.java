@@ -1,7 +1,7 @@
 package com.example.springbootmongodb.service;
 
-import com.example.springbootmongodb.model.Donor;
-import com.example.springbootmongodb.repository.DonorRepository;
+import com.example.springbootmongodb.model.Account;
+import com.example.springbootmongodb.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,19 +14,19 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class DonorService implements UserDetailsService {
+public class AccountService implements UserDetailsService {
     @Autowired
-    private DonorRepository donorRepository;
+    private AccountRepository accountRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Donor foundedDonor = donorRepository.findByUsername(username);
-        if (foundedDonor == null)
+        Account foundedAccount = accountRepository.findByUsername(username);
+        if (foundedAccount == null)
             return null;
 
-        String name = foundedDonor.getUsername();
-        String password = foundedDonor.getPassword();
-        String role = foundedDonor.getRole();
+        String name = foundedAccount.getUsername();
+        String password = foundedAccount.getPassword();
+        String role = foundedAccount.getRole();
 
         ArrayList<GrantedAuthority> roleList = new ArrayList<GrantedAuthority>();
         roleList.add(new SimpleGrantedAuthority("ROLE_" + role));

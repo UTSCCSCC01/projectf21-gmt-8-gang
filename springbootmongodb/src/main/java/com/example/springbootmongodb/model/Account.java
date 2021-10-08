@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 // @NoArgsConstructor
 @Document(collection = "Users")
-public class Donor {
+public class Account {
 
     @Id
     private ObjectId id;
@@ -23,7 +23,7 @@ public class Donor {
     private String password;
     private String role;
 
-    public Donor() {
+    public Account() {
     }
 
     public ObjectId getId() {

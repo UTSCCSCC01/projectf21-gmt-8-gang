@@ -3,10 +3,10 @@ package com.example.springbootmongodb.controller;
 import com.example.springbootmongodb.model.AppUser;
 import com.example.springbootmongodb.model.AuthenticationRequest;
 import com.example.springbootmongodb.model.AuthenticationResponse;
-import com.example.springbootmongodb.model.Donor;
+import com.example.springbootmongodb.model.Account;
 import com.example.springbootmongodb.repository.AppUserRepository;
-import com.example.springbootmongodb.repository.DonorRepository;
-import com.example.springbootmongodb.service.DonorService;
+import com.example.springbootmongodb.repository.AccountRepository;
+import com.example.springbootmongodb.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +24,7 @@ import com.example.springbootmongodb.utils.JwtUtils;
 @RestController
 public class AuthenticationController {
     @Autowired
-    private DonorRepository donorRepository;
+    private AccountRepository accountRepository;
     @Autowired
     private AppUserRepository appUserRepository;
 
@@ -32,7 +32,7 @@ public class AuthenticationController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private DonorService donorService;
+    private AccountService accountService;
     @Autowired
     private JwtUtils jwtUtils;
     @PostMapping("/register")
@@ -42,7 +42,7 @@ public class AuthenticationController {
         String role = authenticationRequest.getRole();
 
         // check if there are duplicate usernames
-        if(donorRepository.existsByUsername(username)){
+        if(accountRepository.existsByUsername(username)){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).
                     body(new AuthenticationResponse("DUPLICATE_USERNAME","Username already exists, failed to register"));
         }
@@ -50,10 +50,10 @@ public class AuthenticationController {
         // creating and saving donor(user) for authentication
         // also creating and saving AppUser for profiles
         try {
-            Donor donor = new Donor();
-            donor.setUsername(username);
-            donor.setPassword(password);
-            donor.setRole(role);
+            Account account = new Account();
+            account.setUsername(username);
+            account.setPassword(password);
+            account.setRole(role);
 
             AppUser appUser = new AppUser();
             appUser.setUserName(username);
@@ -61,7 +61,7 @@ public class AuthenticationController {
             appUser.setBalance(0L);
             appUser.setProfileInfo("");
 
-            donorRepository.save(donor);
+            accountRepository.save(account);
             appUserRepository.save(appUser);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
@@ -83,7 +83,7 @@ public class AuthenticationController {
                     .body(new AuthenticationResponse("AUTH_ERROR","Error during client Authentication " + username));
         }
 
-        UserDetails loadedUser = donorService.loadUserByUsername(username);
+        UserDetails loadedUser = accountService.loadUserByUsername(username);
 
         String role = "";
         if (loadedUser.getAuthorities().contains(new SimpleGrantedAuthority(("ROLE_DONOR")))) {

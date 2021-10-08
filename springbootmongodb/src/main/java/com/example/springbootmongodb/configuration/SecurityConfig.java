@@ -1,5 +1,5 @@
 package com.example.springbootmongodb.configuration;
-import com.example.springbootmongodb.service.DonorService;
+import com.example.springbootmongodb.service.AccountService;
 import com.example.springbootmongodb.service.JwtFilterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,12 +17,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    private DonorService donorService;
+    private AccountService accountService;
     @Autowired
     private JwtFilterRequest jwtFilterRequest;
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(donorService);
+        auth.userDetailsService(accountService);
     }
 
     @Override
