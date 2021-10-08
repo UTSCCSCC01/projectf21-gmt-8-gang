@@ -14,8 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.databinding.FragmentHomeBinding;
-import com.example.myapplication.donorsignup.DonorSignUpActivity;
-import com.example.myapplication.donorsignup.TestttActivity;
+
 
 public class HomeFragment extends Fragment {
 
@@ -46,8 +45,4 @@ public class HomeFragment extends Fragment {
         binding = null;
     }
 
-    public void goToDonorSignUp(View view) {
-        Intent intent = new Intent(this.getActivity(), TestttActivity.class);
-        this.startActivity(intent);
-    }
 }
