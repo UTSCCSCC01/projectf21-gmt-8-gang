@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.myapplication.databinding.ActivityMainBinding;
-
 public class Aboutus extends AppCompatActivity {
 
     @Override
@@ -28,6 +26,9 @@ public class Aboutus extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent();
                 intent.setClass(Aboutus.this, Donation.class);
+                //info need db complete
+                intent.putExtra("reciever","idofUs");
+                intent.putExtra("sender","getCurrentUserId");
                 startActivity(intent);
             }
         });
