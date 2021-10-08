@@ -22,9 +22,4 @@
         android:name="com.example.myapplication.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
-    <fragment
-        android:id="@+id/aboutusFragment"
-        android:name="com.example.myapplication.ui.aboutus.AboutusFragment"
-        android:label="aboutusfragment"
-        tools:layout="@layout/aboutusfragment" />
 </navigation>

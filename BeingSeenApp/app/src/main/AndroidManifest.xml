@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name=".DonationStatus"
+            android:exported="true" />
+        <activity
             android:name=".Donation"
             android:exported="true" />
         <activity
