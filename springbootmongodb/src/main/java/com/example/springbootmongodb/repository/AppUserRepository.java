@@ -1,11 +1,10 @@
 package com.example.springbootmongodb.repository;
 
-import com.example.springbootmongodb.model.Role;
-import org.bson.types.ObjectId;
+import com.example.springbootmongodb.model.AppUser;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TaskRepository extends MongoRepository<Role, ObjectId>{
-
+public interface AppUserRepository extends MongoRepository<AppUser, String> {
+    AppUser findByUserName(String userName);
 }

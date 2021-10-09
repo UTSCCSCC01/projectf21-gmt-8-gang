@@ -6,6 +6,8 @@ plugins {
 android {
     compileSdk 30
 
+    useLibrary 'org.apache.http.legacy'
+
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdk 21
@@ -29,6 +31,8 @@ android {
     buildFeatures {
         viewBinding true
     }
+    compileSdkVersion 31
+    buildToolsVersion '31.0.0'
 }
 
 dependencies {
@@ -46,4 +50,8 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+//    implementation "com.github.CanHub:Android-Image-Cropper:${version}"
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
 }
