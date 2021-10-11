@@ -43,7 +43,7 @@ public class AuthenticationController {
 
         // check if there are duplicate usernames
         if(accountRepository.existsByUsername(username)){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).
                     body(new AuthenticationResponse("DUPLICATE_USERNAME","Username already exists, failed to register"));
         }
 
