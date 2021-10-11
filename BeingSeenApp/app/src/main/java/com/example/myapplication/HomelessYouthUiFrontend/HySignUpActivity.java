@@ -25,6 +25,8 @@ import com.example.myapplication.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class HySignUpActivity extends AppCompatActivity {
@@ -37,7 +39,8 @@ public class HySignUpActivity extends AppCompatActivity {
         EditText username = findViewById(R.id.HyUsername);
         EditText password = findViewById(R.id.HyPassword);
         postData(username, password);
-        //username.getText()!= "" && password.getText()!= ""
+
+        //drop-down menu
         Spinner spinner;
         final String[] paths = {"homeless", "donor"};
         spinner = (Spinner)findViewById(R.id.spinner);
@@ -54,23 +57,25 @@ public class HySignUpActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-
-                Intent i = new Intent(getApplicationContext(),HyUserInterfaceActivity.class);
-                startActivity(i);
-
+                if (username.getText().toString().trim().length() != 0 &&
+                        password.getText().toString().trim().length() != 0) {
+                    Intent i = new Intent(getApplicationContext(), HyUserInterfaceActivity.class);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(HySignUpActivity.this, "400 bad request. Username " +
+                            "or password is missing", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
+        //button leading users to the log in page
         final Button GoToLogIn_button = findViewById(R.id.GoToLogIn);
 
         GoToLogIn_button.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-
                 Intent i = new Intent(getApplicationContext(),HyLoginActivity.class);
                 startActivity(i);
-
             }
         });
     }
@@ -93,8 +98,8 @@ public class HySignUpActivity extends AppCompatActivity {
                             Log.d("JSON", String.valueOf(response));
                             String Error = response.getString("httpStatus");
                             if (Error.equals("OK")){
-                                username.setText(response.getString("username"));
-                                password.setText(response.getString("password"));
+                                Intent i = new Intent(getApplicationContext(),HyLoginActivity.class);
+                                startActivity(i);
                                 //parse();
                             } else {
                                 Toast.makeText(HySignUpActivity.this, "400 bad request", Toast.LENGTH_SHORT).show();
@@ -109,32 +114,22 @@ public class HySignUpActivity extends AppCompatActivity {
                 VolleyLog.d("Error", "Error: " + error.getMessage());
                 Toast.makeText(HySignUpActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        });
+        }){
+            @Override
+            protected Map<String,String> getParams() {
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("username",username.getText().toString());
+                params.put("password",password.getText().toString());
+
+                return params;
+            }
+        };
+
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(jsonObjectRequest);
 
-        /*
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                response -> {
-                    try{
-                        //Create a JSON object containing information from the API.
-                        JSONObject data = new JSONObject(response);
-                        HttpStatus httpStatus = HttpStatus.valueOf(response.getStatusLine().getStatusCode());
-                        if (httpStatus.is2xxSuccessful()){
-                            data.put("username", username.getText());
-                            data.put("password", password.getText());
-                        }
-                    } catch ( JSONException e) {
-                        e.printStackTrace();
-                    }
-                },
-                volleyError -> Toast.makeText(HySignUpActivity.this, volleyError.getMessage(),
-                        Toast.LENGTH_SHORT).show()
-        );
-        // Add the request to the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-        queue.add(stringRequest);
-        */
+
     }
+
 
 }
