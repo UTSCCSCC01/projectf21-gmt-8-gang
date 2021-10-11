@@ -42,8 +42,6 @@ public class HySignUpModel {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    String code = response.getString("code");
-                    String message = response.getString("response");
                     Log.i(REGISTER_TAG, "hy sign up request succeed yay, response: " + response);
 
                     Intent i = new Intent(hySignUpActivity.getApplicationContext(),HyLoginActivity.class);
