@@ -15,14 +15,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.VolleyCallBack;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
@@ -61,29 +64,41 @@ String storagePermission[];
 
                 ProfileInfo pfObj = new ProfileInfo(username, desc, profilePic);
 
-                pfObj.sendInfoToDb(HyUserProfileEditActivity.this);
+                pfObj.sendInfoToDb(HyUserProfileEditActivity.this,
+                        new VolleyCallBack() {
+                    @Override
+                    public void onSuccess() {
 
-                Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                        Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
 
-                /// Only for now, in future need to save as pf object and store it in mongo
+                        /// Only for now, in future need to save as pf object and store it in mongo
 //                i.putExtra("uname", username);
 //                i.putExtra("desc", desc);
 //                i.putExtra("pfp", profilePic);
-                startActivity(i);
+                        startActivity(i);
+                   }
+                });
             }
         });
 
         //when db setup
-//        ProfileInfo profileInf = new ProfileInfo();
-//        profileInf.getInfoFromDb(this);
-//
-//        ImageView currentProfilePhoto = (ImageView)findViewById(R.id.pickImage);
-//        EditText usernameTextboxInfo = (EditText)findViewById(R.id.HyPfEditUsername);
-//        EditText descriptionTextboxInfo = (EditText)findViewById(R.id.HyPfEditDesc);
-//
-//        usernameTextboxInfo.setText(profileInf.getUsername());
-//        descriptionTextboxInfo.setText(profileInf.getUserDescription());
-//        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+        ProfileInfo profileInf = new ProfileInfo();
+
+        ImageView currentProfilePhoto = (ImageView)findViewById(R.id.pickImage);
+        EditText usernameTextboxInfo = (EditText)findViewById(R.id.HyPfEditUsername);
+        EditText descriptionTextboxInfo = (EditText)findViewById(R.id.HyPfEditDesc);
+
+        profileInf.getInfoFromDb(this,
+                new VolleyCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        Log.d("RESPONSE_VAR_AFTER", "Username received as " + profileInf.getUsername());
+
+                        usernameTextboxInfo.setText(profileInf.getUsername());
+                        descriptionTextboxInfo.setText(profileInf.getUserDescription());
+                        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+                    }
+                });
 
 
         // Cancel edited profile

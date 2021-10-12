@@ -43,27 +43,27 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
 
 
         /// Set photo and string and stuff based on nav from prev
-        Intent intent = getIntent();
-        if(intent.getExtras() != null) {
-            String uname = intent.getStringExtra("uname");
-            String desc = intent.getStringExtra("desc");
-            String base64Pfp = intent.getStringExtra("pfp");
-
-            ProfileInfo profileInf = new ProfileInfo(uname, desc, base64Pfp);
-
-
-            //when db setup
-            //ProfileInfo profileInf = new ProfileInfo();
-//            profileInf.getInfoFromDb(this);
-
-            ImageView currentProfilePhoto = (ImageView) findViewById(R.id.HyPfPfpDisplay);
-            TextView usernameTextboxInfo = (TextView) findViewById(R.id.HyPfUnameDisplay);
-            TextView descriptionTextboxInfo = (TextView) findViewById(R.id.HyPfUdescDisplay);
-
-            usernameTextboxInfo.setText(profileInf.getUsername());
-            descriptionTextboxInfo.setText(profileInf.getUserDescription());
-            currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
-        }
+//        Intent intent = getIntent();
+//        if(intent.getExtras() != null) {
+//            String uname = intent.getStringExtra("uname");
+//            String desc = intent.getStringExtra("desc");
+//            String base64Pfp = intent.getStringExtra("pfp");
+//
+//            ProfileInfo profileInf = new ProfileInfo(uname, desc, base64Pfp);
+//
+//
+//            //when db setup
+//            //ProfileInfo profileInf = new ProfileInfo();
+////            profileInf.getInfoFromDb(this);
+//
+//            ImageView currentProfilePhoto = (ImageView) findViewById(R.id.HyPfPfpDisplay);
+//            TextView usernameTextboxInfo = (TextView) findViewById(R.id.HyPfUnameDisplay);
+//            TextView descriptionTextboxInfo = (TextView) findViewById(R.id.HyPfUdescDisplay);
+//
+//            usernameTextboxInfo.setText(profileInf.getUsername());
+//            descriptionTextboxInfo.setText(profileInf.getUserDescription());
+//            currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+//        }
 
 
         //when db setup
@@ -81,7 +81,7 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
 
                         usernameTextboxInfo.setText(profileInf.getUsername());
                         descriptionTextboxInfo.setText(profileInf.getUserDescription());
-//        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+                        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
                     }
                 });
 
