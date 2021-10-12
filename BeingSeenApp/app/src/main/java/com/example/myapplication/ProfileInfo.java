@@ -3,11 +3,13 @@ package com.example.myapplication;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -19,6 +21,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProfileInfo {
     String username;
@@ -90,16 +94,35 @@ public class ProfileInfo {
         RequestQueue queue = Volley.newRequestQueue(callingActivity);
 
         // a simple API to test if we can connect to backend
-        String url = "http://10.0.2.2:8080/test";
+        String url = "http://10.0.2.2:8080/profile";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 response -> {
-                        // Format response json data
-//                    this.username = username;
-//                    this.desc = desc;
-//                    this.pfp = pfp;
-                }, error -> this.username = null);
+
+                    Log.d("RESPONSE_VAR", "Reponse called properly");
+                    JSONObject jsonItem = null;
+                    try {
+                        jsonItem = new JSONObject(response);
+                        String pfString = jsonItem.getString("profileInfo");
+                        JSONObject profileDBInf = new JSONObject(pfString);
+                        this.username = profileDBInf.getString("name");
+                        this.userDescription = profileDBInf.getString("bio");
+//                        this.profileImage = profileDBInf.getString("photo");
+                        Log.d("RESPONSE_VAR", "Username received as "+this.username);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, error -> this.username = "ERROR")
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Log.d("GET_HEADER", "Made call to getHeaders");
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjgiLCJleHAiOjE2MzQwNTk2NDcsImlhdCI6MTYzNDAyMzY0N30.WRVtI8TIWtnRGMu0e0SmUu1sgEAeiNMlaDvi_xLxLbc");
+                return params;
+            }
+        };
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
