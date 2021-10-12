@@ -25,11 +25,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileInfo {
-    String username;
-    String userDescription;
-    String profileImage;
+    static String token;
+    static String username;
+    static String userDescription;
+    static String profileImage;
 
-    public String getUsername() {
+    public static String getToken() {
+        return token;
+    }
+
+    public static void setToken(String tokenIn) {
+        token = tokenIn;
+    }
+
+    public static String getUsername() {
         return username;
     }
 
@@ -37,7 +46,7 @@ public class ProfileInfo {
         this.username = username;
     }
 
-    public String getUserDescription() {
+    public static String getUserDescription() {
         return userDescription;
     }
 
@@ -45,7 +54,7 @@ public class ProfileInfo {
         this.userDescription = userDescription;
     }
 
-    public String getProfileImage() {
+    public static String getProfileImage() {
         return profileImage;
     }
 
@@ -83,13 +92,13 @@ public class ProfileInfo {
         return profilePi64Encoded;
     }
 
-    public static Bitmap decodeProfilePic(String encodedImage){
+    public static Bitmap decodeProfilePic(String encodedImage) {
         byte[] pfpbytes = Base64.decode(encodedImage, Base64.DEFAULT);
         Bitmap bmp = BitmapFactory.decodeByteArray(pfpbytes, 0, pfpbytes.length);
         return bmp;
     }
 
-    public void getInfoFromDb(AppCompatActivity callingActivity){
+    public void getInfoFromDb(AppCompatActivity callingActivity, final VolleyCallBack callBack){
 
         RequestQueue queue = Volley.newRequestQueue(callingActivity);
 
@@ -110,6 +119,7 @@ public class ProfileInfo {
                         this.userDescription = profileDBInf.getString("bio");
 //                        this.profileImage = profileDBInf.getString("photo");
                         Log.d("RESPONSE_VAR", "Username received as "+this.username);
+                        callBack.onSuccess();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -119,6 +129,7 @@ public class ProfileInfo {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Log.d("GET_HEADER", "Made call to getHeaders");
                 Map<String, String>  params = new HashMap<String, String>();
+                String token = ProfileInfo.getToken();
                 params.put("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjgiLCJleHAiOjE2MzQwNTk2NDcsImlhdCI6MTYzNDAyMzY0N30.WRVtI8TIWtnRGMu0e0SmUu1sgEAeiNMlaDvi_xLxLbc");
                 return params;
             }
@@ -132,70 +143,79 @@ public class ProfileInfo {
         RequestQueue queue = Volley.newRequestQueue(callingActivity);
 
         // a simple API to test if we can connect to backend
-        String url = "http://10.0.2.2:8080/test";
-
-        // Request a string response from the provided URL.
-//        StringRequest stringRequest = new StringRequest(Request.Method.PUT, url,
-//                response -> {
-//                    // Format response json data
-////                    this.username = username;
-////                    this.desc = desc;
-////                    this.pfp = pfp;
-//                }, error -> this.username = null);
+        String url = "http://10.0.2.2:8080/profile";
 
         //create json object
-        final JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("profileName", this.username);
-            jsonObject.put("profileDesc", this.userDescription);
-            jsonObject.put("pfpEncrypted", this.profileImage);
-        } catch (JSONException e) {
-            // handle exception
-        }
+//        final JSONObject jsonObject = new JSONObject();
+//        try {
+//            jsonObject.put("name", this.username);
+//            jsonObject.put("bio", this.userDescription);
+//            jsonObject.put("photo", this.profileImage);
+//
+//            String jsonObjectStr = jsonObject.toString();
+//        } catch (JSONException e) {
+//            // handle exception
+//        }
 
-        //add json object
-//        JsonObjectRequest putRequest = new JsonObjectRequest(Request.Method.PUT, url, jsonObject,
-//                new Response.Listener<JSONObject>()
-//                {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        // response
-//                        Log.d("Response", response.toString());
-//                    }
-//                },
-//                new Response.ErrorListener()
-//                {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        // error
-//                        Log.d("Error.Response", error.toString());
-//                    }
-//                }
-//        ) {
-//
-//            @Override
-//            public Map<String, String> getHeaders()
-//            {
-//                Map<String, String> headers = new HashMap<String, String>();
-//                headers.put("Content-Type", "application/json");
-//                headers.put("Accept", "application/json");
-//                return headers;
-//            }
-//
-//            @Override
-//            public byte[] getBody() {
-//
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT, url,
+                response -> {
+                    // Format response json data
+//                    this.username = username;
+//                    this.desc = desc;
+//                    this.pfp = pfp;
+
+                    Log.d("sendPfInfoSuccess", response);
+                }, error -> {
+                    Log.d("sendPfInfoError", String.valueOf(error.networkResponse.statusCode));
+                })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Log.d("GET_HEADER", "Made call to getHeaders");
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = ProfileInfo.getToken();
+                params.put("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjgiLCJleHAiOjE2MzQwNTk2NDcsImlhdCI6MTYzNDAyMzY0N30.WRVtI8TIWtnRGMu0e0SmUu1sgEAeiNMlaDvi_xLxLbc");
+                params.put("Content-Type", "application/json");
+                return params;
+            }
+
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Log.d("GET_PARAMS", "Made call to getParams");
+                Map<String, String>  params = new HashMap<String, String>();
+//                params.put("name", ProfileInfo.getUsername());
+//                params.put("bio", ProfileInfo.getUserDescription());
+//                params.put("photo", ProfileInfo.getProfileImage());
+
+//                final JSONObject jsonObject = new JSONObject();
+//                String jsonObjectStr = "";
 //                try {
-//                    Log.i("json", jsonObject.toString());
-//                    return jsonObject.toString().getBytes("UTF-8");
-//                } catch (UnsupportedEncodingException e) {
-//                    e.printStackTrace();
+//                    jsonObject.put("name", ProfileInfo.getUsername());
+//                    jsonObject.put("bio", ProfileInfo.getUserDescription());
+//                    jsonObject.put("photo", ProfileInfo.getProfileImage());
+//
+//                    jsonObjectStr = jsonObject.toString();
+//                } catch (JSONException e) {
+//                    //Do nothing
 //                }
-//                return null;
-//            }
-//        };
+
+                String name = ProfileInfo.getUsername();
+                String bio =  ProfileInfo.getUserDescription();
+                String photo = ProfileInfo.getProfileImage();
+
+//                String jsonObjectStr = "{'name': '" + name + "', 'bio':' " + bio + " ', 'photo': ' "+ photo+ "'}";
+
+                String jsonObjectStr = "short str";
+
+                params.put("profileInfo", jsonObjectStr);
+
+                return params;
+            }
+        };
 
         // Add the request to the RequestQueue.
-//        queue.add(putRequest);
+        queue.add(stringRequest);
     }
 }

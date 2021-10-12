@@ -61,13 +61,14 @@ String storagePermission[];
 
                 ProfileInfo pfObj = new ProfileInfo(username, desc, profilePic);
 
+                pfObj.sendInfoToDb(HyUserProfileEditActivity.this);
 
                 Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
 
                 /// Only for now, in future need to save as pf object and store it in mongo
-                i.putExtra("uname", username);
-                i.putExtra("desc", desc);
-                i.putExtra("pfp", profilePic);
+//                i.putExtra("uname", username);
+//                i.putExtra("desc", desc);
+//                i.putExtra("pfp", profilePic);
                 startActivity(i);
             }
         });
