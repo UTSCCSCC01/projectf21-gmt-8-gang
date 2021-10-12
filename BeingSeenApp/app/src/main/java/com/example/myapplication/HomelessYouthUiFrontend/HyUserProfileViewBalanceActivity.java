@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.VolleyCallBack;
 
 public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
 
@@ -42,27 +43,50 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
 
 
         /// Set photo and string and stuff based on nav from prev
-        Intent intent = getIntent();
-        if(intent.getExtras() != null) {
-            String uname = intent.getStringExtra("uname");
-            String desc = intent.getStringExtra("desc");
-            String base64Pfp = intent.getStringExtra("pfp");
+//        Intent intent = getIntent();
+//        if(intent.getExtras() != null) {
+//            String uname = intent.getStringExtra("uname");
+//            String desc = intent.getStringExtra("desc");
+//            String base64Pfp = intent.getStringExtra("pfp");
+//
+//            ProfileInfo profileInf = new ProfileInfo(uname, desc, base64Pfp);
+//
+//
+//            //when db setup
+//            //ProfileInfo profileInf = new ProfileInfo();
+////            profileInf.getInfoFromDb(this);
+//
+//            ImageView currentProfilePhoto = (ImageView) findViewById(R.id.HyPfPfpDisplay);
+//            TextView usernameTextboxInfo = (TextView) findViewById(R.id.HyPfUnameDisplay);
+//            TextView descriptionTextboxInfo = (TextView) findViewById(R.id.HyPfUdescDisplay);
+//
+//            usernameTextboxInfo.setText(profileInf.getUsername());
+//            descriptionTextboxInfo.setText(profileInf.getUserDescription());
+//            currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+//        }
 
-            ProfileInfo profileInf = new ProfileInfo(uname, desc, base64Pfp);
+
+        //when db setup
+        ProfileInfo profileInf = new ProfileInfo();
+
+        ImageView currentProfilePhoto = (ImageView) findViewById(R.id.HyPfPfpDisplay);
+        TextView usernameTextboxInfo = (TextView) findViewById(R.id.HyPfUnameDisplay);
+        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.HyPfUdescDisplay);
+
+        profileInf.getInfoFromDb(this,
+            new VolleyCallBack() {
+                @Override
+                    public void onSuccess() {
+                        Log.d("RESPONSE_VAR_AFTER", "Username received as " + profileInf.getUsername());
+
+                        usernameTextboxInfo.setText(profileInf.getUsername());
+                        descriptionTextboxInfo.setText(profileInf.getUserDescription());
+                        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+                    }
+                });
 
 
-            //when db setup
-            //ProfileInfo profileInf = new ProfileInfo();
-//            profileInf.getInfoFromDb(this);
 
-            ImageView currentProfilePhoto = (ImageView) findViewById(R.id.HyPfPfpDisplay);
-            TextView usernameTextboxInfo = (TextView) findViewById(R.id.HyPfUnameDisplay);
-            TextView descriptionTextboxInfo = (TextView) findViewById(R.id.HyPfUdescDisplay);
-
-            usernameTextboxInfo.setText(profileInf.getUsername());
-            descriptionTextboxInfo.setText(profileInf.getUserDescription());
-            currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
-        }
 
 
 
