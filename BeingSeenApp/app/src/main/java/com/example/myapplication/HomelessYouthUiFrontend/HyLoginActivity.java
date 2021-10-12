@@ -9,11 +9,16 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.VolleyError;
 import com.example.myapplication.R;
 
-public class HyLoginActivity extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class HyLoginActivity extends AppCompatActivity implements VolleyResponse {
 
     private HyLoginModel hyLoginModel;
+    private VolleyResponse volleyResponse;
     public static final String LOGIN_TAG = "hyLogin";
 
     @Override
@@ -38,7 +43,7 @@ public class HyLoginActivity extends AppCompatActivity {
         });
 
         Log.i(LOGIN_TAG, "hy login activity started");
-        hyLoginModel = new HyLoginModel(this);
+        hyLoginModel = new HyLoginModel(this, this);
     }
 
     public void logIn(View view) {
@@ -65,6 +70,22 @@ public class HyLoginActivity extends AppCompatActivity {
         Log.i(LOGIN_TAG, "hy login success");
         return;
     }
+
+    @Override
+    public void onVolleySuccess(JSONObject response) {
+        try {
+            String jwtToken = response.getString("response");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String userRole = response.getString("code");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
 
