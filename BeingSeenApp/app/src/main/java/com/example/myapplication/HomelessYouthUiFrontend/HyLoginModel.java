@@ -30,7 +30,7 @@ public class HyLoginModel {
 
     public void logIn(String username, String password) {
         RequestQueue queue = Volley.newRequestQueue(hyLoginActivity);
-        String url_login = "http://10.0.2.2:8080/login";
+        String url_login = "http://10.0.2.2:8080/auth";
 
         JSONObject loginData = new JSONObject();
         try {
@@ -44,9 +44,9 @@ public class HyLoginModel {
                 loginData, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                if (volleyResponse != null) {
+//                if (volleyResponse != null) {
                     volleyResponse.onVolleySuccess(response);
-                }
+//                }
                 Log.i(LOGIN_TAG, "hy login request succeed yay, response: " + response);
             }
         }, new Response.ErrorListener() {
@@ -59,25 +59,25 @@ public class HyLoginModel {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<String, String>();
-                headers.put("Authentication", "Bearer");
+                headers.put("Authorization", "Bearer");
                 return headers;
             }
 
-            @Override
-            public Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-                try {
-                    params.put("username", loginData.getString("username"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    params.put("password", loginData.getString("password"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return params;
-            }
+//            @Override
+//            public Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params = new HashMap<String, String>();
+//                try {
+//                    params.put("username", username);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//                try {
+//                    params.put("password", password);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//                return params;
+//            }
         };
 
         queue.add(jsonObjectRequest);

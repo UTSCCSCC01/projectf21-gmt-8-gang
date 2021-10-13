@@ -75,12 +75,14 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
     public void onVolleySuccess(JSONObject response) {
         try {
             String jwtToken = response.getString("response");
+            Log.i(LOGIN_TAG, "jwt token: " +jwtToken);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         try {
             String userRole = response.getString("code");
+            Log.i(LOGIN_TAG, "role: " + userRole);
         } catch (JSONException e) {
             e.printStackTrace();
         }
