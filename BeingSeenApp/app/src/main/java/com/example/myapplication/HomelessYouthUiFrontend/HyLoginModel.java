@@ -2,6 +2,7 @@ package com.example.myapplication.HomelessYouthUiFrontend;
 
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -45,17 +46,20 @@ public class HyLoginModel {
                 loginData, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-//                if (volleyResponse != null) {
+                //if (volleyResponse != null) {
                     volleyResponse.onVolleySuccess(response);
-//                }
-                Log.i(LOGIN_TAG, "hy login request succeed yay, response: " + response);
-                Intent i = new Intent(hyLoginActivity.getApplicationContext(),HyUserInterfaceActivity.class);
-                hyLoginActivity.startActivity(i);
-                return;
+                    Log.i(LOGIN_TAG, "hy login request succeed yay, response: " + response);
+                    Intent i = new Intent(hyLoginActivity.getApplicationContext(), HyUserInterfaceActivity.class);
+                    hyLoginActivity.startActivity(i);
+                    return;
+                /*} else {
+                    Toast.makeText(hyLoginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
+                }*/
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError e) {
+                Toast.makeText(hyLoginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
                 Log.i(LOGIN_TAG, "hy login request failed qwq, error: " + e.getMessage());
             }
         }) {
