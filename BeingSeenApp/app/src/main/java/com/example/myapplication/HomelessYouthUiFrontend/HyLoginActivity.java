@@ -34,8 +34,8 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(),HyUserInterfaceActivity.class);
-                startActivity(i);
+                /*Intent i = new Intent(getApplicationContext(),HyUserInterfaceActivity.class);
+                startActivity(i);*/
 
                 logIn(view);
 

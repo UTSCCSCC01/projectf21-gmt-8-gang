@@ -1,5 +1,6 @@
 package com.example.myapplication.HomelessYouthUiFrontend;
 
+import android.content.Intent;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -48,6 +49,9 @@ public class HyLoginModel {
                     volleyResponse.onVolleySuccess(response);
 //                }
                 Log.i(LOGIN_TAG, "hy login request succeed yay, response: " + response);
+                Intent i = new Intent(hyLoginActivity.getApplicationContext(),HyUserInterfaceActivity.class);
+                hyLoginActivity.startActivity(i);
+                return;
             }
         }, new Response.ErrorListener() {
             @Override
