@@ -1,8 +1,8 @@
 package com.example.springbootmongodb.controller;
 
 import com.example.springbootmongodb.model.AppUser;
-import com.example.springbootmongodb.model.AuthenticationRequest;
-import com.example.springbootmongodb.model.AuthenticationResponse;
+import com.example.springbootmongodb.request.AuthenticationRequest;
+import com.example.springbootmongodb.response.AuthenticationResponse;
 import com.example.springbootmongodb.model.Account;
 import com.example.springbootmongodb.repository.AppUserRepository;
 import com.example.springbootmongodb.repository.AccountRepository;

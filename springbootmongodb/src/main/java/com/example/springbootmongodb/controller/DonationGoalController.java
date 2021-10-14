@@ -3,6 +3,8 @@ package com.example.springbootmongodb.controller;
 import com.example.springbootmongodb.model.*;
 import com.example.springbootmongodb.repository.AppUserRepository;
 import com.example.springbootmongodb.repository.DonationGoalRepository;
+import com.example.springbootmongodb.request.DonationGoalRequest;
+import com.example.springbootmongodb.response.AuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,6 +59,13 @@ public class DonationGoalController  {
         return ResponseEntity.ok(new AuthenticationResponse("SUCCESS","Successful goal creation for "
                 + owner));
     }
+
+    // Access: Everyone
+    // returns all donation goals
+//    @GetMapping("/getAllDonationGoals")
+//    private ResponseEntity<?> getAllGoals() {
+//        
+//    }
 
 
 }

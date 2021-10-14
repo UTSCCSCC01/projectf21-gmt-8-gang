@@ -1,8 +1,7 @@
 package com.example.springbootmongodb.controller;
 
 import com.example.springbootmongodb.model.AppUser;
-import com.example.springbootmongodb.model.AppUserResponse;
-import com.example.springbootmongodb.model.AuthenticationResponse;
+import com.example.springbootmongodb.response.AppUserResponse;
 import com.example.springbootmongodb.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

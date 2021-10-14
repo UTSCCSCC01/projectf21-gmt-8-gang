@@ -1,20 +1,20 @@
-package com.example.springbootmongodb.model;
+package com.example.springbootmongodb.response;
 
-public class DonationGoalRequest {
+public class DonationGoalResponse {
     private String title;
     private String owner;
     private String description;
     private Long goal;
     private Long current;
 
-    public DonationGoalRequest(String title, String description, Long goal , Long current) {
+    public DonationGoalResponse(String title, String description, Long goal , Long current) {
         this.title = title;
         this.description = description;
         this.goal = goal;
         this.current = current;
     }
 
-    public DonationGoalRequest() {
+    public DonationGoalResponse() {
     }
 
     public String getTitle() {
