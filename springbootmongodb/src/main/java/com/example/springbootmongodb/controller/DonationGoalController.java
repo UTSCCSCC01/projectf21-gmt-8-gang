@@ -3,6 +3,7 @@ package com.example.springbootmongodb.controller;
 import com.example.springbootmongodb.model.*;
 import com.example.springbootmongodb.repository.AppUserRepository;
 import com.example.springbootmongodb.repository.DonationGoalRepository;
+import com.example.springbootmongodb.request.AuthenticationRequest;
 import com.example.springbootmongodb.request.DonationGoalRequest;
 import com.example.springbootmongodb.response.AuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,8 +63,10 @@ public class DonationGoalController  {
                 + owner));
     }
 
-    // Access: Everyone
+    // Access: All
     // returns all donation goals
+    //   200: num of goals > 0
+    //   404: num of goals == 0
     @GetMapping("/allDonationGoals")
     private ResponseEntity<?> getAllGoals() {
         List<DonationGoal> donationGoals = donationGoalRepos.findAll();
@@ -72,6 +75,21 @@ public class DonationGoalController  {
         }
 
         return new ResponseEntity<>(donationGoals, HttpStatus.OK);
+    }
+
+    // Access: All
+    // returns donation goal of one homeless given username
+    @GetMapping("/donationGoal")
+    private ResponseEntity<?> getGoal(@RequestBody AuthenticationRequest authenticationRequest) {
+        DonationGoal donationGoal;
+        try {
+            // we only need username, other fields ignored
+            String username = authenticationRequest.getUsername();
+            donationGoal = donationGoalRepos.findByOwner(username);
+        } catch (Exception e) {
+            return new ResponseEntity<>("error on getting username / finding this dude", HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(donationGoal, HttpStatus.OK);
     }
 
 
