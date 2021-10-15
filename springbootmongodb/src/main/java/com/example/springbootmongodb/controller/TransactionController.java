@@ -35,11 +35,15 @@ public class TransactionController {
 
             //decrease balance for sender
             appUser = appUserRepository.findByUserName(sender);
-            appUser.setBalance(appUser.getBalance() - amount);
+            Long currentAmount = appUser.getBalance();
+            appUser.setBalance(currentAmount - amount);
+            appUserRepository.save(appUser);
 
             //increase balance for receiver
             appUser = appUserRepository.findByUserName(receiver);
-            appUser.setBalance(appUser.getBalance() + amount);
+            currentAmount = appUser.getBalance();
+            appUser.setBalance(currentAmount + amount);
+            appUserRepository.save(appUser);
 
             //create transaction record
             Transaction transaction = new Transaction();
