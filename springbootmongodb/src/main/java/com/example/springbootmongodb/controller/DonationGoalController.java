@@ -119,19 +119,16 @@ public class DonationGoalController  {
 
     // Access: the user him/herself
     // deletes donation goal corresponding to the user
-//    @DeleteMapping("/donationGoal")
-//    private ResponseEntity<?> deleteGoal() {
-//        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-//        DonationGoal donationGoal;
-//        try {
-//            donationGoal = donationGoalRepos.findByUsername(username);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>("username not in donation goal repo", HttpStatus.NOT_FOUND);
-//        }
-//
-//        donationGoalRepos
-//
-//    }
+    @DeleteMapping("/donationGoal")
+    private ResponseEntity<?> deleteGoal() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (!donationGoalRepos.existsByUsername(username)) {
+            return new ResponseEntity<>("username doesn't exist", HttpStatus.NOT_FOUND);
+        }
+
+        donationGoalRepos.deleteByUsername(username);
+        return new ResponseEntity<>("deleted!", HttpStatus.OK);
+    }
 
     // Access: All
     // returns all donation goals

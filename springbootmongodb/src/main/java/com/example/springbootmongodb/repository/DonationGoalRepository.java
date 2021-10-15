@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface DonationGoalRepository extends MongoRepository<DonationGoal, String> {
     Boolean existsByUsername(String username);
     DonationGoal findByUsername(String username);
+    void deleteByUsername(String username);
 }
