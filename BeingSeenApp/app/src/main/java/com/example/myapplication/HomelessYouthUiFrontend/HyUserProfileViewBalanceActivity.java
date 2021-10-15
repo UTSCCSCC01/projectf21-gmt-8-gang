@@ -1,20 +1,15 @@
 package com.example.myapplication.HomelessYouthUiFrontend;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
@@ -40,6 +35,18 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
+        //Button for creating donation goal
+        final Button setGoal = (Button) findViewById(R.id.SetGoal);
+
+        setGoal.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), HySetDonationGoalActivity.class);
+                startActivity(i);
+            }
+        });
 
         /// Set photo and string and stuff based on nav from prev
         Intent intent = getIntent();
