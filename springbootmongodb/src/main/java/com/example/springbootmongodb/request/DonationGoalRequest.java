@@ -2,7 +2,7 @@ package com.example.springbootmongodb.request;
 
 public class DonationGoalRequest {
     private String title;
-    private String owner;
+    private String username;
     private String description;
     private Long goal;
     private Long current;
@@ -25,9 +25,9 @@ public class DonationGoalRequest {
         this.title = title;
     }
 
-    public String getOwner(){ return owner;}
+    public String getUsername(){ return username;}
 
-    public void setOwner(String owner){ this.owner = owner;}
+    public void setUsername(String username){ this.username = username;}
 
     public String getDescription() {
         return description;

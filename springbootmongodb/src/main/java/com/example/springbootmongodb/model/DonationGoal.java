@@ -2,7 +2,6 @@ package com.example.springbootmongodb.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -19,7 +18,7 @@ public class DonationGoal {
     private ObjectId id;
 
     private String title;
-    private String owner;
+    private String username;
     private String description;
     private Long goal;
     private Long current;
@@ -39,9 +38,9 @@ public class DonationGoal {
         this.title = title;
     }
 
-    public String getOwner(){ return owner;}
+    public String getUsername(){ return username;}
 
-    public void setOwner(String owner){ this.owner = owner;}
+    public void setUsername(String username){ this.username = username;}
 
     public String getDescription() {
         return description;

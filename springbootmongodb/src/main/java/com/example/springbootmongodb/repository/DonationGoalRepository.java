@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DonationGoalRepository extends MongoRepository<DonationGoal, String> {
-    Boolean existsByOwner(String username);
-    DonationGoal findByOwner(String username);
+    Boolean existsByUsername(String username);
+    DonationGoal findByUsername(String username);
 }
