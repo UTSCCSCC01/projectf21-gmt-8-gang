@@ -25,7 +25,7 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dn_user_profile_view_balance);
 
         //Logout button
-        final Button button = (Button) findViewById(R.id.DnPfLogoutButton);
+        final Button button = (Button) findViewById(R.id.search_back);
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -47,9 +47,9 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
 
             Bitmap bmp = ProfileInfo.decodeProfilePic(base64Pfp);
 
-            ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
-            TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
-            TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
+            ImageView currentProfilePhoto = (ImageView) findViewById(R.id.searchPhoto);
+            TextView usernameTextboxInfo = (TextView) findViewById(R.id.searchNameDisplay);
+            TextView descriptionTextboxInfo = (TextView) findViewById(R.id.searchUdescDisplay);
 
             usernameTextboxInfo.setText(uname);
             descriptionTextboxInfo.setText(desc);
@@ -62,9 +62,9 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
         //when db setup
         ProfileInfo profileInf = new ProfileInfo();
 
-        ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
-        TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
-        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
+        ImageView currentProfilePhoto = (ImageView) findViewById(R.id.searchPhoto);
+        TextView usernameTextboxInfo = (TextView) findViewById(R.id.searchNameDisplay);
+        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.searchUdescDisplay);
 
         profileInf.getInfoFromDb(this,
                 new VolleyCallBack() {
