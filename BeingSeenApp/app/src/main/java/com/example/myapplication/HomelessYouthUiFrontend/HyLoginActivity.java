@@ -1,20 +1,24 @@
 package com.example.myapplication.HomelessYouthUiFrontend;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.VolleyError;
 import com.example.myapplication.R;
 
-public class HyLoginActivity extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class HyLoginActivity extends AppCompatActivity implements VolleyResponse {
 
     private HyLoginModel hyLoginModel;
+    private VolleyResponse volleyResponse;
     public static final String LOGIN_TAG = "hyLogin";
 
     @Override
@@ -30,8 +34,8 @@ public class HyLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(),HyUserInterfaceActivity.class);
-                startActivity(i);
+                /*Intent i = new Intent(getApplicationContext(),HyUserInterfaceActivity.class);
+                startActivity(i);*/
 
                 logIn(view);
 
@@ -39,7 +43,7 @@ public class HyLoginActivity extends AppCompatActivity {
         });
 
         Log.i(LOGIN_TAG, "hy login activity started");
-        hyLoginModel = new HyLoginModel(this);
+        hyLoginModel = new HyLoginModel(this, this);
     }
 
     public void logIn(View view) {
@@ -66,6 +70,24 @@ public class HyLoginActivity extends AppCompatActivity {
         Log.i(LOGIN_TAG, "hy login success");
         return;
     }
+
+    @Override
+    public void onVolleySuccess(JSONObject response) {
+        try {
+            String jwtToken = response.getString("response");
+            Log.i(LOGIN_TAG, "jwt token: " +jwtToken);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String userRole = response.getString("code");
+            Log.i(LOGIN_TAG, "role: " + userRole);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
 
