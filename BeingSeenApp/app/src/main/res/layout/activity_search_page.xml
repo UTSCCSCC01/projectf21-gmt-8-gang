@@ -12,13 +12,14 @@
         android:layout_height="48dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="80dp"
-        android:layout_marginBottom="400dp"
+        android:layout_marginBottom="250dp"
         android:backgroundTint="@color/green"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/searchInputLayout"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="?android:attr/actionModeWebSearchDrawable"
         app:tint="@color/white"
         tools:ignore="SpeakableTextPresentCheck"
@@ -30,12 +31,13 @@
         android:layout_height="48dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="250dp"
-        android:layout_marginBottom="400dp"
+        android:layout_marginBottom="250dp"
         app:boxStrokeColor="#00C853"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/SearchUserName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,11 +47,12 @@
         android:layout_height="48dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="250dp"
-        android:layout_marginBottom="400dp"
+        android:layout_marginBottom="250dp"
         android:backgroundTint="@color/black"
         android:hint="Enter Username"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/SearchUserName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
