@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".HomelessYouthUiFrontend.HySignUpActivity"
+            android:exported="true" />
+        <activity
             android:name=".HomelessYouthUiFrontend.HySetDonationGoalActivity"
             android:exported="true" />
         <activity
@@ -41,9 +44,6 @@
             android:exported="true" />
         <activity
             android:name=".HomelessYouthUiFrontend.HyLoginActivity"
-            android:exported="true" />
-        <activity
-            android:name=".HomelessYouthUiFrontend.HySignUpActivity"
             android:exported="true" />
         <activity
             android:name=".DonorUiFrontend.DnUserProfileViewBalanceActivity"
