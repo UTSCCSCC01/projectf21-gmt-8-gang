@@ -60,17 +60,20 @@ public class HySetDonationGoalModel {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError e) {
+                Log.i(LOGIN_TAG, "create donation goal failed");
+                if (e.networkResponse.statusCode == 404) {
+                    Log.i(LOGIN_TAG, "create donation goal failed error 404");
+//                    CharSequence text = "You already have a donation goal";
+//                    int duration = Toast.LENGTH_SHORT;
+//
+//                    Toast toast = Toast.makeText((Context) HyUserInterfaceActivity, text, duration);
+//                    toast.show();
+                } else {
+                    Log.i(LOGIN_TAG, "create donation goal failed error 400, developer you need to do somethinggg");
+                }
                 Intent i = new Intent(activity.getApplicationContext(), HyUserInterfaceActivity.class);
                 i.putExtra("profileInfo", profileInfo);
                 activity.startActivity(i);
-
-                if (e.networkResponse.statusCode == 404) {
-                    CharSequence text = "You already have a donation goal";
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText((Context) HyUserInterfaceActivity, text, duration);
-                    toast.show();
-                }
             }
         }) {
             //additional headers

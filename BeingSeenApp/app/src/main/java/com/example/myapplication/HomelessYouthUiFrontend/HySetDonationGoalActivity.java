@@ -75,7 +75,7 @@ public class HySetDonationGoalActivity extends AppCompatActivity {
         }
 
         if (moneyString.isEmpty()) {
-            moneyField.setError("moneyField cannot be blank");
+            moneyField.setError("your goal cannot be blank");
             moneyField.requestFocus();
             return;
         }
@@ -85,6 +85,12 @@ public class HySetDonationGoalActivity extends AppCompatActivity {
             moneyLong = Long.parseLong(moneyString);
         } else {
             moneyField.setError("This is not a number");
+            moneyField.requestFocus();
+            return;
+        }
+
+        if (moneyLong == 0L) {
+            moneyField.setError("your goal cannot be zero");
             moneyField.requestFocus();
             return;
         }
