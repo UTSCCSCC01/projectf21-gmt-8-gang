@@ -21,11 +21,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProfileInfo {
-    static String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjgiLCJleHAiOjE2MzQwNTk2NDcsImlhdCI6MTYzNDAyMzY0N30.WRVtI8TIWtnRGMu0e0SmUu1sgEAeiNMlaDvi_xLxLbc";
+public class ProfileInfo implements Serializable {
+    static String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhIiwiZXhwIjoxNjM0NTc1NTI2LCJpYXQiOjE2MzQ1Mzk1MjZ9.6jlXNsGD_7xexvJ2mDpAGde6xkX3Xhd6oZc8zqwXBls";
     static String username;
     static String userDescription;
     static String profileImage;

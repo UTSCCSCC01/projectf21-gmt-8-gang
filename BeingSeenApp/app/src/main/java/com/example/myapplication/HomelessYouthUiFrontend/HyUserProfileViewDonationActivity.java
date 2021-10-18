@@ -6,11 +6,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.MainActivity;
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
 
