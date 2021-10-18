@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class TransactionController {
 
@@ -63,15 +66,16 @@ public class TransactionController {
     @GetMapping("/transaction/sender")
     public ResponseEntity<?> getTransactionBySender(@RequestBody String string) {
         Transaction transaction;
+        List<?> transactions = new ArrayList<>();
         try {
             JSONObject jsonItem = new JSONObject(string);
             String sender = jsonItem.getString("username");
             try {
-                transaction = transactionRepository.findTransactionBySender(sender);
+                transactions = transactionRepository.findTransactionBySender(sender);
             } catch (Exception e) {
                 return new ResponseEntity<>("Error during  finding transaction. Please check formatting", HttpStatus.NOT_FOUND);
             }
-            return new ResponseEntity<>(transaction, HttpStatus.OK);
+            return new ResponseEntity<>(transactions, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>("Error during  finding transaction. Please check formatting", HttpStatus.BAD_REQUEST);
@@ -81,19 +85,19 @@ public class TransactionController {
     // get transaction by receiver username
     @GetMapping("/transaction/receiver")
     public ResponseEntity<?> getTransactionByReceiver(@RequestBody String string) {
-        Transaction transaction;
+        List<?> transactions = new ArrayList<>();
         try {
             JSONObject jsonItem = new JSONObject(string);
             String receiver = jsonItem.getString("username");
             try {
-                transaction = transactionRepository.findTransactionByReceiver(receiver);
+                transactions = transactionRepository.findTransactionByReceiver(receiver);
             } catch (Exception e) {
-                return new ResponseEntity<>("Error during  finding transaction. Please check formatting", HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>("Error during  finding transaction. Transaction not found", HttpStatus.NOT_FOUND);
             }
-            return new ResponseEntity<>(transaction, HttpStatus.OK);
+            return new ResponseEntity<>(transactions, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<>("Error during  finding transaction. Please check formatting", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Error during  finding transaction. This is bad request.", HttpStatus.BAD_REQUEST);
         }
     }
 }
