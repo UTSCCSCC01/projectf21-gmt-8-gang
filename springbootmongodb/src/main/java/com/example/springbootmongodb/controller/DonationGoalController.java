@@ -48,7 +48,7 @@ public class DonationGoalController  {
 
         // check if there are duplicate usernames
         if(donationGoalRepos.existsByUsername(owner)){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).
                     body(new AuthenticationResponse("USERNAME_HAS_GOAL","Username already has a donation goal." +
                             " failed to create new goal"));
         }
