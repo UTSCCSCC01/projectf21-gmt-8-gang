@@ -3,6 +3,7 @@ package com.example.springbootmongodb.controller;
 import com.example.springbootmongodb.model.AppUser;
 import com.example.springbootmongodb.response.AppUserResponse;
 import com.example.springbootmongodb.repository.AppUserRepository;
+import com.example.springbootmongodb.response.AuthenticationResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
