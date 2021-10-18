@@ -115,18 +115,27 @@ public class ProfileInfo {
                 response -> {
 
                     Log.d("RESPONSE_VAR", "Reponse called properly");
+<<<<<<< HEAD
                     JSONObject jsonItem;
+=======
+                    JSONObject jsonItem = null;
+>>>>>>> 48eef3cbca31706260068cb8a879793797057e56
                     try {
                         jsonItem = new JSONObject(response);
                         String pfString = jsonItem.getString("profileInfo");
                         JSONObject profileDBInf = new JSONObject(pfString);
                         this.username = profileDBInf.getString("name");
                         this.userDescription = profileDBInf.getString("bio");
+<<<<<<< HEAD
                         this.profileImage = profileDBInf.getString("photo");
                         String balanceString = jsonItem.getString("balance");
                         this.balance = balanceString;
                         Log.d("RESPONSE_VAR", "Username received as "+this.username);
                         callBack.onSuccess();
+=======
+//                        this.profileImage = profileDBInf.getString("photo");
+                        Log.d("RESPONSE_VAR", "Username received as "+this.username);
+>>>>>>> 48eef3cbca31706260068cb8a879793797057e56
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -136,9 +145,13 @@ public class ProfileInfo {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Log.d("GET_HEADER", "Made call to getHeaders");
                 Map<String, String>  params = new HashMap<String, String>();
+<<<<<<< HEAD
                 String token = ProfileInfo.getToken();
                 Log.d("RESPONSE_VAR", token);
                 params.put("Authorization", token);
+=======
+                params.put("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjgiLCJleHAiOjE2MzQwNTk2NDcsImlhdCI6MTYzNDAyMzY0N30.WRVtI8TIWtnRGMu0e0SmUu1sgEAeiNMlaDvi_xLxLbc");
+>>>>>>> 48eef3cbca31706260068cb8a879793797057e56
                 return params;
             }
         };
