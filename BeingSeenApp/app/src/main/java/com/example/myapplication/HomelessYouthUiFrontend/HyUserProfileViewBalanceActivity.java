@@ -90,6 +90,7 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
         ImageView currentProfilePhoto = (ImageView) findViewById(R.id.HyPfPfpDisplay);
         TextView usernameTextboxInfo = (TextView) findViewById(R.id.HyPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) findViewById(R.id.HyPfUdescDisplay);
+        TextView balanceTextbookInfo = (TextView) findViewById(R.id.hyPfBalance);
 
         profileInf.getInfoFromDb(this,
             new VolleyCallBack() {
@@ -99,6 +100,8 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
                         usernameTextboxInfo.setText(profileInf.getUsername());
                         descriptionTextboxInfo.setText(profileInf.getUserDescription());
                         currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+                        balanceTextbookInfo.setText(profileInf.getBalance());
+
                     }
                 });
 

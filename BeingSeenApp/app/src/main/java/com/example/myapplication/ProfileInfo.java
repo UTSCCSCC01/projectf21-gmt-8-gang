@@ -26,10 +26,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileInfo implements Serializable {
-    static String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhIiwiZXhwIjoxNjM0NTc1NTI2LCJpYXQiOjE2MzQ1Mzk1MjZ9.6jlXNsGD_7xexvJ2mDpAGde6xkX3Xhd6oZc8zqwXBls";
+    static String token;
     static String username;
     static String userDescription;
     static String profileImage;
+    static String balance;
 
     public static String getToken() {
         return token;
@@ -62,6 +63,10 @@ public class ProfileInfo implements Serializable {
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
     }
+
+    public static String getBalance() {return balance;}
+
+    public void setBalance(String balance) {this.balance = balance;}
 
     public ProfileInfo(String username, String userDescription, String profileImage){
         this.username = username;
@@ -111,7 +116,7 @@ public class ProfileInfo implements Serializable {
                 response -> {
 
                     Log.d("RESPONSE_VAR", "Reponse called properly");
-                    JSONObject jsonItem = null;
+                    JSONObject jsonItem;
                     try {
                         jsonItem = new JSONObject(response);
                         String pfString = jsonItem.getString("profileInfo");
@@ -119,6 +124,8 @@ public class ProfileInfo implements Serializable {
                         this.username = profileDBInf.getString("name");
                         this.userDescription = profileDBInf.getString("bio");
                         this.profileImage = profileDBInf.getString("photo");
+                        String balanceString = jsonItem.getString("balance");
+                        this.balance = balanceString;
                         Log.d("RESPONSE_VAR", "Username received as "+this.username);
                         callBack.onSuccess();
                     } catch (JSONException e) {
@@ -131,6 +138,7 @@ public class ProfileInfo implements Serializable {
                 Log.d("GET_HEADER", "Made call to getHeaders");
                 Map<String, String>  params = new HashMap<String, String>();
                 String token = ProfileInfo.getToken();
+                Log.d("RESPONSE_VAR", token);
                 params.put("Authorization", token);
                 return params;
             }
@@ -177,6 +185,7 @@ public class ProfileInfo implements Serializable {
                 Map<String, String>  headers = new HashMap<String, String>();
                 String token = ProfileInfo.getToken();
                 headers.put("Authorization", token);
+                Log.d("gettoken", token);
                 headers.put("Content-Type", "application/json");
                 return headers;
             }

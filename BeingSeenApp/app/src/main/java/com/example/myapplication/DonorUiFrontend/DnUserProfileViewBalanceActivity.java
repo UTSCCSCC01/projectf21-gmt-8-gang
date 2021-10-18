@@ -18,6 +18,8 @@ import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
 
+import org.w3c.dom.Text;
+
 public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +53,9 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
             TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
 
+            currentProfilePhoto.setImageBitmap(bmp);
             usernameTextboxInfo.setText(uname);
             descriptionTextboxInfo.setText(desc);
-            currentProfilePhoto.setImageBitmap(bmp);
         }
 
 
@@ -65,6 +67,7 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
         ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
         TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
+        TextView balanceTextbookInfo = (TextView)findViewById(R.id.dnPfBalance);
 
         profileInf.getInfoFromDb(this,
                 new VolleyCallBack() {
@@ -75,6 +78,8 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
                         usernameTextboxInfo.setText(profileInf.getUsername());
                         descriptionTextboxInfo.setText(profileInf.getUserDescription());
                         currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+                        balanceTextbookInfo.setText(profileInf.getBalance());
+
                     }
                 });
 
