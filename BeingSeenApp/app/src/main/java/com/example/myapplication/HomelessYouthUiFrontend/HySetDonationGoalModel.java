@@ -23,13 +23,11 @@ import java.util.Map;
 
 public class HySetDonationGoalModel {
     HySetDonationGoalActivity activity;
-    ProfileInfo profileInfo;
     String LOGIN_TAG = HyLoginActivity.LOGIN_TAG;
     private Object HyUserInterfaceActivity;
 
-    public HySetDonationGoalModel(HySetDonationGoalActivity activity, ProfileInfo profileInfo) {
+    public HySetDonationGoalModel(HySetDonationGoalActivity activity) {
         this.activity = activity;
-        this.profileInfo = profileInfo;
     }
 
     // Post to donationGoal
@@ -53,7 +51,6 @@ public class HySetDonationGoalModel {
             public void onResponse(JSONObject response) {
                 Log.i(LOGIN_TAG, "create donation goal success");
                 Intent i = new Intent(activity.getApplicationContext(), HyUserInterfaceActivity.class);
-                i.putExtra("profileInfo", profileInfo);
                 activity.startActivity(i);
                 return;
             }
@@ -72,7 +69,6 @@ public class HySetDonationGoalModel {
                     Log.i(LOGIN_TAG, "create donation goal failed error 400, developer you need to do somethinggg");
                 }
                 Intent i = new Intent(activity.getApplicationContext(), HyUserInterfaceActivity.class);
-                i.putExtra("profileInfo", profileInfo);
                 activity.startActivity(i);
             }
         }) {
@@ -80,7 +76,7 @@ public class HySetDonationGoalModel {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<String, String>();
-                headers.put("Authorization", profileInfo.getToken());
+                headers.put("Authorization", ProfileInfo.getToken());
                 return headers;
             }
         };

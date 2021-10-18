@@ -27,16 +27,13 @@ import java.util.regex.Pattern;
 public class HySetDonationGoalActivity extends AppCompatActivity {
     HySetDonationGoalModel model;
     String LOGIN_TAG = HyLoginActivity.LOGIN_TAG;
-    ProfileInfo profileInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hy_set_donation_goal);
 
-        // we should get profile from last intent
-        profileInfo = new ProfileInfo();
-        model = new HySetDonationGoalModel(this, profileInfo);
+        model = new HySetDonationGoalModel(this);
 
         TextClock textClock = (TextClock) findViewById(R.id.date);
         textClock.setTimeZone("Canada/Eastern");

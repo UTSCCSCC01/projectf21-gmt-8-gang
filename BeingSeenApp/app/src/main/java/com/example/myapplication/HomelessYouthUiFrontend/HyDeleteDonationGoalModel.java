@@ -24,12 +24,9 @@ import java.util.Map;
 public class HyDeleteDonationGoalModel {
     AppCompatActivity activity;
     String LOGIN_TAG = HyLoginActivity.LOGIN_TAG;
-    ProfileInfo profileInfo;
 
-    public HyDeleteDonationGoalModel(AppCompatActivity activity /*, ProfileInfo profileInfo*/) {
+    public HyDeleteDonationGoalModel(AppCompatActivity activity) {
         this.activity = activity;
-//        this.profileInfo = profileInfo;
-        profileInfo = new ProfileInfo();
     }
 
     void deleteDonationGoal() {
@@ -55,7 +52,7 @@ public class HyDeleteDonationGoalModel {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<String, String>();
-                headers.put("Authorization", profileInfo.getToken());
+                headers.put("Authorization", ProfileInfo.getToken());
                 return headers;
             }
         };

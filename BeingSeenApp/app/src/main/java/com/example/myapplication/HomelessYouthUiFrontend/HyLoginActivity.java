@@ -68,7 +68,6 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
 
         hyLoginModel.logIn(username, password);
 
-        Log.i(LOGIN_TAG, "hy login success");
         return;
     }
 
