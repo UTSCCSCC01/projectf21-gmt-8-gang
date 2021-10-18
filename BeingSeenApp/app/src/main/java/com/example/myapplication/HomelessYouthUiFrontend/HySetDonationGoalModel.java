@@ -35,7 +35,7 @@ public class HySetDonationGoalModel {
     // Post to donationGoal
     void createDonationGoal(String title, String description, Long goal) {
         RequestQueue queue = Volley.newRequestQueue(activity);
-        String url_login = "http://10.0.2.2:8080/donationGoal";
+        String url_create = "http://10.0.2.2:8080/donationGoal";
 
         JSONObject body = new JSONObject();
         try {
@@ -47,7 +47,7 @@ public class HySetDonationGoalModel {
             Log.i(LOGIN_TAG, "error: failed to create json obj for donation goal");
         }
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url_login,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url_create,
                 body, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

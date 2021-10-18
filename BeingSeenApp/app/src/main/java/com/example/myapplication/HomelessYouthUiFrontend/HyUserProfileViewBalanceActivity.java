@@ -50,6 +50,16 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
+        // button for deleting donation goal
+        final Button deleteGoal = (Button) findViewById(R.id.delete_donation_goal);
+        deleteGoal.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                HyDeleteDonationGoalModel model = new HyDeleteDonationGoalModel(HyUserProfileViewBalanceActivity.this /*, profileInfo*/);
+                model.deleteDonationGoal();
+            }
+        });
+
         /// Set photo and string and stuff based on nav from prev
 //        Intent intent = getIntent();
 //        if(intent.getExtras() != null) {

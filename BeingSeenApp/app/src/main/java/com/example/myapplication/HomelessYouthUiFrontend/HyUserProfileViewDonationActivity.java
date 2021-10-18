@@ -50,6 +50,16 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
             }
         });
 
+        // button for deleting donation goal
+        final Button deleteGoal = (Button) findViewById(R.id.delete_donation_goal);
+        deleteGoal.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                HyDeleteDonationGoalModel model = new HyDeleteDonationGoalModel(HyUserProfileViewDonationActivity.this /*, profileInfo*/);
+                model.deleteDonationGoal();
+            }
+        });
+
 
         //when db setup
         ProfileInfo profileInf = new ProfileInfo();
