@@ -21,10 +21,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProfileInfo {
+public class ProfileInfo implements Serializable {
     static String token;
     static String username;
     static String userDescription;

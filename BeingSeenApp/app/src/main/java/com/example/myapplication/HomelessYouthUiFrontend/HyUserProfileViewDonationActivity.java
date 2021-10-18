@@ -37,6 +37,29 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
             }
         });
 
+        //Button for creating donation goal
+        final Button setGoal = (Button) findViewById(R.id.SetGoal);
+
+        setGoal.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), HySetDonationGoalActivity.class);
+                startActivity(i);
+            }
+        });
+
+        // button for deleting donation goal
+        final Button deleteGoal = (Button) findViewById(R.id.delete_donation_goal);
+        deleteGoal.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                HyDeleteDonationGoalModel model = new HyDeleteDonationGoalModel(HyUserProfileViewDonationActivity.this /*, profileInfo*/);
+                model.deleteDonationGoal();
+            }
+        });
+
 
         //when db setup
         ProfileInfo profileInf = new ProfileInfo();
