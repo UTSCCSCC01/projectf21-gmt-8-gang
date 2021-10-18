@@ -19,6 +19,9 @@
             android:name=".HomelessYouthUiFrontend.HySignUpActivity"
             android:exported="true" />
         <activity
+            android:name=".HomelessYouthUiFrontend.HySetDonationGoalActivity"
+            android:exported="true" />
+        <activity
             android:name=".AboutUsFrontend.DonationStatus"
             android:exported="true" />
         <activity

@@ -19,10 +19,12 @@
         <entry key="app/src/main/res/layout/activity_dn_user_profile_edit.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dn_user_profile_view_balance.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_dn_user_profile_view_donation.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_donation_status.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_hy_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_hy_set_donation_goal.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_hy_sign_up.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_hy_user_interface.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_hy_user_profile_edit.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_hy_user_profile_edit.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_hy_user_profile_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_hy_user_profile_view_balance.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_hy_user_profile_view_donation.xml" value="0.1493822042124071" />
