@@ -24,6 +24,9 @@ import java.util.Map;
 public class HySetDonationGoalModel {
     HySetDonationGoalActivity activity;
     String LOGIN_TAG = HyLoginActivity.LOGIN_TAG;
+    final static String CREATE_GOAL_ERROR = "CREATE_GOAL_ERROR";
+    final static String CREATE_GOAL_DUPLICATE = "CREATE_GOAL_DUPLICATE";
+    final static String CREATE_GOAL_SUCCESS = "CREATE_GOAL_SUCCESS";
     private Object HyUserInterfaceActivity;
 
     public HySetDonationGoalModel(HySetDonationGoalActivity activity) {
@@ -50,7 +53,8 @@ public class HySetDonationGoalModel {
             @Override
             public void onResponse(JSONObject response) {
                 Log.i(LOGIN_TAG, "create donation goal success");
-                Intent i = new Intent(activity.getApplicationContext(), HyUserInterfaceActivity.class);
+                Intent i = new Intent(activity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                i.putExtra("toast", CREATE_GOAL_SUCCESS);
                 activity.startActivity(i);
                 return;
             }
@@ -60,16 +64,17 @@ public class HySetDonationGoalModel {
                 Log.i(LOGIN_TAG, "create donation goal failed");
                 if (e.networkResponse.statusCode == 404) {
                     Log.i(LOGIN_TAG, "create donation goal failed error 404");
-//                    CharSequence text = "You already have a donation goal";
-//                    int duration = Toast.LENGTH_SHORT;
-//
-//                    Toast toast = Toast.makeText((Context) HyUserInterfaceActivity, text, duration);
-//                    toast.show();
+                    Intent i = new Intent(activity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                    i.putExtra("toast", CREATE_GOAL_ERROR);
+                    activity.startActivity(i);
                 } else {
                     Log.i(LOGIN_TAG, "create donation goal failed error 400, developer you need to do somethinggg");
+                    Intent i = new Intent(activity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                    i.putExtra("toast", CREATE_GOAL_DUPLICATE);
+                    activity.startActivity(i);
                 }
-                Intent i = new Intent(activity.getApplicationContext(), HyUserInterfaceActivity.class);
-                activity.startActivity(i);
+
+                return;
             }
         }) {
             //additional headers

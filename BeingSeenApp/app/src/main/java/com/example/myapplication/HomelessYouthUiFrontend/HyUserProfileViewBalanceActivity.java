@@ -9,6 +9,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +24,19 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hy_user_profile_view_balance);
+
+        // checking if we returned from HySetDonationGoalModel
+        Intent intent = getIntent();
+        if (intent.hasExtra("toast")) {
+            if (intent.getStringExtra("toast").equals(HySetDonationGoalModel.CREATE_GOAL_SUCCESS)) {
+                Toast.makeText(this.getApplicationContext(), "created donation goal", Toast.LENGTH_LONG).show();
+            } else if (intent.getStringExtra("toast").equals(HySetDonationGoalModel.CREATE_GOAL_ERROR)) {
+                Toast.makeText(this.getApplicationContext(), "Couldn't connect", Toast.LENGTH_LONG).show();
+            } else if (intent.getStringExtra("toast").equals(HySetDonationGoalModel.CREATE_GOAL_DUPLICATE)) {
+                Toast.makeText(this.getApplicationContext(), "You already have a goal!", Toast.LENGTH_LONG).show();
+            }
+        }
+
 
         //Logout button
         final Button button = (Button) findViewById(R.id.HyPfLogoutButton);
@@ -57,6 +71,7 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
             public void onClick(View view) {
                 HyDeleteDonationGoalModel model = new HyDeleteDonationGoalModel(HyUserProfileViewBalanceActivity.this /*, profileInfo*/);
                 model.deleteDonationGoal();
+                // Toast.makeText(getBaseContext(), "outside delete", Toast.LENGTH_SHORT).show();
             }
         });
 

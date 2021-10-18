@@ -3,6 +3,7 @@ package com.example.myapplication.HomelessYouthUiFrontend;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,12 +41,14 @@ public class HyDeleteDonationGoalModel {
             @Override
             public void onResponse(JSONObject response) {
                 Log.i(LOGIN_TAG, "delete donation goal success");
+                Toast.makeText(activity.getApplicationContext(), "successfully deleted donation goal", Toast.LENGTH_LONG).show();
                 return;
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError e) {
                 Log.i(LOGIN_TAG, "delete donation goal failed");
+                Toast.makeText(activity.getApplicationContext(), "failed to delete donation goal", Toast.LENGTH_LONG).show();
             }
         }) {
             //additional headers
