@@ -130,7 +130,7 @@
         android:id="@+id/textCreditUnit"
         android:layout_width="122dp"
         android:layout_height="81dp"
-        android:text="Credit(s)"
+        android:text="Credit(s) to spend"
         android:textSize="20dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -2,6 +2,8 @@ package com.example.myapplication;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.ImageView;
@@ -21,8 +23,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+//import javax.imageio.ImageIO;
 
 public class ProfileInfo {
     static String token;
@@ -30,6 +36,7 @@ public class ProfileInfo {
     static String userDescription;
     static String profileImage;
     static String balance;
+    static String userRole;
 
     public static String getToken() {
         return token;
@@ -47,6 +54,14 @@ public class ProfileInfo {
         this.username = username;
     }
 
+    public static String getUserRole() {
+        return userRole;
+    }
+
+    public static void setUserRole(String userRole) {
+        ProfileInfo.userRole = userRole;
+    }
+
     public static String getUserDescription() {
         return userDescription;
     }
@@ -61,6 +76,10 @@ public class ProfileInfo {
 
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
+    }
+
+    public void setProfileImage(ImageView profileImage) {
+        this.profileImage = encodeProfilePic(profileImage);
     }
 
     public static String getBalance() {return balance;}
@@ -125,12 +144,75 @@ public class ProfileInfo {
                         this.profileImage = profileDBInf.getString("photo");
                         String balanceString = jsonItem.getString("balance");
                         this.balance = balanceString;
+
+                        if (this.username.equals("")){
+                            this.username = "Username";
+                        }
+                        if (this.userDescription.equals("")){
+                            this.userDescription = "Bio";
+                        }
+                        if (this.profileImage.equals("")){
+                            File root = Environment.getExternalStorageDirectory();
+                            File folderInput = new File(root.getAbsolutePath()+"res/drawable/profile.png");
+                            try {
+//                                Bitmap myBitmap = BitmapFactory.decodeFile(folderInput.getAbsolutePath());
+                                Bitmap bmImg = BitmapFactory.decodeFile(folderInput.getAbsolutePath());
+                                ImageView imageView = new ImageView(callingActivity);
+                                imageView.setImageBitmap(bmImg);
+                                this.setProfileImage(imageView);
+                            }
+                            catch(Exception e){
+
+                            }
+                        }
+
                         Log.d("RESPONSE_VAR", "Username received as "+this.username);
                         callBack.onSuccess();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }, error -> this.username = "ERROR")
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Log.d("GET_HEADER", "Made call to getHeaders");
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = ProfileInfo.getToken();
+                Log.d("RESPONSE_VAR", token);
+                params.put("Authorization", token);
+                return params;
+            }
+        };
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+    }
+
+
+    public static void getUserRoleFromDb(AppCompatActivity callingActivity, final VolleyCallBack callBack){
+
+        RequestQueue queue = Volley.newRequestQueue(callingActivity);
+
+        // a simple API to test if we can connect to backend
+        String url = "http://10.0.2.2:8080/profile";
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> {
+
+                    Log.d("RESPONSE_VAR", "Reponse called properly");
+                    JSONObject jsonItem;
+                    try {
+                        jsonItem = new JSONObject(response);
+                        String userRole = jsonItem.getString("role");
+                        ProfileInfo.userRole = userRole;
+
+                        Log.d("RESPONSE_VAR", "Userrole received as "+ProfileInfo.userRole);
+                        callBack.onSuccess();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, error -> ProfileInfo.userRole = "ERROR")
         {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
