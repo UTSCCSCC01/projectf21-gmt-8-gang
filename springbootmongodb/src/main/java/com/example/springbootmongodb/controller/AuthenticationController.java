@@ -1,8 +1,8 @@
 package com.example.springbootmongodb.controller;
 
 import com.example.springbootmongodb.model.AppUser;
-import com.example.springbootmongodb.model.AuthenticationRequest;
-import com.example.springbootmongodb.model.AuthenticationResponse;
+import com.example.springbootmongodb.request.AuthenticationRequest;
+import com.example.springbootmongodb.response.AuthenticationResponse;
 import com.example.springbootmongodb.model.Account;
 import com.example.springbootmongodb.repository.AppUserRepository;
 import com.example.springbootmongodb.repository.AccountRepository;
@@ -43,7 +43,7 @@ public class AuthenticationController {
 
         // check if there are duplicate usernames
         if(accountRepository.existsByUsername(username)){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).
                     body(new AuthenticationResponse("DUPLICATE_USERNAME","Username already exists, failed to register"));
         }
 
