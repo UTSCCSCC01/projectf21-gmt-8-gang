@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.VolleyError;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.VolleyCallBack;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,9 +67,9 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
             return;
         }
 
+        Log.i(LOGIN_TAG, "hy login success");
         hyLoginModel.logIn(username, password);
 
-        Log.i(LOGIN_TAG, "hy login success");
         return;
     }
 
@@ -76,8 +77,11 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
     public void onVolleySuccess(JSONObject response) {
         try {
             String jwtToken = response.getString("response");
+            String userType = response.getString("code");
             Log.i(LOGIN_TAG, "jwt token: " +jwtToken);
             ProfileInfo.setToken(jwtToken);
+            ProfileInfo.setUserRole(userType);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
