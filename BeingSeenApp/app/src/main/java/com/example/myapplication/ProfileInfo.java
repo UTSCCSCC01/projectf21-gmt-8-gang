@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProfileInfo {
-    static String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjgiLCJleHAiOjE2MzQwNTk2NDcsImlhdCI6MTYzNDAyMzY0N30.WRVtI8TIWtnRGMu0e0SmUu1sgEAeiNMlaDvi_xLxLbc";
+    static String token;
     static String username;
     static String userDescription;
     static String profileImage;

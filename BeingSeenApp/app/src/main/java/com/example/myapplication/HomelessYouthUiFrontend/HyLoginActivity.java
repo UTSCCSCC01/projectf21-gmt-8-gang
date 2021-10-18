@@ -10,6 +10,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.VolleyError;
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 
 import org.json.JSONException;
@@ -76,6 +77,7 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
         try {
             String jwtToken = response.getString("response");
             Log.i(LOGIN_TAG, "jwt token: " +jwtToken);
+            ProfileInfo.setToken(jwtToken);
         } catch (JSONException e) {
             e.printStackTrace();
         }
