@@ -82,15 +82,6 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
             ProfileInfo.setToken(jwtToken);
             ProfileInfo.setUserRole(userType);
 
-//            //after getting token try to get role
-////            ProfileInfo pfInf = new ProfileInfo();
-//            ProfileInfo.getUserRoleFromDb(this,
-//                    new VolleyCallBack() {
-//                        @Override
-//                        public void onSuccess() {
-//                        }
-//                    });
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
