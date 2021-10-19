@@ -221,9 +221,6 @@ public class ProfileInfo {
                 String token = ProfileInfo.getToken();
                 Log.d("RESPONSE_VAR", token);
                 params.put("Authorization", token);
-                String token = ProfileInfo.getToken();
-                Log.d("RESPONSE_VAR", token);
-                params.put("Authorization", token);
                 return params;
             }
         };
