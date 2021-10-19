@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 
 public class HyUserProfileViewDonationActivity extends AppCompatActivity {
@@ -82,6 +83,26 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        //Retrieving donation info from DB
+        Transaction transactionInfo = new Transaction();
+
+        TextView homelessAmountInfo = (TextView) findViewById(R.id.SetHyAmount1);
+        TextView senderInfo = (TextView) findViewById(R.id.SetSender1);
+
+        transactionInfo.getHyTransactionFromDb(this,
+                new VolleyCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        Log.d("RESPONSE_VAR_AFTER", "Transaction display go");
+                        Log.d("Transaction_DEVVAR",transactionInfo.getSenders().get(0).toString());
+
+                        homelessAmountInfo.setText(String.valueOf(transactionInfo.getAmounts().get(0)) + " credits");
+                        senderInfo.setText("From   " + transactionInfo.getSenders().get(0));
+
+
+                    }
+                });
 
         Switch profileSwitch = (Switch) findViewById(R.id.ProfileSwitch);
         profileSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
