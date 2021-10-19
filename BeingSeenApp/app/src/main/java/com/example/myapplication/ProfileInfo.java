@@ -168,6 +168,11 @@ public class ProfileInfo {
 
                         Log.d("RESPONSE_VAR", "Username received as "+this.username);
                         callBack.onSuccess();
+                        this.profileImage = profileDBInf.getString("photo");
+                        String balanceString = jsonItem.getString("balance");
+                        this.balance = balanceString;
+                        Log.d("RESPONSE_VAR", "Username received as "+this.username);
+                        callBack.onSuccess();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -218,6 +223,9 @@ public class ProfileInfo {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Log.d("GET_HEADER", "Made call to getHeaders");
                 Map<String, String>  params = new HashMap<String, String>();
+                String token = ProfileInfo.getToken();
+                Log.d("RESPONSE_VAR", token);
+                params.put("Authorization", token);
                 String token = ProfileInfo.getToken();
                 Log.d("RESPONSE_VAR", token);
                 params.put("Authorization", token);
