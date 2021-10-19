@@ -97,27 +97,6 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
 
 
 
-
-
-        //when db setup
-        ProfileInfo profileInf = new ProfileInfo();
-        profileInf.getInfoFromDb(this);
-
-        ImageView currentProfilePhoto = (ImageView) findViewById(R.id.HyPfPfpDisplay);
-        TextView usernameTextboxInfo = (TextView) findViewById(R.id.HyPfUnameDisplay);
-        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.HyPfUdescDisplay);
-
-        Log.d("RESPONSE_VAR_AFTER", "Username received as "+profileInf.getUsername());
-
-        usernameTextboxInfo.setText(profileInf.getUsername());
-        descriptionTextboxInfo.setText(profileInf.getUserDescription());
-//        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
-
-
-
-
-
-
         //Edit profile
         final Button EditPfButton = (Button) findViewById(R.id.HyEditPfButton);
 
