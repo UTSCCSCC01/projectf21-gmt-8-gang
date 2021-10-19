@@ -168,11 +168,6 @@ public class ProfileInfo {
 
                         Log.d("RESPONSE_VAR", "Username received as "+this.username);
                         callBack.onSuccess();
-                        this.profileImage = profileDBInf.getString("photo");
-                        String balanceString = jsonItem.getString("balance");
-                        this.balance = balanceString;
-                        Log.d("RESPONSE_VAR", "Username received as "+this.username);
-                        callBack.onSuccess();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

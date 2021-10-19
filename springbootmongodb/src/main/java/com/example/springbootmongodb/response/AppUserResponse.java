@@ -49,5 +49,4 @@ public class AppUserResponse {
         this.balance = balance;
     }
 
-    public void increaseBalance(long amount){this.balance+=amount;}
 }
