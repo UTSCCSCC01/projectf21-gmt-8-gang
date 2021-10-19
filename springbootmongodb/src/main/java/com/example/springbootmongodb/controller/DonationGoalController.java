@@ -86,9 +86,12 @@ public class DonationGoalController  {
         DonationGoal donationGoal;
         try {
             String username = donationGoalRequest.getUsername();
+            if (!donationGoalRepos.existsByUsername(username)) {
+                return new ResponseEntity<>("can't get " + username + "bc this username doesn't exist", HttpStatus.NOT_FOUND);
+            }
             donationGoal = donationGoalRepos.findByUsername(username);
         } catch (Exception e) {
-            return new ResponseEntity<>("error on getting username / finding this dude", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("something happend when getting this user" , HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(donationGoal, HttpStatus.OK);
     }
