@@ -32,10 +32,12 @@ public class DonationGoalController  {
             String username = SecurityContextHolder.getContext().getAuthentication().getName();
             a = appUserRepos.findByUserName(username);
         } catch (Exception e) {
+            System.out.println("cant find this user");
             return new ResponseEntity<>("cant find this user", HttpStatus.BAD_REQUEST);
         }
 
         if (!a.getRole().equals("HOMELESS")) {
+            System.out.println("ur not a homeless youth so you cannot create donation goals");
             return new ResponseEntity<>("ur not a homeless youth so you cannot create donation goals", HttpStatus.BAD_REQUEST);
         }
 
@@ -48,6 +50,8 @@ public class DonationGoalController  {
 
         // check if there are duplicate usernames
         if(donationGoalRepos.existsByUsername(owner)){
+            System.out.println("Username already has a donation goal." +
+                    " failed to create new goal");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).
                     body(new AuthenticationResponse("USERNAME_HAS_GOAL","Username already has a donation goal." +
                             " failed to create new goal"));
@@ -64,11 +68,13 @@ public class DonationGoalController  {
 
             donationGoalRepos.save(dgoal);
         } catch (Exception e) {
+            System.out.println("Error during saving data for  " + owner +
+                    "might need to check ur formatting! (or backend code)");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new AuthenticationResponse("SAVE_ERROR","Error during saving data for  " + owner +
                             "might need to check ur formatting! (or backend code)"));
         }
-
+        System.out.println("created donation goal for " + owner);
         return ResponseEntity.ok(new AuthenticationResponse("SUCCESS","Successful goal creation for "
                 + owner));
     }
@@ -123,10 +129,15 @@ public class DonationGoalController  {
     private ResponseEntity<?> deleteGoal() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         if (!donationGoalRepos.existsByUsername(username)) {
+            System.out.println("username doesn't exist so can't delete donation goal");
             return new ResponseEntity<>("username doesn't exist", HttpStatus.NOT_FOUND);
         }
-
-        donationGoalRepos.deleteByUsername(username);
+        try {
+            donationGoalRepos.deleteByUsername(username);
+            System.out.println("deleted donation goal");
+        } catch (Exception e) {
+            return new ResponseEntity<>("something wrong with delete qwq", HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>("deleted!", HttpStatus.OK);
     }
 

@@ -69,9 +69,9 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
         deleteGoal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                HyDeleteDonationGoalModel model = new HyDeleteDonationGoalModel(HyUserProfileViewBalanceActivity.this /*, profileInfo*/);
+                HyDeleteDonationGoalModel model = new HyDeleteDonationGoalModel(HyUserProfileViewBalanceActivity.this);
                 model.deleteDonationGoal();
-                // Toast.makeText(getBaseContext(), "outside delete", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getBaseContext(), "outside delete", Toast.LENGTH_SHORT).show();
             }
         });
 

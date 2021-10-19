@@ -13,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.ProfileInfo;
 
@@ -34,21 +35,19 @@ public class HyDeleteDonationGoalModel {
         RequestQueue queue = Volley.newRequestQueue(activity);
         String url_delete = "http://10.0.2.2:8080/donationGoal";
 
-        JSONObject body = new JSONObject();
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.DELETE, url_delete,
-                body, new Response.Listener<JSONObject>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url_delete, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(String response) {
                 Log.i(LOGIN_TAG, "delete donation goal success");
                 Toast.makeText(activity.getApplicationContext(), "successfully deleted donation goal", Toast.LENGTH_LONG).show();
                 return;
             }
         }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError e) {
+            public void onErrorResponse(VolleyError error) {
                 Log.i(LOGIN_TAG, "delete donation goal failed");
                 Toast.makeText(activity.getApplicationContext(), "failed to delete donation goal", Toast.LENGTH_LONG).show();
+                return;
             }
         }) {
             //additional headers
@@ -60,6 +59,6 @@ public class HyDeleteDonationGoalModel {
             }
         };
 
-        queue.add(jsonObjectRequest);
+        queue.add(stringRequest);
     }
 }

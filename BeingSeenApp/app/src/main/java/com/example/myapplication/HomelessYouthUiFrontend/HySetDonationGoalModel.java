@@ -65,12 +65,12 @@ public class HySetDonationGoalModel {
                 if (e.networkResponse.statusCode == 404) {
                     Log.i(LOGIN_TAG, "create donation goal failed error 404");
                     Intent i = new Intent(activity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
-                    i.putExtra("toast", CREATE_GOAL_ERROR);
+                    i.putExtra("toast", CREATE_GOAL_DUPLICATE);
                     activity.startActivity(i);
                 } else {
                     Log.i(LOGIN_TAG, "create donation goal failed error 400, developer you need to do somethinggg");
                     Intent i = new Intent(activity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
-                    i.putExtra("toast", CREATE_GOAL_DUPLICATE);
+                    i.putExtra("toast", CREATE_GOAL_ERROR);
                     activity.startActivity(i);
                 }
 
