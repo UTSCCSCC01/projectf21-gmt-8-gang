@@ -6,6 +6,7 @@ import android.media.Image;
 import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
+import android.view.SurfaceControl;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,11 +28,13 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 //import javax.imageio.ImageIO;
 
 public class ProfileInfo {
     static String token;
+    static String accountName;
     static String username;
     static String userDescription;
     static String profileImage;
@@ -40,6 +43,10 @@ public class ProfileInfo {
 
     public static String getToken() {
         return token;
+    }
+
+    public static String getAccountName(){
+        return accountName;
     }
 
     public static void setToken(String tokenIn) {
@@ -84,7 +91,6 @@ public class ProfileInfo {
 
     public static String getBalance() {return balance;}
 
-    public void setBalance(String balance) {this.balance = balance;}
 
     public ProfileInfo(String username, String userDescription, String profileImage){
         this.username = username;
@@ -137,6 +143,7 @@ public class ProfileInfo {
                     JSONObject jsonItem;
                     try {
                         jsonItem = new JSONObject(response);
+                        this.accountName = jsonItem.getString("userName");
                         String pfString = jsonItem.getString("profileInfo");
                         JSONObject profileDBInf = new JSONObject(pfString);
                         this.username = profileDBInf.getString("name");
@@ -178,7 +185,7 @@ public class ProfileInfo {
                 Log.d("GET_HEADER", "Made call to getHeaders");
                 Map<String, String>  params = new HashMap<String, String>();
                 String token = ProfileInfo.getToken();
-                Log.d("RESPONSE_VAR", token);
+                //Log.d("RESPONSE_VAR", token);
                 params.put("Authorization", token);
                 return params;
             }
