@@ -20,9 +20,13 @@ public class AppUserController {
 
     @GetMapping("/profile")
     public ResponseEntity<?> getProfileInfo() {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        AppUser appUser = appUserRepository.findByUserName(username);
-        return ResponseEntity.ok(new AppUserResponse(appUser.getUserName(), appUser.getRole(), appUser.getProfileInfo(), appUser.getBalance()));
+        try {
+            String username = SecurityContextHolder.getContext().getAuthentication().getName();
+            AppUser appUser = appUserRepository.findByUserName(username);
+            return ResponseEntity.ok(new AppUserResponse(appUser.getUserName(), appUser.getRole(), appUser.getProfileInfo(), appUser.getBalance()));
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error during profile request", HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/balance")
@@ -43,16 +47,12 @@ public class AppUserController {
                 appUser.setProfileInfo(profile);
                 appUserRepository.save(appUser);
             } catch (Exception e) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body(new AuthenticationResponse("SAVE_ERROR", "Error during saving data for  " + username +
-                                "might need to check ur formatting! (or backend code)"));
+                return new ResponseEntity<>("Error during updating profile", HttpStatus.NOT_FOUND);
             }
-            return ResponseEntity.ok(new AuthenticationResponse("SUCCESS", "Successful registration for " + username));
+            return new ResponseEntity<>("Successfully updated profile", HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(new AuthenticationResponse("SAVE_ERROR", "Error during receiving data for  " + username +
-                            "might need to check ur formatting! (or backend code)"));
+            return new ResponseEntity<>("Error for the request format", HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -68,16 +68,12 @@ public class AppUserController {
                 appUser.setBalance(balance);
                 appUserRepository.save(appUser);
             } catch (Exception e) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body(new AuthenticationResponse("SAVE_ERROR", "Error during saving data for  " + username +
-                                "might need to check ur formatting! (or backend code)"));
+                return new ResponseEntity<>("Error during updating balance", HttpStatus.NOT_FOUND);
             }
-            return ResponseEntity.ok(new AuthenticationResponse("SUCCESS", "Successful registration for " + username));
+            return new ResponseEntity<>("Successfully updated profile", HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(new AuthenticationResponse("SAVE_ERROR", "Error during receiving data for  " + username +
-                            "might need to check ur formatting! (or backend code)"));
+            return new ResponseEntity<>("Error for the request format", HttpStatus.BAD_REQUEST);
         }
     }
 }
