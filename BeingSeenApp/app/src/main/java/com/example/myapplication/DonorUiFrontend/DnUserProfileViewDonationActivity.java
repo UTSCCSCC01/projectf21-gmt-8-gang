@@ -22,6 +22,7 @@ import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DnUserProfileViewDonationActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -130,6 +131,18 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
         ArrayList<Long> amounts = new ArrayList<Long>();
         amounts.add(100L);
         amounts.add(200L);
+
+//        Retrieving donation info from DB
+//        Transaction transactionInfo = new Transaction();
+//        transactionInfo.getDnTransactionFromDb(this,
+//                new VolleyCallBack() {
+//                    @Override
+//                    public void onSuccess() {
+//                        Log.d("RESPONSE_VAR_AFTER", "Transaction display go");
+//                    }
+//                });
+//        List<String> receivers = transactionInfo.getReceivers();
+//        List<Long> amounts = transactionInfo.getAmounts();
 
         // if data is null then return
         TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts);

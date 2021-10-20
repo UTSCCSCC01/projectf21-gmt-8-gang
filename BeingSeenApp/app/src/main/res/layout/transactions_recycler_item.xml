@@ -18,9 +18,10 @@
 
     <TextView
         android:id="@+id/transactions_receiver_recycler_item"
-        android:layout_width="110dp"
-        android:layout_height="42dp"
+        android:layout_width="144dp"
+        android:layout_height="71dp"
         android:text="TextView"
+        android:textAlignment="viewStart"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,6 +33,7 @@
         android:layout_width="155dp"
         android:layout_height="65dp"
         android:text="TextView"
+        android:textAlignment="viewStart"
         android:textColor="#03A9F4"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

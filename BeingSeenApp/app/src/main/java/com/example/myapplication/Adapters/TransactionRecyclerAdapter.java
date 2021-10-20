@@ -22,10 +22,10 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
 
     // we still need this even if schecule.timeSlots is type ArrayList because otherwise the
     // program will crash if the list is too long and we have booked items out of view (when scrolling)
-    private ArrayList<String> receivers;
-    private ArrayList<Long> amounts;
+    private List<String> receivers;
+    private List<Long> amounts;
 
-    public TransactionRecyclerAdapter(ArrayList<String> receivers, ArrayList<Long> amounts) {
+    public TransactionRecyclerAdapter(List<String> receivers, List<Long> amounts) {
         this.receivers = receivers;
         this.amounts = amounts;
     }
