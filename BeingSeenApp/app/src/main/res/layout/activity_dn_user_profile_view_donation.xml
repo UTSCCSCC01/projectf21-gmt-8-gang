@@ -117,8 +117,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dn_donations_recycler_view"
-        android:layout_width="409dp"
-        android:layout_height="244dp"
+        android:layout_width="410dp"
+        android:layout_height="180dp"
+        app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView"
         app:layout_constraintVertical_bias="0.989"

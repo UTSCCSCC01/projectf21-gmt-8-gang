@@ -33,7 +33,6 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dn_user_profile_view_donation);
         recyclerView = findViewById(R.id.dn_donations_recycler_view);
 
-        setAdapter();
 
         //Logout button
         final Button button = (Button) findViewById(R.id.DnPfLogoutButton);
@@ -84,24 +83,16 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
 
 
         //Retrieving donation info from DB
-//        Transaction transactionInfo = new Transaction();
-//
-//        TextView donorAmountInfo = (TextView) findViewById(R.id.SetDnAmount1);
-//        TextView receiverInfo = (TextView) findViewById(R.id.SetReceiver1);
-//
-//        transactionInfo.getDnTransactionFromDb(this,
-//                new VolleyCallBack() {
-//                    @Override
-//                    public void onSuccess() {
-//                        Log.d("RESPONSE_VAR_AFTER", "Transaction display go");
-//
-//
-//                        donorAmountInfo.setText(String.valueOf(transactionInfo.getAmounts().get(0)) + " credits");
-//                        receiverInfo.setText("To   " + transactionInfo.getReceivers().get(0));
-//
-//
-//                    }
-//                });
+        Transaction transactionInfo = new Transaction();
+
+        transactionInfo.getDnTransactionFromDb(this,
+                new VolleyCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        setAdapter();
+
+                    }
+                });
 
 
 
@@ -123,26 +114,12 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
+        //fetch list of receivers and amounts from transaction DB
+        List<String> receivers;
+        receivers = Transaction.getReceivers();
+        List<Long> amounts;
+        amounts = Transaction.getAmounts();
 
-        // creating some fake data for testing: (we should get data from db instead)
-        ArrayList<String> receivers = new ArrayList<String>();
-        receivers.add("angus");
-        receivers.add("humuhumu");
-        ArrayList<Long> amounts = new ArrayList<Long>();
-        amounts.add(100L);
-        amounts.add(200L);
-
-//        Retrieving donation info from DB
-//        Transaction transactionInfo = new Transaction();
-//        transactionInfo.getDnTransactionFromDb(this,
-//                new VolleyCallBack() {
-//                    @Override
-//                    public void onSuccess() {
-//                        Log.d("RESPONSE_VAR_AFTER", "Transaction display go");
-//                    }
-//                });
-//        List<String> receivers = transactionInfo.getReceivers();
-//        List<Long> amounts = transactionInfo.getAmounts();
 
         // if data is null then return
         TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts);

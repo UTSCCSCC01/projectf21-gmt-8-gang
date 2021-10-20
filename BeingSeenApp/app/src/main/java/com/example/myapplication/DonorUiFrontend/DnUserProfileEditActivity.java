@@ -74,7 +74,7 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess() {
 
-                                Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                                Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
 
                                 /// Only for now, in future need to save as pf object and store it in mongo
 //                i.putExtra("uname", username);
