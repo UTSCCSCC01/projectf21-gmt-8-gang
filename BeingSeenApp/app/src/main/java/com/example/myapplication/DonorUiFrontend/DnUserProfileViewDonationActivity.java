@@ -57,6 +57,26 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
                     }
                 });
 
+        //Retrieving donation info from DB
+        Transaction transactionInfo = new Transaction();
+
+        TextView donorAmountInfo = (TextView) findViewById(R.id.SetDnAmount1);
+        TextView receiverInfo = (TextView) findViewById(R.id.SetReceiver1);
+
+        transactionInfo.getDnTransactionFromDb(this,
+                new VolleyCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        Log.d("RESPONSE_VAR_AFTER", "Transaction DN display go");
+
+
+                        donorAmountInfo.setText(String.valueOf(transactionInfo.getAmounts().get(0)) + " credits");
+                        receiverInfo.setText("To   " + transactionInfo.getReceivers().get(0));
+
+
+                    }
+                });
+
 
         //Edit profile
         final Button EditPfButton = (Button) findViewById(R.id.DnEditPfButton);
@@ -71,26 +91,6 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
             }
         });
 
-
-        //Retrieving donation info from DB
-        Transaction transactionInfo = new Transaction();
-
-        TextView donorAmountInfo = (TextView) findViewById(R.id.SetDnAmount1);
-        TextView receiverInfo = (TextView) findViewById(R.id.SetReceiver1);
-
-        transactionInfo.getDnTransactionFromDb(this,
-                new VolleyCallBack() {
-                    @Override
-                    public void onSuccess() {
-                        Log.d("RESPONSE_VAR_AFTER", "Transaction display go");
-
-
-                        donorAmountInfo.setText(String.valueOf(transactionInfo.getAmounts().get(0)) + " credits");
-                        receiverInfo.setText("To   " + transactionInfo.getReceivers().get(0));
-
-
-                    }
-                });
 
 
         Switch profileSwitch = (Switch) findViewById(R.id.ProfileSwitch);

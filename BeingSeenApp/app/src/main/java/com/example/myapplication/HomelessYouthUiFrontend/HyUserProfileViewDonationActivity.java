@@ -94,8 +94,7 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
                 new VolleyCallBack() {
                     @Override
                     public void onSuccess() {
-                        Log.d("RESPONSE_VAR_AFTER", "Transaction display go");
-                        Log.d("Transaction_DEVVAR",transactionInfo.getSenders().get(0).toString());
+                        Log.d("Transaction_HYSENDER",transactionInfo.getSenders().get(0).toString());
 
                         homelessAmountInfo.setText(String.valueOf(transactionInfo.getAmounts().get(0)) + " credits");
                         senderInfo.setText("From   " + transactionInfo.getSenders().get(0));

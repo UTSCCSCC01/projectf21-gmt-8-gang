@@ -140,7 +140,7 @@
                     android:id="@+id/SetDnAmount1"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:text="20 Credit(s)"
+                    android:text="N/A Credit(s)"
                     android:layout_marginLeft="30dp"
                     android:textSize="30dp"
                     android:textColor="@color/green"/>
@@ -148,7 +148,7 @@
                     android:id="@+id/SetReceiver1"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:text="to Abby Smith"
+                    android:text="to N/A"
                     android:textSize="15dp"
                     android:layout_marginLeft="30dp"
                     android:textColor="@color/black"/>
