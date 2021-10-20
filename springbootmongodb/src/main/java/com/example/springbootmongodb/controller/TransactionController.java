@@ -8,10 +8,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,12 +61,11 @@ public class TransactionController {
 
     // get transaction by sender username
     @GetMapping("/transaction/sender")
-    public ResponseEntity<?> getTransactionBySender(@RequestBody String string) {
+    public ResponseEntity<?> getTransactionBySender(@RequestParam("username") String username) {
         Transaction transaction;
         List<?> transactions = new ArrayList<>();
         try {
-            JSONObject jsonItem = new JSONObject(string);
-            String sender = jsonItem.getString("username");
+            String sender = username;
             try {
                 transactions = transactionRepository.findTransactionBySender(sender);
             } catch (Exception e) {
@@ -84,11 +80,10 @@ public class TransactionController {
 
     // get transaction by receiver username
     @GetMapping("/transaction/receiver")
-    public ResponseEntity<?> getTransactionByReceiver(@RequestBody String string) {
+    public ResponseEntity<?> getTransactionByReceiver(@RequestParam("username") String username) {
         List<?> transactions = new ArrayList<>();
         try {
-            JSONObject jsonItem = new JSONObject(string);
-            String receiver = jsonItem.getString("username");
+            String receiver = username;
             try {
                 transactions = transactionRepository.findTransactionByReceiver(receiver);
             } catch (Exception e) {
