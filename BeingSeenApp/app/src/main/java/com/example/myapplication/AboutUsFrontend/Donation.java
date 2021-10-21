@@ -10,8 +10,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.ArrayList;
 
 public class Donation extends AppCompatActivity {
     public void createDonation(String username, String password, String receiver, long amount, String comment){
@@ -74,11 +77,23 @@ public class Donation extends AppCompatActivity {
                 }
                 //case2: is a donor, do transaction
                 else if(role.equals("Donor")){
-                    TransactionInfo transaction=new TransactionInfo(username,receiverId,amount,comment);
-                    transaction.setToken(token);
-                    transaction.sendInfoToDb(Donation.this, new VolleyCallBack() {
-                        @Override
+                    //old method using transactionInfo in comment:
+                    //TransactionInfo transaction=new TransactionInfo(username,receiverId,amount,comment);
+                    //transaction.setToken(token);
+                    //transaction.sendInfoToDb(Donation.this, new VolleyCallBack() {
+                        //@Override
                         //only go to donation status if success
+                        //public void onSuccess() {
+                            //Intent intent=new Intent();
+                           // intent.setClass(Donation.this, DonationStatus.class);
+                           // startActivity(intent);
+                        //}
+                    //});
+                    //new method using Transaction:
+                    Transaction transaction=new Transaction();
+                    transaction.makeDnDonationTransaction(receiverId, comment, amount,
+                            Donation.this, new VolleyCallBack() {
+                        @Override
                         public void onSuccess() {
                             Intent intent=new Intent();
                             intent.setClass(Donation.this, DonationStatus.class);
