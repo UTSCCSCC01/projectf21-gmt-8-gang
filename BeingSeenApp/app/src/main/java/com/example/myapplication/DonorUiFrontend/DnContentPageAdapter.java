@@ -1,11 +1,9 @@
 package com.example.myapplication.DonorUiFrontend;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +18,10 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
     ArrayList<DnContentPageModel> models;
 //    private AdapterView.OnItemClickListener listener;
     private ContentPageRecyclerViewClickListener listener;
+    public interface ContentPageRecyclerViewClickListener {
+        void onClick(View v, int position);
+    }
+
 
     public DnContentPageAdapter(Context context, ArrayList<DnContentPageModel> models, ContentPageRecyclerViewClickListener listener) {
         this.context = context;
@@ -48,8 +50,4 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
         return models.size();
     }
 
-
-    public interface ContentPageRecyclerViewClickListener {
-        void onClick(View v, int position);
-    }
 }

@@ -7,17 +7,19 @@
     app:cardCornerRadius="3dp"
     app:cardElevation="3dp"
     app:cardUserCompatPadding="true"
-    app:ignore="NamespaceTypo">
+    app:ignore="NamespaceTypo"
+    >
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="255dp"
-        android:padding="16dp">
+        android:padding="16dp"
+        >
 
         <ImageView
             android:id="@+id/proPic"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="86dp"
+            android:layout_height="80dp"
             android:contentDescription="profile picture"
             android:src="@drawable/profile" />
 

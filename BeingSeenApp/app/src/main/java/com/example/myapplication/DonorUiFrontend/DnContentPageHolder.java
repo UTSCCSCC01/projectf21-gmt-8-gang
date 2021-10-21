@@ -1,8 +1,6 @@
 package com.example.myapplication.DonorUiFrontend;
 
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,8 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
-
-import org.w3c.dom.Text;
 
 public class DnContentPageHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
