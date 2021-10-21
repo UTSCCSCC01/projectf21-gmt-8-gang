@@ -17,14 +17,7 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
 
     Context context;
     ArrayList<DnContentPageModel> models;
-    private OnItemClickListener listener;
-
-    public interface OnItemClickListener {
-        void onItemClick(int position);
-    }
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
-    }
+    private AdapterView.OnItemClickListener listener;
 
     public DnContentPageAdapter(Context context, ArrayList<DnContentPageModel> models) {
         this.context = context;

@@ -33,6 +33,6 @@ public class DnContentPageModel {
     }
 
     public void setDescription(String description) {
-        this.name = name;
+        this.description = description;
     }
 }

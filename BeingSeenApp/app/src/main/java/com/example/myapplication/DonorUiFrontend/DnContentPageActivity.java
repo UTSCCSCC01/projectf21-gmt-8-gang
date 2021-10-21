@@ -1,13 +1,11 @@
 package com.example.myapplication.DonorUiFrontend;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.HomelessYouthUiFrontend.HyLoginActivity;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
@@ -16,6 +14,7 @@ public class DnContentPageActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DnContentPageAdapter adapter;
+    DnContentPageHolder holder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +27,13 @@ public class DnContentPageActivity extends AppCompatActivity {
         adapter = new DnContentPageAdapter(this, getModels());
         recyclerView.setAdapter(adapter);
 
-        adapter.setOnItemClickListener(new DnContentPageAdapter().OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-//                Intent i = new Intent(DnContentPageActivity.getApplicationContext(), HyLoginActivity.class);
-//                DnContentPageActivity.startActivity(i);
-            }
-        });
+//        holder.setOnItemClickListener(new DnContentPageAdapter().OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position) {
+//                Intent i = new Intent(getApplicationContext(), HyLoginActivity.class);
+//                startActivity(i);
+//            }
+//        });
     }
 
     private ArrayList<DnContentPageModel> getModels() {
@@ -44,18 +43,21 @@ public class DnContentPageActivity extends AppCompatActivity {
         model.setImg(R.drawable.profile);
         model.setName("homeless youth's name");
         model.setTitle("i wanna pay for job training");
+        model.setDescription("how i spend the money");
         models.add(model);
 
         model = new DnContentPageModel();
         model.setImg(R.drawable.profile);
         model.setName("homeless youth's name 2");
         model.setTitle("i wanna pay for job training");
+        model.setDescription("how i spend the money");
         models.add(model);
 
         model = new DnContentPageModel();
         model.setImg(R.drawable.profile);
         model.setName("homeless youth's name 3");
         model.setTitle("i wanna pay for job training");
+        model.setDescription("how i spend the money");
         models.add(model);
 
         return models;

@@ -10,17 +10,16 @@
     app:ignore="NamespaceTypo">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        >
+        android:layout_width="wrap_content"
+        android:layout_height="255dp"
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/proPic"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:src="@drawable/profile"
-            android:contentDescription="profile picture" />
+            android:contentDescription="profile picture"
+            android:src="@drawable/profile" />
 
         <TextView
             android:id="@+id/homelessUsername"
@@ -45,12 +44,33 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/goalTitle"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="21dp"
+            android:text="percentage"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="395dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/goalTitle"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@id/progress"
+            android:progressTint="@color/green" />
+
+        <TextView
             android:id="@+id/gDescription"
             android:layout_width="395dp"
-            android:layout_height="54dp"
-            android:layout_below="@id/goalTitle"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="80dp"
+            android:layout_below="@id/progressBar"
+            android:layout_alignParentBottom="true"
             android:text="description"
             android:textColor="@color/black"
             android:textSize="20sp" />
