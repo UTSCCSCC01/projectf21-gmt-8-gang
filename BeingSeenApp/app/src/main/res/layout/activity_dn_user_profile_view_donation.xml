@@ -18,7 +18,7 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/searchPhoto"
+        android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +46,7 @@
 
 
     <Button
-        android:id="@+id/search_back"
+        android:id="@+id/DnPfLogoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.01" />
 
     <TextView
-        android:id="@+id/searchNameDisplay"
+        android:id="@+id/DnPfUnameDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -72,7 +72,7 @@
         />
 
     <TextView
-        android:id="@+id/searchUdescDisplay"
+        android:id="@+id/DnPfUdescDisplay"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
