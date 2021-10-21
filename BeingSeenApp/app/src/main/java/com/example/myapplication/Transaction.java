@@ -82,11 +82,11 @@ public class Transaction {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url + name_sender, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                Log.d("RESPONSE_VAR", "Transaction DN called properly");
+                Log.d("RESPONSE_VAR", "Transaction called properly");
                     try {
                         JSONArray jsonTransactions = new JSONArray(response);
-                        Log.d("Transaction_VAR","TRANSACTION DN Worked1");
+                        Log.d("Transaction_VAR","TRANSACTION Worked1");
+
 
                         List<String> temp_receivers = new ArrayList<String>();
                         List<Long> temp_amounts = new ArrayList<Long>();
@@ -138,17 +138,20 @@ public class Transaction {
         // a simple API to test if we can connect to backend
         String url = "http://10.0.2.2:8080/transaction/receiver?username=";
         String name_receiver = ProfileInfo.getAccountName();
+        Log.d("TRANS_VAR", name_receiver);
+
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url + name_receiver, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
-                Log.d("RESPONSE_VAR", "Transaction HY called properly");
+
+                Log.d("RESPONSE_VAR", "Transaction called properly");
                 try {
                     JSONArray jsonTransactions = new JSONArray(response);
-                    Log.d("Transaction_VAR","TRANSACTION HY Worked1");
-
+                    Log.d("Transaction_VAR","TRANSACTION Worked1");
+                  
                     List<String> temp_senders = new ArrayList<String>();
                     List<Long> temp_amounts = new ArrayList<Long>();
                     for (int i = 0; i <jsonTransactions.length(); i++) {
@@ -162,7 +165,7 @@ public class Transaction {
                         temp_amounts.add(amount);
                         setAmounts(temp_amounts);
                     }
-                   callBack.onSuccess();
+                    callBack.onSuccess();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
