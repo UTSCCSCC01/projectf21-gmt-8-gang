@@ -18,8 +18,6 @@ import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
 
-import org.w3c.dom.Text;
-
 public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +37,18 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
+        //Button that brings donors to the content page
+        final Button contentPage = (Button) findViewById(R.id.DnContentButton);
+
+        contentPage.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), DnContentPageActivity.class);
+                startActivity(i);
+            }
+        });
 
         /// Set photo and string and stuff based on nav from prev
         Intent intent = getIntent();

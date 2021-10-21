@@ -47,6 +47,18 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
             }
         });
 
+        //Button that brings donors to the content page
+        final Button contentPage = (Button) findViewById(R.id.DnContentButton);
+
+        contentPage.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), DnContentPageActivity.class);
+                startActivity(i);
+            }
+        });
 
         //when db setup
         ProfileInfo profileInf = new ProfileInfo();

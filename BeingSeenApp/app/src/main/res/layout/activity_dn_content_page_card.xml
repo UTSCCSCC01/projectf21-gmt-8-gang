@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardUserCompatPadding="true"
+    app:ignore="NamespaceTypo">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/proPic"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/profile"
+            android:contentDescription="profile picture" />
+
+        <TextView
+            android:id="@+id/homelessUsername"
+            android:layout_width="395dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/proPic"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/goalTitle"
+            android:layout_width="395dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/homelessUsername"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/proPic"
+            android:text="Title"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/gDescription"
+            android:layout_width="395dp"
+            android:layout_height="54dp"
+            android:layout_below="@id/goalTitle"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:text="description"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
