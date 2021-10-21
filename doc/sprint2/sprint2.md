@@ -39,6 +39,8 @@ User story 86)As Willow England (A donor), I would like to access content page s
 -Content page Backend for donation goals (Assigned to Angus)
 -Donation goal DB (Assigned to Angus)
 
+User story 99)Final check for demo (Assigned to Suguru)
+
 User story 104)Update so that multiple transactions will be shown in profile (Assigned to Angus)
 
 User story 105)Documentation related tasks for sprint2 (Assigned to Andreas)
