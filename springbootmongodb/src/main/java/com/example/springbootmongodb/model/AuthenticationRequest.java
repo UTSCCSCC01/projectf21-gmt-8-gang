@@ -1,4 +1,4 @@
-package com.example.springbootmongodb.request;
+package com.example.springbootmongodb.model;
 
 public class AuthenticationRequest {
 

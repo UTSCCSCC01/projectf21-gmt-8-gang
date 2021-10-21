@@ -11,26 +11,18 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.Adapters.TransactionRecyclerAdapter;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 
-import java.util.List;
-
 public class HyUserProfileViewDonationActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hy_user_profile_view_donation);
-        recyclerView = findViewById(R.id.hy_donations_recycler_view);
 
         //Logout button
         final Button button = (Button) findViewById(R.id.HyPfLogoutButton);
@@ -41,19 +33,6 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-            }
-        });
-
-        //Button for creating donation goal
-        final Button setGoal = (Button) findViewById(R.id.SetGoal);
-
-        setGoal.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(getApplicationContext(), HySetDonationGoalActivity.class);
                 startActivity(i);
             }
         });
@@ -91,16 +70,6 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
             }
         });
 
-        //Retrieving donation info from DB
-        Transaction transactionInfo = new Transaction();
-        transactionInfo.getHyTransactionFromDb(this,
-                new VolleyCallBack() {
-                    @Override
-                    public void onSuccess() {
-                        setAdapter();
-                    }
-                });
-
         Switch profileSwitch = (Switch) findViewById(R.id.ProfileSwitch);
         profileSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -115,21 +84,6 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    private void setAdapter() {
-        //fetch list of receivers and amounts from transaction DB
-        List<String> senders = Transaction.getSenders();
-        List<Long> amounts = Transaction.getAmounts();
-
-        // if data is null then return??? (not sure)
-
-        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(senders, amounts, "HOMELESS");
-        // sets the layout, default animator, and adapter of recycler view
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        //recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
     }
 
 }

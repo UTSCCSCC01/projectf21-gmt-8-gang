@@ -1,4 +1,4 @@
-package com.example.springbootmongodb.response;
+package com.example.springbootmongodb.model;
 
 public class AppUserResponse {
     private String userName;
@@ -48,5 +48,4 @@ public class AppUserResponse {
     public void setBalance(Long balance) {
         this.balance = balance;
     }
-
 }

@@ -1,4 +1,4 @@
-package com.example.springbootmongodb.response;
+package com.example.springbootmongodb.model;
 
 public class AuthenticationResponse {
     private String response;

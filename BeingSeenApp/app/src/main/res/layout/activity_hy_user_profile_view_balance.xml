@@ -42,21 +42,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/SetGoal"
-        android:layout_width="110dp"
-        android:layout_height="65dp"
-        android:text="Set Donation Goal"
-        android:textSize="12dp"
-        android:gravity="left"
-        android:textAlignment="gravity"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
     <Button
         android:id="@+id/HyPfLogoutButton"
@@ -128,15 +113,15 @@
         />
 
     <TextView
-        android:id="@+id/hyPfBalance"
-        android:layout_width="200dp"
+        android:id="@+id/textCreditAmount"
+        android:layout_width="122dp"
         android:layout_height="81dp"
-        android:text="N/A"
+        android:text="250"
         android:textSize="70dp"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.75" />
@@ -145,12 +130,12 @@
         android:id="@+id/textCreditUnit"
         android:layout_width="122dp"
         android:layout_height="81dp"
-        android:text="Credit(s) to spend"
+        android:text="Credit(s)"
         android:textSize="20dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.83" />

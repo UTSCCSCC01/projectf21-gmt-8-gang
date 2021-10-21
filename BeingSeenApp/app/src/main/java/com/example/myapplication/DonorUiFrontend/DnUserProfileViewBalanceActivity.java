@@ -37,19 +37,6 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
-        //donate to someone button
-        final Button donateButton = (Button) findViewById(R.id.donateToSomeone);
-
-        donateButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(getApplicationContext(), DnUserDonoActivity.class);
-                startActivity(i);
-            }
-        });
-
 
         /// Set photo and string and stuff based on nav from prev
         Intent intent = getIntent();
@@ -64,9 +51,9 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             TextView usernameTextboxInfo = (TextView) findViewById(R.id.searchNameDisplay);
             TextView descriptionTextboxInfo = (TextView) findViewById(R.id.searchUdescDisplay);
 
-            currentProfilePhoto.setImageBitmap(bmp);
             usernameTextboxInfo.setText(uname);
             descriptionTextboxInfo.setText(desc);
+            currentProfilePhoto.setImageBitmap(bmp);
         }
 
 
@@ -75,22 +62,19 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
         //when db setup
         ProfileInfo profileInf = new ProfileInfo();
 
-        ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
-        TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
-        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
-        TextView balanceTextbookInfo = (TextView)findViewById(R.id.dnPfBalance);
+        ImageView currentProfilePhoto = (ImageView) findViewById(R.id.searchPhoto);
+        TextView usernameTextboxInfo = (TextView) findViewById(R.id.searchNameDisplay);
+        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.searchUdescDisplay);
 
         profileInf.getInfoFromDb(this,
                 new VolleyCallBack() {
                     @Override
                     public void onSuccess() {
-                        Log.d("RESPONSE_VAR_AFTER", "DN Username received as " + profileInf.getUsername());
+                        Log.d("RESPONSE_VAR_AFTER", "Username received as " + profileInf.getUsername());
 
                         usernameTextboxInfo.setText(profileInf.getUsername());
                         descriptionTextboxInfo.setText(profileInf.getUserDescription());
                         currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
-                        balanceTextbookInfo.setText(profileInf.getBalance());
-
                     }
                 });
 
