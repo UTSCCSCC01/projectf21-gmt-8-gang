@@ -11,6 +11,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
+import com.example.myapplication.ProfileInfo;
+import com.example.myapplication.VolleyCallBack;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,12 +52,28 @@ public class HyLoginModel {
                 //if (volleyResponse != null) {
                     volleyResponse.onVolleySuccess(response);
                     Log.i(LOGIN_TAG, "hy login request succeed yay, response: " + response);
-                    Intent i = new Intent(hyLoginActivity.getApplicationContext(), HyUserInterfaceActivity.class);
+
+                    Intent i;
+
+                    try{
+                        String urole = response.getString("code");
+                        Log.i("UROLE CODE", urole);
+                        if (urole.equals("ROLE_DONOR")){
+                            i = new Intent(hyLoginActivity.getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                        }
+                        else if(urole.equals("ROLE_HOMELESS")){
+                            i = new Intent(hyLoginActivity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                        }
+                        else{
+                            throw new Exception();
+                        }
+                    }catch(Exception e){
+                        Log.i("UROLE FAIL", "Urole get failed");
+                        i = new Intent(hyLoginActivity.getApplicationContext(), HyUserInterfaceActivity.class);
+                    }
+
                     hyLoginActivity.startActivity(i);
                     return;
-                /*} else {
-                    Toast.makeText(hyLoginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
-                }*/
             }
         }, new Response.ErrorListener() {
             @Override
@@ -70,22 +89,6 @@ public class HyLoginModel {
                 headers.put("Authorization", "Bearer");
                 return headers;
             }
-
-//            @Override
-//            public Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<String, String>();
-//                try {
-//                    params.put("username", username);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                try {
-//                    params.put("password", password);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                return params;
-//            }
         };
 
         queue.add(jsonObjectRequest);
