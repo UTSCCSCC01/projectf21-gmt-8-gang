@@ -11,19 +11,26 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.Adapters.TransactionRecyclerAdapter;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 
+import java.util.List;
+
 public class HyUserProfileViewDonationActivity extends AppCompatActivity {
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hy_user_profile_view_donation);
+        recyclerView = findViewById(R.id.hy_donations_recycler_view);
 
         //Logout button
         final Button button = (Button) findViewById(R.id.HyPfLogoutButton);
@@ -85,22 +92,31 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
         });
 
         //Retrieving donation info from DB
+//        Transaction transactionInfo = new Transaction();
+//
+//        TextView homelessAmountInfo = (TextView) findViewById(R.id.SetHyAmount1);
+//        TextView senderInfo = (TextView) findViewById(R.id.SetSender1);
+//
+//        transactionInfo.getHyTransactionFromDb(this,
+//                new VolleyCallBack() {
+//                    @Override
+//                    public void onSuccess() {
+//                        Log.d("RESPONSE_VAR_AFTER", "Transaction display go");
+//                        Log.d("Transaction_DEVVAR",transactionInfo.getSenders().get(0).toString());
+//
+//                        homelessAmountInfo.setText(String.valueOf(transactionInfo.getAmounts().get(0)) + " credits");
+//                        senderInfo.setText("From   " + transactionInfo.getSenders().get(0));
+//
+//
+//                    }
+//                });
+//      Retrieving donation info from DB
         Transaction transactionInfo = new Transaction();
-
-        TextView homelessAmountInfo = (TextView) findViewById(R.id.SetHyAmount1);
-        TextView senderInfo = (TextView) findViewById(R.id.SetSender1);
-
         transactionInfo.getHyTransactionFromDb(this,
                 new VolleyCallBack() {
                     @Override
                     public void onSuccess() {
-                        Log.d("RESPONSE_VAR_AFTER", "Transaction display go");
-                        Log.d("Transaction_DEVVAR",transactionInfo.getSenders().get(0).toString());
-
-                        homelessAmountInfo.setText(String.valueOf(transactionInfo.getAmounts().get(0)) + " credits");
-                        senderInfo.setText("From   " + transactionInfo.getSenders().get(0));
-
-
+                        setAdapter();
                     }
                 });
 
@@ -118,6 +134,21 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void setAdapter() {
+        //fetch list of receivers and amounts from transaction DB
+        List<String> senders = Transaction.getSenders();
+        List<Long> amounts = Transaction.getAmounts();
+
+        // if data is null then return??? (not sure)
+
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(senders, amounts, "HOMELESS");
+        // sets the layout, default animator, and adapter of recycler view
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
     }
 
 }

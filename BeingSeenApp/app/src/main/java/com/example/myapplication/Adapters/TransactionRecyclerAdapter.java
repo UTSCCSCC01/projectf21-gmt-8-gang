@@ -22,22 +22,24 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
 
     // we still need this even if schecule.timeSlots is type ArrayList because otherwise the
     // program will crash if the list is too long and we have booked items out of view (when scrolling)
-    private List<String> receivers;
+    private List<String> people;
     private List<Long> amounts;
+    String userRole;
 
-    public TransactionRecyclerAdapter(List<String> receivers, List<Long> amounts) {
-        this.receivers = receivers;
+    public TransactionRecyclerAdapter(List<String> people, List<Long> amounts, String userRole) {
+        this.people = people;
         this.amounts = amounts;
+        this.userRole = userRole;
     }
 
     // represents a recycler item
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
-        private TextView receiverField;
+        private TextView peopleField;
         private TextView amountField;
 
         public RecyclerViewHolder(final View view) {
             super(view);
-            receiverField = view.findViewById(R.id.transactions_receiver_recycler_item);
+            peopleField = view.findViewById(R.id.transactions_receiver_recycler_item);
             amountField = view.findViewById(R.id.transactions_amount_recycler_item);
             // we can set click-related stuff here
         }
@@ -54,9 +56,13 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
     // when binding the view holder to a timeSlot
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        String receiver = "To " + receivers.get(position);             // current receiver
+        String person = "";
+        if (userRole.equals("DONOR"))
+            person = "To " + people.get(position);             // current receiver
+        else if (userRole.equals("HOMELESS"))
+            person = "From " + people.get(position);            // current sender
         String amount = amounts.get(position).toString() + " Credit(s)";
-        holder.receiverField.setText(receiver);
+        holder.peopleField.setText(person);
         holder.amountField.setText(amount);
     }
 

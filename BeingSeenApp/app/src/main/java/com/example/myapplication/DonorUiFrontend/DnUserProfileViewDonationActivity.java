@@ -90,7 +90,6 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess() {
                         setAdapter();
-
                     }
                 });
 
@@ -115,14 +114,12 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
 
     private void setAdapter() {
         //fetch list of receivers and amounts from transaction DB
-        List<String> receivers;
-        receivers = Transaction.getReceivers();
-        List<Long> amounts;
-        amounts = Transaction.getAmounts();
+        List<String> receivers = Transaction.getReceivers();
+        List<Long> amounts = Transaction.getAmounts();
 
+        // if data is null then return?
 
-        // if data is null then return
-        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts);
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts, "DONOR");
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
