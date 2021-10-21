@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.HomelessYouthUiFrontend.HyLoginActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
+import com.example.myapplication.SearchUI.SearchPage;
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -103,6 +105,19 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), HySignUpActivity.class);
                 startActivity(i);
 
+            }
+        });
+
+        //Search Button code
+        final ImageButton search = (ImageButton) findViewById(R.id.searchButton);
+
+        search.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent();
+                intent.setClass(MainActivity.this, SearchPage.class);
+                startActivity(intent);
             }
         });
 
