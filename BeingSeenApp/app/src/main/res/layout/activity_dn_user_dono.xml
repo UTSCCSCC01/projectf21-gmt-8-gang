@@ -78,6 +78,7 @@
         android:minHeight="?actionBarSize"
         android:maxHeight="?actionBarSize"
         android:hint="Enter a donation message"
+        android:background="@drawable/border"
         android:gravity="top|left"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -89,12 +90,12 @@
 
     <EditText
         android:id="@+id/donateUsername"
-        android:layout_width="92dp"
-        android:layout_height="56dp"
+        android:layout_width="99dp"
+        android:layout_height="38dp"
         android:gravity="top|left"
+        android:hint="Username"
         android:maxHeight="?actionBarSize"
         android:minHeight="?actionBarSize"
-        android:hint="User to donate to"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,11 +109,13 @@
         android:id="@+id/dnDonoAmt"
         android:layout_width="204dp"
         android:layout_height="51dp"
-        android:minHeight="?actionBarSize"
-        android:maxHeight="?actionBarSize"
+        android:paddingTop="1dp"
+        android:paddingLeft="1dp"
         android:gravity="top|left"
         android:hint="Enter a donation amount"
         android:inputType="number"
+        android:maxHeight="?actionBarSize"
+        android:minHeight="?actionBarSize"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -120,6 +123,6 @@
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741" />
+        app:layout_constraintVertical_bias="0.77" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
