@@ -22,6 +22,9 @@
             android:name=".SearchUI.SearchPage"
             android:exported="true" />
         <activity
+            android:name=".DonorUiFrontend.DnUserDonoActivity"
+            android:exported="true" />
+        <activity
             android:name=".HomelessYouthUiFrontend.HySignUpActivity"
             android:exported="true" />
         <activity
