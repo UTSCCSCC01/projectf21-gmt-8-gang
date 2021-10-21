@@ -35,7 +35,7 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
 
 
         //Logout button
-        final Button button = (Button) findViewById(R.id.DnPfLogoutButton);
+        final Button button = (Button) findViewById(R.id.search_back);
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -51,9 +51,9 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
         //when db setup
         ProfileInfo profileInf = new ProfileInfo();
 
-        ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
-        TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
-        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
+        ImageView currentProfilePhoto = (ImageView) findViewById(R.id.searchPhoto);
+        TextView usernameTextboxInfo = (TextView) findViewById(R.id.searchNameDisplay);
+        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.searchUdescDisplay);
 
         profileInf.getInfoFromDb(this,
                 new VolleyCallBack() {
