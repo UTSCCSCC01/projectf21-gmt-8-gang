@@ -36,11 +36,13 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
         private TextView peopleField;
         private TextView amountField;
+        private TextView noTransactionField;
 
         public RecyclerViewHolder(final View view) {
             super(view);
             peopleField = view.findViewById(R.id.transactions_receiver_recycler_item);
             amountField = view.findViewById(R.id.transactions_amount_recycler_item);
+            noTransactionField = view.findViewById(R.id.no_transaction_recycler_tiem);
             // we can set click-related stuff here
         }
     }
@@ -56,6 +58,16 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
     // when binding the view holder to a timeSlot
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
+        if (amounts == null) {
+            if (userRole.equals("DONOR"))
+                holder.noTransactionField.setText("You have no donations yet, go help homeless youth!");
+            else if (userRole.equals("HOMELESS"))
+                holder.noTransactionField.setText("You have no donations yet, try setting up profile!");
+            holder.peopleField.setText("");
+            holder.amountField.setText("");
+            return;
+        }
+
         String person = "";
         if (userRole.equals("DONOR"))
             person = "To " + people.get(position);             // current receiver
@@ -64,10 +76,13 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
         String amount = amounts.get(position).toString() + " Credit(s)";
         holder.peopleField.setText(person);
         holder.amountField.setText(amount);
+        holder.noTransactionField.setText("");
     }
 
     @Override
     public int getItemCount() {
+        if (amounts == null)
+            return 1;
         return amounts.size();
     }
 }
