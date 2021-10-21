@@ -74,14 +74,11 @@ public class HyLoginModel {
 
                     hyLoginActivity.startActivity(i);
                     return;
-                /*} else {
-                    Toast.makeText(hyLoginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
-                }*/
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError e) {
-//                Toast.makeText(hyLoginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
+                Toast.makeText(hyLoginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
                 Log.i(LOGIN_TAG, "hy login request failed qwq, error: " + e.getMessage());
             }
         }) {
@@ -92,22 +89,6 @@ public class HyLoginModel {
                 headers.put("Authorization", "Bearer");
                 return headers;
             }
-
-//            @Override
-//            public Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<String, String>();
-//                try {
-//                    params.put("username", username);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                try {
-//                    params.put("password", password);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                return params;
-//            }
         };
 
         queue.add(jsonObjectRequest);
