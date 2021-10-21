@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DonorUiFrontend.DnUserDonationActivity">
+    tools:context=".DonorUiFrontend.DnUserDonoActivity">
 
     <RelativeLayout
         android:id="@+id/textView"
@@ -18,37 +18,22 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/DnPickImage"
+        android:id="@+id/imageHy"
         android:layout_width="150dp"
         android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/profile"
+        app:layout_constraintVertical_bias="0.1"
         tools:srcCompat="@tools:sample/avatars" />
 
 
-    <ImageButton
-        android:id="@+id/DnEditIcon"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="100dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/editpen"
-        app:layout_constraintBottom_toBottomOf="@+id/DnPickImage"
-        app:layout_constraintEnd_toEndOf="@+id/DnPickImage"
-        app:layout_constraintStart_toStartOf="@+id/DnPickImage"
-        app:layout_constraintTop_toTopOf="@+id/DnPickImage"
-        app:layout_constraintVertical_bias="0.951"
-        style="?android:attr/borderlessButtonStyle"/>
-
-
     <Button
-        android:id="@+id/DnPfBackEditButton"
+        android:id="@+id/DnDonateBackEditButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
@@ -60,7 +45,7 @@
         app:layout_constraintVertical_bias="0.01" />
 
     <Button
-        android:id="@+id/donateButton"
+        android:id="@+id/donateConfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Donate!"
@@ -73,14 +58,15 @@
 
     <TextView
         android:id="@+id/DonateToText"
-        android:layout_width="307dp"
-        android:layout_height="45dp"
-        android:text="Donate to this user"
+        android:layout_width="151dp"
+        android:layout_height="39dp"
+        android:text="Donate to this user: "
         android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.403" />
@@ -89,7 +75,9 @@
         android:id="@+id/DnDonoText"
         android:layout_width="315dp"
         android:layout_height="128dp"
-        android:text="Enter a donation message"
+        android:minHeight="?actionBarSize"
+        android:maxHeight="?actionBarSize"
+        android:hint="Enter a donation message"
         android:gravity="top|left"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -100,11 +88,31 @@
         app:layout_constraintVertical_bias="0.592" />
 
     <EditText
-        android:id="@+id/dnDonoText"
+        android:id="@+id/donateUsername"
+        android:layout_width="92dp"
+        android:layout_height="56dp"
+        android:gravity="top|left"
+        android:maxHeight="?actionBarSize"
+        android:minHeight="?actionBarSize"
+        android:hint="User to donate to"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.401" />
+
+    <EditText
+        android:id="@+id/dnDonoAmt"
         android:layout_width="204dp"
         android:layout_height="51dp"
+        android:minHeight="?actionBarSize"
+        android:maxHeight="?actionBarSize"
         android:gravity="top|left"
-        android:text="Enter a donation amount"
+        android:hint="Enter a donation amount"
+        android:inputType="number"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
