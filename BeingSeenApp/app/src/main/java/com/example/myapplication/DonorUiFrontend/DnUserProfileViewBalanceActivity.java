@@ -18,8 +18,6 @@ import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
 
-import org.w3c.dom.Text;
-
 public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +33,19 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+        //donate to someone button
+        final Button donateButton = (Button) findViewById(R.id.donateToSomeone);
+
+        donateButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), DnUserDonoActivity.class);
                 startActivity(i);
             }
         });
