@@ -81,7 +81,6 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
             }
         });
 
-
         //Retrieving donation info from DB
         Transaction transactionInfo = new Transaction();
 
@@ -92,8 +91,6 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
                         setAdapter();
                     }
                 });
-
-
 
 
         Switch profileSwitch = (Switch) findViewById(R.id.ProfileSwitch);

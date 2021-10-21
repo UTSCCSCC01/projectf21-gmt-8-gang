@@ -61,13 +61,6 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
 
                 ProfileInfo pfObj = new ProfileInfo(username, desc, profilePic);
 
-//                Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
-//
-//                /// Only for now, in future need to save as pf object and store it in mongo
-//                i.putExtra("uname", username);
-//                i.putExtra("desc", desc);
-//                i.putExtra("pfp", profilePic);
-//                startActivity(i);
 
                 pfObj.sendInfoToDb(DnUserProfileEditActivity.this,
                         new VolleyCallBack() {
@@ -76,10 +69,6 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
 
                                 Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
 
-                                /// Only for now, in future need to save as pf object and store it in mongo
-//                i.putExtra("uname", username);
-//                i.putExtra("desc", desc);
-//                i.putExtra("pfp", profilePic);
                                 startActivity(i);
                             }
                         });

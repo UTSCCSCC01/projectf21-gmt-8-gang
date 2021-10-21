@@ -185,7 +185,7 @@ public class ProfileInfo {
                 Log.d("GET_HEADER", "Made call to getHeaders");
                 Map<String, String>  params = new HashMap<String, String>();
                 String token = ProfileInfo.getToken();
-                Log.d("RESPONSE_VAR", token);
+                //Log.d("RESPONSE_VAR", token);
                 params.put("Authorization", token);
                 return params;
             }

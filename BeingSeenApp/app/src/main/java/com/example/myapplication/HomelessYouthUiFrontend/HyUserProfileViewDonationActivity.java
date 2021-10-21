@@ -92,25 +92,6 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
         });
 
         //Retrieving donation info from DB
-//        Transaction transactionInfo = new Transaction();
-//
-//        TextView homelessAmountInfo = (TextView) findViewById(R.id.SetHyAmount1);
-//        TextView senderInfo = (TextView) findViewById(R.id.SetSender1);
-//
-//        transactionInfo.getHyTransactionFromDb(this,
-//                new VolleyCallBack() {
-//                    @Override
-//                    public void onSuccess() {
-//                        Log.d("RESPONSE_VAR_AFTER", "Transaction display go");
-//                        Log.d("Transaction_DEVVAR",transactionInfo.getSenders().get(0).toString());
-//
-//                        homelessAmountInfo.setText(String.valueOf(transactionInfo.getAmounts().get(0)) + " credits");
-//                        senderInfo.setText("From   " + transactionInfo.getSenders().get(0));
-//
-//
-//                    }
-//                });
-//      Retrieving donation info from DB
         Transaction transactionInfo = new Transaction();
         transactionInfo.getHyTransactionFromDb(this,
                 new VolleyCallBack() {

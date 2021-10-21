@@ -67,11 +67,11 @@ public class Transaction {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url + name_sender, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
                 Log.d("RESPONSE_VAR", "Transaction called properly");
                     try {
                         JSONArray jsonTransactions = new JSONArray(response);
                         Log.d("Transaction_VAR","TRANSACTION Worked1");
+
 
                         List<String> temp_receivers = new ArrayList<String>();
                         List<Long> temp_amounts = new ArrayList<Long>();
@@ -125,16 +125,18 @@ public class Transaction {
         String name_receiver = ProfileInfo.getAccountName();
         Log.d("TRANS_VAR", name_receiver);
 
+
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url + name_receiver, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
+
                 Log.d("RESPONSE_VAR", "Transaction called properly");
                 try {
                     JSONArray jsonTransactions = new JSONArray(response);
                     Log.d("Transaction_VAR","TRANSACTION Worked1");
-
+                  
                     List<String> temp_senders = new ArrayList<String>();
                     List<Long> temp_amounts = new ArrayList<Long>();
                     for (int i = 0; i <jsonTransactions.length(); i++) {
