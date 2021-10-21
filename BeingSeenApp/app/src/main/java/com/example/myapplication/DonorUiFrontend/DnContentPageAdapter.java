@@ -1,6 +1,7 @@
 package com.example.myapplication.DonorUiFrontend;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +18,13 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
 
     Context context;
     ArrayList<DnContentPageModel> models;
-    private AdapterView.OnItemClickListener listener;
+//    private AdapterView.OnItemClickListener listener;
+    private ContentPageRecyclerViewClickListener listener;
 
-    public DnContentPageAdapter(Context context, ArrayList<DnContentPageModel> models) {
+    public DnContentPageAdapter(Context context, ArrayList<DnContentPageModel> models, ContentPageRecyclerViewClickListener listener) {
         this.context = context;
         this.models = models;
+        this.listener = listener;
     }
 
     @NonNull
@@ -43,5 +46,10 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
     @Override
     public int getItemCount() {
         return models.size();
+    }
+
+
+    public interface ContentPageRecyclerViewClickListener {
+        void onClick(View v, int position);
     }
 }

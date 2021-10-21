@@ -1,6 +1,8 @@
 package com.example.myapplication.DonorUiFrontend;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +17,7 @@ public class DnContentPageActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DnContentPageAdapter adapter;
     DnContentPageHolder holder;
+    private DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +27,20 @@ public class DnContentPageActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new DnContentPageAdapter(this, getModels());
+        setOnClickListener();
+        adapter = new DnContentPageAdapter(this, getModels(), listener);
         recyclerView.setAdapter(adapter);
 
-//        holder.setOnItemClickListener(new DnContentPageAdapter().OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position) {
-//                Intent i = new Intent(getApplicationContext(), HyLoginActivity.class);
-//                startActivity(i);
-//            }
-//        });
+    }
+
+    private void setOnClickListener() {
+        listener = new DnContentPageAdapter.ContentPageRecyclerViewClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Log.i("suppp", "we clicked, position: " + position + ", user: "
+                + getModels().get(position).getName());
+            }
+        };
     }
 
     private ArrayList<DnContentPageModel> getModels() {
