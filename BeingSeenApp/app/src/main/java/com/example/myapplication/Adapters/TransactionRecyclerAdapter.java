@@ -43,7 +43,6 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
             peopleField = view.findViewById(R.id.transactions_receiver_recycler_item);
             amountField = view.findViewById(R.id.transactions_amount_recycler_item);
             noTransactionField = view.findViewById(R.id.no_transaction_recycler_tiem);
-            // we can set click-related stuff here
         }
     }
 
