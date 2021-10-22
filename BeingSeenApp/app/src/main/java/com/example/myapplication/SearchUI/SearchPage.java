@@ -34,7 +34,7 @@ public class SearchPage extends AppCompatActivity {
                 else{
                     Intent intent=new Intent();
                     intent.setClass(SearchPage.this, SearchResult.class);
-                    intent.putExtra("Username",target);
+                    intent.putExtra("Username", target);
                     startActivity(intent);
                 }
             }

@@ -124,8 +124,6 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
                     }
                 });
 
-
-
         //Edit profile
         final Button EditPfButton = (Button) findViewById(R.id.HyEditPfButton);
 

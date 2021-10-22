@@ -16,10 +16,12 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,6 +30,7 @@ import java.io.Serializable;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +44,11 @@ public class ProfileInfo implements Serializable {
     static String profileImage;
     static String balance;
     static String userRole;
+    static String searchUsername;
+    static String searchDescription;
+    static String searchProfileImage;
+    static String searchIdName;
+
 
     public static String getToken() {
         return token;
@@ -56,6 +64,26 @@ public class ProfileInfo implements Serializable {
 
     public static String getUsername() {
         return username;
+    }
+
+    public static String getSearchIdName() {
+        return searchIdName;
+    }
+
+    public static String getSearchUsername() {
+        return searchUsername;
+    }
+
+    public static void setSearchIdName(String IdName) {
+        ProfileInfo.searchIdName = IdName;
+    }
+
+    public static String getSearchDescription() {
+        return searchDescription;
+    }
+
+    public static String getSearchProfileImage() {
+        return searchProfileImage;
     }
 
     public void setUsername(String username) {
@@ -338,4 +366,57 @@ public class ProfileInfo implements Serializable {
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
     }
-}
+
+    public void searchHomeless(AppCompatActivity callingActivity, final VolleyCallBack callBack){
+
+        RequestQueue queue = Volley.newRequestQueue(callingActivity);
+
+        // a simple API to test if we can connect to backend
+        String url = "http://10.0.2.2:8080/search?username=";
+        String name_search = this.getSearchIdName();
+        Log.d("TRANS_VAR", name_search);
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url + name_search,
+                    response -> {
+
+                        Log.d("RESPONSE_VAR", "Reponse search called properly");
+
+                        JSONObject jsonItem;
+                        try {
+                            jsonItem = new JSONObject(response);
+//                     JSONObject jsonItem = null;
+//                     try {
+//                         jsonItem = new JSONObject(response);
+
+                            String pfString = jsonItem.getString("profileInfo");
+                            JSONObject profileDBInf = new JSONObject(pfString);
+                            this.searchUsername = profileDBInf.getString("name");
+                            this.searchDescription = profileDBInf.getString("bio");
+                            this.searchProfileImage = profileDBInf.getString("photo");
+
+
+                            Log.d("RESPONSE_VAR", "Username received as "+this.username);
+                            callBack.onSuccess();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }, error -> this.username = "ERROR")
+            {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Log.d("GET_HEADER", "Made call to getHeaders");
+                    Map<String, String>  params = new HashMap<String, String>();
+                    String token = ProfileInfo.getToken();
+                    //Log.d("RESPONSE_VAR", token);
+                    params.put("Content-Type", "application/json");
+                    params.put("Authorization", token);
+                    return params;
+                }
+            };
+
+            // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+        }
+    }
+

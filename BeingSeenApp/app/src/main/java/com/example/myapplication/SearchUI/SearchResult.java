@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -11,8 +12,11 @@ import android.widget.TextView;
 
 import com.example.myapplication.AboutUsFrontend.Donation;
 import com.example.myapplication.AboutUsFrontend.DonationStatus;
+import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileEditActivity;
 import com.example.myapplication.MainActivity;
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.VolleyCallBack;
 
 import org.w3c.dom.Text;
 
@@ -33,10 +37,26 @@ public class SearchResult extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(SearchResult.this, MainActivity.class);
+                intent.setClass(SearchResult.this, SearchPage.class);
                 startActivity(intent);
             }
         });
+
+        ProfileInfo profileInf = new ProfileInfo();
+        profileInf.setSearchIdName(username);
+
+        profileInf.searchHomeless(this,
+                new VolleyCallBack() {
+                    @Override
+                    public void onSuccess() {
+
+                        name.setText(profileInf.getSearchUsername());
+                        desc.setText(profileInf.getSearchDescription());
+                        img.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getSearchProfileImage()));
+
+                    }
+                });
+
         Button donate=(Button) findViewById(R.id.searchDonate);
         donate.setOnClickListener(new View.OnClickListener() {
             @Override
