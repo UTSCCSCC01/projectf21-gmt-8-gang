@@ -19,6 +19,12 @@
             android:name=".DonorUiFrontend.DnContentPageActivity"
             android:exported="true" />
         <activity
+            android:name=".SearchUI.SearchResult"
+            android:exported="true" />
+        <activity
+            android:name=".SearchUI.SearchPage"
+            android:exported="true" />
+        <activity
             android:name=".DonorUiFrontend.DnUserDonoActivity"
             android:exported="true" />
         <activity
