@@ -1,4 +1,4 @@
-package com.example.springbootmongodb.model;
+package com.example.springbootmongodb.response;
 
 import org.bson.types.ObjectId;
 import lombok.Getter;

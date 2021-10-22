@@ -29,8 +29,7 @@ public class Aboutus extends AppCompatActivity {
                 Intent intent=new Intent();
                 intent.setClass(Aboutus.this, Donation.class);
                 //info need db complete
-                intent.putExtra("reciever","idofUs");
-                intent.putExtra("sender","getCurrentUserId");
+                intent.putExtra("receiver","Being Seen");
                 startActivity(intent);
             }
         });

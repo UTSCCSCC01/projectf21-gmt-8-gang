@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.Serializable;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
@@ -32,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 //import javax.imageio.ImageIO;
 
-public class ProfileInfo {
+public class ProfileInfo implements Serializable {
     static String token;
     static String accountName;
     static String username;
@@ -85,12 +86,14 @@ public class ProfileInfo {
         this.profileImage = profileImage;
     }
 
-    public void setProfileImage(ImageView profileImage) {
-        this.profileImage = encodeProfilePic(profileImage);
-    }
 
     public static String getBalance() {return balance;}
 
+    public void setBalance(String balance) {this.balance = balance;}
+
+    public void setProfileImage(ImageView profileImage) {
+        this.profileImage = encodeProfilePic(profileImage);
+    }
 
     public ProfileInfo(String username, String userDescription, String profileImage){
         this.username = username;
