@@ -32,6 +32,13 @@ public class AppUserController {
         return appUser.getBalance();
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<?> getUserInfoByUsername(@RequestParam("username") String string) {
+        String username = string;
+        AppUser appUser = appUserRepository.findByUserName(username);
+        return ResponseEntity.ok(new AppUserResponse(appUser.getUserName(), appUser.getRole(), appUser.getProfileInfo(), appUser.getBalance()));
+    }
+
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfileInfo(@RequestBody String string) throws JSONException {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
