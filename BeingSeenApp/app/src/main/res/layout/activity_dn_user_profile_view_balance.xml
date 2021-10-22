@@ -55,13 +55,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01" />
 
+    <Button
+        android:id="@+id/donateToSomeone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send a donation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
+
     <TextView
         android:id="@+id/DnPfUnameDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.45"
-        android:text="Willow England"
         android:textSize="30dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,7 +87,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.55"
-        android:text="Education should help young people discover that change is possible "
         android:textSize="15dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -115,15 +125,15 @@
         />
 
     <TextView
-        android:id="@+id/textCreditAmount"
-        android:layout_width="122dp"
+        android:id="@+id/dnPfBalance"
+        android:layout_width="200dp"
         android:layout_height="81dp"
-        android:text="250"
+        android:text="N/A"
         android:textSize="70dp"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.75" />
@@ -132,12 +142,12 @@
         android:id="@+id/textCreditUnit"
         android:layout_width="122dp"
         android:layout_height="81dp"
-        android:text="Credit(s)"
+        android:text="Credit(s) to give"
         android:textSize="20dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.83" />
