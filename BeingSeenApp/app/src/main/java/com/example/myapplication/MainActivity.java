@@ -2,18 +2,10 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.myapplication.AboutUsFrontend.Aboutus;
-import com.example.myapplication.HomelessYouthUiFrontend.HyLoginActivity;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -21,7 +13,16 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.myapplication.AboutUsFrontend.Aboutus;
+import com.example.myapplication.HomelessYouthUiFrontend.HyLoginActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
+import com.example.myapplication.SearchUI.SearchPage;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,17 +67,17 @@ public class MainActivity extends AppCompatActivity {
         queue.add(stringRequest);
 
 
-      
+
         //botton for about us:
-        Button btn_aboutus= binding.aboutusBtn;
-        btn_aboutus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent();
-                intent.setClass(MainActivity.this, Aboutus.class);
-                startActivity(intent);
-            }
-        });
+//        Button btn_aboutus= binding.aboutusBtn;
+//        btn_aboutus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent();
+//                intent.setClass(MainActivity.this, Aboutus.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
         //Login Button code
@@ -93,11 +94,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //SignUp Button code
+        final Button signup_button = (Button) findViewById(R.id.SignUpButton);
+
+        signup_button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), HySignUpActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+
+
     }
 
 
 
 }
+
+
 
 
 

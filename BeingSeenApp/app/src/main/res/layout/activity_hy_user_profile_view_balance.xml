@@ -11,7 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@color/green"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+        <Button
+            android:id="@+id/delete_donation_goal"
+            android:layout_width="110dp"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="296dp"
+            android:layout_marginTop="68dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="67dp"
+            android:gravity="left"
+            android:text="Delete Donation Goal"
+            android:textAlignment="gravity"
+            android:textSize="12dp" />
 
     </RelativeLayout>
 
@@ -42,6 +59,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/SetGoal"
+        android:layout_width="110dp"
+        android:layout_height="65dp"
+        android:text="Set Donation Goal"
+        android:textSize="12dp"
+        android:gravity="left"
+        android:textAlignment="gravity"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/HyPfLogoutButton"
@@ -61,7 +93,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.45"
-        android:text="Willow England"
         android:textSize="30dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,7 +107,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.55"
-        android:text="Education should help young people discover that change is possible "
         android:textSize="15dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -115,15 +145,15 @@
         />
 
     <TextView
-        android:id="@+id/textCreditAmount"
-        android:layout_width="122dp"
+        android:id="@+id/hyPfBalance"
+        android:layout_width="200dp"
         android:layout_height="81dp"
-        android:text="250"
+        android:text="N/A"
         android:textSize="70dp"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.75" />
@@ -132,12 +162,12 @@
         android:id="@+id/textCreditUnit"
         android:layout_width="122dp"
         android:layout_height="81dp"
-        android:text="Credit(s)"
+        android:text="Credit(s) to spend"
         android:textSize="20dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.83" />

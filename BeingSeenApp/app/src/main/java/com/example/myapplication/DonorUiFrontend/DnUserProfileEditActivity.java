@@ -13,15 +13,20 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileEditActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.VolleyCallBack;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
@@ -56,28 +61,50 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
 
                 ProfileInfo pfObj = new ProfileInfo(username, desc, profilePic);
 
-                Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+//                Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+//
+//                /// Only for now, in future need to save as pf object and store it in mongo
+//                i.putExtra("uname", username);
+//                i.putExtra("desc", desc);
+//                i.putExtra("pfp", profilePic);
+//                startActivity(i);
+  
+                pfObj.sendInfoToDb(DnUserProfileEditActivity.this,
+                        new VolleyCallBack() {
+                            @Override
+                            public void onSuccess() {
 
-                /// Only for now, in future need to save as pf object and store it in mongo
-                i.putExtra("uname", username);
-                i.putExtra("desc", desc);
-                i.putExtra("pfp", profilePic);
-                startActivity(i);
+
+                                Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+
+                      //          Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+
+                                startActivity(i);
+                            }
+                        });
             }
         });
 
-        //when db setup
-//        ProfileInfo profileInf = new ProfileInfo();
-//        profileInf.getInfoFromDb(this);
-//
-//        ImageView currentProfilePhoto = (ImageView)findViewById(R.id.DnPickImage);
-//        EditText usernameTextboxInfo = (EditText)findViewById(R.id.DnPfEditUsername);
-//        EditText descriptionTextboxInfo = (EditText)findViewById(R.id.DnPfEditDesc);
-//
-//        usernameTextboxInfo.setText(profileInf.getUsername());
-//        descriptionTextboxInfo.setText(profileInf.getUserDescription());
-//        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
 
+
+        //when db setup
+        ProfileInfo profileInf = new ProfileInfo();
+
+        ImageView currentProfilePhoto = (ImageView)findViewById(R.id.DnPickImage);
+        EditText usernameTextboxInfo = (EditText)findViewById(R.id.DnPfEditUsername);
+        EditText descriptionTextboxInfo = (EditText)findViewById(R.id.DnPfEditDesc);
+
+        profileInf.getInfoFromDb(this,
+                new VolleyCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        Log.d("RESPONSE_VAR_AFTER", "Username received as " + profileInf.getUsername());
+
+                        usernameTextboxInfo.setText(profileInf.getUsername());
+                        descriptionTextboxInfo.setText(profileInf.getUserDescription());
+                        currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
+                    }
+                });
 
 
         // Cancel edited profile
