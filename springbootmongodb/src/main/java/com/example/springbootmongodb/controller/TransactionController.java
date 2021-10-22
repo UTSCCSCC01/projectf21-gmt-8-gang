@@ -37,7 +37,7 @@ public class TransactionController {
 //            appUser = appUserRepository.findByUserName(receiver);
 //            String userType = appUser.getRole();
 //            try {
-//                if (userType != "HOMELESS") {
+//                if (!userType.equals("HOMELESS")) {
 //                    throw new Exception();
 //                }
 //            }
