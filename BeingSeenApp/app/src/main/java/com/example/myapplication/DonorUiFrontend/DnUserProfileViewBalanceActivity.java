@@ -18,6 +18,8 @@ import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
 
+import org.w3c.dom.Text;
+
 public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

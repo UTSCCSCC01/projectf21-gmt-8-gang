@@ -81,7 +81,6 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
             Log.i(LOGIN_TAG, "jwt token: " +jwtToken);
             ProfileInfo.setToken(jwtToken);
             ProfileInfo.setUserRole(userType);
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
