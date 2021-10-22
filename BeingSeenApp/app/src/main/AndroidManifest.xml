@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DonorUiFrontend.DnContentPageActivity"
+            android:exported="true" />
+        <activity
             android:name=".SearchUI.SearchResult"
             android:exported="true" />
         <activity
