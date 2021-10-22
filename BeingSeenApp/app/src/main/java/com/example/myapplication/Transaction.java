@@ -50,8 +50,23 @@ public class Transaction {
         senders = sendersLst;
     }
 
-    public Transaction() {
+    public static void addAmounts(Long amount) {
+        amounts.add(amount);
+    }
 
+    public static void addReceivers(String receiver) {
+        receivers.add(receiver);
+    }
+
+    public static void addSenders(String sender) {
+        senders.add(sender);
+    }
+
+
+    public Transaction() {
+        receivers = new ArrayList<>();
+        senders = new ArrayList<>();
+        amounts = new ArrayList<>();
     }
 
     public void getDnTransactionFromDb(AppCompatActivity callingActivity, final VolleyCallBack callBack){
@@ -176,6 +191,64 @@ public class Transaction {
 
         };
 
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+    }
+
+    public void makeDnDonationTransaction(String receiver, String comment, Long amount,
+                                          AppCompatActivity callingActivity,
+                                          final VolleyCallBack callBack){
+        RequestQueue queue = Volley.newRequestQueue(callingActivity);
+
+        // a simple API to test if we can connect to backend
+        String url = "http://10.0.2.2:8080/transaction";
+        String name_sender = ProfileInfo.getAccountName();
+        Log.d("TRANS_VAR", name_sender);
+
+        Transaction.addSenders(name_sender);
+        Transaction.addReceivers(receiver);
+        Transaction.addAmounts(amount);
+
+        //new String req
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT, url,
+                response -> {
+                    // if succesful alert calling method
+                    Log.d("AddTransactionSuccess", response);
+                    callBack.onSuccess();
+                }, error -> {
+            callBack.onFailure();
+            Log.d("sendTransactionError", String.valueOf(error.networkResponse.statusCode));
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Log.d("TN_GET_HEADER", "Transaction called getHeaders");
+                Map<String, String>  headers = new HashMap<String, String>();
+                String token = ProfileInfo.getToken();
+                headers.put("Authorization", token);
+//                Log.d("gettoken", token);
+                headers.put("Content-Type", "application/json");
+                return headers;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json";
+            }
+
+            @Override
+            public byte[] getBody() throws AuthFailureError
+            {
+                Log.d("TN_GET_PARAMS", "Transaction calls getParams");
+                Map<String, Object>  params = new HashMap<String, Object>();
+                params.put("sender", name_sender);
+                params.put("receiver", receiver);
+                params.put("amount", amount);
+                params.put("comment", comment);
+
+                return params.toString().getBytes();
+            }
+        };
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
     }

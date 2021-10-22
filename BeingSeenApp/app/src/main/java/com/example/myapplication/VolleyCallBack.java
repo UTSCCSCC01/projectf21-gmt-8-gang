@@ -4,4 +4,5 @@ package com.example.myapplication;
 // https://stackoverflow.com/questions/49342841/android-wait-for-volley-response-for-continue
 public interface VolleyCallBack {
     void onSuccess();
+    default void onFailure(){};
 }

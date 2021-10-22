@@ -37,18 +37,27 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
+
         //Button that brings donors to the content page
         final Button contentPage = (Button) findViewById(R.id.DnContentButton);
-
         contentPage.setOnClickListener(new View.OnClickListener() {
-
-            @Override
+           @Override
             public void onClick(View view) {
-
-                Intent i = new Intent(getApplicationContext(), DnContentPageActivity.class);
+              Intent i = new Intent(getApplicationContext(), DnContentPageActivity.class);
                 startActivity(i);
             }
         });
+
+        //donate to someone button
+        final Button donateButton = (Button) findViewById(R.id.donateToSomeone);
+        donateButton.setOnClickListener(new View.OnClickListener() {
+          @Override
+            public void onClick(View view) {
+              Intent i = new Intent(getApplicationContext(), DnUserDonoActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         /// Set photo and string and stuff based on nav from prev
         Intent intent = getIntent();

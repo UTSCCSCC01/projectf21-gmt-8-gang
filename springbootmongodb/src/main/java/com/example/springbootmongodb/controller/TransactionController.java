@@ -33,6 +33,19 @@ public class TransactionController {
             Long amount = Long.parseLong(jsonItem.getString("amount"));
             String comment = jsonItem.getString("comment");
 
+            // Check if receiver is a homeless youth
+//            appUser = appUserRepository.findByUserName(receiver);
+//            String userType = appUser.getRole();
+//            try {
+//                if (userType != "HOMELESS") {
+//                    throw new Exception();
+//                }
+//            }
+//            catch (Exception e){
+//                e.printStackTrace();
+//                return new ResponseEntity<>("Receiving user is not a homeless youth", HttpStatus.FORBIDDEN);
+//            }
+
             //decrease balance for sender
             appUser = appUserRepository.findByUserName(sender);
             Long currentAmount = appUser.getBalance();
