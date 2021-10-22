@@ -39,6 +39,19 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
+        //donate to someone button
+        final Button donateButton = (Button) findViewById(R.id.donateToSomeone);
+
+        donateButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), DnUserDonoActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         /// Set photo and string and stuff based on nav from prev
         Intent intent = getIntent();
@@ -73,7 +86,7 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
                 new VolleyCallBack() {
                     @Override
                     public void onSuccess() {
-                        Log.d("RESPONSE_VAR_AFTER", "Username received as " + profileInf.getUsername());
+                        Log.d("RESPONSE_VAR_AFTER", "DN Username received as " + profileInf.getUsername());
 
                         usernameTextboxInfo.setText(profileInf.getUsername());
                         descriptionTextboxInfo.setText(profileInf.getUserDescription());

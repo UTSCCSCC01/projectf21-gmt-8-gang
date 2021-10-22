@@ -11,17 +11,28 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.Adapters.TransactionRecyclerAdapter;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DnUserProfileViewDonationActivity extends AppCompatActivity {
+    RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dn_user_profile_view_donation);
+        recyclerView = findViewById(R.id.dn_donations_recycler_view);
+
 
         //Logout button
         final Button button = (Button) findViewById(R.id.DnPfLogoutButton);
@@ -70,6 +81,18 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
             }
         });
 
+        //Retrieving donation info from DB
+        Transaction transactionInfo = new Transaction();
+
+        transactionInfo.getDnTransactionFromDb(this,
+                new VolleyCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        setAdapter();
+                    }
+                });
+
+
         Switch profileSwitch = (Switch) findViewById(R.id.ProfileSwitch);
         profileSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -84,6 +107,21 @@ public class DnUserProfileViewDonationActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void setAdapter() {
+        //fetch list of receivers and amounts from transaction DB
+        List<String> receivers = Transaction.getReceivers();
+        List<Long> amounts = Transaction.getAmounts();
+
+        // if data is null then return?
+
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts, "DONOR");
+        // sets the layout, default animator, and adapter of recycler view
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
     }
 
 }

@@ -111,7 +111,9 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
             new VolleyCallBack() {
                 @Override
                     public void onSuccess() {
+
                         Log.d("RESPONSE_VAR_AFTER", "Username received as " + profileInf.getUsername());
+
                         usernameTextboxInfo.setText(profileInf.getUsername());
                         descriptionTextboxInfo.setText(profileInf.getUserDescription());
                         currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
@@ -119,11 +121,6 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
 
                     }
                 });
-
-
-
-
-
 
 
 
