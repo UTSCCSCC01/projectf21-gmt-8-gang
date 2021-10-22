@@ -66,7 +66,7 @@ public class Donation extends AppCompatActivity {
                 DonorVerify verification=new DonorVerify(Donation.this);
                 verification.logIn(username,password);
                 //case1: not a valid combination
-                if(verification.valid){
+                if(!verification.isValid()){
                     new AlertDialog.Builder(Donation.this)
                             .setTitle("Invalid Username or Password")
                             .setMessage("Invalid username password pair")
@@ -74,7 +74,7 @@ public class Donation extends AppCompatActivity {
                             .show();
                 }
                 //case2: is a donor, do transaction
-                else if(verification.role.equals("ROLE_DONOR")){
+                else if(verification.getRole().equals("ROLE_DONOR")){
                     //old method using transactionInfo in comment:
                     //TransactionInfo transaction=new TransactionInfo(username,receiverId,amount,comment);
                     //transaction.setToken(token);

@@ -31,13 +31,42 @@ import java.util.Map;
 
 public class DonorVerify implements  VolleyResponse {
     public Donation donation;
-    public String jwt="";
-    public String role;
-    public boolean valid=false;
+    private String jwt="";
+    private String role;
+    private boolean valid=false;
     public static final String LOGIN_TAG = "donorVerify";
     public DonorVerify(Donation donation) {
         this.donation= donation;
         Log.i(LOGIN_TAG, "donor verify started");
+    }
+
+    public void setJwt(String jwt) {
+        this.jwt = jwt;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setValid() {
+        this.valid = true;
+    }
+
+    public String getJwt() {
+        return jwt;
+    }
+
+    public String getRole() {
+        return role;
+    }
+    public boolean isValid(){
+        return valid;
+    }
+
+    public static void setStatus(DonorVerify d,String jwt,String role){
+        d.setValid();
+        d.setJwt(jwt);
+        d.setRole(role);
     }
 
     public void logIn(String username, String password) {
@@ -103,13 +132,9 @@ public class DonorVerify implements  VolleyResponse {
         try {
             this.jwt = response.getString("response");
             Log.i(LOGIN_TAG, "jwt token: " +jwt);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        try {
             this.role = response.getString("code");
             Log.i(LOGIN_TAG, "role: " + role);
+            setStatus(this,jwt,role);
         } catch (JSONException e) {
             e.printStackTrace();
         }
