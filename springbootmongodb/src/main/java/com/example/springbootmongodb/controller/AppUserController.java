@@ -3,7 +3,9 @@ package com.example.springbootmongodb.controller;
 import com.example.springbootmongodb.model.AppUser;
 import com.example.springbootmongodb.response.AppUserResponse;
 import com.example.springbootmongodb.repository.AppUserRepository;
+
 import com.example.springbootmongodb.response.AuthenticationResponse;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ public class AppUserController {
 
     @GetMapping("/profile")
     public ResponseEntity<?> getProfileInfo() {
+
         try {
             String username = SecurityContextHolder.getContext().getAuthentication().getName();
             AppUser appUser = appUserRepository.findByUserName(username);
@@ -27,6 +30,11 @@ public class AppUserController {
         } catch (Exception e) {
             return new ResponseEntity<>("Error during profile request", HttpStatus.BAD_REQUEST);
         }
+
+//         String username = SecurityContextHolder.getContext().getAuthentication().getName();
+//         AppUser appUser = appUserRepository.findByUserName(username);
+//         return ResponseEntity.ok(new AppUserResponse(appUser.getUserName(), appUser.getRole(), appUser.getProfileInfo(), appUser.getBalance()));
+
     }
 
     @GetMapping("/balance")
@@ -35,6 +43,7 @@ public class AppUserController {
         AppUser appUser = appUserRepository.findByUserName(username);
         return appUser.getBalance();
     }
+
 
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfileInfo(@RequestBody String string) throws JSONException {
@@ -75,6 +84,13 @@ public class AppUserController {
             e.printStackTrace();
             return new ResponseEntity<>("Error for the request format", HttpStatus.BAD_REQUEST);
         }
+    }
+  
+    @GetMapping("/search")
+    public ResponseEntity<?> getUserInfoByUsername(@RequestParam("username") String string) {
+        String username = string;
+        AppUser appUser = appUserRepository.findByUserName(username);
+        return ResponseEntity.ok(new AppUserResponse(appUser.getUserName(), appUser.getRole(), appUser.getProfileInfo(), appUser.getBalance()));
     }
 }
 

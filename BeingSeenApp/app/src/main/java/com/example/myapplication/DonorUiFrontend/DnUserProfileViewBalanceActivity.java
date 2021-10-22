@@ -19,8 +19,6 @@ import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
 
-import org.w3c.dom.Text;
-
 public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +69,6 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
-
         /// Set photo and string and stuff based on nav from prev
         Intent intent = getIntent();
         if(intent.getExtras() != null) {
@@ -99,7 +96,9 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
         ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
         TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
+
         TextView balanceTextbookInfo = (TextView)findViewById(R.id.dnPfBalance);
+
 
         profileInf.getInfoFromDb(this,
                 new VolleyCallBack() {

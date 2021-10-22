@@ -54,10 +54,12 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
         //Button for creating donation goal
         final Button setGoal = (Button) findViewById(R.id.SetGoal);
 
+
         setGoal.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+
 
                 Intent i = new Intent(getApplicationContext(), HySetDonationGoalActivity.class);
                 startActivity(i);
