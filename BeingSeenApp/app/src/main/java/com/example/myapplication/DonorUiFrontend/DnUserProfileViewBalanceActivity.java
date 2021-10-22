@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -46,6 +47,16 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent i = new Intent(getApplicationContext(), DnUserDonoActivity.class);
+                startActivity(i);
+            }
+        });
+
+        //botton for about us:
+        Button btn_aboutus= (Button) findViewById(R.id.aboutusBtn);
+        btn_aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Aboutus.class);
                 startActivity(i);
             }
         });
