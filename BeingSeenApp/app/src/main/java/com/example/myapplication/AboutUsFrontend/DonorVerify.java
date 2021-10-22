@@ -30,9 +30,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DonorVerify implements  VolleyResponse {
-    Donation donation;
-    String jwt="";
-    String role;
+    public Donation donation;
+    public String jwt="";
+    public String role;
+    public boolean valid=false;
     public static final String LOGIN_TAG = "donorVerify";
     public DonorVerify(Donation donation) {
         this.donation= donation;
@@ -98,6 +99,7 @@ public class DonorVerify implements  VolleyResponse {
     }
     @Override
     public void onVolleySuccess(JSONObject response) {
+        this.valid=true;
         try {
             this.jwt = response.getString("response");
             Log.i(LOGIN_TAG, "jwt token: " +jwt);
