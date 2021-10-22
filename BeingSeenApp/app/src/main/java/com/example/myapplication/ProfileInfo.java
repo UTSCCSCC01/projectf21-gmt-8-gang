@@ -140,15 +140,22 @@ public class ProfileInfo {
                 response -> {
 
                     Log.d("RESPONSE_VAR", "Reponse called properly");
+
                     JSONObject jsonItem;
                     try {
                         jsonItem = new JSONObject(response);
                         this.accountName = jsonItem.getString("userName");
+
+//                     JSONObject jsonItem = null;
+//                     try {
+//                         jsonItem = new JSONObject(response);
+
                         String pfString = jsonItem.getString("profileInfo");
                         JSONObject profileDBInf = new JSONObject(pfString);
                         this.username = profileDBInf.getString("name");
                         this.userDescription = profileDBInf.getString("bio");
                         this.profileImage = profileDBInf.getString("photo");
+
                         String balanceString = jsonItem.getString("balance");
                         this.balance = balanceString;
 
@@ -185,7 +192,9 @@ public class ProfileInfo {
                 Log.d("GET_HEADER", "Made call to getHeaders");
                 Map<String, String>  params = new HashMap<String, String>();
                 String token = ProfileInfo.getToken();
+
                 //Log.d("RESPONSE_VAR", token);
+
                 params.put("Authorization", token);
                 return params;
             }
@@ -198,10 +207,13 @@ public class ProfileInfo {
 
     public static void getUserRoleFromDb(AppCompatActivity callingActivity, final VolleyCallBack callBack){
 
+//     public void sendInfoToDb(AppCompatActivity callingActivity, final VolleyCallBack callBack){
+
         RequestQueue queue = Volley.newRequestQueue(callingActivity);
 
         // a simple API to test if we can connect to backend
         String url = "http://10.0.2.2:8080/profile";
+
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -242,6 +254,7 @@ public class ProfileInfo {
         // a simple API to test if we can connect to backend
         String url = "http://10.0.2.2:8080/profile";
 
+
         //create json object
 //        final JSONObject jsonObject = new JSONObject();
 //        try {
@@ -273,6 +286,7 @@ public class ProfileInfo {
                 Map<String, String>  headers = new HashMap<String, String>();
                 String token = ProfileInfo.getToken();
                 headers.put("Authorization", token);
+
                 Log.d("gettoken", token);
                 headers.put("Content-Type", "application/json");
                 return headers;

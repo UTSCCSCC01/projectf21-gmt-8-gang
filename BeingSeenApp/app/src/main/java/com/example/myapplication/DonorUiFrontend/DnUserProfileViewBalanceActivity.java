@@ -78,7 +78,9 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
         ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
         TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
+
         TextView balanceTextbookInfo = (TextView)findViewById(R.id.dnPfBalance);
+
 
         profileInf.getInfoFromDb(this,
                 new VolleyCallBack() {
