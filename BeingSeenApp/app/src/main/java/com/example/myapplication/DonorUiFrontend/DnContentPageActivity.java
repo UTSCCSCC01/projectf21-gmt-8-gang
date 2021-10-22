@@ -1,23 +1,48 @@
 package com.example.myapplication.DonorUiFrontend;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.myapplication.HomelessYouthUiFrontend.HyUserInterfaceActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.VolleyCallBack;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DnContentPageActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DnContentPageAdapter adapter;
-    DnContentPageHolder holder;
     private DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
+    ArrayList<DnContentPageModel> models = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +50,20 @@ public class DnContentPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dn_content_page);
 
         recyclerView = findViewById(R.id.recyclerView);
+        getAllDonationGoalsFromDbAndSetAdapter(this, new VolleyCallBack() {
+            @Override
+            public void onSuccess() {
+                setAdapter();
+            }
+        });
+    }
+
+    private void setAdapter() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         setOnClickListener();
-        adapter = new DnContentPageAdapter(this, getModels(), listener);
+        adapter = new DnContentPageAdapter(this, models, listener);
         recyclerView.setAdapter(adapter);
-
     }
 
     private void setOnClickListener() {
@@ -38,35 +71,57 @@ public class DnContentPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v, int position) {
                 Log.i("suppp", "we clicked, position: " + position + ", user: "
-                + getModels().get(position).getName());
+                + models.get(position).getName());
             }
         };
     }
 
-    private ArrayList<DnContentPageModel> getModels() {
-        ArrayList<DnContentPageModel> models = new ArrayList<>();
+    public void getAllDonationGoalsFromDbAndSetAdapter(AppCompatActivity callingActivity, final VolleyCallBack callBack){
 
-        DnContentPageModel model = new DnContentPageModel();
-        model.setImg(R.drawable.profile);
-        model.setName("homeless youth's name");
-        model.setTitle("i wanna pay for job training");
-        model.setDescription("how i spend the money");
-        models.add(model);
+        RequestQueue queue = Volley.newRequestQueue(callingActivity);
 
-        model = new DnContentPageModel();
-        model.setImg(R.drawable.profile);
-        model.setName("homeless youth's name 2");
-        model.setTitle("i wanna pay for job training");
-        model.setDescription("how i spend the money");
-        models.add(model);
+        // a simple API to test if we can connect to backend
+        String url = "http://10.0.2.2:8080/allDonationGoals";
 
-        model = new DnContentPageModel();
-        model.setImg(R.drawable.profile);
-        model.setName("homeless youth's name 3");
-        model.setTitle("i wanna pay for job training");
-        model.setDescription("how i spend the money");
-        models.add(model);
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> {
 
-        return models;
+                    Log.d("RESPONSE_VAR", "Reponse called properly");
+                    JSONObject jsonItem;
+                    try {
+                        JSONArray jsonArray = new JSONArray(response);
+                        models = new ArrayList<>();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            DnContentPageModel model = new DnContentPageModel();
+                            model.setName(jsonObject.getString("username"));
+                            model.setTitle(jsonObject.getString("title"));
+                            model.setDescription(jsonObject.getString("description"));
+                            model.setImg(R.drawable.profile);
+                            models.add(model);
+                        }
+                        callBack.onSuccess();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, error -> {
+                        if (error.networkResponse.statusCode == 404) {
+                            Log.i("supp", "we dont have any donation goals, handle this later");
+                        }
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Log.d("GET_HEADER", "Made call to getHeaders");
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = ProfileInfo.getToken();
+                params.put("Authorization", token);
+                return params;
+            }
+        };
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
     }
 }
