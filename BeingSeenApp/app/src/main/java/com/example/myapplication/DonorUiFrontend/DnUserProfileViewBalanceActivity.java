@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.SearchUI.SearchPage;
 import com.example.myapplication.VolleyCallBack;
 
 public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
@@ -143,6 +145,19 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
                     startActivity(i);
                 }
+            }
+        });
+
+        //Search Button code
+        final ImageButton search = (ImageButton) findViewById(R.id.searchButton);
+
+        search.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent();
+                intent.setClass(DnUserProfileViewBalanceActivity.this, SearchPage.class);
+                startActivity(intent);
             }
         });
     }

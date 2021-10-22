@@ -108,18 +108,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Search Button code
-        final ImageButton search = (ImageButton) findViewById(R.id.searchButton);
 
-        search.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent();
-                intent.setClass(MainActivity.this, SearchPage.class);
-                startActivity(intent);
-            }
-        });
 
     }
 

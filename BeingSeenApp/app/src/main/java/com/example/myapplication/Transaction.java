@@ -244,7 +244,7 @@ public class Transaction {
                 params.put("sender", name_sender);
                 params.put("receiver", receiver);
                 params.put("amount", amount);
-                params.put("comment", comment);
+                params.put("comment", "\""+ comment + "\"");
 
                 return params.toString().getBytes();
             }
