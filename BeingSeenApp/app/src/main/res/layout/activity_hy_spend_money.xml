@@ -33,6 +33,7 @@
 
 
   <Button
+      android:id="@+id/DnDonateBackEditButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Back"
@@ -47,6 +48,7 @@
       android:id="@+id/DonateToText"
       android:layout_width="151dp"
       android:layout_height="39dp"
+      android:layout_marginTop="16dp"
       android:text="Transfer to this user: "
       android:textAlignment="viewStart"
       android:textColor="@color/black"
@@ -55,13 +57,14 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.307"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.403" />
+      app:layout_constraintTop_toBottomOf="@+id/imageHy"
+      app:layout_constraintVertical_bias="0.060000002" />
 
   <EditText
       android:id="@+id/donateUsername"
       android:layout_width="99dp"
       android:layout_height="38dp"
+      android:layout_marginTop="16dp"
       android:gravity="top|left"
       android:hint="Username"
       android:maxHeight="?actionBarSize"
@@ -70,10 +73,10 @@
       android:textSize="16sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.724"
+      app:layout_constraintHorizontal_bias="0.74"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.401" />
+      app:layout_constraintTop_toBottomOf="@+id/imageHy"
+      app:layout_constraintVertical_bias="0.061" />
 
   <EditText
       android:id="@+id/dnDonoAmt"

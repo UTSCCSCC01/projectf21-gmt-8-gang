@@ -42,7 +42,7 @@ public class HySpendMoney extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
                 startActivity(i);
             }
         });
@@ -55,7 +55,6 @@ public class HySpendMoney extends AppCompatActivity {
         EditText sendingTo = (EditText)findViewById(R.id.donateUsername);
 
         // After clicking save all objects on screen into a object
-        EditText donoDesc = (EditText)findViewById(R.id.DnDonoText);
         EditText amount = (EditText)findViewById(R.id.dnDonoAmt);
 
         Transaction transactionObj = new Transaction();
@@ -64,7 +63,6 @@ public class HySpendMoney extends AppCompatActivity {
         String receiver = "";
         receiver = sendingTo.getText().toString();
         String comment = "";
-        comment = donoDesc.getText().toString();
         Long amt = 0L;
         if(!amount.getText().toString().equals("")) {
             amt = Long.parseLong(amount.getText().toString());
@@ -84,31 +82,7 @@ public class HySpendMoney extends AppCompatActivity {
         }
 
         if (  !( (amt == null || amt <= 0) || (receiver.isEmpty()) )  ) {
-            transactionObj.makeDnDonationTransaction(receiver, comment, amt, HySpendMoney.this,
-                    new VolleyCallBack() {
-                        @Override
-                        public void onSuccess() {
-
-                            //make toast after success
-                            Toast toast = Toast.makeText(getApplicationContext(), "Transaction successful", Toast.LENGTH_LONG);
-                            toast.show();
-
-                            Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
-                            startActivity(i);
-                        }
-
-                        @Override
-                        public void onFailure() {
-
-                            //make toast after fail
-                            Toast toast = Toast.makeText(getApplicationContext(),
-                                    "Transaction Failed: Make sure the user has a merchant account", Toast.LENGTH_LONG);
-                            toast.show();
-
-                            Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
-                            startActivity(i);
-                        }
-                    });
+            //call transaction in db
         }
 
         return;

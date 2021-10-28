@@ -151,5 +151,15 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
                 }
             }
         });
+
+        Button pay=(Button) findViewById(R.id.pay);
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent();
+                i.setClass(HyUserProfileViewBalanceActivity.this, HySpendMoney.class);
+                startActivity(i);
+            }
+        });
     }
 }
