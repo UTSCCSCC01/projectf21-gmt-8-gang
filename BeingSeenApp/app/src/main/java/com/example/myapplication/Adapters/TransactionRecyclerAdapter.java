@@ -62,6 +62,8 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
                 holder.noTransactionField.setText("You have no donations yet, go help homeless youth!");
             else if (userRole.equals("HOMELESS"))
                 holder.noTransactionField.setText("You have no donations yet, try setting up profile!");
+            else if (userRole.equals("ORGANIZATION"))
+                holder.noTransactionField.setText("haven't set up transaction method for large org yet");
             holder.peopleField.setText("");
             holder.amountField.setText("");
             return;

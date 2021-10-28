@@ -11,7 +11,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
+import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
+import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.VolleyCallBack;
 
@@ -59,15 +62,15 @@ public class HyLoginModel {
                     try{
                         String urole = response.getString("code");
                         Log.i("UROLE CODE", urole);
-                        if (urole.equals(ROLES[0])){
+                        if (urole.equals("ROLE_" + ROLES[0])){
                             i = new Intent(hyLoginActivity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
-                        } else if(urole.equals(ROLES[1])){
+                        } else if(urole.equals("ROLE_" + ROLES[1])){
                             i = new Intent(hyLoginActivity.getApplicationContext(), DnUserProfileViewBalanceActivity.class);
-                        } else if(urole.equals(ROLES[2])){
+                        } else if(urole.equals("ROLE_" + ROLES[2])){
                             i = new Intent(hyLoginActivity.getApplicationContext(), OrgUserProfileViewBalanceActivity.class);
-                        } else if(urole.equals(ROLES[3])){
+                        } else if(urole.equals("ROLE_" + ROLES[3])){
                             i = new Intent(hyLoginActivity.getApplicationContext(), MerUserProfileViewBalanceActivity.class);
-                        } else if(urole.equals(ROLES[4])){
+                        } else if(urole.equals("ROLE_" + ROLES[4])){
                             i = new Intent(hyLoginActivity.getApplicationContext(), BsUserProfileViewBalanceActivity.class);
                         }
                         else{

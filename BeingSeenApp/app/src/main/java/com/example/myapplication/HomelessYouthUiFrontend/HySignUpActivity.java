@@ -1,6 +1,7 @@
 package com.example.myapplication.HomelessYouthUiFrontend;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,15 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
             @Override
             public void onClick(View view) {
                 signUp(view);
+            }
+        });
+
+        Button button2 = (Button) findViewById(R.id.GoToLogIn);
+        button2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HySignUpActivity.this, HyLoginActivity.class);
+                startActivity(i);
             }
         });
 
