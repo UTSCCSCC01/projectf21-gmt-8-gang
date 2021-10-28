@@ -14,9 +14,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.myapplication.AboutUsFrontend.Aboutus;
-import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
-import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
-import com.example.myapplication.DonorUiFrontend.DnUserProfileViewDonationActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -43,7 +40,7 @@ public class OrgUserProfileViewBalanceActivity extends AppCompatActivity {
         });
 
         //botton for about us:
-        Button btn_aboutus= (Button) findViewById(R.id.aboutusBtn);
+        Button btn_aboutus= (Button) findViewById(R.id.orgAboutusBtn);
         btn_aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

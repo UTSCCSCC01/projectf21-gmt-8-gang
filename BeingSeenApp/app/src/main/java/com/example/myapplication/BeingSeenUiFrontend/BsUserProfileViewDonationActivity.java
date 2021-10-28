@@ -1,33 +1,40 @@
 package com.example.myapplication.BeingSeenUiFrontend;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.myapplication.AboutUsFrontend.Aboutus;
-import com.example.myapplication.DonorUiFrontend.DnUserDonoActivity;
+import com.example.myapplication.Adapters.TransactionRecyclerAdapter;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.SearchUI.SearchPage;
+import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 
-public class BsUserProfileViewBalanceActivity extends AppCompatActivity {
+import java.util.List;
+
+public class BsUserProfileViewDonationActivity extends AppCompatActivity {
+
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bs_user_profile_view_balance);
+        setContentView(R.layout.activity_bs_user_profile_view_donation);
+        recyclerView = findViewById(R.id.bs_donations_recycler_view);
+
+        // we'll delete this after transaction set up
+        setAdapter();
 
         //Logout button
         final Button button = (Button) findViewById(R.id.BsPfLogoutButton);
@@ -42,47 +49,17 @@ public class BsUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
-
         //Button that brings donors to the content page
 //        final Button contentPage = (Button) findViewById(R.id.BsContentButton);
 //        contentPage.setOnClickListener(new View.OnClickListener() {
+//
 //            @Override
 //            public void onClick(View view) {
+//
 //                Intent i = new Intent(getApplicationContext(), BsContentPageActivity.class);
 //                startActivity(i);
 //            }
 //        });
-
-        //donate to someone button
-        final Button donateButton = (Button) findViewById(R.id.donateToSomeone);
-        donateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), DnUserDonoActivity.class);
-                startActivity(i);
-            }
-        });
-
-        /// Set photo and string and stuff based on nav from prev
-        Intent intent = getIntent();
-        if(intent.getExtras() != null) {
-            String uname = intent.getStringExtra("uname");
-            String desc = intent.getStringExtra("desc");
-            String base64Pfp = intent.getStringExtra("pfp");
-
-            Bitmap bmp = ProfileInfo.decodeProfilePic(base64Pfp);
-
-            ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
-            TextView usernameTextboxInfo = (TextView) findViewById(R.id.BsPfUnameDisplay);
-            TextView descriptionTextboxInfo = (TextView) findViewById(R.id.BsPfUdescDisplay);
-
-            currentProfilePhoto.setImageBitmap(bmp);
-            usernameTextboxInfo.setText(uname);
-            descriptionTextboxInfo.setText(desc);
-        }
-
-
-
 
         //when db setup
         ProfileInfo profileInf = new ProfileInfo();
@@ -91,23 +68,17 @@ public class BsUserProfileViewBalanceActivity extends AppCompatActivity {
         TextView usernameTextboxInfo = (TextView) findViewById(R.id.BsPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) findViewById(R.id.BsPfUdescDisplay);
 
-        TextView balanceTextbookInfo = (TextView)findViewById(R.id.bsPfBalance);
-
-
         profileInf.getInfoFromDb(this,
                 new VolleyCallBack() {
                     @Override
                     public void onSuccess() {
-                        Log.d("RESPONSE_VAR_AFTER", "DN Username received as " + profileInf.getUsername());
+                        Log.d("RESPONSE_VAR_AFTER", "Username received as " + profileInf.getUsername());
 
                         usernameTextboxInfo.setText(profileInf.getUsername());
                         descriptionTextboxInfo.setText(profileInf.getUserDescription());
                         currentProfilePhoto.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getProfileImage()));
-                        balanceTextbookInfo.setText(profileInf.getBalance());
-
                     }
                 });
-
 
 
         //Edit profile
@@ -123,6 +94,15 @@ public class BsUserProfileViewBalanceActivity extends AppCompatActivity {
 //            }
 //        });
 
+        //Retrieving donation info from DB
+//        Transaction transactionInfo = new Transaction();
+//        transactionInfo.getBsTransactionFromDb(this,
+//                new VolleyCallBack() {
+//                    @Override
+//                    public void onSuccess() {
+//                        setAdapter();
+//                    }
+//                });
 
 
         Switch profileSwitch = (Switch) findViewById(R.id.ProfileSwitch);
@@ -139,18 +119,22 @@ public class BsUserProfileViewBalanceActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
-        //Search Button code
-        final ImageButton search = (ImageButton) findViewById(R.id.searchButton);
+    private void setAdapter() {
+        //fetch list of receivers and amounts from transaction DB
+//        List<String> receivers = Transaction.getReceivers();
+//        List<Long> amounts = Transaction.getAmounts();
+        // we'll delete this after being seen can use transactions
+        List<String> receivers = null;
+        List<Long> amounts = null;
+        // if data is null then return?
 
-        search.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent();
-                intent.setClass(BsUserProfileViewBalanceActivity.this, SearchPage.class);
-                startActivity(intent);
-            }
-        });
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts, "DONOR");
+        // sets the layout, default animator, and adapter of recycler view
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
     }
 }

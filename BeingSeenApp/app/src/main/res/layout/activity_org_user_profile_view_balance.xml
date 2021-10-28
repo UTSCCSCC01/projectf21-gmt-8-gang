@@ -140,7 +140,7 @@
         app:layout_constraintVertical_bias="0.83" />
 
     <Button
-        android:id="@+id/aboutusBtn"
+        android:id="@+id/orgAboutusBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About Us"
