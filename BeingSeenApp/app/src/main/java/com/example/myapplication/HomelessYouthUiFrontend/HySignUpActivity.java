@@ -18,6 +18,8 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
     private HySignUpModel hySignUpModel;
     public static final String REGISTER_TAG = "hyRegister";
     String role;
+    final String[] ROLE_TEXTS = {"Homeless Youth", "Donor", "Organization", "Merchant", "Being Seen"};
+    public static final String[] ROLES = {"HOMELESS", "DONOR", "ORGANIZATION", "MERCHANT", "BEING_SEEN"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +29,9 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
 
         // drop down menu
         Spinner spinner;
-        final String[] paths = {"homeless", "donor"};
         spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(HySignUpActivity.this,
-                android.R.layout.simple_spinner_item,paths);
+                android.R.layout.simple_spinner_item, ROLE_TEXTS);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
@@ -79,10 +80,16 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         Log.i(REGISTER_TAG, "spinner tostring: " + adapterView.getItemAtPosition(i).toString());
-        if (adapterView.getItemAtPosition(i).toString().equals("donor")) {
-            role = "DONOR";
-        } else if (adapterView.getItemAtPosition(i).toString().equals("homeless")) {
+        if (adapterView.getItemAtPosition(i).toString().equals(ROLE_TEXTS[0])) {
             role = "HOMELESS";
+        } else if (adapterView.getItemAtPosition(i).toString().equals(ROLE_TEXTS[1])) {
+            role = "DONOR";
+        } else if (adapterView.getItemAtPosition(i).toString().equals(ROLE_TEXTS[2])) {
+            role = "ORGANIZATION";
+        } else if (adapterView.getItemAtPosition(i).toString().equals(ROLE_TEXTS[3])) {
+            role = "MERCHANT";
+        }  else if (adapterView.getItemAtPosition(i).toString().equals(ROLE_TEXTS[4])) {
+            role = "BEING_SEEN";
         }
     }
 
