@@ -49,7 +49,7 @@
       android:layout_width="151dp"
       android:layout_height="39dp"
       android:layout_marginTop="16dp"
-      android:text="Transfer to this user: "
+      android:text="Transfer to this merchant: "
       android:textAlignment="viewStart"
       android:textColor="@color/black"
       android:textSize="15dp"

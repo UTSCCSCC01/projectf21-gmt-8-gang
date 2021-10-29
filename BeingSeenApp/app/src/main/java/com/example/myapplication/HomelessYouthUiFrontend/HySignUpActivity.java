@@ -27,7 +27,7 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
 
         // drop down menu
         Spinner spinner;
-        final String[] paths = {"homeless", "donor"};
+        final String[] paths = {"youth", "donor"};
         spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(HySignUpActivity.this,
                 android.R.layout.simple_spinner_item,paths);
@@ -81,7 +81,7 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
         Log.i(REGISTER_TAG, "spinner tostring: " + adapterView.getItemAtPosition(i).toString());
         if (adapterView.getItemAtPosition(i).toString().equals("donor")) {
             role = "DONOR";
-        } else if (adapterView.getItemAtPosition(i).toString().equals("homeless")) {
+        } else if (adapterView.getItemAtPosition(i).toString().equals("youth")) {
             role = "HOMELESS";
         }
     }

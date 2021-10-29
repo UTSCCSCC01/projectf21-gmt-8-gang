@@ -83,6 +83,31 @@ public class HySpendMoney extends AppCompatActivity {
 
         if (  !( (amt == null || amt <= 0) || (receiver.isEmpty()) )  ) {
             //call transaction in db
+            transactionObj.makeDnDonationTransaction(receiver, comment, amt, HySpendMoney.this,
+                    new VolleyCallBack() {
+                        @Override
+                        public void onSuccess() {
+
+                            //make toast after success
+                            Toast toast = Toast.makeText(getApplicationContext(), "Transaction successful", Toast.LENGTH_LONG);
+                            toast.show();
+
+                            Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                            startActivity(i);
+                        }
+
+                        @Override
+                        public void onFailure() {
+
+                            //make toast after fail
+                            Toast toast = Toast.makeText(getApplicationContext(),
+                                    "Transaction Failed: Make sure the user has a merchant account", Toast.LENGTH_LONG);
+                            toast.show();
+
+                            Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                            startActivity(i);
+                        }
+                    });
         }
 
         return;
