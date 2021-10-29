@@ -1,14 +1,8 @@
 package com.example.myapplication.DonorUiFrontend;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,13 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.myapplication.HomelessYouthUiFrontend.HyUserInterfaceActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -32,7 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -97,6 +86,15 @@ public class DnContentPageActivity extends AppCompatActivity {
                             DnContentPageModel model = new DnContentPageModel();
                             model.setName(jsonObject.getString("username"));
                             model.setTitle(jsonObject.getString("title"));
+
+                            int target = jsonObject.getInt("goal");
+                            int curr = jsonObject.getInt("current");
+                            model.setProgress(curr + "/" + target);
+
+                            DecimalFormat df = new DecimalFormat("#.#");
+                            double percentage = ((double) curr) / ((double) target) * 100;
+                            model.setPercentage(df.format(percentage) + "%");
+
                             model.setDescription(jsonObject.getString("description"));
                             model.setImg(R.drawable.profile);
                             models.add(model);

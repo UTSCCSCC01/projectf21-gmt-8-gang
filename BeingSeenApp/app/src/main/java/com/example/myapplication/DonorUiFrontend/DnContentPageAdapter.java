@@ -41,8 +41,10 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
         holder.proPic.setImageResource(models.get(position).getImg());
         holder.username.setText(models.get(position).getName());
         holder.title.setText(models.get(position).getTitle());
+        holder.progress.setText(models.get(position).getProgress());
+        holder.percentage.setText(models.get(position).getPercentage());
         holder.description.setText(models.get(position).getDescription());
-
+        //holder.progressBar.setProgress(Integer.parseInt(models.get(position).getPercentage()));
     }
 
     @Override
