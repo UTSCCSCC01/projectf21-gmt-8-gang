@@ -17,6 +17,7 @@ import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
+import com.example.myapplication.merchantSearch.SearchMerchant;
 
 public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
 
@@ -157,7 +158,7 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i= new Intent();
-                i.setClass(HyUserProfileViewBalanceActivity.this, HySpendMoney.class);
+                i.setClass(HyUserProfileViewBalanceActivity.this, SearchMerchant.class);
                 startActivity(i);
             }
         });

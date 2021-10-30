@@ -1,31 +1,32 @@
-package com.example.myapplication.SearchUI;
+package com.example.myapplication.merchantSearch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.AboutUsFrontend.Donation;
-import com.example.myapplication.AboutUsFrontend.DonationStatus;
-import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileEditActivity;
-import com.example.myapplication.MainActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HySpendMoney;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.SearchUI.SearchPage;
+import com.example.myapplication.SearchUI.SearchResult;
+import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 
-import org.w3c.dom.Text;
+public class MerchantInfoPage extends AppCompatActivity {
 
-public class SearchResult extends AppCompatActivity {
-//code base on DnUserProfileViewDonationActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_result);
+        setContentView(R.layout.activity_merchant_info_page);
+
+
+        //code from SearchResult
         String username=getIntent().getStringExtra("Username");
         ImageView img=(ImageView) findViewById(R.id.searchPhoto);
         TextView name=(TextView) findViewById(R.id.searchNameDisplay);
@@ -37,7 +38,7 @@ public class SearchResult extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(SearchResult.this, SearchPage.class);
+                intent.setClass(MerchantInfoPage.this, SearchMerchant.class);
                 startActivity(intent);
             }
         });
@@ -62,7 +63,7 @@ public class SearchResult extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(SearchResult.this,Donation.class);
+                intent.setClass(MerchantInfoPage.this, HySpendMoney.class);
                 //info need db complete
                 intent.putExtra("reciever",username);
                 intent.putExtra("sender","getCurrentUserId");
