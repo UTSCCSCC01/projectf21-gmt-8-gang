@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -90,23 +91,24 @@ public class DnContentPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dn_content_page, container, false);
+        FragmentActivity activity = getActivity();
 
         recyclerView = view.findViewById(R.id.recyclerView);
         getAllDonationGoalsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
             @Override
             public void onSuccess() {
-                setAdapter();
+                setAdapter(activity);
             }
         });
 
-        return inflater.inflate(R.layout.fragment_dn_content_page, container, false);
+        return view;
     }
 
-    private void setAdapter() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+    private void setAdapter(FragmentActivity activity) {
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
 
         setOnClickListener();
-        adapter = new DnContentPageAdapter(getActivity(), models, listener);
+        adapter = new DnContentPageAdapter(activity, models, listener);
         recyclerView.setAdapter(adapter);
     }
 
