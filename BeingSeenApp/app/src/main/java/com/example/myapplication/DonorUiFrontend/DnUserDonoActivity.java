@@ -54,7 +54,7 @@ public class DnUserDonoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                Intent i = new Intent(getApplicationContext(), DnMainNavbarActivity.class);
                 startActivity(i);
             }
         });

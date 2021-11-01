@@ -75,7 +75,7 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
                             public void onSuccess() {
 
 
-                                Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                                Intent i = new Intent(getApplicationContext(), DnMainNavbarActivity.class);
 
                       //          Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
 
@@ -115,7 +115,7 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                Intent i = new Intent(getApplicationContext(), DnMainNavbarActivity.class);
                 startActivity(i);
             }
         });
