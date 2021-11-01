@@ -211,17 +211,17 @@ public class DnUserProfileViewBalanceFragment extends Fragment {
         });
 
         //Search Button code
-        final ImageButton search = (ImageButton) view.findViewById(R.id.searchButton);
-
-        search.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent();
-                intent.setClass(activity, SearchPage.class);
-                startActivity(intent);
-            }
-        });
+//        final ImageButton search = (ImageButton) view.findViewById(R.id.searchButton);
+//
+//        search.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent();
+//                intent.setClass(activity, SearchPage.class);
+//                startActivity(intent);
+//            }
+//        });
 
         return view;
     }
