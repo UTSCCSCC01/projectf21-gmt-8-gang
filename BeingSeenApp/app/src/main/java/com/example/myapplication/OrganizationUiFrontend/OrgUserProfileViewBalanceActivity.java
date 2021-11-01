@@ -75,10 +75,10 @@ public class OrgUserProfileViewBalanceActivity extends AppCompatActivity {
         ProfileInfo profileInf = new ProfileInfo();
 
         ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
-        TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
-        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
+        TextView usernameTextboxInfo = (TextView) findViewById(R.id.OrgPfUnameDisplay);
+        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.OrgPfUdescDisplay);
 
-        TextView balanceTextbookInfo = (TextView)findViewById(R.id.dnPfBalance);
+        TextView balanceTextbookInfo = (TextView)findViewById(R.id.OrgPfBalance);
 
 
         profileInf.getInfoFromDb(this,

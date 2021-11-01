@@ -53,9 +53,11 @@
             android:exported="true" />
         <activity
             android:name=".AboutUsFrontend.DonationStatus"
+            android:parentActivityName=".AboutUsFrontend.Donation"
             android:exported="true" />
         <activity
             android:name=".AboutUsFrontend.Donation"
+            android:parentActivityName=".AboutUsFrontend.Aboutus"
             android:exported="true" />
         <activity
             android:name=".AboutUsFrontend.Aboutus"
