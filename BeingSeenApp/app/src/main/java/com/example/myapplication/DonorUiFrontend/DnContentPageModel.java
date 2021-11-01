@@ -14,15 +14,20 @@ public class DnContentPageModel {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public void setTitle(String title) { this.title = title; }
 
     public int getImg() { return img; }
 
     public void setImg(int img) {
         this.img = img;
     }
+
+//    public String getImg() { return img; }
+//
+//    //public void setImg(String img) { this.img = img; }
+//    public void setImg(ImageView profileImage) {
+//        this.img = encodeProfilePic(profileImage);
+//    }
 
     public int getGoal() {
         return goal;

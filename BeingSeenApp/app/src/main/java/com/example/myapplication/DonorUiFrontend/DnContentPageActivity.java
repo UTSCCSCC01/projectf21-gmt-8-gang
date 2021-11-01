@@ -30,7 +30,8 @@ public class DnContentPageActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DnContentPageAdapter adapter;
-    private DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
+    ItemClickListener itemClickListener;
+    //private DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
     ArrayList<DnContentPageModel> models = new ArrayList<>();
 
     @Override
@@ -51,16 +52,16 @@ public class DnContentPageActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         setOnClickListener();
-        adapter = new DnContentPageAdapter(this, models, listener);
+        adapter = new DnContentPageAdapter(this, models, itemClickListener);
         recyclerView.setAdapter(adapter);
     }
 
     private void setOnClickListener() {
-        listener = new DnContentPageAdapter.ContentPageRecyclerViewClickListener() {
+        itemClickListener = new ItemClickListener() {
             @Override
-            public void onClick(View v, int position) {
+            public void onItemClickListener(View v, int position) {
                 Log.i("suppp", "we clicked, position: " + position + ", user: "
-                + models.get(position).getName());
+                        + models.get(position).getName());
             }
         };
     }
@@ -97,6 +98,7 @@ public class DnContentPageActivity extends AppCompatActivity {
 
                             model.setDescription(jsonObject.getString("description"));
                             model.setImg(R.drawable.profile);
+                            //model.setImg(DnContentPageHolder.proPic);
                             models.add(model);
                         }
                         callBack.onSuccess();

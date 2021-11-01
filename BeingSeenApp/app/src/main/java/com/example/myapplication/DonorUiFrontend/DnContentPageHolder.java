@@ -12,14 +12,15 @@ import com.example.myapplication.R;
 
 public class DnContentPageHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    ImageView proPic;
+    static ImageView proPic;
     TextView username, title, description, progress, percentage;
     ProgressBar progressBar;
 
+    ItemClickListener itemClickListener;
 //    private AdapterView.OnItemClickListener listener;
-    private DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
+    //DnContentPageAdapter.ContentPageRecyclerViewClickListener itemClickListener;
 
-    public DnContentPageHolder(@NonNull View itemView, DnContentPageAdapter.ContentPageRecyclerViewClickListener listener) {
+    public DnContentPageHolder(@NonNull View itemView, ItemClickListener listener) {
         super(itemView);
 
         this.proPic = itemView.findViewById(R.id.proPic);
@@ -30,7 +31,7 @@ public class DnContentPageHolder extends RecyclerView.ViewHolder implements View
         this.percentage = itemView.findViewById(R.id.percentage);
         this.progressBar = itemView.findViewById(R.id.progressBar);
 
-        this.listener = listener;
+        this.itemClickListener = listener;
 
         itemView.setOnClickListener(this);
 
@@ -38,6 +39,11 @@ public class DnContentPageHolder extends RecyclerView.ViewHolder implements View
 
     @Override
     public void onClick(View view) {
-        listener.onClick(view, getAdapterPosition());
+        this.itemClickListener.onItemClickListener(view, getLayoutPosition());
     }
+
+    public void setItemClickListener(ItemClickListener itemClickListener){
+        this.itemClickListener=itemClickListener;
+    }
+
 }
