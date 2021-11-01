@@ -65,9 +65,6 @@ public class OrgUserProfileViewDonationActivity extends AppCompatActivity {
                     }
                 });
 
-        // we'll delete this once we have transaction class for org
-        setAdapter();
-
         //Edit profile
 //        final Button EditPfButton = (Button) findViewById(R.id.OrgEditPfButton);
 //
@@ -81,43 +78,39 @@ public class OrgUserProfileViewDonationActivity extends AppCompatActivity {
 //            }
 //        });
 //
-//        // Retrieving donation info from DB
-//        Transaction transactionInfo = new Transaction();
-//
-//        transactionInfo.getOrgTransactionFromDb(this,
-//                new VolleyCallBack() {
-//                    @Override
-//                    public void onSuccess() {
-//                        setAdapter();
-//                    }
-//                });
+        // Retrieving donation info from DB
+        Transaction transactionInfo = new Transaction();
+
+        transactionInfo.getDnTransactionFromDb(this,
+                new VolleyCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        setAdapter();
+                    }
+                });
 
 
         Switch profileSwitch = (Switch) findViewById(R.id.ProfileSwitch);
         profileSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Intent i;
                 if (isChecked) {
                     // The toggle is enabled
-                    Intent i = new Intent(getApplicationContext(), OrgUserProfileViewDonationActivity.class);
-                    startActivity(i);
+                    i = new Intent(getApplicationContext(), OrgUserProfileViewDonationActivity.class);
                 } else {
                     // The toggle is disabled
-                    Intent i = new Intent(getApplicationContext(), OrgUserProfileViewBalanceActivity.class);
-                    startActivity(i);
+                    i = new Intent(getApplicationContext(), OrgUserProfileViewBalanceActivity.class);
                 }
+                startActivity(i);
             }
         });
     }
 
     private void setAdapter() {
         //fetch list of receivers and amounts from transaction DB
-//        List<String> senders = Transaction.getSenders();
-//        List<Long> amounts = Transaction.getAmounts();
+        List<String> senders = Transaction.getSenders();
+        List<Long> amounts = Transaction.getAmounts();
 
-        // if data is null then return?
-        // temp data bc transaction not set up yet
-        List<String> senders = null;
-        List<Long> amounts = null;
         TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(senders, amounts, "ORGANIZATION");
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());

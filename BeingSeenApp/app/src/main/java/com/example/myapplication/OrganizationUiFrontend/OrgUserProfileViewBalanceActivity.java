@@ -14,6 +14,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.myapplication.AboutUsFrontend.Aboutus;
+import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -97,17 +98,17 @@ public class OrgUserProfileViewBalanceActivity extends AppCompatActivity {
 
 
         //Edit profile
-//        final Button EditPfButton = (Button) findViewById(R.id.OrgEditPfButton);
-//
-//        EditPfButton.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent i = new Intent(getApplicationContext(), DnUserProfileEditActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        final Button EditPfButton = (Button) findViewById(R.id.OrgEditPfButton);
+
+        EditPfButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), DnUserProfileEditActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 

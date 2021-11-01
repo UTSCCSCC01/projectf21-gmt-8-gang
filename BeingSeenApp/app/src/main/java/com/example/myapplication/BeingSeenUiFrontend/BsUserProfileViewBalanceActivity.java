@@ -15,7 +15,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.myapplication.AboutUsFrontend.Aboutus;
+import com.example.myapplication.DonorUiFrontend.DnContentPageActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserDonoActivity;
+import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -44,14 +46,14 @@ public class BsUserProfileViewBalanceActivity extends AppCompatActivity {
 
 
         //Button that brings donors to the content page
-//        final Button contentPage = (Button) findViewById(R.id.BsContentButton);
-//        contentPage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(getApplicationContext(), BsContentPageActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        final Button contentPage = (Button) findViewById(R.id.BsContentButton);
+        contentPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), DnContentPageActivity.class);
+                startActivity(i);
+            }
+        });
 
         //donate to someone button
         final Button donateButton = (Button) findViewById(R.id.donateToSomeone);
@@ -111,17 +113,17 @@ public class BsUserProfileViewBalanceActivity extends AppCompatActivity {
 
 
         //Edit profile
-//        final Button EditPfButton = (Button) findViewById(R.id.BsEditPfButton);
-//
-//        EditPfButton.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent i = new Intent(getApplicationContext(), BsUserProfileEditActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        final Button EditPfButton = (Button) findViewById(R.id.BsEditPfButton);
+
+        EditPfButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), DnUserProfileEditActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 
