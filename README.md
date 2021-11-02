@@ -22,7 +22,8 @@ Frontend
 Backend    
 1. After cloning repo, import the springbootmongodb directory into an IDE that can set up maven projects (Intellij (preferred), Eclipse)     
 2. IDE should manually setup all maven dependencies, if any errors occur make sure Maven and Java are the latest version and reimport dependencies     
-3. Run the project and it should show Spring and after its completed running, user should be able to access spring at localhost:8080    
+3. Run the project and it should show Spring and after its completed running, user should be able to access spring at localhost:8080
+4. Make sure add application for configuration, select correct main class (com.example.springbootmongodb.SpringbootmongodbApplication).
   
 Database
 1. MongoDB Atlas is setup as a cloud based DB. The backend automatically makes get/put calls to the DB when frontend requests information from DB.         
