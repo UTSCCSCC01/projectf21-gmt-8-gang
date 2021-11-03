@@ -34,7 +34,6 @@ public class TransactionController {
             Long amount = Long.parseLong(jsonItem.getString("amount"));
             String comment = jsonItem.getString("comment");
 
-
             //decrease balance for sender
             appUser = appUserRepository.findByUserName(sender);
             Long currentAmount = appUser.getBalance();
