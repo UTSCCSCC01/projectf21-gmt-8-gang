@@ -418,5 +418,61 @@ public class ProfileInfo implements Serializable {
             // Add the request to the RequestQueue.
         queue.add(stringRequest);
         }
+
+    public void searchUser(AppCompatActivity callingActivity, final VolleyCallBack callBack){
+
+        RequestQueue queue = Volley.newRequestQueue(callingActivity);
+
+        // a simple API to test if we can connect to backend
+        String url = "http://10.0.2.2:8080/search?username=";
+        String name_search = this.getSearchIdName();
+        Log.d("TRANS_VAR", name_search);
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url + name_search,
+                response -> {
+
+                    Log.d("RESPONSE_VAR", "Reponse search called properly");
+
+                    JSONObject jsonItem;
+                    List<JSONObject> jsonObjectList;
+                    try {
+                        jsonItem = new JSONObject(response);
+
+                        jsonObjectList = (List<JSONObject>) new JSONObject(response);
+//
+
+                        String pfString = jsonItem.getString("profileInfo");
+                        JSONObject profileDBInf = new JSONObject(pfString);
+                        this.searchUsername = profileDBInf.getString("name");
+                        this.searchDescription = profileDBInf.getString("bio");
+                        this.searchProfileImage = profileDBInf.getString("photo");
+
+
+                        Log.d("RESPONSE_VAR", "Username received as "+this.username);
+                        callBack.onSuccess();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, error -> this.username = "ERROR")
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Log.d("GET_HEADER", "Made call to getHeaders");
+                Map<String, String>  params = new HashMap<String, String>();
+                String token = ProfileInfo.getToken();
+                //Log.d("RESPONSE_VAR", token);
+                params.put("Content-Type", "application/json");
+                params.put("Authorization", token);
+                return params;
+            }
+        };
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+    }
+
+
+
     }
 
