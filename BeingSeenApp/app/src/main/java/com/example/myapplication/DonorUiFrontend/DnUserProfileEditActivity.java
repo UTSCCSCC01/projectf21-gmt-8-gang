@@ -81,12 +81,12 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
                         new VolleyCallBack() {
                             @Override
                             public void onSuccess() {
-
-
-                                Intent i = new Intent(getApplicationContext(), DnMainNavbarActivity.class);
-
-                      //          Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
-
+                                switch (ProfileInfo.getUserRole()) {
+                                    case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
+                                    case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
+                                        // case "ROLE_BEING_SEEN": startActivity(new Intent(DnUserProfileEditActivity.this, BsUserProfileViewBalanceActivity.class));
+                                        // case "ROLE_MERCHANT": startActivity(new Intent(DnUserProfileEditActivity.this, MerUserProfileViewBalanceActivity.class));
+                                }
                                 startActivity(i);
                             }
                         });
@@ -124,9 +124,9 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (ProfileInfo.getUserRole()) {
                     case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
-                    // case "ROLE_ORGANIZATION": startActivity(new Intent(DnUserProfileEditActivity.this, OrgUserProfileViewBalanceActivity.class));
-                    // case "ROLE_BEING_SEEN": startActivity(new Intent(DnUserProfileEditActivity.this, BsUserProfileViewBalanceActivity.class));
-                    // case "ROLE_MERCHANT": startActivity(new Intent(DnUserProfileEditActivity.this, MerUserProfileViewBalanceActivity.class));
+                    case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
+                        // case "ROLE_BEING_SEEN": startActivity(new Intent(DnUserProfileEditActivity.this, BsUserProfileViewBalanceActivity.class));
+                        // case "ROLE_MERCHANT": startActivity(new Intent(DnUserProfileEditActivity.this, MerUserProfileViewBalanceActivity.class));
                 }
             }
         });
