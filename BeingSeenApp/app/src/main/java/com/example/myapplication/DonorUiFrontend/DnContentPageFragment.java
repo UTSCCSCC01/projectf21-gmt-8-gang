@@ -2,6 +2,7 @@ package com.example.myapplication.DonorUiFrontend;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -92,7 +93,6 @@ public class DnContentPageFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dn_content_page, container, false);
         FragmentActivity activity = getActivity();
-
         recyclerView = view.findViewById(R.id.recyclerView);
         getAllDonationGoalsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
             @Override

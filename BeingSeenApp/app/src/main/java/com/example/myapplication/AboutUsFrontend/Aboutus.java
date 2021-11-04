@@ -14,8 +14,10 @@ import android.widget.TextView;
 
 import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
 import com.example.myapplication.DonorUiFrontend.DnContentPageActivity;
+import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
 import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
+import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -51,10 +53,10 @@ public class Aboutus extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Log.i("hyyy", ProfileInfo.getUserRole());
         switch (ProfileInfo.getUserRole()) {
-            case "ROLE_DONOR": startActivity(new Intent(Aboutus.this, DnUserProfileViewBalanceActivity.class));
-            case "ROLE_ORGANIZATION": startActivity(new Intent(Aboutus.this, OrgUserProfileViewBalanceActivity.class));
-            case "ROLE_BEING_SEEN": startActivity(new Intent(Aboutus.this, BsUserProfileViewBalanceActivity.class));
-            case "ROLE_MERCHANT": startActivity(new Intent(Aboutus.this, MerUserProfileViewBalanceActivity.class));
+            case "ROLE_DONOR": startActivity(new Intent(Aboutus.this, DnMainNavbarActivity.class));
+            case "ROLE_ORGANIZATION": startActivity(new Intent(Aboutus.this, OrgMainNavbarActivity.class));
+//            case "ROLE_BEING_SEEN": startActivity(new Intent(Aboutus.this, BsUserProfileViewBalanceActivity.class));
+//            case "ROLE_MERCHANT": startActivity(new Intent(Aboutus.this, MerUserProfileViewBalanceActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
