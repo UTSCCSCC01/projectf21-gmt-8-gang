@@ -1,8 +1,6 @@
 package com.example.myapplication.DonorUiFrontend;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,8 +26,8 @@ public class DnDonationGoalActivity extends AppCompatActivity {
         this.percentage = findViewById(R.id.HyPercentage);
 
         Intent intent = getIntent();
-        byte[] mBytes = getIntent().getByteArrayExtra("proPic");
-        Bitmap bitmap = BitmapFactory.decodeByteArray(mBytes, 0, mBytes.length);
+        //byte[] mBytes = getIntent().getByteArrayExtra("proPic");
+        //Bitmap bitmap = BitmapFactory.decodeByteArray(mBytes, 0, mBytes.length);
 
         String mUsername = intent.getStringExtra("username");
         String mTitle = intent.getStringExtra("title");
@@ -37,7 +35,7 @@ public class DnDonationGoalActivity extends AppCompatActivity {
         String mProgress = intent.getStringExtra("progress");
         String mPercentage = intent.getStringExtra("percentage");
 
-        proPic.setImageBitmap(bitmap);
+        //proPic.setImageBitmap(bitmap);
         username.setText(mUsername);
         title.setText(mTitle);
         description.setText(mDescription);

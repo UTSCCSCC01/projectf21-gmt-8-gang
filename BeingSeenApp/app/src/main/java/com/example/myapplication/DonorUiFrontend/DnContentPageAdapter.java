@@ -3,7 +3,6 @@ package com.example.myapplication.DonorUiFrontend;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +10,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHolder> {
@@ -34,11 +33,6 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
         this.models = models;
         this.itemClickListener = listener;
     }
-//    public DnContentPageAdapter(Context context, ArrayList<DnContentPageModel> models, ItemClickListener listener) {
-//        this.context = context;
-//        this.models = models;
-//        this.itemClickListener = listener;
-//    }
 
     @NonNull
     @Override
@@ -49,9 +43,9 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
 
     @Override
     public void onBindViewHolder(@NonNull DnContentPageHolder holder, int position) {
-        //Bitmap bmp = ProfileInfo.decodeProfilePic(models.get(position).getImg());
-//        holder.proPic.setImageBitmap(bmp);
-        holder.proPic.setImageResource(models.get(position).getImg());
+        Bitmap bmp = ProfileInfo.decodeProfilePic(models.get(position).getImg());
+        holder.proPic.setImageBitmap(bmp);
+        //holder.proPic.setImageResource(models.get(position).getImg());
         holder.username.setText(models.get(position).getName());
         holder.title.setText(models.get(position).getTitle());
         holder.progress.setText(models.get(position).getProgress());
@@ -62,12 +56,12 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
         holder.setItemClickListener(new ItemClickListener(){
             @Override
             public void onItemClickListener(View view, int position){
-                BitmapDrawable bitmapDrawable = (BitmapDrawable)DnContentPageHolder.proPic.getDrawable();
-                Bitmap bitmap = bitmapDrawable.getBitmap();
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                byte[] bytes = stream.toByteArray();
-                //String gProPic = models.get(position).getImg();
+//                BitmapDrawable bitmapDrawable = (BitmapDrawable)DnContentPageHolder.proPic.getDrawable();
+//                Bitmap bitmap = bitmapDrawable.getBitmap();
+//                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//                byte[] bytes = stream.toByteArray();
+                String gProPic = models.get(position).getImg();
                 String gUsername = models.get(position).getName();
                 String gTitle = models.get(position).getTitle();
                 String gProgress = models.get(position).getProgress();
@@ -75,7 +69,7 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
                 String gDescription = models.get(position).getDescription();
 
                 Intent intent = new Intent(context, DnDonationGoalActivity.class);
-                intent.putExtra("proPic", bytes);
+                intent.putExtra("proPic", gProPic);
                 intent.putExtra("username", gUsername);
                 intent.putExtra("title", gTitle);
                 intent.putExtra("progress", gProgress);
