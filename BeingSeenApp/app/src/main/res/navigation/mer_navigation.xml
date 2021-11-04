@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mer_navigation"
+    app:startDestination="@id/mer_profile">
+
+    <fragment
+        android:id="@+id/mer_profile"
+        android:name="com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceFragment"
+        android:label="fragment_mer_user_profile_view_balance"
+        tools:layout="@layout/fragment_mer_user_profile_view_balance" />
+</navigation>
