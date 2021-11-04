@@ -28,6 +28,7 @@ import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivit
 import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileEditActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
 import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
+import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -170,7 +171,7 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
         Log.i("hyyy", ProfileInfo.getUserRole());
         switch (ProfileInfo.getUserRole()) {
             case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
-            // case "ROLE_ORGANIZATION": startActivity(new Intent(DnUserProfileEditActivity.this, OrgUserProfileViewBalanceActivity.class));
+             case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
             // case "ROLE_BEING_SEEN": startActivity(new Intent(DnUserProfileEditActivity.this, BsUserProfileViewBalanceActivity.class));
             // case "ROLE_MERCHANT": startActivity(new Intent(DnUserProfileEditActivity.this, MerUserProfileViewBalanceActivity.class));
         }

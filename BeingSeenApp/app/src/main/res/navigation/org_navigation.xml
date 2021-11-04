@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/org_navigation"
+    app:startDestination="@id/org_profile">
+    <fragment
+        android:id="@+id/org_profile"
+        android:name="com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceFragment"
+        android:label="fragment_dn_user_profile_view_balance"
+        tools:layout="@layout/fragment_dn_user_profile_view_balance" />
+    <fragment
+        android:id="@+id/dn_search"
+        android:name="com.example.myapplication.SearchUI.SearchPageFragment"
+        android:label="fragment_search_page"
+        tools:layout="@layout/fragment_search_page" />
+    <fragment
+        android:id="@+id/dn_content"
+        android:name="com.example.myapplication.DonorUiFrontend.DnContentPageFragment"
+        android:label="fragment_dn_content_page"
+        tools:layout="@layout/fragment_dn_content_page" />
+</navigation>

@@ -15,6 +15,7 @@ import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
 import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
 import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
+import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.VolleyCallBack;
@@ -69,7 +70,8 @@ public class HyLoginModel {
                             // i = new Intent(hyLoginActivity.getApplicationContext(), DnUserProfileViewBalanceActivity.class);
                             i = new Intent(hyLoginActivity.getApplicationContext(), DnMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[2])){
-                            i = new Intent(hyLoginActivity.getApplicationContext(), OrgUserProfileViewBalanceActivity.class);
+//                            i = new Intent(hyLoginActivity.getApplicationContext(), OrgUserProfileViewBalanceActivity.class);
+                            i = new Intent(hyLoginActivity.getApplicationContext(), OrgMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[3])){
                             i = new Intent(hyLoginActivity.getApplicationContext(), MerUserProfileViewBalanceActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[4])){

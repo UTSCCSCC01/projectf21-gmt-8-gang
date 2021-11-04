@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication" >
+    package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".OrganizationUiFrontend.OrgMainNavbarActivity"
+            android:exported="true" />
         <activity
             android:name=".DonorUiFrontend.DnNavbarActivity"
             android:exported="true" />
@@ -59,12 +62,12 @@
             android:exported="true" />
         <activity
             android:name=".AboutUsFrontend.DonationStatus"
-            android:parentActivityName=".AboutUsFrontend.Donation"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".AboutUsFrontend.Donation" />
         <activity
             android:name=".AboutUsFrontend.Donation"
-            android:parentActivityName=".AboutUsFrontend.Aboutus"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".AboutUsFrontend.Aboutus" />
         <activity
             android:name=".AboutUsFrontend.Aboutus"
             android:exported="true" />
@@ -95,7 +98,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
