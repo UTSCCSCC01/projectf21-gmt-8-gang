@@ -1,22 +1,16 @@
-package com.example.myapplication.Adapters;
+package com.example.myapplication.TransactionHistory;
 
-import android.graphics.Color;
-import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class TransactionRecyclerAdapter extends RecyclerView.Adapter<TransactionRecyclerAdapter.RecyclerViewHolder> {
