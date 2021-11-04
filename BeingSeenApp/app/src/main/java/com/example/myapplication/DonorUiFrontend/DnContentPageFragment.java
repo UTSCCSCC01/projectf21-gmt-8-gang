@@ -123,6 +123,9 @@ public class DnContentPageFragment extends Fragment {
                 intent.putExtra("username", models.get(position).getName());
                 intent.putExtra("title", models.get(position).getTitle());
                 intent.putExtra("description", models.get(position).getDescription());
+                intent.putExtra("current", models.get(position).getCurrent().toString());
+                Long per = (models.get(position).getCurrent() * 100 / models.get(position).getGoal());
+                intent.putExtra("percentage", per.toString());
                 startActivity(intent);
             }
         };
@@ -150,6 +153,8 @@ public class DnContentPageFragment extends Fragment {
                             model.setName(jsonObject.getString("username"));
                             model.setTitle(jsonObject.getString("title"));
                             model.setDescription(jsonObject.getString("description"));
+                            model.setCurrent(jsonObject.getLong("current"));
+                            model.setGoal(jsonObject.getLong("goal"));
                             model.setImg(R.drawable.profile);
                             models.add(model);
                         }

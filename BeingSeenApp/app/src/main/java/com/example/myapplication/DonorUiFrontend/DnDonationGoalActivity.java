@@ -32,15 +32,15 @@ public class DnDonationGoalActivity extends AppCompatActivity {
         String mUsername = intent.getStringExtra("username");
         String mTitle = intent.getStringExtra("title");
         String mDescription = intent.getStringExtra("description");
-        String mProgress = intent.getStringExtra("progress");
+        String mCurrent = intent.getStringExtra("current");
         String mPercentage = intent.getStringExtra("percentage");
 
         //proPic.setImageBitmap(bitmap);
         username.setText(mUsername);
         title.setText(mTitle);
         description.setText(mDescription);
-        progress.setText(mProgress);
-        percentage.setText(mPercentage);
+        progress.setText("current: " + mCurrent);
+        percentage.setText(mPercentage + "%");
 
     }
 }
