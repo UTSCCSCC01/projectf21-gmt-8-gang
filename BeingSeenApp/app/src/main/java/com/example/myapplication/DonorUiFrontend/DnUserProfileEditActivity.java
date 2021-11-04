@@ -87,7 +87,6 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
                                         // case "ROLE_BEING_SEEN": startActivity(new Intent(DnUserProfileEditActivity.this, BsUserProfileViewBalanceActivity.class));
                                         // case "ROLE_MERCHANT": startActivity(new Intent(DnUserProfileEditActivity.this, MerUserProfileViewBalanceActivity.class));
                                 }
-                                startActivity(i);
                             }
                         });
             }
