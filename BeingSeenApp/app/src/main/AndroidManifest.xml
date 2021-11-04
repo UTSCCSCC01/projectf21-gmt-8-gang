@@ -19,6 +19,9 @@
             android:name=".merchantSearch.MerchantInfoPage"
             android:exported="true" />
         <activity
+            android:name=".merchantSearch.MerchantList"
+            android:exported="true" />
+        <activity
             android:name=".merchantSearch.SearchMerchant"
             android:exported="true" />
         <activity

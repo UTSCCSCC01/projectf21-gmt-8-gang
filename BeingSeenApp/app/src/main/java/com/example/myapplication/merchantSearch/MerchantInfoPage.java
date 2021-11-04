@@ -28,11 +28,14 @@ public class MerchantInfoPage extends AppCompatActivity {
 
         //code from SearchResult
         String username=getIntent().getStringExtra("Username");
+        String bio=getIntent().getStringExtra("bio");
+        String photo=getIntent().getStringExtra("photo");
         ImageView img=(ImageView) findViewById(R.id.searchPhoto);
+        img.setImageBitmap(ProfileInfo.decodeProfilePic(photo));
         TextView name=(TextView) findViewById(R.id.searchNameDisplay);
-        //name.setText(db.nickName(Username));
+        name.setText(username);
         TextView desc=(TextView)findViewById(R.id.searchUdescDisplay);
-        //desc.setText(db.desc(Username));
+        desc.setText(bio);
         Button back=(Button) findViewById(R.id.search_back);
         back.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -43,20 +46,7 @@ public class MerchantInfoPage extends AppCompatActivity {
             }
         });
 
-        ProfileInfo profileInf = new ProfileInfo();
-        profileInf.setSearchIdName(username);
 
-        profileInf.searchHomeless(this,
-                new VolleyCallBack() {
-                    @Override
-                    public void onSuccess() {
-
-                        name.setText(profileInf.getSearchUsername());
-                        desc.setText(profileInf.getSearchDescription());
-                        img.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getSearchProfileImage()));
-
-                    }
-                });
 
         Button donate=(Button) findViewById(R.id.searchDonate);
         donate.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +55,7 @@ public class MerchantInfoPage extends AppCompatActivity {
                 Intent intent=new Intent();
                 intent.setClass(MerchantInfoPage.this, HySpendMoney.class);
                 //info need db complete
-                intent.putExtra("reciever",username);
+                intent.putExtra("receiver",username);
                 intent.putExtra("sender","getCurrentUserId");
                 startActivity(intent);
             }

@@ -48,6 +48,7 @@ public class ProfileInfo implements Serializable {
     static String searchDescription;
     static String searchProfileImage;
     static String searchIdName;
+    static List<JSONObject> searchResult;
 
 
     public static String getToken() {
@@ -139,7 +140,9 @@ public class ProfileInfo implements Serializable {
         this.username = username;
         this.userDescription = userDescription;
     }
-
+    public List<JSONObject> getSearchResult(){
+        return this.searchResult;
+    }
     public ProfileInfo(){
     }
 
@@ -442,11 +445,7 @@ public class ProfileInfo implements Serializable {
                         jsonObjectList = (List<JSONObject>) new JSONObject(response);
 //
 
-                        String pfString = jsonItem.getString("profileInfo");
-                        JSONObject profileDBInf = new JSONObject(pfString);
-                        this.searchUsername = profileDBInf.getString("name");
-                        this.searchDescription = profileDBInf.getString("bio");
-                        this.searchProfileImage = profileDBInf.getString("photo");
+                        this.searchResult=jsonObjectList;
 
 
                         Log.d("RESPONSE_VAR", "Username received as "+this.username);
@@ -467,7 +466,6 @@ public class ProfileInfo implements Serializable {
                 return params;
             }
         };
-
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
     }
