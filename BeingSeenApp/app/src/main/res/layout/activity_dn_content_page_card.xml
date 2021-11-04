@@ -1,115 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_margin="5dp"
-    android:layout_height="match_parent"
-    card_view:cardUseCompatPadding="true"
-    card_view:cardElevation="3dp"
-    card_view:cardCornerRadius="3dp">
+    android:layout_height="wrap_content"
+    xmlns="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardUserCompatPadding="true"
+    app:ignore="NamespaceTypo"
+    >
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="190dp"
+        android:layout_height="255dp"
         android:padding="16dp"
         >
 
-<!--        <ImageView-->
-<!--            android:id="@+id/proPic"-->
-<!--            android:layout_width="86dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:contentDescription="profile picture"-->
-<!--            android:src="@drawable/profile" />-->
-
-        <TextView
-            android:id="@+id/nameTag"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="0dp"
-
-            android:text="Name:"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+        <ImageView
+            android:id="@+id/proPic"
+            android:layout_width="86dp"
+            android:layout_height="80dp"
+            android:contentDescription="profile picture"
+            android:src="@drawable/profile" />
 
         <TextView
             android:id="@+id/homelessUsername"
             android:layout_width="395dp"
             android:layout_height="40dp"
-            android:layout_marginStart="5dp"
-            android:layout_toRightOf="@id/nameTag"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/proPic"
             android:text="Name"
             android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/goalTag"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_below="@id/nameTag"
-            android:layout_marginStart="0dp"
-            android:text="Goal:"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/goalTitle"
             android:layout_width="395dp"
             android:layout_height="40dp"
             android:layout_below="@id/homelessUsername"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="0dp"
-            android:layout_toRightOf="@id/goalTag"
-
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/proPic"
             android:text="Title"
             android:textColor="@color/black"
             android:textSize="20sp" />
-
-        <!--        <ProgressBar-->
-<!--            android:id="@+id/progressBar"-->
-<!--            style="@style/Widget.AppCompat.ProgressBar.Horizontal"-->
-<!--            android:layout_width="395dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_below="@id/goalTitle"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="3dp"-->
-<!--            android:layout_toEndOf="@id/proPic"-->
-<!--            android:progressTint="@color/green" />-->
 
         <TextView
             android:id="@+id/progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/goalTitle"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="0dp"
-            android:text="progress"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/percentage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_below="@id/goalTitle"
-
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="21dp"
             android:text="percentage"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="395dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/goalTitle"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@id/progress"
+            android:progressTint="@color/green" />
 
         <TextView
             android:id="@+id/gDescription"
             android:layout_width="395dp"
-            android:layout_height="50dp"
-
+            android:layout_height="80dp"
+            android:layout_below="@id/progressBar"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="0dp"
             android:text="description"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
