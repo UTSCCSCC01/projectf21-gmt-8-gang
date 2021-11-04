@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/hy_goal"
+        android:title="Donation Goal"
+        android:icon="@drawable/ic_dashboard"/>
+
+
+    <item
+        android:id="@+id/hy_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile_icon"
+        android:label="Profile"/>
+</menu>

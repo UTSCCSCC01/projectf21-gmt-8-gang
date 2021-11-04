@@ -65,6 +65,7 @@ public class HyLoginModel {
                         }
                         else if(urole.equals("ROLE_HOMELESS")){
                             i = new Intent(hyLoginActivity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                            i = new Intent(hyLoginActivity.getApplicationContext(), HyMainNavbarActivity.class);
                         }
                         else{
                             throw new Exception();
