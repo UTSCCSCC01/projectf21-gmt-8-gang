@@ -1,5 +1,6 @@
 package com.example.myapplication.DonorUiFrontend;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
@@ -118,6 +119,11 @@ public class DnContentPageFragment extends Fragment {
             public void onClick(View v, int position) {
                 Log.i("suppp", "we clicked, position: " + position + ", user: "
                         + models.get(position).getName());
+                Intent intent = new Intent(getActivity(), DnDonationGoalActivity.class);
+                intent.putExtra("username", models.get(position).getName());
+                intent.putExtra("title", models.get(position).getTitle());
+                intent.putExtra("description", models.get(position).getDescription());
+                startActivity(intent);
             }
         };
     }
