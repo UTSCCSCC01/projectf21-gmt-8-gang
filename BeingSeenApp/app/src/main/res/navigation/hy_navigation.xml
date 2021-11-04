@@ -11,7 +11,7 @@
         android:label="fragment_hy_user_profile_view_balance"
         tools:layout="@layout/fragment_hy_user_profile_view_balance" />
     <fragment
-        android:id="@+id/hy_goal"
+        android:id="@+id/hy_search"
         android:name="com.example.myapplication.HomelessYouthUiFrontend.HySetDonationGoalFragment"
         android:label="fragment_set_donation_goal"
         tools:layout="@layout/fragment_set_donation_goal" />

@@ -62,18 +62,13 @@ public class HySetDonationGoalFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DnContentPageFragment.
+     * @return A new instance of fragment HySetDonationGoalFragment.
      */
-
-    RecyclerView recyclerView;
-    DnContentPageAdapter adapter;
-    DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
-    ArrayList<DnContentPageModel> models = new ArrayList<>();
 
 
     // TODO: Rename and change types and number of parameters
-    public static com.example.myapplication.DonorUiFrontend.DnContentPageFragment newInstance(String param1, String param2) {
-        com.example.myapplication.DonorUiFrontend.DnContentPageFragment fragment = new com.example.myapplication.DonorUiFrontend.DnContentPageFragment();
+    public static HySetDonationGoalFragment newInstance(String param1, String param2) {
+        HySetDonationGoalFragment fragment = new HySetDonationGoalFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -96,90 +91,9 @@ public class HySetDonationGoalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_dn_content_page, container, false);
+        View view = inflater.inflate(R.layout.fragment_set_donation_goal, container, false);
         FragmentActivity activity = getActivity();
-
-
 
         return view;
     }
-
-//    private void setAdapter(FragmentActivity activity) {
-//        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-//
-//        setOnClickListener();
-//        adapter = new DnContentPageAdapter(activity, models, listener);
-//        recyclerView.setAdapter(adapter);
-//    }
-//
-//    HySetDonationGoalModel model;
-//    String LOGIN_TAG = HyLoginActivity.LOGIN_TAG;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_hy_set_donation_goal);
-//
-//        model = new HySetDonationGoalModel(this);
-//
-//        TextClock textClock = (TextClock) findViewById(R.id.date);
-//        textClock.setTimeZone("Canada/Eastern");
-//        textClock.setFormat12Hour("dd-MMM-yyyy");
-//
-//        //Publish Button code
-//        final Button publish = (Button) findViewById(R.id.publishGoalButton);
-//        publish.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//                createDonationGoal();
-//            }
-//        });
-//    }
-//
-//    private void createDonationGoal() {
-//        EditText titleField = (EditText) findViewById(R.id.goalTitle);
-//        EditText descriptionField = (EditText) findViewById(R.id.goalDescription);
-//        EditText moneyField = (EditText) findViewById(R.id.moneyNeeded);
-//
-//        String title = titleField.getText().toString();
-//        String description = descriptionField.getText().toString();
-//        String moneyString = moneyField.getText().toString();
-//
-//        if (title.isEmpty()) {
-//            titleField.setError("title cannot be blank");
-//            titleField.requestFocus();
-//            return;
-//        }
-//
-//        if (description.isEmpty()) {
-//            descriptionField.setError("description cannot be blank");
-//            descriptionField.requestFocus();
-//            return;
-//        }
-//
-//        if (moneyString.isEmpty()) {
-//            moneyField.setError("your goal cannot be blank");
-//            moneyField.requestFocus();
-//            return;
-//        }
-//
-//        Long moneyLong;
-//        if (Pattern.matches("[\\d]+", moneyString)) {
-//            moneyLong = Long.parseLong(moneyString);
-//        } else {
-//            moneyField.setError("This is not a number");
-//            moneyField.requestFocus();
-//            return;
-//        }
-//
-//        if (moneyLong == 0L) {
-//            moneyField.setError("your goal cannot be zero");
-//            moneyField.requestFocus();
-//            return;
-//        }
-//
-//        model.createDonationGoal(title, description, moneyLong);
-//        return;
-//    }
 }

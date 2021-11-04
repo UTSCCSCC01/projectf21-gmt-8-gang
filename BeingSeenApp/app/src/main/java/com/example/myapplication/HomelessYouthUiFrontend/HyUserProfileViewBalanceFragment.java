@@ -102,6 +102,32 @@ public class HyUserProfileViewBalanceFragment extends Fragment {
             }
         });
 
+//        Button for creating donation goal
+        final Button setGoal = view.findViewById(R.id.SetGoal);
+
+
+        setGoal.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+
+                Intent i = new Intent(activity.getApplicationContext(), HySetDonationGoalActivity.class);
+                startActivity(i);
+            }
+        });
+
+//         button for deleting donation goal
+        final Button deleteGoal = view.findViewById(R.id.delete_donation_goal);
+        deleteGoal.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                HyDeleteDonationGoalModel model = new HyDeleteDonationGoalModel((AppCompatActivity)activity);
+                model.deleteDonationGoal();
+//                Toast.makeText(getBaseContext(), "outside delete", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         /// Set photo and string and stuff based on nav from prev
         Intent intent = activity.getIntent();

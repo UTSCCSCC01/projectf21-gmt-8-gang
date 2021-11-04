@@ -13,6 +13,7 @@
         android:background="@color/green"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp">
+
         <Button
             android:id="@+id/delete_donation_goal"
             android:layout_width="110dp"
