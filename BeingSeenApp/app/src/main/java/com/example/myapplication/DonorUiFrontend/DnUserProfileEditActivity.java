@@ -3,6 +3,7 @@ package com.example.myapplication.DonorUiFrontend;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -14,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,9 +23,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileEditActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
+import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
+import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -42,6 +47,8 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dn_user_profile_edit);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         // Save edited profile
         final Button SaveEditPfButton = (Button) findViewById(R.id.DnSavePfButton);
@@ -114,9 +121,12 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-
-                Intent i = new Intent(getApplicationContext(), DnMainNavbarActivity.class);
-                startActivity(i);
+                switch (ProfileInfo.getUserRole()) {
+                    case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
+                    // case "ROLE_ORGANIZATION": startActivity(new Intent(DnUserProfileEditActivity.this, OrgUserProfileViewBalanceActivity.class));
+                    // case "ROLE_BEING_SEEN": startActivity(new Intent(DnUserProfileEditActivity.this, BsUserProfileViewBalanceActivity.class));
+                    // case "ROLE_MERCHANT": startActivity(new Intent(DnUserProfileEditActivity.this, MerUserProfileViewBalanceActivity.class));
+                }
             }
         });
 
@@ -153,6 +163,18 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.i("hyyy", ProfileInfo.getUserRole());
+        switch (ProfileInfo.getUserRole()) {
+            case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
+            // case "ROLE_ORGANIZATION": startActivity(new Intent(DnUserProfileEditActivity.this, OrgUserProfileViewBalanceActivity.class));
+            // case "ROLE_BEING_SEEN": startActivity(new Intent(DnUserProfileEditActivity.this, BsUserProfileViewBalanceActivity.class));
+            // case "ROLE_MERCHANT": startActivity(new Intent(DnUserProfileEditActivity.this, MerUserProfileViewBalanceActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

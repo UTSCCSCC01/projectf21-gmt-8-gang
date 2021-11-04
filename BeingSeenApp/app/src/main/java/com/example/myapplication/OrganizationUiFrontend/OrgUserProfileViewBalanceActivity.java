@@ -1,4 +1,6 @@
-package com.example.myapplication.DonorUiFrontend;
+package com.example.myapplication.OrganizationUiFrontend;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -7,28 +9,26 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.myapplication.AboutUsFrontend.Aboutus;
+import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.SearchUI.SearchPage;
 import com.example.myapplication.VolleyCallBack;
 
-public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
+public class OrgUserProfileViewBalanceActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dn_user_profile_view_balance);
+        setContentView(R.layout.activity_org_user_profile_view_balance);
 
         //Logout button
-        final Button button = (Button) findViewById(R.id.DnPfLogoutButton);
+        final Button button = (Button) findViewById(R.id.OrgPfLogoutButton);
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -40,29 +40,8 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
-
-        //Button that brings donors to the content page
-        final Button contentPage = (Button) findViewById(R.id.DnContentButton);
-        contentPage.setOnClickListener(new View.OnClickListener() {
-           @Override
-            public void onClick(View view) {
-              Intent i = new Intent(getApplicationContext(), DnContentPageActivity.class);
-                startActivity(i);
-            }
-        });
-
-        //donate to someone button
-        final Button donateButton = (Button) findViewById(R.id.donateToSomeone);
-        donateButton.setOnClickListener(new View.OnClickListener() {
-          @Override
-            public void onClick(View view) {
-              Intent i = new Intent(getApplicationContext(), DnUserDonoActivity.class);
-                startActivity(i);
-            }
-        });
-
         //botton for about us:
-        Button btn_aboutus= (Button) findViewById(R.id.AboutusBtn);
+        Button btn_aboutus= (Button) findViewById(R.id.orgAboutusBtn);
         btn_aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,10 +75,10 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
         ProfileInfo profileInf = new ProfileInfo();
 
         ImageView currentProfilePhoto = (ImageView) findViewById(R.id.imageView);
-        TextView usernameTextboxInfo = (TextView) findViewById(R.id.DnPfUnameDisplay);
-        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.DnPfUdescDisplay);
+        TextView usernameTextboxInfo = (TextView) findViewById(R.id.OrgPfUnameDisplay);
+        TextView descriptionTextboxInfo = (TextView) findViewById(R.id.OrgPfUdescDisplay);
 
-        TextView balanceTextbookInfo = (TextView)findViewById(R.id.dnPfBalance);
+        TextView balanceTextbookInfo = (TextView)findViewById(R.id.OrgPfBalance);
 
 
         profileInf.getInfoFromDb(this,
@@ -119,7 +98,7 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
 
 
         //Edit profile
-        final Button EditPfButton = (Button) findViewById(R.id.DnEditPfButton);
+        final Button EditPfButton = (Button) findViewById(R.id.OrgEditPfButton);
 
         EditPfButton.setOnClickListener(new View.OnClickListener() {
 
@@ -138,27 +117,16 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     // The toggle is enabled
-                    Intent i = new Intent(getApplicationContext(), DnUserProfileViewDonationActivity.class);
+                    Intent i = new Intent(getApplicationContext(), OrgUserProfileViewDonationActivity.class);
                     startActivity(i);
                 } else {
                     // The toggle is disabled
-                    Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                    Intent i = new Intent(getApplicationContext(), OrgUserProfileViewBalanceActivity.class);
                     startActivity(i);
                 }
             }
         });
 
-        //Search Button code
-        final ImageButton search = (ImageButton) findViewById(R.id.searchButton);
 
-        search.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent();
-                intent.setClass(DnUserProfileViewBalanceActivity.this, SearchPage.class);
-                startActivity(intent);
-            }
-        });
     }
 }

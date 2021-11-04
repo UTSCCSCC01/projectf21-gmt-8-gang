@@ -49,6 +49,9 @@ public class TransactionController {
             //decrease balance for sender
             appUser = appUserRepository.findByUserName(sender);
             Long currentAmount = appUser.getBalance();
+//            if (currentAmount - amount < 0) {
+//                return new ResponseEntity<>("money can't be less than 0", HttpStatus.NOT_FOUND);
+//            }
             appUser.setBalance(currentAmount - amount);
             appUserRepository.save(appUser);
 

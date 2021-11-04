@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DonorUiFrontend.DnUserProfileViewBalanceActivity">
+    tools:context=".MerchantUiFrontend.MerUserProfileViewBalanceActivity">
 
     <RelativeLayout
         android:id="@+id/textView"
@@ -31,7 +31,7 @@
 
 
     <Button
-        android:id="@+id/DnEditPfButton"
+        android:id="@+id/MerEditPfButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/DnContentButton"
+        android:id="@+id/MerContentButton"
         android:layout_width="110dp"
         android:layout_height="50dp"
         android:text="Content Page"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/DnPfLogoutButton"
+        android:id="@+id/MerPfLogoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
@@ -69,20 +69,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01" />
 
-    <Button
-        android:id="@+id/donateToSomeone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send a donation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.869" />
-
     <TextView
-        android:id="@+id/DnPfUnameDisplay"
+        android:id="@+id/MerPfUnameDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -96,7 +84,7 @@
         />
 
     <TextView
-        android:id="@+id/DnPfUdescDisplay"
+        android:id="@+id/MerPfUdescDisplay"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -139,7 +127,7 @@
         />
 
     <TextView
-        android:id="@+id/dnPfBalance"
+        android:id="@+id/merPfBalance"
         android:layout_width="200dp"
         android:layout_height="81dp"
         android:text="N/A"
@@ -173,25 +161,9 @@
         android:text="About Us"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
-
-    <ImageButton
-        android:id="@+id/searchButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:backgroundTint="@color/green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.763"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.939"
-        app:srcCompat="?android:attr/actionModeWebSearchDrawable"
-        tools:ignore="SpeakableTextPresentCheck" />
-
+        app:layout_constraintVertical_bias="0.897" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

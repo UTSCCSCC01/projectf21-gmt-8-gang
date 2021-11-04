@@ -22,6 +22,24 @@
             android:name=".DonorUiFrontend.DnMainNavbarActivity"
             android:exported="true" />
         <activity
+            android:name=".MerchantUiFrontend.MerUserProfileViewDonationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BeingSeenUiFrontend.BsUserProfileViewDonationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".OrganizationUiFrontend.OrgUserProfileViewDonationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BeingSeenUiFrontend.BsUserProfileViewBalanceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MerchantUiFrontend.MerUserProfileViewBalanceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".OrganizationUiFrontend.OrgUserProfileViewBalanceActivity"
+            android:exported="true" />
+        <activity
             android:name=".DonorUiFrontend.DnContentPageActivity"
             android:exported="true" />
         <activity
@@ -41,9 +59,11 @@
             android:exported="true" />
         <activity
             android:name=".AboutUsFrontend.DonationStatus"
+            android:parentActivityName=".AboutUsFrontend.Donation"
             android:exported="true" />
         <activity
             android:name=".AboutUsFrontend.Donation"
+            android:parentActivityName=".AboutUsFrontend.Aboutus"
             android:exported="true" />
         <activity
             android:name=".AboutUsFrontend.Aboutus"
