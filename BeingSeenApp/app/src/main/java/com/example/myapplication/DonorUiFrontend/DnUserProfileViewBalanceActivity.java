@@ -62,7 +62,7 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
         });
 
         //botton for about us:
-        Button btn_aboutus= (Button) findViewById(R.id.aboutusBtn);
+        Button btn_aboutus= (Button) findViewById(R.id.AboutusBtn);
         btn_aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

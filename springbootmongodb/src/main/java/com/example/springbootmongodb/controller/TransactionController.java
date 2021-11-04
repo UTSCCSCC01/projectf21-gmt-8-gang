@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class TransactionController {
     @Autowired
     private AppUserRepository appUserRepository;
 
-
+    @Transactional
     @PutMapping("/transaction")
     public ResponseEntity<?> insertTransaction(@RequestBody String string) {
         AppUser appUser;
@@ -33,22 +34,12 @@ public class TransactionController {
             Long amount = Long.parseLong(jsonItem.getString("amount"));
             String comment = jsonItem.getString("comment");
 
-            // Check if receiver is a homeless youth
-//            appUser = appUserRepository.findByUserName(receiver);
-//            String userType = appUser.getRole();
-//            try {
-//                if (!userType.equals("HOMELESS")) {
-//                    throw new Exception();
-//                }
-//            }
-//            catch (Exception e){
-//                e.printStackTrace();
-//                return new ResponseEntity<>("Receiving user is not a homeless youth", HttpStatus.FORBIDDEN);
-//            }
-
             //decrease balance for sender
             appUser = appUserRepository.findByUserName(sender);
             Long currentAmount = appUser.getBalance();
+//            if (currentAmount - amount < 0) {
+//                return new ResponseEntity<>("money can't be less than 0", HttpStatus.NOT_FOUND);
+//            }
             appUser.setBalance(currentAmount - amount);
             appUserRepository.save(appUser);
 

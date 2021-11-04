@@ -2,8 +2,11 @@ package com.example.myapplication.DonorUiFrontend;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +16,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyUserInterfaceActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
+import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
+import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -38,7 +46,8 @@ public class DnContentPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dn_content_page);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         recyclerView = findViewById(R.id.recyclerView);
         getAllDonationGoalsFromDbAndSetAdapter(this, new VolleyCallBack() {
             @Override
@@ -46,6 +55,18 @@ public class DnContentPageActivity extends AppCompatActivity {
                 setAdapter();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.i("hyyy", ProfileInfo.getUserRole());
+        switch (ProfileInfo.getUserRole()) {
+            case "ROLE_DONOR": startActivity(new Intent(DnContentPageActivity.this, DnUserProfileViewBalanceActivity.class));
+            case "ROLE_ORGANIZATION": startActivity(new Intent(DnContentPageActivity.this, OrgUserProfileViewBalanceActivity.class));
+            case "ROLE_BEING_SEEN": startActivity(new Intent(DnContentPageActivity.this, BsUserProfileViewBalanceActivity.class));
+            case "ROLE_MERCHANT": startActivity(new Intent(DnContentPageActivity.this, MerUserProfileViewBalanceActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setAdapter() {
