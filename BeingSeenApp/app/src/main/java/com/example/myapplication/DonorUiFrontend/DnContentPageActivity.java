@@ -1,15 +1,9 @@
 package com.example.myapplication.DonorUiFrontend;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -20,9 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
@@ -38,7 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,7 +38,8 @@ public class DnContentPageActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DnContentPageAdapter adapter;
-    private DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
+    ItemClickListener itemClickListener;
+    //private DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
     ArrayList<DnContentPageModel> models = new ArrayList<>();
 
     @Override
@@ -81,16 +73,16 @@ public class DnContentPageActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         setOnClickListener();
-        adapter = new DnContentPageAdapter(this, models, listener);
+        adapter = new DnContentPageAdapter(this, models, itemClickListener);
         recyclerView.setAdapter(adapter);
     }
 
     private void setOnClickListener() {
-        listener = new DnContentPageAdapter.ContentPageRecyclerViewClickListener() {
+        itemClickListener = new ItemClickListener() {
             @Override
-            public void onClick(View v, int position) {
+            public void onItemClickListener(View v, int position) {
                 Log.i("suppp", "we clicked, position: " + position + ", user: "
-                + models.get(position).getName());
+                        + models.get(position).getName());
             }
         };
     }
@@ -116,8 +108,24 @@ public class DnContentPageActivity extends AppCompatActivity {
                             DnContentPageModel model = new DnContentPageModel();
                             model.setName(jsonObject.getString("username"));
                             model.setTitle(jsonObject.getString("title"));
+
+                            int target = jsonObject.getInt("goal");
+                            int curr = jsonObject.getInt("current");
+                            model.setProgress(curr + "/" + target);
+
+                            DecimalFormat df = new DecimalFormat("#.#");
+                            double percentage = ((double) curr) / ((double) target) * 100;
+                            model.setPercentage(df.format(percentage) + "%");
+
                             model.setDescription(jsonObject.getString("description"));
-                            model.setImg(R.drawable.profile);
+                            //model.setImg();
+//                            Bitmap btmp = ProfileInfo.decodeProfilePic(jsonObject.getString("photo"));
+//                            ImageView profilePhoto = new ImageView(callingActivity);
+//                            profilePhoto.setImageBitmap(btmp);
+//                            model.setImg(profilePhoto);
+//                            model.setImg(jsonObject.getString("photo"));
+
+
                             models.add(model);
                         }
                         callBack.onSuccess();

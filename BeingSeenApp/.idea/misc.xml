@@ -35,6 +35,7 @@
         <entry key="app/src/main/res/layout/activity_hy_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_hy_set_donation_goal.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_hy_sign_up.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_hy_user_interface.xml" value="0.11413043478260869" />
         <entry key="app/src/main/res/layout/activity_hy_user_profile_edit.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_hy_user_profile_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_hy_user_profile_view_balance.xml" value="0.14278289220629037" />
@@ -50,6 +51,8 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.11875" />
         <entry key="app/src/main/res/layout/fragment_mer_user_profile_view_balance.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.11875" />
+        <entry key="app/src/main/res/layout/transactions_recycler_item.xml" value="0.19739583333333333" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/fragment_org_user_profile_view_balance.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_search_page.xml" value="0.1" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
