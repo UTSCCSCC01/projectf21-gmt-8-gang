@@ -47,6 +47,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'com.android.volley:volley:1.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 //    implementation 'clojure-interop:javax.imageio:1.0.5'
 //    implementation group: 'com.jtransc',
 //                    name: 'jtransc-rt',
@@ -57,6 +58,7 @@ dependencies {
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
 //    implementation "com.github.CanHub:Android-Image-Cropper:${version}"
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation "androidx.constraintlayout:constraintlayout:2.1.0"
 
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.cardview:cardview:1.0.0'

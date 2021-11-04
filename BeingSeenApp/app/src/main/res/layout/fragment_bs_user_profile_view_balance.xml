@@ -1,40 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity">
+    tools:context=".BeingSeenUiFrontend.BsUserProfileViewBalanceFragment">
 
     <RelativeLayout
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@color/green"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/delete_donation_goal"
-            android:layout_width="110dp"
-            android:layout_height="65dp"
+            android:id="@+id/aboutusBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="296dp"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="67dp"
-            android:gravity="left"
-            android:text="Delete Donation Goal"
-            android:textAlignment="gravity"
-            android:textSize="12dp" />
-
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="7dp"
+            android:text="About Us" />
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/HyPfPfpDisplay"
+        android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +43,7 @@
 
 
     <Button
-        android:id="@+id/HyEditPfButton"
+        android:id="@+id/BsEditPfButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit"
@@ -61,10 +55,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/SetGoal"
+        android:id="@+id/BsContentButton"
         android:layout_width="110dp"
-        android:layout_height="65dp"
-        android:text="Set Donation Goal"
+        android:layout_height="50dp"
+        android:text="Content Page"
         android:textSize="12dp"
         android:gravity="left"
         android:textAlignment="gravity"
@@ -75,9 +69,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <Button
-        android:id="@+id/HyPfLogoutButton"
+        android:id="@+id/BsPfLogoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
@@ -88,8 +81,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01" />
 
+    <Button
+        android:id="@+id/donateToSomeone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send a donation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
+
     <TextView
-        android:id="@+id/HyPfUnameDisplay"
+        android:id="@+id/BsPfUnameDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -103,7 +108,7 @@
         />
 
     <TextView
-        android:id="@+id/HyPfUdescDisplay"
+        android:id="@+id/BsPfUdescDisplay"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -146,7 +151,7 @@
         />
 
     <TextView
-        android:id="@+id/hyPfBalance"
+        android:id="@+id/bsPfBalance"
         android:layout_width="200dp"
         android:layout_height="81dp"
         android:text="N/A"
@@ -163,7 +168,7 @@
         android:id="@+id/textCreditUnit"
         android:layout_width="122dp"
         android:layout_height="81dp"
-        android:text="Credit(s) to spend"
+        android:text="Credit(s) to give"
         android:textSize="20dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -173,5 +178,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.83" />
 
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/searchButton"-->
+    <!--        android:layout_width="48dp"-->
+    <!--        android:layout_height="48dp"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:backgroundTint="@color/green"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.763"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.939"-->
+    <!--        app:srcCompat="?android:attr/actionModeWebSearchDrawable"-->
+    <!--        tools:ignore="SpeakableTextPresentCheck" />-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout >

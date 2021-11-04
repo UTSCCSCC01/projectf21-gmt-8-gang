@@ -1,35 +1,23 @@
 package com.example.myapplication.DonorUiFrontend;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyUserInterfaceActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
-import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
-import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -38,50 +26,89 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DnContentPageActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link DnContentPageFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class DnContentPageFragment extends Fragment {
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    public DnContentPageFragment() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment DnContentPageFragment.
+     */
 
     RecyclerView recyclerView;
     DnContentPageAdapter adapter;
-    private DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
+    DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
     ArrayList<DnContentPageModel> models = new ArrayList<>();
 
+
+    // TODO: Rename and change types and number of parameters
+    public static DnContentPageFragment newInstance(String param1, String param2) {
+        DnContentPageFragment fragment = new DnContentPageFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dn_content_page);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        recyclerView = findViewById(R.id.recyclerView);
-        getAllDonationGoalsFromDbAndSetAdapter(this, new VolleyCallBack() {
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_dn_content_page, container, false);
+        FragmentActivity activity = getActivity();
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+        getAllDonationGoalsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
             @Override
             public void onSuccess() {
-                setAdapter();
+                setAdapter(activity);
             }
         });
+
+        return view;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.i("hyyy", ProfileInfo.getUserRole());
-        switch (ProfileInfo.getUserRole()) {
-            case "ROLE_DONOR": startActivity(new Intent(DnContentPageActivity.this, DnUserProfileViewBalanceActivity.class));
-            case "ROLE_ORGANIZATION": startActivity(new Intent(DnContentPageActivity.this, OrgUserProfileViewBalanceActivity.class));
-            case "ROLE_BEING_SEEN": startActivity(new Intent(DnContentPageActivity.this, BsUserProfileViewBalanceActivity.class));
-            case "ROLE_MERCHANT": startActivity(new Intent(DnContentPageActivity.this, MerUserProfileViewBalanceActivity.class));
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void setAdapter() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    private void setAdapter(FragmentActivity activity) {
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
 
         setOnClickListener();
-        adapter = new DnContentPageAdapter(this, models, listener);
+        adapter = new DnContentPageAdapter(activity, models, listener);
         recyclerView.setAdapter(adapter);
     }
 
@@ -90,7 +117,7 @@ public class DnContentPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v, int position) {
                 Log.i("suppp", "we clicked, position: " + position + ", user: "
-                + models.get(position).getName());
+                        + models.get(position).getName());
             }
         };
     }
@@ -125,9 +152,9 @@ public class DnContentPageActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }, error -> {
-                        if (error.networkResponse.statusCode == 404) {
-                            Log.i("supp", "we dont have any donation goals, handle this later");
-                        }
+            if (error.networkResponse.statusCode == 404) {
+                Log.i("supp", "we dont have any donation goals, handle this later");
+            }
         })
         {
             @Override
