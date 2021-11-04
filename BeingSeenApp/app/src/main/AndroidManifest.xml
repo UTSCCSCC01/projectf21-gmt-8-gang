@@ -19,6 +19,9 @@
             android:name=".DonorUiFrontend.DnDonationGoalActivity"
             android:exported="true" />
         <activity
+            android:name=".MerchantUiFrontend.MerMainNavbarActivity"
+            android:exported="true" />
+        <activity
             android:name=".OrganizationUiFrontend.OrgMainNavbarActivity"
             android:exported="true" />
         <activity
