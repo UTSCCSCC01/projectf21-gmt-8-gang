@@ -23,8 +23,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.BeingSeenUiFrontend.BsMainNavbarActivity;
 import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyMainNavbarActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileEditActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
 import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
@@ -82,10 +84,11 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess() {
                                 switch (ProfileInfo.getUserRole()) {
+                                    case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class));
                                     case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
                                     case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
-                                        // case "ROLE_BEING_SEEN": startActivity(new Intent(DnUserProfileEditActivity.this, BsUserProfileViewBalanceActivity.class));
-                                        // case "ROLE_MERCHANT": startActivity(new Intent(DnUserProfileEditActivity.this, MerUserProfileViewBalanceActivity.class));
+                                    case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class));
+//                                  case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class));
                                 }
                             }
                         });
@@ -126,7 +129,7 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
                     case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
                     case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
                     case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class));
-                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class));
+//                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class));
                 }
             }
         });
@@ -170,10 +173,11 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Log.i("hyyy", ProfileInfo.getUserRole());
         switch (ProfileInfo.getUserRole()) {
+            case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class));
             case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
-             case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
-            // case "ROLE_BEING_SEEN": startActivity(new Intent(DnUserProfileEditActivity.this, BsUserProfileViewBalanceActivity.class));
-            // case "ROLE_MERCHANT": startActivity(new Intent(DnUserProfileEditActivity.this, MerUserProfileViewBalanceActivity.class));
+            case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
+            case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class));
+//                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

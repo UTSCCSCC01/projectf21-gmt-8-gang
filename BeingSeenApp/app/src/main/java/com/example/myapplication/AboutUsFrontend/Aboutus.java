@@ -12,10 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.myapplication.BeingSeenUiFrontend.BsMainNavbarActivity;
 import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
 import com.example.myapplication.DonorUiFrontend.DnContentPageActivity;
 import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyMainNavbarActivity;
 import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
@@ -53,10 +55,11 @@ public class Aboutus extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Log.i("hyyy", ProfileInfo.getUserRole());
         switch (ProfileInfo.getUserRole()) {
-            case "ROLE_DONOR": startActivity(new Intent(Aboutus.this, DnMainNavbarActivity.class));
-            case "ROLE_ORGANIZATION": startActivity(new Intent(Aboutus.this, OrgMainNavbarActivity.class));
-//            case "ROLE_BEING_SEEN": startActivity(new Intent(Aboutus.this, BsUserProfileViewBalanceActivity.class));
-//            case "ROLE_MERCHANT": startActivity(new Intent(Aboutus.this, MerUserProfileViewBalanceActivity.class));
+            case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class));
+            case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
+            case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
+            case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class));
+//                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
