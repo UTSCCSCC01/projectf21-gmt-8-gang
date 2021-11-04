@@ -22,7 +22,10 @@
             android:name=".OrganizationUiFrontend.OrgMainNavbarActivity"
             android:exported="true" />
         <activity
-            android:name=".DonorUiFrontend.DnNavbarActivity"
+            android:name=".HomelessYouthUiFrontend.HyMainNavbarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BeingSeenUiFrontend.BsMainNavbarActivity"
             android:exported="true" />
         <activity
             android:name=".DonorUiFrontend.DnMainNavbarActivity"

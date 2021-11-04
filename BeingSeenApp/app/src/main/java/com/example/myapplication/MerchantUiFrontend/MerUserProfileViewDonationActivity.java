@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.myapplication.Adapters.TransactionRecyclerAdapter;
+import com.example.myapplication.TransactionHistory.TransactionRecyclerAdapter;
 import com.example.myapplication.DonorUiFrontend.DnContentPageActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
 import com.example.myapplication.MainActivity;

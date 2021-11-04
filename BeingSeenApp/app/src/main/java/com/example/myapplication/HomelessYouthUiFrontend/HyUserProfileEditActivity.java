@@ -69,7 +69,7 @@ String storagePermission[];
                     @Override
                     public void onSuccess() {
 
-                        Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                        Intent i = new Intent(getApplicationContext(), HyMainNavbarActivity.class);
 
                         /// Only for now, in future need to save as pf object and store it in mongo
 //                i.putExtra("uname", username);
@@ -109,7 +109,7 @@ String storagePermission[];
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                Intent i = new Intent(getApplicationContext(), HyMainNavbarActivity.class);
                 startActivity(i);
             }
         });

@@ -11,8 +11,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
+import com.example.myapplication.BeingSeenUiFrontend.BsMainNavbarActivity;
 import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
+import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
 import com.example.myapplication.MerchantUiFrontend.MerMainNavbarActivity;
 import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
@@ -66,17 +67,15 @@ public class HyLoginModel {
                         String urole = response.getString("code");
                         Log.i("UROLE CODE", urole);
                         if (urole.equals("ROLE_" + ROLES[0])){
-                            i = new Intent(hyLoginActivity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                            i = new Intent(hyLoginActivity.getApplicationContext(), HyMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[1])){
-                            // i = new Intent(hyLoginActivity.getApplicationContext(), DnUserProfileViewBalanceActivity.class);
                             i = new Intent(hyLoginActivity.getApplicationContext(), DnMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[2])){
-//                            i = new Intent(hyLoginActivity.getApplicationContext(), OrgUserProfileViewBalanceActivity.class);
                             i = new Intent(hyLoginActivity.getApplicationContext(), OrgMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[3])){
                             i = new Intent(hyLoginActivity.getApplicationContext(), MerMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[4])){
-                            i = new Intent(hyLoginActivity.getApplicationContext(), BsUserProfileViewBalanceActivity.class);
+                            i = new Intent(hyLoginActivity.getApplicationContext(), BsMainNavbarActivity.class);
                         }
                         else{
                             throw new Exception();

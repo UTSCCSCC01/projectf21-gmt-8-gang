@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.Adapters.TransactionRecyclerAdapter;
+import com.example.myapplication.TransactionHistory.TransactionRecyclerAdapter;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -22,7 +22,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DnUserProfileViewDonationActivity extends AppCompatActivity {
