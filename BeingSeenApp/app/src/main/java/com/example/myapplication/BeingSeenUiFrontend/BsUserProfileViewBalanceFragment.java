@@ -59,7 +59,7 @@ public class BsUserProfileViewBalanceFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DnUserProfileViewBalanceFragment.
+     * @return A new instance of fragment BsUserProfileViewBalanceFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static BsUserProfileViewBalanceFragment newInstance(String param1, String param2) {
@@ -84,7 +84,7 @@ public class BsUserProfileViewBalanceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_dn_user_profile_view_balance);
+//        setContentView(R.layout.activity_bs_user_profile_view_balance);
 
 
         // Inflate the layout for this fragment
@@ -107,7 +107,7 @@ public class BsUserProfileViewBalanceFragment extends Fragment {
 
 
         //Button that brings donors to the content page
-        final Button contentPage = (Button) view.findViewById(R.id.DnContentButton);
+        final Button contentPage = (Button) view.findViewById(R.id.BsContentButton);
         contentPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -161,10 +161,10 @@ public class BsUserProfileViewBalanceFragment extends Fragment {
         ProfileInfo profileInf = new ProfileInfo();
 
         ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.imageView);
-        TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.DnPfUnameDisplay);
-        TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.DnPfUdescDisplay);
+        TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.BsPfUnameDisplay);
+        TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.BsPfUdescDisplay);
 
-        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.dnPfBalance);
+        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.bsPfBalance);
 
 
         profileInf.getInfoFromDb(((AppCompatActivity) activity),
@@ -184,7 +184,7 @@ public class BsUserProfileViewBalanceFragment extends Fragment {
 
 
         //Edit profile
-        final Button EditPfButton = (Button) view.findViewById(R.id.DnEditPfButton);
+        final Button EditPfButton = (Button) view.findViewById(R.id.BsEditPfButton);
 
         EditPfButton.setOnClickListener(new View.OnClickListener() {
 
