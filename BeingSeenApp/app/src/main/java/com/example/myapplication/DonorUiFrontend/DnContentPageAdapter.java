@@ -2,7 +2,6 @@ package com.example.myapplication.DonorUiFrontend;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
@@ -43,8 +41,8 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
 
     @Override
     public void onBindViewHolder(@NonNull DnContentPageHolder holder, int position) {
-        Bitmap bmp = ProfileInfo.decodeProfilePic(models.get(position).getImg());
-        holder.proPic.setImageBitmap(bmp);
+//        Bitmap bmp = ProfileInfo.decodeProfilePic(models.get(position).getImg());
+//        holder.proPic.setImageBitmap(bmp);
         //holder.proPic.setImageResource(models.get(position).getImg());
         holder.username.setText(models.get(position).getName());
         holder.title.setText(models.get(position).getTitle());
@@ -61,7 +59,9 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
 //                ByteArrayOutputStream stream = new ByteArrayOutputStream();
 //                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 //                byte[] bytes = stream.toByteArray();
-                String gProPic = models.get(position).getImg();
+
+
+                //String gProPic = models.get(position).getImg();
                 String gUsername = models.get(position).getName();
                 String gTitle = models.get(position).getTitle();
                 String gProgress = models.get(position).getProgress();
@@ -69,7 +69,7 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
                 String gDescription = models.get(position).getDescription();
 
                 Intent intent = new Intent(context, DnDonationGoalActivity.class);
-                intent.putExtra("proPic", gProPic);
+                //intent.putExtra("proPic", gProPic);
                 intent.putExtra("username", gUsername);
                 intent.putExtra("title", gTitle);
                 intent.putExtra("progress", gProgress);

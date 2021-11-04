@@ -18,7 +18,7 @@ public class DnDonationGoalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dn_donation_goal);
 
-        this.proPic = findViewById(R.id.HyPfPic);
+        //this.proPic = findViewById(R.id.HyPfPic);
         this.username = findViewById(R.id.HyUsername);
         this.title = findViewById(R.id.HyGoalTitle);
         this.description = findViewById(R.id.HyGoalDescription);

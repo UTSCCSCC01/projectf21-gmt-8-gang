@@ -1,10 +1,8 @@
 package com.example.myapplication.DonorUiFrontend;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -100,10 +98,12 @@ public class DnContentPageActivity extends AppCompatActivity {
 
                             model.setDescription(jsonObject.getString("description"));
                             //model.setImg();
-                            Bitmap btmp = ProfileInfo.decodeProfilePic(jsonObject.getString("photo"));
-                            ImageView profilePhoto = new ImageView(callingActivity);
-                            profilePhoto.setImageBitmap(btmp);
-                            model.setImg(profilePhoto);
+//                            Bitmap btmp = ProfileInfo.decodeProfilePic(jsonObject.getString("photo"));
+//                            ImageView profilePhoto = new ImageView(callingActivity);
+//                            profilePhoto.setImageBitmap(btmp);
+//                            model.setImg(profilePhoto);
+//                            model.setImg(jsonObject.getString("photo"));
+
 
                             models.add(model);
                         }

@@ -1,12 +1,8 @@
 package com.example.myapplication.DonorUiFrontend;
 
-import static com.example.myapplication.ProfileInfo.encodeProfilePic;
-
-import android.widget.ImageView;
-
 public class DnContentPageModel {
-    private String name, title, description, progress, percentage, img;
-    private int goal, current;
+    private String name, title, description, progress, percentage;
+    private int current;
 
     public String getName() { return name; }
 
@@ -26,17 +22,11 @@ public class DnContentPageModel {
 //        this.img = img;
 //    }
 
-    public String getImg() { return img; }
-
-    public void setImg(ImageView profileImage) {
-        this.img = encodeProfilePic(profileImage);
-    }
-
-    public int getGoal() {
-        return goal;
-    }
-
-    public void setGoal(int goal) { this.goal = goal; }
+//    public String getImg() { return img; }
+//
+//    public void setImg(String profileImage) {
+//        this.img = profileImage;
+//    }
 
     public int getCurrent() {
         return current;

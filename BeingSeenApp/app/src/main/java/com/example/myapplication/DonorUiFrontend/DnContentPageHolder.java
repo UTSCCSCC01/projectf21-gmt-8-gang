@@ -23,13 +23,13 @@ public class DnContentPageHolder extends RecyclerView.ViewHolder implements View
     public DnContentPageHolder(@NonNull View itemView, ItemClickListener listener) {
         super(itemView);
 
-        this.proPic = itemView.findViewById(R.id.proPic);
+        //this.proPic = itemView.findViewById(R.id.proPic);
         this.username = itemView.findViewById(R.id.homelessUsername);
         this.title = itemView.findViewById(R.id.goalTitle);
         this.description = itemView.findViewById(R.id.gDescription);
         this.progress = itemView.findViewById(R.id.progress);
         this.percentage = itemView.findViewById(R.id.percentage);
-        this.progressBar = itemView.findViewById(R.id.progressBar);
+        //this.progressBar = itemView.findViewById(R.id.progressBar);
 
         this.itemClickListener = listener;
 
