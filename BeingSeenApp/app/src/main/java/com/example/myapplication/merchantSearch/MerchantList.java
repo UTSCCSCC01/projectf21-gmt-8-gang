@@ -29,7 +29,7 @@ public class MerchantList extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        //fetch list of result's username and nickname from transaction DB
+        //fetch list of result's username and nickname from DB
         List<String> nickname=null;
         List<String> username=null;
 

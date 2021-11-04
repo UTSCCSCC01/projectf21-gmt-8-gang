@@ -1,5 +1,7 @@
 package com.example.myapplication.Adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.databinding.MerchantListItemBinding;
+import com.example.myapplication.merchantSearch.MerchantInfoPage;
+import com.example.myapplication.merchantSearch.MerchantList;
 
 import java.util.List;
 
@@ -28,13 +33,16 @@ public class MerchantRecyclerAdapter extends RecyclerView.Adapter<MerchantRecycl
         private TextView nickField;
         private TextView userField;
         private Button goButton;
+        private Context context;
 
         public RecyclerViewHolder(final View view) {
             super(view);
+            context = itemView.getContext();
             nickField = view.findViewById(R.id.merchant_recycler_nickname);
             userField = view.findViewById(R.id.merchant_recycler_username);
             goButton = view.findViewById(R.id.merchant_recycler_go);
         }
+
     }
 
     // creates a new RecyclerViewHolder
@@ -63,6 +71,9 @@ public class MerchantRecyclerAdapter extends RecyclerView.Adapter<MerchantRecycl
             @Override
             public void onClick(View view) {
                 //jump to merchant page with extra "Username"=username
+                Intent i=new Intent(holder.context, MerchantInfoPage.class);
+                i.putExtra("Username",user);
+                holder.context.startActivity(i);
             }
         });
     }
