@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".SearchUI.SearchPage">
 
+    <TextView
+        android:id="@+id/search_hint2"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="Please enter the USERNAME of a homeless to search"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/SearchUserName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ImageButton
         android:id="@+id/SearchUserName"
         android:layout_width="48dp"

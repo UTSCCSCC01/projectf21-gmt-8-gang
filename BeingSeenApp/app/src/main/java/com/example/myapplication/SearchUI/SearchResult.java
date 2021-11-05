@@ -26,13 +26,19 @@ public class SearchResult extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
+
         String username=getIntent().getStringExtra("Username");
+        String nickname=getIntent().getStringExtra("name");
+        String bio=getIntent().getStringExtra("bio");
+        String photo=getIntent().getStringExtra("photo");
         ImageView img=(ImageView) findViewById(R.id.searchPhoto);
+        img.setImageBitmap(ProfileInfo.decodeProfilePic(photo));
         TextView name=(TextView) findViewById(R.id.searchNameDisplay);
-        //name.setText(db.nickName(Username));
+        name.setText(nickname);
         TextView desc=(TextView)findViewById(R.id.searchUdescDisplay);
-        //desc.setText(db.desc(Username));
+        desc.setText(bio);
         Button back=(Button) findViewById(R.id.search_back);
+
         back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -42,7 +48,7 @@ public class SearchResult extends AppCompatActivity {
             }
         });
 
-        ProfileInfo profileInf = new ProfileInfo();
+        /*ProfileInfo profileInf = new ProfileInfo();
         profileInf.setSearchIdName(username);
 
         profileInf.searchHomeless(this,
@@ -55,7 +61,7 @@ public class SearchResult extends AppCompatActivity {
                         img.setImageBitmap(ProfileInfo.decodeProfilePic(profileInf.getSearchProfileImage()));
 
                     }
-                });
+                });*/
 
         Button donate=(Button) findViewById(R.id.searchDonate);
         donate.setOnClickListener(new View.OnClickListener() {

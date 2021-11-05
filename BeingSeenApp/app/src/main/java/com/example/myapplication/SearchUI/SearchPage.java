@@ -16,7 +16,8 @@ public class SearchPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_page);
+        setContentView(R.layout.activity_search_homeless);
+
         TextInputEditText input= (TextInputEditText) findViewById(R.id.searchInput);
         ImageButton search=(ImageButton) findViewById(R.id.SearchUserName);
         search.setOnClickListener(new View.OnClickListener() {

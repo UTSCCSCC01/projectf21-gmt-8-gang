@@ -1,8 +1,4 @@
-package com.example.myapplication.merchantSearch;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+package com.example.myapplication.SearchUI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,28 +6,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.myapplication.Adapters.MerchantRecyclerAdapter;
-import com.example.myapplication.Adapters.TransactionRecyclerAdapter;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
+import com.example.myapplication.merchantSearch.MerchantList;
+import com.example.myapplication.merchantSearch.SearchMerchant;
 
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.ListIterator;
 
-public class MerchantList extends AppCompatActivity {
+public class HomelessList extends AppCompatActivity {
     RecyclerView recyclerView;
-    List<JSONObject> result;
-    @Override
+    List<JSONObject> result;@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_merchant_list);
+        setContentView(R.layout.activity_homeless_list);
         String username=getIntent().getStringExtra("Username");
         TextView inputText=(TextView) findViewById(R.id.ml_input);
         inputText.setText(username);
@@ -50,7 +46,7 @@ public class MerchantList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i= new Intent();
-                i.setClass(MerchantList.this,SearchMerchant.class);
+                i.setClass(HomelessList.this, SearchMerchant.class);
                 startActivity(i);
             }
         });
@@ -69,7 +65,7 @@ public class MerchantList extends AppCompatActivity {
                     String curUsername = result.get(i).getString("userName");
                     String curRole = result.get(i).getString("role");
 
-                    if (curRole.equals("MERCHANT")) {
+                    if (curRole.equals("HOMELESS")) {
                         profile.add(curProfile);
                         username.add(curUsername);
                         role.add(curRole);
