@@ -2,18 +2,16 @@ package com.example.myapplication.DonorUiFrontend;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -124,6 +122,7 @@ public class DnContentPageFragment extends Fragment {
                 intent.putExtra("title", models.get(position).getTitle());
                 intent.putExtra("description", models.get(position).getDescription());
                 intent.putExtra("current", models.get(position).getCurrent().toString());
+                intent.putExtra("goal", models.get(position).getGoal().toString());
                 Long per = (models.get(position).getCurrent() * 100 / models.get(position).getGoal());
                 intent.putExtra("percentage", per.toString());
                 startActivity(intent);
@@ -155,7 +154,7 @@ public class DnContentPageFragment extends Fragment {
                             model.setDescription(jsonObject.getString("description"));
                             model.setCurrent(jsonObject.getLong("current"));
                             model.setGoal(jsonObject.getLong("goal"));
-                            model.setImg(R.drawable.profile);
+                            //model.setImg(R.drawable.profile);
                             models.add(model);
                         }
                         callBack.onSuccess();
