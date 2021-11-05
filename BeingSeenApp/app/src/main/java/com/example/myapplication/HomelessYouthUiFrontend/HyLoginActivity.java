@@ -3,10 +3,12 @@ package com.example.myapplication.HomelessYouthUiFrontend;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.VolleyError;
@@ -28,7 +30,8 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hy_login);
-
+        // back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Login Button code
         final Button button = (Button) findViewById(R.id.HyLoginButton);
@@ -92,6 +95,13 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    // back button
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        startActivity(new Intent(this, HySignUpActivity.class));
+        return super.onOptionsItemSelected(item);
     }
 
 }

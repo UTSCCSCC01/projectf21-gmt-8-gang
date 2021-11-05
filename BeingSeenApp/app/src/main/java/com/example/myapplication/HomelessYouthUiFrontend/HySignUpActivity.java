@@ -1,9 +1,11 @@
 package com.example.myapplication.HomelessYouthUiFrontend;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 
 
@@ -37,6 +40,8 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
+        // back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // button
         Button button = (Button) findViewById(R.id.HySignUpButton);
         button.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +89,18 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
 
         Log.i(REGISTER_TAG, "sign up finished");
         return;
+    }
+
+    // back button
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.i("hyyy", ProfileInfo.getUserRole());
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
