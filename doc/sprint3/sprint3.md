@@ -83,15 +83,11 @@ Subtasks:
 - GMTGAN-147: Implement navbar for being seen (Suguru Seo)
 - GMTGAN-148: Implement navbar for merchant (Sung Ye Ansel Hong)
 
-Issue Type: Story
+Issue Type: Task
 Priority: High
-GMTGAN-97
-As a Willow England (A donor), I would like to convert my real money to in app currency so that I can donate.
-Assignee: Andreas Alexander
-Point estimate: 8
-Subtasks:
-- GMTGAN-125: Backend research (Andreas Alexander)
-- GMTGAN-126: Backend (Andreas Alexander)
+GMTGAN-168
+Background research for real money conversion
+Assignee: Andreas Alexander5
 
 Issue Type: Task
 Priority: High
