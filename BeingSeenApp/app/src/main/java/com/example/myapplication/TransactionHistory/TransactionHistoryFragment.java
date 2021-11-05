@@ -125,7 +125,7 @@ public class TransactionHistoryFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     // The toggle is enabled
-//                    toOrFromSwitch.setText("Receivers");
+                    toOrFromSwitch.setText("Receivers");
                     transactionInfo.getDnTransactionFromDb((AppCompatActivity) activity, new VolleyCallBack() {
                         @Override
                         public void onSuccess() {
@@ -135,7 +135,7 @@ public class TransactionHistoryFragment extends Fragment {
 
                 } else {
                     // The toggle is enabled
-//                    toOrFromSwitch.setText("Senders");
+                    toOrFromSwitch.setText("Senders");
                     //Retrieving donation info from DB
                     transactionInfo.getHyTransactionFromDb((AppCompatActivity) activity, new VolleyCallBack() {
                         @Override

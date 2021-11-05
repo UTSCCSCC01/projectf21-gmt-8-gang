@@ -9,10 +9,10 @@
 
     <TextView
         android:id="@+id/transaction_history_txt"
-        android:layout_width="321dp"
-        android:layout_height="62dp"
+        android:layout_width="304dp"
+        android:layout_height="63dp"
         android:text="Transaction History"
-        android:textSize="34sp"
+        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.111"
