@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HyPassword"
+        app:layout_constraintTop_toBottomOf="@+id/HyPasswordFrame"
         app:layout_constraintVertical_bias="0.611" />
 
     <Button
@@ -42,34 +42,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HyPassword"
+        app:layout_constraintTop_toBottomOf="@+id/HyPasswordFrame"
         app:layout_constraintVertical_bias="1.0" />
 
-    <EditText
-        android:id="@+id/HyPassword"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/HyPasswordFrame"
         android:layout_width="215dp"
-        android:layout_height="48dp"
-        android:background="#00000000"
-        android:hint="password"
-        android:inputType="textPassword"
+        android:layout_height="61dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467"
-        app:passwordToggleEnabled="true" />
+        app:layout_constraintVertical_bias="0.467">
 
-    <EditText
-        android:id="@+id/HyUsername"
-        android:layout_width="215dp"
-        android:layout_height="48dp"
-        android:background="#00000000"
-        android:hint="username"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/HyPassword"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/HyPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:hint="password"
+            android:inputType="textPassword"
+            app:passwordToggleEnabled="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="217dp"
+        android:layout_height="61dp"
+        app:layout_constraintBottom_toTopOf="@+id/HyPasswordFrame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.867" />
+        app:layout_constraintVertical_bias="0.912">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/HyUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:hint="username"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

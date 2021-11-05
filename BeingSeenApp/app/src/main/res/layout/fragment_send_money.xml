@@ -54,48 +54,58 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageHy"
-        app:layout_constraintVertical_bias="0.060000002" />
+        app:layout_constraintVertical_bias="0.08" />
 
-    <EditText
-        android:id="@+id/donateUsername"
-        android:layout_width="99dp"
-        android:layout_height="38dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="163dp"
+        android:layout_height="53dp"
         android:layout_marginTop="16dp"
-        android:gravity="top|left"
-        android:hint="Username"
-        android:maxHeight="?actionBarSize"
-        android:minHeight="?actionBarSize"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.74"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageHy"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.061">
 
-    <EditText
-        android:id="@+id/dnDonoAmt"
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/donateUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:gravity="top|left"
+            android:hint="Username"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
         android:layout_width="204dp"
         android:layout_height="51dp"
-        android:gravity="top|left"
-        android:hint="Enter a transfer amount"
-        android:inputType="number"
-        android:maxHeight="?actionBarSize"
-        android:minHeight="?actionBarSize"
-        android:paddingLeft="1dp"
-        android:paddingTop="1dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
+        app:layout_constraintVertical_bias="0.62" >
+
+    <com.google.android.material.textfield.TextInputEditText
+
+        android:id="@+id/dnDonoAmt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:gravity="top|left"
+        android:hint="Enter a transfer amount"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/donateConfirm"
