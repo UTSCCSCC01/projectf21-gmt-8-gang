@@ -440,30 +440,20 @@ public class ProfileInfo implements Serializable {
             @Override
             public void onResponse(String response) {
                 Log.d("RESPONSE_VAR", response);
-                /*try {
-                    JSONArray jsonUsers = new JSONArray(response);
-                    Log.d("RESPONSE_VAR","Search user is working");
+                try {
+                    JSONArray jsonResults = new JSONArray(response);
+                    Log.d("Transaction_VAR","TRANSACTION Worked1");
 
-
-                    *//*List<String> tempUsers = new ArrayList<String>();*//*
-
-                    List<JSONObject> jsonObjectList = new ArrayList<>();
-
-                    for (int i = 0; i < jsonUsers.length(); i++) {
-                        JSONObject jsonUser = jsonUsers.getJSONObject(i);
-                        jsonObjectList.add(jsonUser);
+                    List<JSONObject> temp_users = new ArrayList<>();
+                    for (int i = 0; i <jsonResults.length(); i++) {
+                        JSONObject jsonResult = jsonResults.getJSONObject(i);
+                        temp_users.add(jsonResult);
                     }
-                    setSearchResult(jsonObjectList);
+                    setSearchResult(temp_users);
                     callBack.onSuccess();
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }*/
-                /*List<JSONObject> jsonObjectList = new ArrayList<>();
-
-                for (int i = 0; i < jsonUsers.length(); i++) {
-                    JSONObject jsonUser = jsonUsers.getJSONObject(i);
-                    jsonObjectList.add(jsonUser);
-                }*/
+                }
 
             }
         },
@@ -487,7 +477,6 @@ public class ProfileInfo implements Serializable {
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
     }
-
 
 
     }
