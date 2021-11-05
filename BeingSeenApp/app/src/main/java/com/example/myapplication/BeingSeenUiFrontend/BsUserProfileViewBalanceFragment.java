@@ -107,8 +107,6 @@ public class BsUserProfileViewBalanceFragment extends Fragment {
             }
         });
 
-
-
         /// Set photo and string and stuff based on nav from prev
         Intent intent = activity.getIntent();
         if (intent.hasExtra("toast_profile")) {

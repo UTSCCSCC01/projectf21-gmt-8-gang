@@ -118,9 +118,6 @@ public class HyUserProfileViewBalanceFragment extends Fragment {
         });
 
 
-
-
-
         /// Set photo and string and stuff based on nav from prev
 //        Intent intent = activity.getIntent(); // already did this!
         if(intent.getExtras() != null && intent.hasExtra("uname")) {

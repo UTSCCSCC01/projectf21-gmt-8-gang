@@ -111,6 +111,7 @@ public class DnUserProfileViewBalanceFragment extends Fragment {
             Toast.makeText(activity, "Successfully edited profile", Toast.LENGTH_LONG).show();
         }
 
+
         /// Set photo and string and stuff based on nav from prev
 //        Intent intent = activity.getIntent();
         if(intent.getExtras() != null && intent.hasExtra("uname")) {

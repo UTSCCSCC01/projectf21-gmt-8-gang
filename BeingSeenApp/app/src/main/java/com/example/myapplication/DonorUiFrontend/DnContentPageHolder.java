@@ -13,7 +13,7 @@ import com.example.myapplication.R;
 public class DnContentPageHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     ImageView proPic;
-    TextView username, title, description, progress;
+    TextView username, title, description, progress, percentage;
     ProgressBar progressBar;
 
 //    private AdapterView.OnItemClickListener listener;
@@ -22,7 +22,7 @@ public class DnContentPageHolder extends RecyclerView.ViewHolder implements View
     public DnContentPageHolder(@NonNull View itemView, DnContentPageAdapter.ContentPageRecyclerViewClickListener listener) {
         super(itemView);
 
-        this.proPic = itemView.findViewById(R.id.proPic);
+        //this.proPic = itemView.findViewById(R.id.proPic);
         this.username = itemView.findViewById(R.id.homelessUsername);
         this.title = itemView.findViewById(R.id.goalTitle);
         this.description = itemView.findViewById(R.id.gDescription);
