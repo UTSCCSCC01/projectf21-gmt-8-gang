@@ -55,21 +55,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/DnContentButton"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:text="Content Page"
-        android:textSize="12dp"
-        android:gravity="left"
-        android:textAlignment="gravity"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/DnPfLogoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,35 +100,6 @@
         app:layout_constraintVertical_bias="0.55"
         android:textSize="15dp"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <Switch
-        android:id="@+id/ProfileSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Balance"
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="441dp"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintVertical_bias="0.65"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Donations"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="441dp"
-        app:layout_constraintHorizontal_bias="0.62"
-        app:layout_constraintVertical_bias="0.65"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

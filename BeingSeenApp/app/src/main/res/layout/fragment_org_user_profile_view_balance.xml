@@ -82,35 +82,6 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <Switch
-        android:id="@+id/ProfileSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Balance"
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="441dp"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintVertical_bias="0.65"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Donations"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="441dp"
-        app:layout_constraintHorizontal_bias="0.62"
-        app:layout_constraintVertical_bias="0.65"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
     <TextView
         android:id="@+id/OrgPfBalanceFrag"
         android:layout_width="200dp"

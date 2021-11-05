@@ -102,17 +102,6 @@ public class DnUserProfileViewBalanceFragment extends Fragment {
             }
         });
 
-
-        //Button that brings donors to the content page
-        final Button contentPage = (Button) view.findViewById(R.id.DnContentButton);
-        contentPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(activity.getApplicationContext(), DnContentPageActivity.class);
-                startActivity(i);
-            }
-        });
-
         //donate to someone button
         final Button donateButton = (Button) view.findViewById(R.id.donateToSomeone);
         donateButton.setOnClickListener(new View.OnClickListener() {
@@ -193,22 +182,6 @@ public class DnUserProfileViewBalanceFragment extends Fragment {
             }
         });
 
-
-
-        Switch profileSwitch = (Switch) view.findViewById(R.id.ProfileSwitch);
-        profileSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // The toggle is enabled
-                    Intent i = new Intent(activity.getApplicationContext(), DnUserProfileViewDonationActivity.class);
-                    startActivity(i);
-                } else {
-                    // The toggle is disabled
-                    Intent i = new Intent(activity.getApplicationContext(), DnUserProfileViewBalanceActivity.class);
-                    startActivity(i);
-                }
-            }
-        });
 
         //Search Button code
 //        final ImageButton search = (ImageButton) view.findViewById(R.id.searchButton);
