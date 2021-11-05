@@ -2,7 +2,6 @@ package com.example.myapplication.DonorUiFrontend;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,11 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.BeingSeenUiFrontend.BsMainNavbarActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyMainNavbarActivity;
-import com.example.myapplication.MerchantUiFrontend.MerMainNavbarActivity;
-import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
-import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 
 public class DnDonationGoalActivity extends AppCompatActivity {
@@ -44,13 +38,15 @@ public class DnDonationGoalActivity extends AppCompatActivity {
         String mTitle = intent.getStringExtra("title");
         String mDescription = intent.getStringExtra("description");
         String mCurrent = intent.getStringExtra("current");
+        String mGoal = intent.getStringExtra("goal");
         String mPercentage = intent.getStringExtra("percentage");
 
         //proPic.setImageBitmap(bitmap);
-        username.setText(mUsername);
+        username.setText("by: " +  mUsername);
         title.setText(mTitle);
         description.setText(mDescription);
-        progress.setText("current: " + mCurrent);
+        //progress.setText("current: " + mCurrent);
+        progress.setText(mCurrent + " / " + mGoal);
         percentage.setText(mPercentage + "%");
 
     }
