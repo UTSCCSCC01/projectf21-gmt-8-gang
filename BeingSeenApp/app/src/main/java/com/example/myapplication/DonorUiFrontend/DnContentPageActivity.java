@@ -68,11 +68,10 @@ public class DnContentPageActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Log.i("hyyy", ProfileInfo.getUserRole());
-        switch (ProfileInfo.getUserRole()) {
-            case "ROLE_DONOR": startActivity(new Intent(DnContentPageActivity.this, DnUserProfileViewBalanceActivity.class));
-            case "ROLE_ORGANIZATION": startActivity(new Intent(DnContentPageActivity.this, OrgUserProfileViewBalanceActivity.class));
-            case "ROLE_BEING_SEEN": startActivity(new Intent(DnContentPageActivity.this, BsUserProfileViewBalanceActivity.class));
-            case "ROLE_MERCHANT": startActivity(new Intent(DnContentPageActivity.this, MerUserProfileViewBalanceActivity.class));
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -160,7 +160,7 @@ public class OrgUserProfileViewBalanceFragment extends Fragment {
                 startActivity(i);
             }
         });
-        
+
 //        return inflater.inflate(R.layout.fragment_org_user_profile_view_balance, container, false);
         return view;
     }
