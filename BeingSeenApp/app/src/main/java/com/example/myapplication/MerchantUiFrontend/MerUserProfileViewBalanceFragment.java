@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewDonationActivity;
@@ -89,7 +90,7 @@ public class MerUserProfileViewBalanceFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(activity.getApplicationContext(), MainActivity.class);
+                Intent i = new Intent(activity.getApplicationContext(), HySignUpActivity.class);
                 startActivity(i);
             }
         });
