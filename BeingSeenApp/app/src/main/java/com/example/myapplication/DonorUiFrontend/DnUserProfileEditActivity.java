@@ -29,6 +29,7 @@ import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivit
 import com.example.myapplication.HomelessYouthUiFrontend.HyMainNavbarActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileEditActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
+import com.example.myapplication.MerchantUiFrontend.MerMainNavbarActivity;
 import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
@@ -84,11 +85,11 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess() {
                                 switch (ProfileInfo.getUserRole()) {
-                                    case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class));
-                                    case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
-                                    case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
-                                    case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class));
-//                                  case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class));
+                                    case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class));break;
+                                    case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));break;
+                                    case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));break;
+                                    case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class));break;
+                                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class));break;
                                 }
                             }
                         });
@@ -124,12 +125,13 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                Log.i("TEST", ProfileInfo.getUserRole());
                 switch (ProfileInfo.getUserRole()) {
-                    case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class));
-                    case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
-                    case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
-                    case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class));
-//                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class));
+                    case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class)); break;
+                    case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class)); break;
+                    case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class)); break;
+                    case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class)); break;
+                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class)); break;
                 }
             }
         });
@@ -169,15 +171,14 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
         });
     }
 
+    //Back button on top
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Log.i("hyyy", ProfileInfo.getUserRole());
-        switch (ProfileInfo.getUserRole()) {
-            case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class));
-            case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));
-            case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));
-            case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class));
-//                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class));
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

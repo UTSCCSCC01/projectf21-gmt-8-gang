@@ -104,8 +104,6 @@ public class HyUserProfileViewBalanceFragment extends Fragment {
 
 //        Button for creating donation goal
         final Button setGoal = view.findViewById(R.id.SetGoal);
-
-
         setGoal.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -174,8 +172,6 @@ public class HyUserProfileViewBalanceFragment extends Fragment {
                     }
                 });
 
-
-
         //Edit profile
         final Button EditPfButton = (Button) view.findViewById(R.id.HyEditPfButton);
 
@@ -188,24 +184,6 @@ public class HyUserProfileViewBalanceFragment extends Fragment {
                 startActivity(i);
             }
         });
-
-
-
-        Switch profileSwitch = (Switch) view.findViewById(R.id.ProfileSwitch);
-        profileSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // The toggle is enabled
-                    Intent i = new Intent(activity.getApplicationContext(), HyUserProfileViewDonationActivity.class);
-                    startActivity(i);
-                } else {
-                    // The toggle is disabled
-                    Intent i = new Intent(activity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
-                    startActivity(i);
-                }
-            }
-        });
-
 
         return view;
     }

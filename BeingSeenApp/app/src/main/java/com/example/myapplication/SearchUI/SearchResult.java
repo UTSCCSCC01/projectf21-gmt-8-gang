@@ -1,10 +1,12 @@
 package com.example.myapplication.SearchUI;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -32,15 +34,9 @@ public class SearchResult extends AppCompatActivity {
         //name.setText(db.nickName(Username));
         TextView desc=(TextView)findViewById(R.id.searchUdescDisplay);
         //desc.setText(db.desc(Username));
-        Button back=(Button) findViewById(R.id.search_back);
-        back.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent();
-                intent.setClass(SearchResult.this, SearchPage.class);
-                startActivity(intent);
-            }
-        });
+
+        // back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ProfileInfo profileInf = new ProfileInfo();
         profileInf.setSearchIdName(username);
@@ -57,6 +53,7 @@ public class SearchResult extends AppCompatActivity {
                     }
                 });
 
+        // donate button
         Button donate=(Button) findViewById(R.id.searchDonate);
         donate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,5 +66,17 @@ public class SearchResult extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    // back button
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.i("hyyy", ProfileInfo.getUserRole());
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

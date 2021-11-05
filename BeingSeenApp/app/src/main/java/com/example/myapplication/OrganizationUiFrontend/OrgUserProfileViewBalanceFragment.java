@@ -122,9 +122,6 @@ public class OrgUserProfileViewBalanceFragment extends Fragment {
             descriptionTextboxInfo.setText(desc);
         }
 
-
-
-
         //when db setup
         ProfileInfo profileInf = new ProfileInfo();
 
@@ -164,22 +161,6 @@ public class OrgUserProfileViewBalanceFragment extends Fragment {
             }
         });
 
-
-
-        Switch profileSwitch = (Switch) view.findViewById(R.id.ProfileSwitch);
-        profileSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // The toggle is enabled
-                    Intent i = new Intent(activity.getApplicationContext(), OrgUserProfileViewDonationActivity.class);
-                    startActivity(i);
-                } else {
-                    // The toggle is disabled
-                    Intent i = new Intent(activity.getApplicationContext(), OrgUserProfileViewBalanceActivity.class);
-                    startActivity(i);
-                }
-            }
-        });
 //        return inflater.inflate(R.layout.fragment_org_user_profile_view_balance, container, false);
         return view;
     }

@@ -164,22 +164,6 @@ public class MerUserProfileViewBalanceFragment extends Fragment {
             }
         });
 
-
-
-        Switch profileSwitch = (Switch) view.findViewById(R.id.ProfileSwitch);
-        profileSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // The toggle is enabled
-                    Intent i = new Intent(activity.getApplicationContext(), MerUserProfileViewDonationActivity.class);
-                    startActivity(i);
-                } else {
-                    // The toggle is disabled
-                    Intent i = new Intent(activity.getApplicationContext(), MerUserProfileViewBalanceActivity.class);
-                    startActivity(i);
-                }
-            }
-        });
         return view;
     }
 }

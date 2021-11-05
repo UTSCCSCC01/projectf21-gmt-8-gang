@@ -15,4 +15,9 @@
         android:name="com.example.myapplication.HomelessYouthUiFrontend.HySendMoneyFragment"
         android:label="fragment_send_money"
         tools:layout="@layout/fragment_send_money" />
+    <fragment
+        android:id="@+id/transaction_history"
+        android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"
+        android:label="fragment_transaction_history"
+        tools:layout="@layout/fragment_transaction_history" />
 </navigation>
