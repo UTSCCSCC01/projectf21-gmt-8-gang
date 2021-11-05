@@ -92,7 +92,7 @@ public class HySpendMoney extends AppCompatActivity {
                             Toast toast = Toast.makeText(getApplicationContext(), "Transaction successful", Toast.LENGTH_LONG);
                             toast.show();
 
-                            Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                            Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
                             startActivity(i);
                         }
 
@@ -104,7 +104,7 @@ public class HySpendMoney extends AppCompatActivity {
                                     "Transaction Failed: Make sure the user has a merchant account", Toast.LENGTH_LONG);
                             toast.show();
 
-                            Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                            Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
                             startActivity(i);
                         }
                     });

@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".merchantSearch.DirectTransfer"
+            android:exported="true" />
+        <activity
             android:name=".merchantSearch.MerchantInfoPage"
             android:exported="true" />
         <activity

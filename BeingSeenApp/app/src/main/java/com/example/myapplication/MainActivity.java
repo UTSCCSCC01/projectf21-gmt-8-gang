@@ -23,6 +23,7 @@ import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
 import com.example.myapplication.SearchUI.SearchPage;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.example.myapplication.merchantSearch.DirectTransfer;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -109,16 +110,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //test button
-        Button test=(Button) findViewById(R.id.hyProfileTest);
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent();
-                i.setClass(MainActivity.this, HyUserProfileViewBalanceActivity.class);
-                startActivity(i);
-            }
-        });
+
 
 
 
