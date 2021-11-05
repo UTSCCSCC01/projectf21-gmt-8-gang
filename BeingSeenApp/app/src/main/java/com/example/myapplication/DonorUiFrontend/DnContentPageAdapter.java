@@ -47,7 +47,7 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
         holder.description.setText(models.get(position).getDescription());
         Long percentage = (models.get(position).getCurrent() * 100 / models.get(position).getGoal());
         holder.progressBar.setProgress(Math.toIntExact(percentage));
-
+        holder.progress.setText(percentage.toString());
     }
 
     @Override

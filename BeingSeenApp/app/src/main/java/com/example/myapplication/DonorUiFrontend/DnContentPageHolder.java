@@ -13,7 +13,7 @@ import com.example.myapplication.R;
 public class DnContentPageHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     ImageView proPic;
-    TextView username, title, description;
+    TextView username, title, description, progress;
     ProgressBar progressBar;
 
 //    private AdapterView.OnItemClickListener listener;
@@ -27,6 +27,8 @@ public class DnContentPageHolder extends RecyclerView.ViewHolder implements View
         this.title = itemView.findViewById(R.id.goalTitle);
         this.description = itemView.findViewById(R.id.gDescription);
         this.progressBar = itemView.findViewById(R.id.progressBar);
+        this.progress = itemView.findViewById(R.id.progress);
+
         this.listener = listener;
 
         itemView.setOnClickListener(this);
