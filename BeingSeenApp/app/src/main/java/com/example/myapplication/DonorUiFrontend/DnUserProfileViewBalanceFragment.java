@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
@@ -112,10 +113,16 @@ public class DnUserProfileViewBalanceFragment extends Fragment {
                 startActivity(i);
             }
         });
+        // make toast message if successfully updated profile
+        Intent intent = activity.getIntent();
+
+        if (intent.hasExtra("toast_profile")) {
+            Toast.makeText(activity, "Successfully edited profile", Toast.LENGTH_LONG).show();
+        }
 
         /// Set photo and string and stuff based on nav from prev
-        Intent intent = activity.getIntent();
-        if(intent.getExtras() != null) {
+//        Intent intent = activity.getIntent();
+        if(intent.getExtras() != null && intent.hasExtra("uname")) {
             String uname = intent.getStringExtra("uname");
             String desc = intent.getStringExtra("desc");
             String base64Pfp = intent.getStringExtra("pfp");

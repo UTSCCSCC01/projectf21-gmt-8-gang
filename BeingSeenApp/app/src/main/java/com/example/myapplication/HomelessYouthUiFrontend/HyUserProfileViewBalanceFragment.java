@@ -100,6 +100,9 @@ public class HyUserProfileViewBalanceFragment extends Fragment {
                 Toast.makeText(activity, "You already have a goal!", Toast.LENGTH_LONG).show();
             }
         }
+        if (intent.hasExtra("toast_profile")) {
+            Toast.makeText(activity, "Successfully edited profile", Toast.LENGTH_LONG).show();
+        }
 
         //Logout button
         final Button button = (Button) view.findViewById(R.id.HyPfLogoutButton);

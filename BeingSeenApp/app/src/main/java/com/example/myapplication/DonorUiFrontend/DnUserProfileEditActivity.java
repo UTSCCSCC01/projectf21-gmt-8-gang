@@ -85,11 +85,11 @@ public class DnUserProfileEditActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess() {
                                 switch (ProfileInfo.getUserRole()) {
-                                    case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class));break;
-                                    case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class));break;
-                                    case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class));break;
-                                    case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class));break;
-                                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class));break;
+                                    case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class).putExtra("toast_profile", "succeed"));break;
+                                    case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class).putExtra("toast_profile", "succeed"));break;
+                                    case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class).putExtra("toast_profile", "succeed"));break;
+                                    case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class).putExtra("toast_profile", "succeed"));break;
+                                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class).putExtra("toast_profile", "succeed"));break;
                                 }
                             }
                         });
