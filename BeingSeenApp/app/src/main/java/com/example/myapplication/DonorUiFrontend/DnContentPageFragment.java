@@ -1,5 +1,6 @@
 package com.example.myapplication.DonorUiFrontend;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
@@ -118,6 +119,14 @@ public class DnContentPageFragment extends Fragment {
             public void onClick(View v, int position) {
                 Log.i("suppp", "we clicked, position: " + position + ", user: "
                         + models.get(position).getName());
+                Intent intent = new Intent(getActivity(), DnDonationGoalActivity.class);
+                intent.putExtra("username", models.get(position).getName());
+                intent.putExtra("title", models.get(position).getTitle());
+                intent.putExtra("description", models.get(position).getDescription());
+                intent.putExtra("current", models.get(position).getCurrent().toString());
+                Long per = (models.get(position).getCurrent() * 100 / models.get(position).getGoal());
+                intent.putExtra("percentage", per.toString());
+                startActivity(intent);
             }
         };
     }
@@ -144,6 +153,8 @@ public class DnContentPageFragment extends Fragment {
                             model.setName(jsonObject.getString("username"));
                             model.setTitle(jsonObject.getString("title"));
                             model.setDescription(jsonObject.getString("description"));
+                            model.setCurrent(jsonObject.getLong("current"));
+                            model.setGoal(jsonObject.getLong("goal"));
                             model.setImg(R.drawable.profile);
                             models.add(model);
                         }

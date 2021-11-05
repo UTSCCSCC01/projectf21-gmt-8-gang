@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DonorUiFrontend.DnDonationGoalActivity"
+            android:exported="true" />
+        <activity
             android:name=".MerchantUiFrontend.MerMainNavbarActivity"
             android:exported="true" />
         <activity
