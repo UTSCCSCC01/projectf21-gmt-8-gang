@@ -95,15 +95,6 @@ public class MerUserProfileViewBalanceFragment extends Fragment {
             }
         });
 
-        //botton for about us:
-        Button btn_aboutus= (Button) view.findViewById(R.id.merAboutusBtnFrag);
-        btn_aboutus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(activity.getApplicationContext(), Aboutus.class);
-                startActivity(i);
-            }
-        });
 
         /// Set photo and string and stuff based on nav from prev
         Intent intent = activity.getIntent();
