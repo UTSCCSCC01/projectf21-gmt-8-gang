@@ -57,6 +57,14 @@ Search frontend UI showing result
 Assignee: Pengpeng Cao
 estimate:5
 
+(Bug-fixing task, not user story)
+Issue Type: Bug
+Priority: Medium
+GMTGAN-153
+Last mins fix
+Assignee: Suguru Seo
+estimate: 8
+
 Product backlog (user stories yet to get worked on):
 Issue Type: Story
 Priority: High
