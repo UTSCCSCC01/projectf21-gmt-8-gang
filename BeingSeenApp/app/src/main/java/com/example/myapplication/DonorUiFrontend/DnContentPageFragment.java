@@ -94,7 +94,7 @@ public class DnContentPageFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dn_content_page, container, false);
         FragmentActivity activity = getActivity();
-        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.content_page_recycler_view);
         getAllDonationGoalsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
             @Override
             public void onSuccess() {

@@ -2,6 +2,7 @@ package com.example.myapplication.DonorUiFrontend;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ public class DnContentPageHolder extends RecyclerView.ViewHolder implements View
 
     ImageView proPic;
     TextView username, title, description;
+    ProgressBar progressBar;
 
 //    private AdapterView.OnItemClickListener listener;
     private DnContentPageAdapter.ContentPageRecyclerViewClickListener listener;
@@ -24,6 +26,7 @@ public class DnContentPageHolder extends RecyclerView.ViewHolder implements View
         this.username = itemView.findViewById(R.id.homelessUsername);
         this.title = itemView.findViewById(R.id.goalTitle);
         this.description = itemView.findViewById(R.id.gDescription);
+        this.progressBar = itemView.findViewById(R.id.progressBar);
         this.listener = listener;
 
         itemView.setOnClickListener(this);

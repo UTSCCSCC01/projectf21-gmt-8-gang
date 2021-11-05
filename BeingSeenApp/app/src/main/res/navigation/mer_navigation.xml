@@ -10,4 +10,9 @@
         android:name="com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceFragment"
         android:label="fragment_mer_user_profile_view_balance"
         tools:layout="@layout/fragment_mer_user_profile_view_balance" />
+    <fragment
+        android:id="@+id/transaction_history"
+        android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"
+        android:label="fragment_transaction_history"
+        tools:layout="@layout/fragment_transaction_history" />
 </navigation>

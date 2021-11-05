@@ -20,4 +20,9 @@
         android:name="com.example.myapplication.DonorUiFrontend.DnContentPageFragment"
         android:label="fragment_dn_content_page"
         tools:layout="@layout/fragment_dn_content_page" />
+    <fragment
+        android:id="@+id/transaction_history"
+        android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"
+        android:label="fragment_transaction_history"
+        tools:layout="@layout/fragment_transaction_history" />
 </navigation>
