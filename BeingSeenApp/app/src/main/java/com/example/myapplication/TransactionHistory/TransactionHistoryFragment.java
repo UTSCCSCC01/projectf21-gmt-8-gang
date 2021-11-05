@@ -23,6 +23,8 @@ import com.example.myapplication.DonorUiFrontend.DnContentPageActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewDonationActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewDonationActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -80,6 +82,8 @@ public class TransactionHistoryFragment extends Fragment {
         }
     }
     RecyclerView recyclerView;
+    private List<String> receivers, senders;
+    private List<Long> amounts_receivers, amounts_senders;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,34 +96,80 @@ public class TransactionHistoryFragment extends Fragment {
         FragmentActivity activity = getActivity();
 
         recyclerView = view.findViewById(R.id.transaction_history_recycler_view);
-
-        if (recyclerView == null) {
-            Log.i("hyyy", "recycler view is null");
-        } else {
-            Log.i("hyyy", "recycler view is not null");
-        }
         //Retrieving donation info from DB
         Transaction transactionInfo = new Transaction();
         transactionInfo.getDnTransactionFromDb((AppCompatActivity) getActivity(),
                 new VolleyCallBack() {
+                    String userRole = ProfileInfo.getUserRole().substring(5);
                     @Override
                     public void onSuccess() {
-                        setAdapter(activity);
+                        if (userRole.equals("DONOR") || userRole.equals("ORGANIZATION")) {
+                            setAdapter(activity, Transaction.getReceivers() ,"to");
+                        } else {
+                            transactionInfo.getHyTransactionFromDb((AppCompatActivity) getActivity(), new VolleyCallBack() {
+                                @Override
+                                public void onSuccess() {
+                                    setAdapter(activity, Transaction.getSenders(), "from");
+                                }
+                            });
+                        }
                     }
                 });
+
+        Switch toOrFromSwitch = (Switch) view.findViewById(R.id.to_or_from_switch);
+        if (!ProfileInfo.getUserRole().equals("ROLE_HOMELESS") && !ProfileInfo.getUserRole().equals("ROLE_BEING_SEEN")) {
+            toOrFromSwitch.setVisibility(View.GONE);
+        }
+        toOrFromSwitch.setText("Senders");
+        toOrFromSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                    toOrFromSwitch.setText("Receivers");
+                    transactionInfo.getDnTransactionFromDb((AppCompatActivity) activity, new VolleyCallBack() {
+                        @Override
+                        public void onSuccess() {
+                            swapAdapter(activity, Transaction.getReceivers(), "to");
+                        }
+                    });
+
+                } else {
+                    // The toggle is enabled
+                    toOrFromSwitch.setText("Senders");
+                    //Retrieving donation info from DB
+                    transactionInfo.getHyTransactionFromDb((AppCompatActivity) activity, new VolleyCallBack() {
+                        @Override
+                        public void onSuccess() {
+                            swapAdapter(activity, Transaction.getSenders(), "from");
+                        }
+                    });
+                }
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;
     }
-
-    private void setAdapter(FragmentActivity activity) {
-        //fetch list of receivers and amounts from transaction DB
-        List<String> receivers = Transaction.getReceivers();
+    private void swapAdapter(FragmentActivity activity, List<String> people ,String toOrFrom) {
+        //fetch list of receivers and amounts from transaction
         List<Long> amounts = Transaction.getAmounts();
-
         String userRole = ProfileInfo.getUserRole().substring(5);
         Log.i("hyyy", userRole);
-        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts, userRole);
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(people, amounts, userRole, toOrFrom);
+        // sets the layout, default animator, and adapter of recycler view
+//        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.swapAdapter(adapter, false);
+    }
+
+
+
+    private void setAdapter(FragmentActivity activity, List<String> people ,String toOrFrom) {
+        //fetch list of receivers and amounts from transaction
+        List<Long> amounts = Transaction.getAmounts();
+        String userRole = ProfileInfo.getUserRole().substring(5);
+        Log.i("hyyy", userRole);
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(people, amounts, userRole, toOrFrom);
         // sets the layout, default animator, and adapter of recycler view
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         //recyclerView.setItemAnimator(new DefaultItemAnimator());

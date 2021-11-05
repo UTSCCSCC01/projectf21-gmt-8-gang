@@ -58,35 +58,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01" />
 
-    <Button
-        android:id="@+id/SetGoal"
-        android:layout_width="110dp"
-        android:layout_height="65dp"
-        android:text="Set a Goal"
-        android:textSize="12dp"
-        android:gravity="left"
-        android:textAlignment="gravity"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/delete_donation_goal"
-        android:layout_width="110dp"
-        android:layout_height="65dp"
-        android:text="Delete a goal"
-        android:gravity="right"
-        android:textAlignment="gravity"
-        app:layout_constraintHorizontal_bias="0.98"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="12dp" />
 
     <TextView
         android:id="@+id/HyPfUnameDisplay"

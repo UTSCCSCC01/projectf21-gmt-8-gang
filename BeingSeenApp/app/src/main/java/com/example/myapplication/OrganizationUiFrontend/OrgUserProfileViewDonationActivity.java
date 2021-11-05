@@ -111,7 +111,7 @@ public class OrgUserProfileViewDonationActivity extends AppCompatActivity {
         List<String> senders = Transaction.getSenders();
         List<Long> amounts = Transaction.getAmounts();
 
-        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(senders, amounts, "ORGANIZATION");
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(senders, amounts, "ORGANIZATION", "to");
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

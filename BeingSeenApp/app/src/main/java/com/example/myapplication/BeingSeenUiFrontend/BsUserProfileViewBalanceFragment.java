@@ -107,12 +107,12 @@ public class BsUserProfileViewBalanceFragment extends Fragment {
         });
 
 
-        //donate to someone button
-        final Button donateButton = (Button) view.findViewById(R.id.donateToSomeone);
-        donateButton.setOnClickListener(new View.OnClickListener() {
+        //botton for about us:
+        Button btn_aboutus= (Button) view.findViewById(R.id.aboutusBtn);
+        btn_aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(activity.getApplicationContext(), DnUserDonoActivity.class);
+                Intent i = new Intent(activity.getApplicationContext(), Aboutus.class);
                 startActivity(i);
             }
         });

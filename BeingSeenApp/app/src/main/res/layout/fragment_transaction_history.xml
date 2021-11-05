@@ -9,16 +9,16 @@
 
     <TextView
         android:id="@+id/transaction_history_txt"
-        android:layout_width="349dp"
-        android:layout_height="72dp"
+        android:layout_width="304dp"
+        android:layout_height="63dp"
         android:text="Transaction History"
-        android:textSize="34sp"
+        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transaction_history_recycler_view"
@@ -30,5 +30,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/transaction_history_txt" />
+
+    <Switch
+        android:id="@+id/to_or_from_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Senders"
+        app:layout_constraintBottom_toTopOf="@+id/transaction_history_recycler_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/transaction_history_txt"
+        app:layout_constraintTop_toTopOf="@+id/transaction_history_txt"
+        app:layout_constraintVertical_bias="0.794" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

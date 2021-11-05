@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextClock;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.VolleyError;
@@ -38,7 +40,7 @@ public class HySetDonationGoalActivity extends AppCompatActivity {
         TextClock textClock = (TextClock) findViewById(R.id.date);
         textClock.setTimeZone("Canada/Eastern");
         textClock.setFormat12Hour("dd-MMM-yyyy");
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Publish Button code
         final Button publish = (Button) findViewById(R.id.publishGoalButton);
         publish.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +50,18 @@ public class HySetDonationGoalActivity extends AppCompatActivity {
                 createDonationGoal();
             }
         });
+    }
+
+    //Back button on top
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.i("hyyy", ProfileInfo.getUserRole());
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void createDonationGoal() {

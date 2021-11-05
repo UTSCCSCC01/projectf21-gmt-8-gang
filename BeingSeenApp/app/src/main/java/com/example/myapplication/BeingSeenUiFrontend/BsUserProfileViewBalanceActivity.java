@@ -55,16 +55,6 @@ public class BsUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
-        //donate to someone button
-        final Button donateButton = (Button) findViewById(R.id.donateToSomeone);
-        donateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), DnUserDonoActivity.class);
-                startActivity(i);
-            }
-        });
-
         /// Set photo and string and stuff based on nav from prev
         Intent intent = getIntent();
         if(intent.getExtras() != null) {

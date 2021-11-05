@@ -129,7 +129,7 @@ public class BsUserProfileViewDonationActivity extends AppCompatActivity {
         List<Long> amounts = null;
         // if data is null then return?
 
-        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts, "DONOR");
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts, "DONOR", "to");
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

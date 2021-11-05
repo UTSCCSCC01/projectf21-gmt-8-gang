@@ -128,7 +128,7 @@ public class MerUserProfileViewDonationActivity extends AppCompatActivity {
         //fetch list of receivers and amounts from transaction DB
         List<String> receivers = Transaction.getSenders();
         List<Long> amounts = Transaction.getAmounts();
-        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts, "MERCHANT");
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(receivers, amounts, "MERCHANT", "to");
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
