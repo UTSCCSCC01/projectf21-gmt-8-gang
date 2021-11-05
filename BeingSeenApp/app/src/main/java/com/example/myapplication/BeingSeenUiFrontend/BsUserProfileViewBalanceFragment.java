@@ -26,6 +26,7 @@ import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.DonorUiFrontend.DnContentPageActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserDonoActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -100,7 +101,7 @@ public class BsUserProfileViewBalanceFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(activity.getApplicationContext(), MainActivity.class);
+                Intent i = new Intent(activity.getApplicationContext(), HySignUpActivity.class);
                 startActivity(i);
             }
         });
@@ -112,16 +113,6 @@ public class BsUserProfileViewBalanceFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(activity.getApplicationContext(), DnUserDonoActivity.class);
-                startActivity(i);
-            }
-        });
-
-        //botton for about us:
-        Button btn_aboutus= (Button) view.findViewById(R.id.aboutusBtn);
-        btn_aboutus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(activity.getApplicationContext(), Aboutus.class);
                 startActivity(i);
             }
         });
