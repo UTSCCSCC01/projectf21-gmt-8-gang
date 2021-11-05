@@ -81,4 +81,32 @@ tools:context=".HomelessYouthUiFrontend.HyDonationGoalFragment">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintVertical_bias="0.48" />
+
+    <Button
+        android:id="@+id/SetGoal"
+        android:layout_width="148dp"
+        android:layout_height="130dp"
+        android:text="Set a Goal"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.848" />
+
+    <Button
+        android:id="@+id/delete_donation_goal"
+        android:layout_width="148dp"
+        android:layout_height="130dp"
+        android:text="Delete a goal"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/SetGoal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintStart_toEndOf="@+id/SetGoal"
+        app:layout_constraintTop_toTopOf="@+id/SetGoal"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -102,12 +103,32 @@ public class HyDonationGoalFragment extends Fragment {
 
         getDonationGoalFromDb((AppCompatActivity) getActivity(), new VolleyCallBack() {
             @Override
-            public void onSuccess() {
+            public void onSuccess() {}
+        });
 
+        //        Button for creating donation goal
+        final Button setGoal = view.findViewById(R.id.SetGoal);
+        setGoal.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+
+                Intent i = new Intent(activity.getApplicationContext(), HySetDonationGoalActivity.class);
+                startActivity(i);
             }
         });
 
-        //proPic.setImageBitmap(bitmap);
+        //         button for deleting donation goal
+        final Button deleteGoal = view.findViewById(R.id.delete_donation_goal);
+        deleteGoal.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                HyDeleteDonationGoalModel model = new HyDeleteDonationGoalModel((AppCompatActivity)activity);
+                model.deleteDonationGoal();
+//                Toast.makeText(getBaseContext(), "outside delete", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;
@@ -151,8 +172,11 @@ public class HyDonationGoalFragment extends Fragment {
                 ,new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.i("hyyy", "error response: " + error.getMessage());
-                Log.i("hyyy", "error num: " + error.networkResponse.statusCode);
+                if (error.networkResponse.statusCode == 404) {
+                    usernameField.setText("You don't have a goal now.\nGo create one!");
+                } else {
+                    Log.i("uh-oh", "something's wrong with internet or your code!");
+                }
             }
         }) {
             @Override
