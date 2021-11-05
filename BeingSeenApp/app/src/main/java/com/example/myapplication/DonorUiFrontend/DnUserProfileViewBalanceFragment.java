@@ -104,15 +104,6 @@ public class DnUserProfileViewBalanceFragment extends Fragment {
             }
         });
 
-        //botton for about us:
-        Button btn_aboutus= (Button) view.findViewById(R.id.aboutusBtn);
-        btn_aboutus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(activity.getApplicationContext(), Aboutus.class);
-                startActivity(i);
-            }
-        });
         // make toast message if successfully updated profile
         Intent intent = activity.getIntent();
 
