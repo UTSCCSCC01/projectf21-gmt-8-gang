@@ -61,7 +61,7 @@ public class SearchResult extends AppCompatActivity {
                 Intent intent=new Intent();
                 intent.setClass(SearchResult.this,Donation.class);
                 //info need db complete
-                intent.putExtra("reciever",username);
+                intent.putExtra("receiver",username);
                 intent.putExtra("sender","getCurrentUserId");
                 startActivity(intent);
             }

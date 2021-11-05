@@ -59,7 +59,7 @@ public class Donation extends AppCompatActivity {
                     return;
                 }
                 Transaction transaction=new Transaction();
-                transaction.makeDnDonationTransaction("beingseen", comment, amount,
+                transaction.makeDnDonationTransaction(receiverId, comment, amount,
                         Donation.this, new VolleyCallBack() {
                             @Override
                             public void onSuccess() {
