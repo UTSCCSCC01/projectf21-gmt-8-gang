@@ -17,6 +17,7 @@ import com.example.myapplication.merchantSearch.MerchantInfoPage;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,10 +31,10 @@ public class MerchantRecyclerAdapter extends RecyclerView.Adapter<MerchantRecycl
 
     public MerchantRecyclerAdapter( List<String> username, List<String> role, List<String> profile) {
         this.profile = profile;
-        this.profileJson= Collections.<JSONObject>emptyList();
+        this.profileJson= new ArrayList<JSONObject>();
         this.username=username;
         this.role=role;
-        this.nickname=Collections.<String>emptyList();
+        this.nickname=new ArrayList<String>();
         for(int i=0;i<profile.size();i++){
             try {
                 JSONObject pf=new JSONObject(profile.get(i));
