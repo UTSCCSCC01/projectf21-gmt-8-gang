@@ -20,4 +20,9 @@
         android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"
         android:label="fragment_transaction_history"
         tools:layout="@layout/fragment_transaction_history" />
+    <fragment
+        android:id="@+id/donation_goal"
+        android:name="com.example.myapplication.HomelessYouthUiFrontend.HyDonationGoalFragment"
+        android:label="fragment_donation_goal"
+        tools:layout="@layout/fragment_hy_donation_goal" />
 </navigation>
