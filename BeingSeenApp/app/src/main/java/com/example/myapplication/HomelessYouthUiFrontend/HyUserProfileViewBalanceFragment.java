@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.MainActivity;
@@ -85,9 +86,23 @@ public class HyUserProfileViewBalanceFragment extends Fragment {
 
 
         // Inflate the layout for this fragment
-
         View view = inflater.inflate(R.layout.fragment_hy_user_profile_view_balance, container, false);
         FragmentActivity activity = getActivity();
+
+        // if we returned from HySetDonationGoalModel, create toast message accordingly
+        Intent intent = activity.getIntent();
+        if (intent.hasExtra("toast")) {
+            if (intent.getStringExtra("toast").equals(HySetDonationGoalModel.CREATE_GOAL_SUCCESS)) {
+                Toast.makeText(activity, "created donation goal", Toast.LENGTH_LONG).show();
+            } else if (intent.getStringExtra("toast").equals(HySetDonationGoalModel.CREATE_GOAL_ERROR)) {
+                Toast.makeText(activity, "Couldn't connect", Toast.LENGTH_LONG).show();
+            } else if (intent.getStringExtra("toast").equals(HySetDonationGoalModel.CREATE_GOAL_DUPLICATE)) {
+                Toast.makeText(activity, "You already have a goal!", Toast.LENGTH_LONG).show();
+            }
+        }
+        if (intent.hasExtra("toast_profile")) {
+            Toast.makeText(activity, "Successfully edited profile", Toast.LENGTH_LONG).show();
+        }
 
         //Logout button
         final Button button = (Button) view.findViewById(R.id.HyPfLogoutButton);
@@ -103,12 +118,9 @@ public class HyUserProfileViewBalanceFragment extends Fragment {
         });
 
 
-
-
-
         /// Set photo and string and stuff based on nav from prev
-        Intent intent = activity.getIntent();
-        if(intent.getExtras() != null) {
+//        Intent intent = activity.getIntent(); // already did this!
+        if(intent.getExtras() != null && intent.hasExtra("uname")) {
             String uname = intent.getStringExtra("uname");
             String desc = intent.getStringExtra("desc");
             String base64Pfp = intent.getStringExtra("pfp");

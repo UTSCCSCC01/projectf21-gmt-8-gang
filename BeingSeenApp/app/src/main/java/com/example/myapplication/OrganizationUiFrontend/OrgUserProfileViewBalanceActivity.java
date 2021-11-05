@@ -40,15 +40,15 @@ public class OrgUserProfileViewBalanceActivity extends AppCompatActivity {
             }
         });
 
-        //botton for about us:
-        Button btn_aboutus= (Button) findViewById(R.id.orgAboutusBtn);
-        btn_aboutus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Aboutus.class);
-                startActivity(i);
-            }
-        });
+//        //botton for about us:
+//        Button btn_aboutus= (Button) findViewById(R.id.orgAboutusBtn);
+//        btn_aboutus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(getApplicationContext(), Aboutus.class);
+//                startActivity(i);
+//            }
+//        });
 
         /// Set photo and string and stuff based on nav from prev
         Intent intent = getIntent();

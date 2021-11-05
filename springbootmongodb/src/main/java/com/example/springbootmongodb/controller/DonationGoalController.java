@@ -133,7 +133,7 @@ public class DonationGoalController  {
     private ResponseEntity<?> deleteGoal() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         if (!donationGoalRepos.existsByUsername(username)) {
-            System.out.println("username doesn't exist so can't delete donation goal");
+            System.out.println("username doesn't have a donation goal so can't delete");
             return new ResponseEntity<>("username doesn't exist", HttpStatus.NOT_FOUND);
         }
         try {
