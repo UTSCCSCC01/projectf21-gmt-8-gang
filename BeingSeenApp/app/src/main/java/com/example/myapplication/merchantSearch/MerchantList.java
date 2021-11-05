@@ -20,6 +20,7 @@ import com.example.myapplication.VolleyCallBack;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
@@ -57,13 +58,10 @@ public class MerchantList extends AppCompatActivity {
 
     private void setAdapter() {
         //fetch list of result's username, role, and profile from DB
-        List<String> profile=null;
-        List<String> username=null;
-        List<String> role=null;
+        List<String> profile=new ArrayList<String>();
+        List<String> username=new ArrayList<String>();
+        List<String> role=new ArrayList<String>();
         if(result!=null){
-            profile=Collections.<String>emptyList();
-            username=Collections.<String>emptyList();
-            role=Collections.<String>emptyList();
             try {
                 for (int i = 0; i < result.size(); i++) {
                     profile.add(result.get(i).getString("profileInfo"));
