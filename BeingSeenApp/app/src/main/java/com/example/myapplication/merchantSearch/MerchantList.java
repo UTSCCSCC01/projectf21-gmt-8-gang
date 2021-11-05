@@ -65,15 +65,9 @@ public class MerchantList extends AppCompatActivity {
             try {
                 for (int i = 0; i < result.size(); i++) {
 
-                    String curProfile = result.get(i).getString("profileInfo");
-                    String curUsername = result.get(i).getString("userName");
-                    String curRole = result.get(i).getString("role");
-
-                    if (curRole.equals("MERCHANT")) {
-                        profile.add(curProfile);
-                        username.add(curUsername);
-                        role.add(curRole);
-                    }
+                    profile.add(result.get(i).getString("profileInfo"));
+                    username.add(result.get(i).getString("userName"));
+                    role.add(result.get(i).getString("role"));
                 }
             }
             catch(Exception e){
