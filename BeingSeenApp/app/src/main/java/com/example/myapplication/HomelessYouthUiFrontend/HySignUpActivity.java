@@ -22,7 +22,7 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
     private HySignUpModel hySignUpModel;
     public static final String REGISTER_TAG = "hyRegister";
     String role;
-    final String[] ROLE_TEXTS = {"Homeless Youth", "Donor", "Organization", "Merchant"};
+    final String[] ROLE_TEXTS = {"Youth", "Donor", "Organization", "Merchant"};
     public static final String[] ROLES = {"HOMELESS", "DONOR", "ORGANIZATION", "MERCHANT", "BEING_SEEN"};
 
     @Override
@@ -40,9 +40,6 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        // back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // button
         Button button = (Button) findViewById(R.id.HySignUpButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,18 +86,6 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
 
         Log.i(REGISTER_TAG, "sign up finished");
         return;
-    }
-
-    // back button
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.i("hyyy", ProfileInfo.getUserRole());
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 
