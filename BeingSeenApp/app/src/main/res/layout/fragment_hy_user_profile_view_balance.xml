@@ -8,6 +8,16 @@
     tools:context=".HomelessYouthUiFrontend.HyUserProfileViewBalanceFragment">
 
 
+
+    <RelativeLayout
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/teal_700"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </RelativeLayout>
+
     <ImageView
         android:id="@+id/HyPfPfpDisplay"
         android:layout_width="150dp"

@@ -97,7 +97,7 @@ public class HyUserProfileViewBalanceFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(activity.getApplicationContext(), MainActivity.class);
+                Intent i = new Intent(activity.getApplicationContext(), HySignUpActivity.class);
                 startActivity(i);
             }
         });

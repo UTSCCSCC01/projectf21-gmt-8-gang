@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
@@ -33,7 +34,7 @@ public class DonationStatus extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(DonationStatus.this, MainActivity.class);
+                intent.setClass(DonationStatus.this, HySignUpActivity.class);
                 startActivity(intent);
             }
         });
