@@ -36,12 +36,12 @@ As Willow England (A donor), I would like to have a navbar to navigate through t
 Assignee: Sung Ye Ansel Hong
 estimate:7
 
-Issue Type: Story
+Issue Type: Task
 Priority: High
-GMTGAN-97
-As a Willow England (A donor), I would like to convert my real money to in app currency so that I can donate.
+GMTGAN-168
+Background research for real money conversion
 Assignee: Andreas Alexander
-estimate:8
+estimate:5
 
 Issue Type: Task
 Priority: High
