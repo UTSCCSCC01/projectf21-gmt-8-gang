@@ -7,9 +7,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.Transaction;
+import com.example.myapplication.VolleyCallBack;
 
 import java.util.List;
 
@@ -20,11 +23,13 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
     private List<String> people;
     private List<Long> amounts;
     String userRole;
+    String toOrFrom;
 
-    public TransactionRecyclerAdapter(List<String> people, List<Long> amounts, String userRole) {
+    public TransactionRecyclerAdapter(List<String> people, List<Long> amounts, String userRole, String toOrFrom) {
         this.people = people;
         this.amounts = amounts;
         this.userRole = userRole;
+        this.toOrFrom = toOrFrom;
     }
 
     // represents a recycler item
@@ -59,10 +64,8 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
                 holder.noTransactionField.setText("You have no donations yet, try setting up profile!");
             else if (userRole.equals("ORGANIZATION"))
                 holder.noTransactionField.setText("haven't set up transaction method for large org yet");
-            else if (userRole.equals("MERCHANT")) {
+            else if (userRole.equals("MERCHANT"))
                 holder.noTransactionField.setText("No youth has bought your stuff before");
-                Log.i("hyyy", "hihi");
-            }
             else if (userRole.equals("BEING_SEEN"))
                 holder.noTransactionField.setText("No donations received for being seen!");
             holder.peopleField.setText("");
@@ -73,8 +76,15 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
         String person = "";
         if (userRole.equals("DONOR") || userRole.equals("ORGANIZATION"))
             person = "To " + people.get(position);             // current receiver
-        else if (userRole.equals("MERCHANT") || userRole.equals("BEING_SEEN") || userRole.equals("HOMELESS"))
+        else if (userRole.equals("MERCHANT"))
             person = "From " + people.get(position);            // current sender
+        else if (userRole.equals("BEING_SEEN") || userRole.equals("HOMELESS")) {
+            if (toOrFrom.equals("to")) {
+                person = "To " + people.get(position);
+            } else {
+                person = "From " + people.get(position);
+            }
+        }
         String amount = amounts.get(position).toString() + " Credit(s)";
         holder.peopleField.setText(person);
         holder.amountField.setText(amount);
@@ -86,5 +96,16 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
         if (amounts == null || amounts.size() == 0)
             return 1;
         return amounts.size();
+    }
+
+    private void replaceOldListWithNewList(List<String> newPeople, List<Long> newAmounts) {
+        // clear old list
+        people.clear();
+        amounts.clear();
+        people.addAll(newPeople);
+        amounts.addAll(newAmounts);
+
+        notifyDataSetChanged();
+
     }
 }

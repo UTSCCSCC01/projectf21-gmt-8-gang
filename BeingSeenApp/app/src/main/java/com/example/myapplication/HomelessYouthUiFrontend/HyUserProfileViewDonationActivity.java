@@ -134,7 +134,7 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
 
         // if data is null then return??? (not sure)
 
-        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(senders, amounts, "HOMELESS");
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(senders, amounts, "HOMELESS", "to");
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
