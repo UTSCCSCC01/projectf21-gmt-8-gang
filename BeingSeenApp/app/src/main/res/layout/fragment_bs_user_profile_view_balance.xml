@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".BeingSeenUiFrontend.BsUserProfileViewBalanceFragment">
 
+    <RelativeLayout
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/teal_700"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/imageView"
