@@ -128,20 +128,18 @@ public class HyDonationGoalFragment extends Fragment {
                         Log.d("RESPONSE_VAR", "Reponse called properly");
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            DnContentPageModel model = new DnContentPageModel();
                             username = jsonObject.getString("username");
                             title = jsonObject.getString("title");
                             description = jsonObject.getString("description");
                             current = jsonObject.getLong("current");
-                            model.setCurrent(current);
                             goal = jsonObject.getLong("goal");
-                            model.setGoal(goal);
+                            Long per = current * 100 / goal;
 
                             usernameField.setText(username);
                             titleField.setText(title);
                             descriptionField.setText(description);
                             progressField.setText("current: " + current);
-                            percentageField.setText(percentage + "%");
+                            percentageField.setText(per.toString() + "%");
 
 //                            model.setImg(R.drawable.profile);
                             callBack.onSuccess();
