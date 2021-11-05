@@ -143,6 +143,10 @@ public class ProfileInfo implements Serializable {
     public List<JSONObject> getSearchResult(){
         return this.searchResult;
     }
+
+    public void setSearchResult(List<JSONObject> searchResult) {
+        this.searchResult = searchResult;
+    }
     public ProfileInfo(){
     }
 
@@ -429,41 +433,55 @@ public class ProfileInfo implements Serializable {
         // a simple API to test if we can connect to backend
         String url = "http://10.0.2.2:8080/search?username=";
         String name_search = this.getSearchIdName();
-        Log.d("TRANS_VAR", name_search);
+        Log.d("RESPONSE_VAR", url + name_search);
 
         // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url + name_search,
-                response -> {
-
-                    Log.d("RESPONSE_VAR", "Reponse search called properly");
-
-                    JSONObject jsonItem;
-                    List<JSONObject> jsonObjectList;
-                    try {
-                        jsonItem = new JSONObject(response);
-
-                        jsonObjectList = (List<JSONObject>) new JSONObject(response);
-//
-
-                        this.searchResult=jsonObjectList;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url + name_search, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("RESPONSE_VAR", response);
+                /*try {
+                    JSONArray jsonUsers = new JSONArray(response);
+                    Log.d("RESPONSE_VAR","Search user is working");
 
 
-                        Log.d("RESPONSE_VAR", "Username received as "+this.username);
-                        callBack.onSuccess();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    *//*List<String> tempUsers = new ArrayList<String>();*//*
+
+                    List<JSONObject> jsonObjectList = new ArrayList<>();
+
+                    for (int i = 0; i < jsonUsers.length(); i++) {
+                        JSONObject jsonUser = jsonUsers.getJSONObject(i);
+                        jsonObjectList.add(jsonUser);
                     }
-                }, error -> this.username = "ERROR")
-        {
+                    setSearchResult(jsonObjectList);
+                    callBack.onSuccess();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }*/
+                /*List<JSONObject> jsonObjectList = new ArrayList<>();
+
+                for (int i = 0; i < jsonUsers.length(); i++) {
+                    JSONObject jsonUser = jsonUsers.getJSONObject(i);
+                    jsonObjectList.add(jsonUser);
+                }*/
+
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Log.d("GET_HEADER", "Made call to getHeaders");
-                Map<String, String>  params = new HashMap<String, String>();
+                Log.d("GET_HEADER", "Made call to search user getHeaders");
+                Map<String, String>  headers = new HashMap<String, String>();
                 String token = ProfileInfo.getToken();
-                //Log.d("RESPONSE_VAR", token);
-                params.put("Content-Type", "application/json");
-                params.put("Authorization", token);
-                return params;
+                Log.d("RESPONSE_VAR", token);
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", token);
+                return headers;
             }
         };
         // Add the request to the RequestQueue.

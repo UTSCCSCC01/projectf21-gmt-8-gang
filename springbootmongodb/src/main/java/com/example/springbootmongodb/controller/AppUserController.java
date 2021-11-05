@@ -99,7 +99,7 @@ public class AppUserController {
             List<AppUser> appUsers = appUserRepository.findAll();
             List<AppUser> matchedAppUsers = new ArrayList<>();
             if (appUsers.size() == 0) {
-                return new ResponseEntity<>("no donation goals available", HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>("no app user available", HttpStatus.NOT_FOUND);
             }
             for (int i = 0; i < appUsers.size(); i++) {
                 System.out.println(appUsers.get(i).getUserName());
