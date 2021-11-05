@@ -22,7 +22,7 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
     private HySignUpModel hySignUpModel;
     public static final String REGISTER_TAG = "hyRegister";
     String role;
-    final String[] ROLE_TEXTS = {"Homeless Youth", "Donor", "Organization", "Merchant", "Being Seen"};
+    final String[] ROLE_TEXTS = {"Homeless Youth", "Donor", "Organization", "Merchant"};
     public static final String[] ROLES = {"HOMELESS", "DONOR", "ORGANIZATION", "MERCHANT", "BEING_SEEN"};
 
     @Override
@@ -115,8 +115,6 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
             role = "ORGANIZATION";
         } else if (adapterView.getItemAtPosition(i).toString().equals(ROLE_TEXTS[3])) {
             role = "MERCHANT";
-        }  else if (adapterView.getItemAtPosition(i).toString().equals(ROLE_TEXTS[4])) {
-            role = "BEING_SEEN";
         }
     }
 
