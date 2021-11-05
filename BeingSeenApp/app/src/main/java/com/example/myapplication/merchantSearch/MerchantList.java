@@ -34,7 +34,7 @@ public class MerchantList extends AppCompatActivity {
         String username=getIntent().getStringExtra("Username");
         TextView inputText=(TextView) findViewById(R.id.ml_input);
         inputText.setText(username);
-        recyclerView = findViewById(R.id.dn_donations_recycler_view);
+        recyclerView = findViewById(R.id.ml_list);
         ProfileInfo profileInfo=new ProfileInfo();
         profileInfo.setSearchIdName(username);
         profileInfo.searchUser(this, new VolleyCallBack() {
