@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -75,6 +76,7 @@ public class TransactionController {
             } catch (Exception e) {
                 return new ResponseEntity<>("Error during  finding transaction. Please check formatting", HttpStatus.NOT_FOUND);
             }
+            Collections.reverse(transactions);
             return new ResponseEntity<>(transactions, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,6 +95,7 @@ public class TransactionController {
             } catch (Exception e) {
                 return new ResponseEntity<>("Error during  finding transaction. Transaction not found", HttpStatus.NOT_FOUND);
             }
+            Collections.reverse(transactions);
             return new ResponseEntity<>(transactions, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
