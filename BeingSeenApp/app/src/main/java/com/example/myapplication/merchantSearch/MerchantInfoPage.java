@@ -28,12 +28,13 @@ public class MerchantInfoPage extends AppCompatActivity {
 
         //code from SearchResult
         String username=getIntent().getStringExtra("Username");
+        String nickname=getIntent().getStringExtra("name");
         String bio=getIntent().getStringExtra("bio");
         String photo=getIntent().getStringExtra("photo");
         ImageView img=(ImageView) findViewById(R.id.searchPhoto);
         img.setImageBitmap(ProfileInfo.decodeProfilePic(photo));
         TextView name=(TextView) findViewById(R.id.searchNameDisplay);
-        name.setText(username);
+        name.setText(nickname);
         TextView desc=(TextView)findViewById(R.id.searchUdescDisplay);
         desc.setText(bio);
         Button back=(Button) findViewById(R.id.search_back);

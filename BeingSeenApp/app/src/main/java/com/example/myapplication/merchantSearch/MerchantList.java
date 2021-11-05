@@ -41,6 +41,7 @@ public class MerchantList extends AppCompatActivity {
             @Override
             public void onSuccess() {
                 result=profileInfo.getSearchResult();
+                setAdapter();
             }
         });
         Button back=(Button) findViewById(R.id.ml_back);
@@ -55,13 +56,19 @@ public class MerchantList extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        //fetch list of result's username and nickname from DB
+        //fetch list of result's username, role, and profile from DB
         List<String> profile=null;
+        List<String> username=null;
+        List<String> role=null;
         if(result!=null){
             profile=Collections.<String>emptyList();
+            username=Collections.<String>emptyList();
+            role=Collections.<String>emptyList();
             try {
                 for (int i = 0; i < result.size(); i++) {
                     profile.add(result.get(i).getString("profileInfo"));
+                    username.add(result.get(i).getString("userName"));
+                    role.add(result.get(i).getString("role"));
 
                 }
             }
@@ -70,7 +77,7 @@ public class MerchantList extends AppCompatActivity {
             }
         }
         // if data is null then return?
-        MerchantRecyclerAdapter adapter = new MerchantRecyclerAdapter(profile);
+        MerchantRecyclerAdapter adapter = new MerchantRecyclerAdapter(username, role, profile);
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
