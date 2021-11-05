@@ -66,12 +66,20 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintHorizontal_bias="0.215"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403" />
+        app:layout_constraintVertical_bias="0.404" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="315dp"
+        android:layout_height="128dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.592">
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/DnDonoText"
         android:layout_width="315dp"
         android:layout_height="128dp"
@@ -81,48 +89,52 @@
         android:background="@drawable/border"
         android:gravity="top|left"
         android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.592" />
+        android:textSize="24sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/donateUsername"
-        android:layout_width="99dp"
-        android:layout_height="38dp"
-        android:gravity="top|left"
-        android:hint="Username"
-        android:maxHeight="?actionBarSize"
-        android:minHeight="?actionBarSize"
-        android:textColor="@color/black"
-        android:textSize="16sp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="125dp"
+        android:layout_height="58dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.724"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.401" />
+        app:layout_constraintVertical_bias="0.401">
 
-    <EditText
-        android:id="@+id/dnDonoAmt"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/donateUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:gravity="top|left"
+            android:hint="Username"
+            android:maxHeight="?actionBarSize"
+            android:minHeight="?actionBarSize"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="204dp"
         android:layout_height="51dp"
-        android:paddingTop="1dp"
-        android:paddingLeft="1dp"
-        android:gravity="top|left"
-        android:hint="Enter a donation amount"
-        android:inputType="number"
-        android:maxHeight="?actionBarSize"
-        android:minHeight="?actionBarSize"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
+        app:layout_constraintVertical_bias="0.77">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/dnDonoAmt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|left"
+        android:background="#00000000"
+        android:hint="Enter a donation amount"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
