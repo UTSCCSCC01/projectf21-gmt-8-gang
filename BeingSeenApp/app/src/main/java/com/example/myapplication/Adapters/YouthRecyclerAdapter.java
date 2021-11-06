@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.merchantSearch.MerchantInfo;
+import com.example.myapplication.SearchUI.YouthInfo;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,15 +20,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MerchantRecyclerAdapter extends RecyclerView.Adapter<MerchantRecyclerAdapter.RecyclerViewHolder>{
-//code base on TransactionRecyclerAdapter
+public class YouthRecyclerAdapter extends RecyclerView.Adapter<YouthRecyclerAdapter.RecyclerViewHolder>{
+    //code base on TransactionRecyclerAdapter
     private List<String> profile;
     private List<JSONObject> profileJson;//store json object of profile
     private List<String> username;
     private List<String> nickname;
     private List<String> role;
 
-    public MerchantRecyclerAdapter( List<String> username, List<String> role, List<String> profile) {
+    public YouthRecyclerAdapter( List<String> username, List<String> role, List<String> profile) {
         this.profile = profile;
         this.profileJson= new ArrayList<JSONObject>();
         this.username=username;
@@ -56,9 +56,9 @@ public class MerchantRecyclerAdapter extends RecyclerView.Adapter<MerchantRecycl
         public RecyclerViewHolder(final View view) {
             super(view);
             context = itemView.getContext();
-            userField = view.findViewById(R.id.merchant_recycler_username);
-            nickField=view.findViewById(R.id.merchant_recycler_nickname);
-            goButton = view.findViewById(R.id.merchant_recycler_go);
+            userField = view.findViewById(R.id.youth_recycler_username);
+            nickField=view.findViewById(R.id.youth_recycler_nickname);
+            goButton = view.findViewById(R.id.youth_recycler_go);
         }
 
     }
@@ -66,14 +66,14 @@ public class MerchantRecyclerAdapter extends RecyclerView.Adapter<MerchantRecycl
     // creates a new RecyclerViewHolder
     @NonNull
     @Override
-    public MerchantRecyclerAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.merchant_list_item, parent, false);
-        return new MerchantRecyclerAdapter.RecyclerViewHolder(itemView);
+    public YouthRecyclerAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.youth_recycler_item, parent, false);
+        return new YouthRecyclerAdapter.RecyclerViewHolder(itemView);
     }
 
     // when binding the view holder to a timeSlot
     @Override
-    public void onBindViewHolder(@NonNull MerchantRecyclerAdapter.RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull YouthRecyclerAdapter.RecyclerViewHolder holder, int position) {
         if (username == null) {
             holder.nickField.setText("No more result");
             holder.goButton.setText("X");
@@ -81,7 +81,7 @@ public class MerchantRecyclerAdapter extends RecyclerView.Adapter<MerchantRecycl
         }
         String user = username.get(position);
         holder.userField.setText(user);
-        if(role.get(position).equals("MERCHANT")){
+        if(role.get(position).equals("HOMELESS")){
             String nick=nickname.get(position);
             holder.userField.setText(user);
             holder.nickField.setText(nick);
@@ -91,7 +91,7 @@ public class MerchantRecyclerAdapter extends RecyclerView.Adapter<MerchantRecycl
                 public void onClick(View view) {
                     //jump to merchant page with extra "Username"=username
                     if(!holder.goButton.getText().equals("X")){
-                        Intent i=new Intent(holder.context, MerchantInfo.class);
+                        Intent i=new Intent(holder.context, YouthInfo.class);
                         try{
                             i.putExtra("Username",user);
                             i.putExtra("name",nick);
@@ -107,7 +107,7 @@ public class MerchantRecyclerAdapter extends RecyclerView.Adapter<MerchantRecycl
             });
         }
         else{
-            holder.nickField.setText("Not Merchant");
+            holder.nickField.setText("Not Youth");
             holder.goButton.setText("X");
         }
     }

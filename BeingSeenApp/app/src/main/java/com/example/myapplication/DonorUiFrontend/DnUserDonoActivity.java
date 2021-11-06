@@ -8,16 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.android.volley.VolleyError;
-import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
-import com.example.myapplication.MainActivity;
-import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.SearchUI.SearchPage;
 import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 

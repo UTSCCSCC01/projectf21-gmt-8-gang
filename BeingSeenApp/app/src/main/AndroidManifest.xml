@@ -16,10 +16,7 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".merchantSearch.DirectTransfer"
-            android:exported="true" />
-        <activity
-            android:name=".merchantSearch.MerchantInfoPage"
+            android:name=".merchantSearch.MerchantInfo"
             android:exported="true" />
         <activity
             android:name=".merchantSearch.MerchantList"
@@ -34,10 +31,13 @@
             android:name=".DonorUiFrontend.DnContentPageActivity"
             android:exported="true" />
         <activity
-            android:name=".SearchUI.SearchResult"
+            android:name=".SearchUI.YouthInfo"
             android:exported="true" />
         <activity
-            android:name=".SearchUI.SearchPage"
+            android:name=".SearchUI.SearchYouth"
+            android:exported="true" />
+        <activity
+            android:name=".SearchUI.HomelessList"
             android:exported="true" />
         <activity
             android:name=".DonorUiFrontend.DnUserDonoActivity"

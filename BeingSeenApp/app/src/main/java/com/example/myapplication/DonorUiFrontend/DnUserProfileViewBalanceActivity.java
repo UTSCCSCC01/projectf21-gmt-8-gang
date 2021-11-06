@@ -18,7 +18,7 @@ import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.SearchUI.SearchPage;
+import com.example.myapplication.SearchUI.SearchYouth;
 import com.example.myapplication.VolleyCallBack;
 
 public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
@@ -156,7 +156,7 @@ public class DnUserProfileViewBalanceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(DnUserProfileViewBalanceActivity.this, SearchPage.class);
+                intent.setClass(DnUserProfileViewBalanceActivity.this, SearchYouth.class);
                 startActivity(intent);
             }
         });

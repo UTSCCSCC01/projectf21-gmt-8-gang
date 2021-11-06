@@ -43,6 +43,7 @@
         <entry key="app/src/main/res/layout/activity_dn_user_profile_view_balance.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dn_user_profile_view_donation.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_donation_status.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/activity_homeless_list.xml" value="0.20516304347826086" />
         <entry key="app/src/main/res/layout/activity_hy_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_hy_main_navbar.xml" value="0.15489130434782608" />
         <entry key="app/src/main/res/layout/activity_hy_set_donation_goal.xml" value="0.25052083333333336" />
@@ -53,6 +54,7 @@
         <entry key="app/src/main/res/layout/activity_hy_user_profile_view_balance.xml" value="0.14278289220629037" />
         <entry key="app/src/main/res/layout/activity_hy_user_profile_view_donation.xml" value="0.1493822042124071" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_merchant_info_page.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_merchant_list.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_org_main_navbar.xml" value="0.15489130434782608" />
         <entry key="app/src/main/res/layout/activity_search_page.xml" value="0.1" />
@@ -68,6 +70,8 @@
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.11875" />
         <entry key="app/src/main/res/layout/fragment_org_user_profile_view_balance.xml" value="0.215625" />
         <entry key="app/src/main/res/layout/fragment_search_page.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/merchant_list_item.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/youth_recycler_item.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
         <entry key="app/src/main/res/menu/bs_nav_menu.xml" value="0.215625" />
         <entry key="app/src/main/res/menu/dn_nav_menu.xml" value="0.1" />
