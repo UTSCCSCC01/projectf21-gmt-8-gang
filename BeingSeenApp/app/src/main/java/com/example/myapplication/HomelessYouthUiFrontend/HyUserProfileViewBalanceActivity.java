@@ -17,6 +17,7 @@ import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
+import com.example.myapplication.merchantSearch.SearchMerchant;
 
 public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
 
@@ -149,6 +150,16 @@ public class HyUserProfileViewBalanceActivity extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
                     startActivity(i);
                 }
+            }
+        });
+
+        Button pay=(Button) findViewById(R.id.pay);
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent();
+                i.setClass(HyUserProfileViewBalanceActivity.this, SearchMerchant.class);
+                startActivity(i);
             }
         });
     }

@@ -16,6 +16,30 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".merchantSearch.MerchantInfo"
+            android:exported="true" />
+        <activity
+            android:name=".merchantSearch.MerchantList"
+            android:exported="true" />
+        <activity
+            android:name=".merchantSearch.SearchMerchant"
+            android:exported="true" />
+        <activity
+            android:name=".HomelessYouthUiFrontend.HySpendMoney"
+            android:exported="true" />
+        <activity
+            android:name=".DonorUiFrontend.DnContentPageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SearchUI.YouthInfo"
+            android:exported="true" />
+        <activity
+            android:name=".SearchUI.SearchYouth"
+            android:exported="true" />
+        <activity
+            android:name=".SearchUI.HomelessList"
+            android:exported="true" />
+        <activity
             android:name=".DonorUiFrontend.DnDonationGoalActivity"
             android:exported="true"
             android:label="Donation Goal"/>

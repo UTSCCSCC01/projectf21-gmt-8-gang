@@ -14,6 +14,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 @RestController
 public class AppUserController {
 
@@ -88,10 +92,33 @@ public class AppUserController {
   
     @GetMapping("/search")
     public ResponseEntity<?> getUserInfoByUsername(@RequestParam("username") String string) {
-        String username = string;
-        AppUser appUser = appUserRepository.findByUserName(username);
-        return ResponseEntity.ok(new AppUserResponse(appUser.getUserName(), appUser.getRole(), appUser.getProfileInfo(), appUser.getBalance()));
-    }
+        try {
+            String username = string;
+
+            //Get all the users from db for pattern matching
+            List<AppUser> appUsers = appUserRepository.findAll();
+            List<AppUser> matchedAppUsers = new ArrayList<>();
+            if (appUsers.size() == 0) {
+                return new ResponseEntity<>("no app user available", HttpStatus.NOT_FOUND);
+            }
+            for (int i = 0; i < appUsers.size(); i++) {
+                System.out.println(appUsers.get(i).getUserName());
+                AppUser appUser = appUsers.get(i);
+                String appUsername = appUser.getUserName();
+                String regex = "[a-zA-Z0-9]*";
+                if (Pattern.matches(username + regex, appUsername)) {
+                    matchedAppUsers.add(appUser);
+                }
+            }
+            System.out.println(matchedAppUsers.size());
+            return new ResponseEntity<>(matchedAppUsers, HttpStatus.OK);
+
+            /*AppUser appUser = appUserRepository.findByUserName(username);
+            return ResponseEntity.ok(new AppUserResponse(appUser.getUserName(), appUser.getRole(), appUser.getProfileInfo(), appUser.getBalance()));
+        */} catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Error during searching request", HttpStatus.BAD_REQUEST);
+        }}
 }
 
 

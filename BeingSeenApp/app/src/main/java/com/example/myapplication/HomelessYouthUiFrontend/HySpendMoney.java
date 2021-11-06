@@ -1,4 +1,4 @@
-package com.example.myapplication.DonorUiFrontend;
+package com.example.myapplication.HomelessYouthUiFrontend;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,95 +10,83 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myapplication.DonorUiFrontend.DnUserDonoActivity;
+import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 
-public class DnUserDonoActivity extends AppCompatActivity {
+public class HySpendMoney extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dn_user_dono);
-
-
-        //For future place code to set to donate to user image and name here
-        // <CODE>
-
-
-
+        setContentView(R.layout.activity_hy_spend_money);
         //donate to someone button
         final Button donateButton = (Button) findViewById(R.id.donateConfirm);
+        Intent intent = getIntent();
+        String receiver = intent.getStringExtra("receiver");
 
         donateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                sendDono(view);
+                sendDono(view, receiver);
             }
         });
 
 
-//        //quit donate screen
-//        final Button exitDonate = (Button) findViewById(R.id.DnDonateBackEditButton);
-//
-//        exitDonate.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent i = new Intent(getApplicationContext(), DnMainNavbarActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        //quit donate screen
+        final Button exitDonate = (Button) findViewById(R.id.DnDonateBackEditButton);
+
+        exitDonate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
 
-    public void sendDono(View view) {
+    public void sendDono(View view, String rec) {
         // for future pass in username of receiver (e.g. testuser1)
         // then set as fixed textbox same retreival but is fixed
-        EditText sendingTo = (EditText)findViewById(R.id.donateUsername);
 
         // After clicking save all objects on screen into a object
-        EditText donoDesc = (EditText)findViewById(R.id.DnDonoText);
         EditText amount = (EditText)findViewById(R.id.dnDonoAmt);
 
         Transaction transactionObj = new Transaction();
 
 
-        String receiver = "";
-        receiver = sendingTo.getText().toString();
+        String receiver = rec;
         String comment = "";
-        comment = donoDesc.getText().toString();
         Long amt = 0L;
         if(!amount.getText().toString().equals("")) {
             amt = Long.parseLong(amount.getText().toString());
         }
 
-        if (receiver.equals("")) {
-            Log.i("TRYNA", "HI");
-            sendingTo.setError("Please enter a username");
-            sendingTo.requestFocus();
-            return;
-        }
 
         if (amt == null || amt <= 0) {
-            amount.setError("Please enter a nonzero amount to donate");
+            amount.setError("Please enter a nonzero amount to transfer");
             amount.requestFocus();
             return;
         }
 
         if (  !( (amt == null || amt <= 0) || (receiver.isEmpty()) )  ) {
-            transactionObj.makeDnDonationTransaction(receiver, comment, amt, DnUserDonoActivity.this,
+            //call transaction in db
+            transactionObj.makeDnDonationTransaction(receiver, comment, amt, HySpendMoney.this,
                     new VolleyCallBack() {
                         @Override
                         public void onSuccess() {
 
                             //make toast after success
-                            Toast toast = Toast.makeText(getApplicationContext(), "Donation successful", Toast.LENGTH_LONG);
+                            Toast toast = Toast.makeText(getApplicationContext(), "Transaction successful", Toast.LENGTH_LONG);
                             toast.show();
 
-                            Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                            Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
                             startActivity(i);
                         }
 
@@ -107,10 +95,10 @@ public class DnUserDonoActivity extends AppCompatActivity {
 
                             //make toast after fail
                             Toast toast = Toast.makeText(getApplicationContext(),
-                                    "Donation Failed: Make sure the user has a homeless youth account", Toast.LENGTH_LONG);
+                                    "Transaction Failed: Make sure the user has a merchant account", Toast.LENGTH_LONG);
                             toast.show();
 
-                            Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
+                            Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
                             startActivity(i);
                         }
                     });
