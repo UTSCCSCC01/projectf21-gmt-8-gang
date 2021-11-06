@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,13 +16,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.HomelessYouthUiFrontend.HyLoginActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
-import com.example.myapplication.SearchUI.SearchPage;
 import com.example.myapplication.databinding.ActivityMainBinding;
-import com.example.myapplication.merchantSearch.DirectTransfer;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {

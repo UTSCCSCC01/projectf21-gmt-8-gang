@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.myapplication.R;
-import com.example.myapplication.SearchUI.SearchPage;
-import com.example.myapplication.SearchUI.SearchResult;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class SearchMerchant extends AppCompatActivity {

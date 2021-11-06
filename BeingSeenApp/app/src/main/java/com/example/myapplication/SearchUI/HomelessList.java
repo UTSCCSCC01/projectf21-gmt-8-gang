@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.Adapters.MerchantRecyclerAdapter;
+import com.example.myapplication.Adapters.YouthRecyclerAdapter;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -24,7 +25,8 @@ import java.util.List;
 
 public class HomelessList extends AppCompatActivity {
     RecyclerView recyclerView;
-    List<JSONObject> result;@Override
+    List<JSONObject> result;
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homeless_list);
@@ -46,7 +48,7 @@ public class HomelessList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i= new Intent();
-                i.setClass(HomelessList.this, SearchMerchant.class);
+                i.setClass(HomelessList.this, SearchYouth.class);
                 startActivity(i);
             }
         });
@@ -54,22 +56,16 @@ public class HomelessList extends AppCompatActivity {
 
     private void setAdapter() {
         //fetch list of result's username, role, and profile from DB
-        List<String> profile=new ArrayList<String>();
-        List<String> username=new ArrayList<String>();
-        List<String> role=new ArrayList<String>();
+        List<String> profile = new ArrayList<String>();
+        List<String> username = new ArrayList<String>();
+        List<String> role = new ArrayList<String>();
         if(result!=null){
             try {
                 for (int i = 0; i < result.size(); i++) {
 
-                    String curProfile = result.get(i).getString("profileInfo");
-                    String curUsername = result.get(i).getString("userName");
-                    String curRole = result.get(i).getString("role");
-
-                    if (curRole.equals("HOMELESS")) {
-                        profile.add(curProfile);
-                        username.add(curUsername);
-                        role.add(curRole);
-                    }
+                    profile.add(result.get(i).getString("profileInfo"));
+                    username.add(result.get(i).getString("userName"));
+                    role.add(result.get(i).getString("role"));
                 }
             }
             catch(Exception e){
@@ -77,7 +73,7 @@ public class HomelessList extends AppCompatActivity {
             }
         }
         // if data is null then return?
-        MerchantRecyclerAdapter adapter = new MerchantRecyclerAdapter(username, role, profile);
+        YouthRecyclerAdapter adapter = new YouthRecyclerAdapter(username, role, profile);
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

@@ -11,7 +11,7 @@ import com.example.myapplication.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 
-public class SearchPage extends AppCompatActivity {
+public class SearchYouth extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class SearchPage extends AppCompatActivity {
             public void onClick(View view) {
                 String target=input.getText().toString();
                 if(target.equals("")){
-                    new AlertDialog.Builder(SearchPage.this)
+                    new AlertDialog.Builder(SearchYouth.this)
                             .setTitle("Invalid Username")
                             .setMessage("Please enter the Username")
                             .setPositiveButton("Confirm",null)
@@ -34,7 +34,7 @@ public class SearchPage extends AppCompatActivity {
                 //else if(Username not found in database) pop an alert like^^^
                 else{
                     Intent intent=new Intent();
-                    intent.setClass(SearchPage.this, SearchResult.class);
+                    intent.setClass(SearchYouth.this, HomelessList.class);
                     intent.putExtra("Username", target);
                     startActivity(intent);
                 }

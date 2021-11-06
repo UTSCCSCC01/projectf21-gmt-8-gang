@@ -1,4 +1,4 @@
-package com.example.myapplication.merchantSearch;
+package com.example.myapplication.SearchUI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,43 +10,36 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.AboutUsFrontend.Donation;
-import com.example.myapplication.HomelessYouthUiFrontend.HySpendMoney;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.SearchUI.SearchPage;
-import com.example.myapplication.SearchUI.SearchResult;
-import com.example.myapplication.Transaction;
-import com.example.myapplication.VolleyCallBack;
 
-public class MerchantInfoPage extends AppCompatActivity {
+public class YouthInfo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_merchant_info_page);
+        setContentView(R.layout.activity_search_result);
 
-
-        //code from SearchResult
         String username=getIntent().getStringExtra("Username");
         String nickname=getIntent().getStringExtra("name");
         String bio=getIntent().getStringExtra("bio");
         String photo=getIntent().getStringExtra("photo");
-        ImageView img=(ImageView) findViewById(R.id.searchPhoto);
-        img.setImageBitmap(ProfileInfo.decodeProfilePic(photo));
+//        ImageView img=(ImageView) findViewById(R.id.searchPhoto);
+//        img.setImageBitmap(ProfileInfo.decodeProfilePic(photo));
         TextView name=(TextView) findViewById(R.id.searchNameDisplay);
         name.setText(nickname);
         TextView desc=(TextView)findViewById(R.id.searchUdescDisplay);
         desc.setText(bio);
         Button back=(Button) findViewById(R.id.search_back);
+
         back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(MerchantInfoPage.this, SearchMerchant.class);
+                intent.setClass(YouthInfo.this, SearchYouth.class);
                 startActivity(intent);
             }
         });
-
 
 
         Button donate=(Button) findViewById(R.id.searchDonate);
@@ -54,9 +47,9 @@ public class MerchantInfoPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(MerchantInfoPage.this, HySpendMoney.class);
+                intent.setClass(YouthInfo.this,Donation.class);
                 //info need db complete
-                intent.putExtra("receiver",username);
+                intent.putExtra("reciever",username);
                 intent.putExtra("sender","getCurrentUserId");
                 startActivity(intent);
             }
