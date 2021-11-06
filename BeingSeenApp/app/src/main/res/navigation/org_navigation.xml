@@ -24,4 +24,9 @@
         android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"
         android:label="fragment_transaction_history"
         tools:layout="@layout/fragment_transaction_history" />
+    <fragment
+        android:id="@+id/about_us"
+        android:name="com.example.myapplication.AboutUsFrontend.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
 </navigation>

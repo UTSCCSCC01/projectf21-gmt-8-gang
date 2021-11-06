@@ -45,8 +45,14 @@ public class HyDeleteDonationGoalModel {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.i(LOGIN_TAG, "delete donation goal failed");
-                Toast.makeText(activity.getApplicationContext(), "failed to delete donation goal", Toast.LENGTH_LONG).show();
+                if (error.networkResponse.statusCode == 404) {
+                    Log.i(LOGIN_TAG, "delete donation goal failed");
+                    Toast.makeText(activity.getApplicationContext(), "You don't have a donation goal!", Toast.LENGTH_LONG).show();
+                } else {
+                    Log.i(LOGIN_TAG, "delete donation goal failed");
+                    Toast.makeText(activity.getApplicationContext(), "network issues, can't delete", Toast.LENGTH_LONG).show();
+                }
+
                 return;
             }
         }) {

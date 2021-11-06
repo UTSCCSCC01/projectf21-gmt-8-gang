@@ -41,13 +41,13 @@ public class DnContentPageAdapter extends RecyclerView.Adapter<DnContentPageHold
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBindViewHolder(@NonNull DnContentPageHolder holder, int position) {
-        holder.proPic.setImageResource(models.get(position).getImg());
+        //holder.proPic.setImageResource(models.get(position).getImg());
         holder.username.setText(models.get(position).getName());
         holder.title.setText(models.get(position).getTitle());
         holder.description.setText(models.get(position).getDescription());
         Long percentage = (models.get(position).getCurrent() * 100 / models.get(position).getGoal());
         holder.progressBar.setProgress(Math.toIntExact(percentage));
-        holder.progress.setText(percentage.toString());
+        holder.progress.setText(percentage.toString()+"%");
     }
 
     @Override

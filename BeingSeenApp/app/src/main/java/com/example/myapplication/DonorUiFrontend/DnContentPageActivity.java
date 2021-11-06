@@ -1,15 +1,9 @@
 package com.example.myapplication.DonorUiFrontend;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -20,16 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyUserInterfaceActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
-import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
-import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -38,7 +24,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -116,7 +101,7 @@ public class DnContentPageActivity extends AppCompatActivity {
                             model.setName(jsonObject.getString("username"));
                             model.setTitle(jsonObject.getString("title"));
                             model.setDescription(jsonObject.getString("description"));
-                            model.setImg(R.drawable.profile);
+                            //model.setImg(R.drawable.profile);
                             models.add(model);
                         }
                         callBack.onSuccess();
