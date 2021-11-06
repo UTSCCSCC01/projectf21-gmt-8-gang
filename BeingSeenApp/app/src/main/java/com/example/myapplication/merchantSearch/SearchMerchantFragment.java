@@ -1,4 +1,5 @@
-package com.example.myapplication.SearchUI;
+package com.example.myapplication.merchantSearch;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,14 +14,15 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.myapplication.R;
+import com.example.myapplication.SearchUI.HomelessList;
 import com.google.android.material.textfield.TextInputEditText;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SearchPageFragment#newInstance} factory method to
+ * Use the {@link com.example.myapplication.merchantSearch.SearchMerchantFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchPageFragment extends Fragment {
+public class SearchMerchantFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +33,7 @@ public class SearchPageFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SearchPageFragment() {
+    public SearchMerchantFragment() {
         // Required empty public constructor
     }
 
@@ -41,11 +43,11 @@ public class SearchPageFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchPageFragment.
+     * @return A new instance of fragment SearchMechantFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SearchPageFragment newInstance(String param1, String param2) {
-        SearchPageFragment fragment = new SearchPageFragment();
+    public static com.example.myapplication.merchantSearch.SearchMerchantFragment newInstance(String param1, String param2) {
+        com.example.myapplication.merchantSearch.SearchMerchantFragment fragment = new com.example.myapplication.merchantSearch.SearchMerchantFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -86,7 +88,7 @@ public class SearchPageFragment extends Fragment {
                 //else if(Username not found in database) pop an alert like^^^
                 else{
                     Intent intent=new Intent();
-                    intent.setClass(activity, HomelessList.class);
+                    intent.setClass(activity, MerchantList.class);
                     intent.putExtra("Username", target);
                     startActivity(intent);
                 }

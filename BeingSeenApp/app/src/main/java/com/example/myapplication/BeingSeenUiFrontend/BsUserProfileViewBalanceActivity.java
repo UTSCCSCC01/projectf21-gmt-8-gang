@@ -21,7 +21,7 @@ import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.SearchUI.SearchPage;
+import com.example.myapplication.SearchUI.SearchYouth;
 import com.example.myapplication.VolleyCallBack;
 
 public class BsUserProfileViewBalanceActivity extends AppCompatActivity {
@@ -140,7 +140,7 @@ public class BsUserProfileViewBalanceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(BsUserProfileViewBalanceActivity.this, SearchPage.class);
+                intent.setClass(BsUserProfileViewBalanceActivity.this, SearchYouth.class);
                 startActivity(intent);
             }
         });

@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
@@ -75,7 +74,7 @@ public class HySendMoneyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_send_money, container, false);
+        View view = inflater.inflate(R.layout.fragment_search_merchant_page, container, false);
         FragmentActivity activity = getActivity();
 
         final Button donateButton = view.findViewById(R.id.donateConfirm);

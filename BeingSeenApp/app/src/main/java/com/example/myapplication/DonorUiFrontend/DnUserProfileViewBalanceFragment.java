@@ -27,7 +27,6 @@ import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.SearchUI.SearchPage;
 import com.example.myapplication.VolleyCallBack;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

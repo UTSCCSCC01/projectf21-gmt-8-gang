@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.DonorUiFrontend.DnUserDonoActivity;
@@ -25,13 +26,14 @@ public class HySpendMoney extends AppCompatActivity {
         //donate to someone button
         final Button donateButton = (Button) findViewById(R.id.donateConfirm);
         Intent intent = getIntent();
-        String receiver = intent.getStringExtra("receiver");
-
+        String receiverName = intent.getStringExtra("receiver");
+        TextView receiver=(TextView) findViewById(R.id.merchant_receiver);
+        receiver.setText(receiverName);
         donateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                sendDono(view, receiver);
+                sendDono(view, receiverName);
             }
         });
 
@@ -44,7 +46,7 @@ public class HySpendMoney extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                Intent i = new Intent(getApplicationContext(), HyMainNavbarActivity.class);
                 startActivity(i);
             }
         });
@@ -86,7 +88,7 @@ public class HySpendMoney extends AppCompatActivity {
                             Toast toast = Toast.makeText(getApplicationContext(), "Transaction successful", Toast.LENGTH_LONG);
                             toast.show();
 
-                            Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
+                            Intent i = new Intent(getApplicationContext(), HyMainNavbarActivity.class);
                             startActivity(i);
                         }
 

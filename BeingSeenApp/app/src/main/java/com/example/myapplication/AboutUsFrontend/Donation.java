@@ -34,7 +34,7 @@ public class Donation extends AppCompatActivity {
         TextView receiver=(TextView) findViewById(R.id.dnt_reciever);
         receiver.setText(receiverId);
         TextInputEditText amountField=(TextInputEditText) findViewById(R.id.dnt_amount);
-        TextInputEditText commentField=(TextInputEditText) findViewById(R.id.dnt_comment);
+
 
         // back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -45,7 +45,7 @@ public class Donation extends AppCompatActivity {
             public void onClick(View view) {
                 //read input
                 String amountStirng=amountField.getText().toString();
-                String comment  = commentField.getText().toString();
+               String comment  = "";
                 //check if required input empty
                 if (amountStirng.isEmpty()) {
                     amountField.setError("please enter an amount");

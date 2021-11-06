@@ -20,7 +20,6 @@ import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.SearchUI.SearchPage;
 import com.example.myapplication.VolleyCallBack;
 public class MerUserProfileViewBalanceActivity extends AppCompatActivity {
     @Override

@@ -67,7 +67,7 @@
         app:layout_constraintVertical_bias="0.408">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/HyPfEditDesc"
+            android:id="@+id/HyPfEditUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"
@@ -94,7 +94,7 @@
         app:layout_constraintVertical_bias="0.579">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/HyPfEditUsername"
+            android:id="@+id/HyPfEditDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"

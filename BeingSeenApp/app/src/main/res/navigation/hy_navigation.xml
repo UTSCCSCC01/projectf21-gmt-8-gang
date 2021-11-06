@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_hy_user_profile_view_balance" />
     <fragment
         android:id="@+id/hy_send_money"
-        android:name="com.example.myapplication.HomelessYouthUiFrontend.HySendMoneyFragment"
+        android:name="com.example.myapplication.merchantSearch.SearchMerchantFragment"
         android:label="fragment_send_money"
-        tools:layout="@layout/fragment_send_money" />
+        tools:layout="@layout/fragment_search_merchant_page" />
     <fragment
         android:id="@+id/transaction_history"
         android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"

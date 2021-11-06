@@ -10,13 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.Adapters.MerchantRecyclerAdapter;
-import com.example.myapplication.Adapters.YouthRecyclerAdapter;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.TransactionHistory.YouthRecyclerAdapter;
 import com.example.myapplication.VolleyCallBack;
-import com.example.myapplication.merchantSearch.MerchantList;
-import com.example.myapplication.merchantSearch.SearchMerchant;
 
 import org.json.JSONObject;
 

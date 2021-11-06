@@ -35,18 +35,8 @@ public class YouthInfo extends AppCompatActivity {
         desc.setText(bio);
         Button back=(Button) findViewById(R.id.search_back);
 
-        back.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent();
-                intent.setClass(YouthInfo.this, SearchYouth.class);
-                startActivity(intent);
-            }
-        });
-        //desc.setText(db.desc(Username));
-
-        // back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        // back button
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         // donate button

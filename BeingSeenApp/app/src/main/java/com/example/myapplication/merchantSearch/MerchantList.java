@@ -11,19 +11,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myapplication.Adapters.MerchantRecyclerAdapter;
-import com.example.myapplication.Adapters.TransactionRecyclerAdapter;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.ListIterator;
 
 public class MerchantList extends AppCompatActivity {
     RecyclerView recyclerView;

@@ -38,7 +38,6 @@
         app:hintAnimationEnabled="false"
         app:hintEnabled="false"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toTopOf="@+id/dnt_comment_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dnt_reciever">
@@ -76,28 +75,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dnt_comment_frame"
         app:rippleColor="@color/teal_700"
         app:strokeColor="@color/teal_700" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/dnt_comment_frame"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/dnt_confirm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dnt_amount_frame">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dnt_comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Comment (optional)" />
-    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

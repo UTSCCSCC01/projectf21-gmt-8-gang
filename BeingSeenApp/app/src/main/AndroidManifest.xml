@@ -28,11 +28,9 @@
             android:name=".HomelessYouthUiFrontend.HySpendMoney"
             android:exported="true" />
         <activity
-            android:name=".DonorUiFrontend.DnContentPageActivity"
-            android:exported="true" />
-        <activity
             android:name=".SearchUI.YouthInfo"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Youth Profile"/>
         <activity
             android:name=".SearchUI.SearchYouth"
             android:exported="true" />
@@ -85,13 +83,6 @@
             android:name=".DonorUiFrontend.DnContentPageActivity"
             android:exported="true"
             android:label="Donation goals"/>
-        <activity
-            android:name=".SearchUI.SearchResult"
-            android:exported="true"
-            android:label="Youth Profile"/>
-        <activity
-            android:name=".SearchUI.SearchPage"
-            android:exported="true" />
         <activity
             android:name=".DonorUiFrontend.DnUserDonoActivity"
             android:exported="true" />

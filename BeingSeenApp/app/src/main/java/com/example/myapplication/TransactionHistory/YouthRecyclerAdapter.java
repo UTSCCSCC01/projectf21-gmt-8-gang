@@ -1,7 +1,8 @@
-package com.example.myapplication.Adapters;
+package com.example.myapplication.TransactionHistory;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,7 @@ public class YouthRecyclerAdapter extends RecyclerView.Adapter<YouthRecyclerAdap
                 e.printStackTrace();
             }
         }
+        Log.i("TEST", nickname.toString());
     }
 
     // represents a recycler item
@@ -82,7 +84,7 @@ public class YouthRecyclerAdapter extends RecyclerView.Adapter<YouthRecyclerAdap
         String user = username.get(position);
         holder.userField.setText(user);
         if(role.get(position).equals("HOMELESS")){
-            String nick=nickname.get(position);
+            String nick = nickname.get(position);
             holder.userField.setText(user);
             holder.nickField.setText(nick);
             holder.goButton.setText("GO");
