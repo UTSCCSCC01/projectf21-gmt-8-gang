@@ -57,36 +57,56 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01" />
 
-    <EditText
-        android:id="@+id/HyPfEditUsername"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="Name"
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
-        android:textSize="15dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="333dp"
+        android:layout_height="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.408">
 
-    <EditText
-        android:id="@+id/HyPfEditDesc"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.55"
-        android:text="Bio"
-        android:textSize="15dp"
-        android:textColor="@color/black"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/HyPfEditDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:text="Name"
+            android:hint="Enter your display name"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.408" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="324dp"
+        android:layout_height="74dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintVertical_bias="0.579">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/HyPfEditUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:text="Bio"
+            android:hint="Enter your bio"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.55"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
         android:id="@+id/editIcon"

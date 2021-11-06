@@ -53,8 +53,8 @@ public class HySetDonationGoalModel {
             @Override
             public void onResponse(JSONObject response) {
                 Log.i(LOGIN_TAG, "create donation goal success");
-                Intent i = new Intent(activity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
-                i.putExtra("toast", CREATE_GOAL_SUCCESS);
+                Intent i = new Intent(activity.getApplicationContext(), HyMainNavbarActivity.class);
+//                i.putExtra("toast", CREATE_GOAL_SUCCESS);
                 activity.startActivity(i);
                 return;
             }
@@ -64,13 +64,13 @@ public class HySetDonationGoalModel {
                 Log.i(LOGIN_TAG, "create donation goal failed");
                 if (e.networkResponse.statusCode == 404) {
                     Log.i(LOGIN_TAG, "create donation goal failed error 404");
-                    Intent i = new Intent(activity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
-                    i.putExtra("toast", CREATE_GOAL_DUPLICATE);
+                    Intent i = new Intent(activity.getApplicationContext(), HyMainNavbarActivity.class);
+//                    i.putExtra("toast", CREATE_GOAL_DUPLICATE);
                     activity.startActivity(i);
                 } else {
                     Log.i(LOGIN_TAG, "create donation goal failed error 400, developer you need to do somethinggg");
-                    Intent i = new Intent(activity.getApplicationContext(), HyUserProfileViewBalanceActivity.class);
-                    i.putExtra("toast", CREATE_GOAL_ERROR);
+                    Intent i = new Intent(activity.getApplicationContext(), HyMainNavbarActivity.class);
+//                    i.putExtra("toast", CREATE_GOAL_ERROR);
                     activity.startActivity(i);
                 }
 

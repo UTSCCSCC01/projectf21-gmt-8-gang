@@ -1,9 +1,12 @@
 package com.example.myapplication.SearchUI;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -40,8 +43,13 @@ public class YouthInfo extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //desc.setText(db.desc(Username));
+
+        // back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+        // donate button
         Button donate=(Button) findViewById(R.id.searchDonate);
         donate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,10 +57,22 @@ public class YouthInfo extends AppCompatActivity {
                 Intent intent=new Intent();
                 intent.setClass(YouthInfo.this,Donation.class);
                 //info need db complete
-                intent.putExtra("reciever",username);
+                intent.putExtra("receiver",username);
                 intent.putExtra("sender","getCurrentUserId");
                 startActivity(intent);
             }
         });
+    }
+
+    // back button
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.i("hyyy", ProfileInfo.getUserRole());
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

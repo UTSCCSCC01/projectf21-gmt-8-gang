@@ -79,6 +79,7 @@ public class AuthenticationController {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (Exception e) {
+            System.out.println("error in authentication process");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new AuthenticationResponse("AUTH_ERROR","Error during client Authentication " + username));
         }
@@ -90,7 +91,14 @@ public class AuthenticationController {
             role = "ROLE_DONOR";
         } else if (loadedUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_HOMELESS"))) {
             role = "ROLE_HOMELESS";
+        } else if (loadedUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_MERCHANT"))) {
+            role = "ROLE_MERCHANT";
+        } else if (loadedUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_BEING_SEEN"))) {
+            role = "ROLE_BEING_SEEN";
+        } else if (loadedUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ORGANIZATION"))) {
+            role = "ROLE_ORGANIZATION";
         } else {
+            System.out.println("error on identifying role");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new AuthenticationResponse("ROLE_DNE","Error on Identifying role for " + username));
         }

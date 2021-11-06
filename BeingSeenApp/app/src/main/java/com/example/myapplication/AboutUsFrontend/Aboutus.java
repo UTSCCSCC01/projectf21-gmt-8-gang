@@ -1,13 +1,28 @@
 package com.example.myapplication.AboutUsFrontend;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.myapplication.BeingSeenUiFrontend.BsMainNavbarActivity;
+import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
+import com.example.myapplication.DonorUiFrontend.DnContentPageActivity;
+import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
+import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyMainNavbarActivity;
+import com.example.myapplication.MerchantUiFrontend.MerMainNavbarActivity;
+import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
+import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
+import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 
 public class Aboutus extends AppCompatActivity {
@@ -29,11 +44,22 @@ public class Aboutus extends AppCompatActivity {
                 Intent intent=new Intent();
                 intent.setClass(Aboutus.this, Donation.class);
                 //info need db complete
-                intent.putExtra("receiver","Being Seen");
+                intent.putExtra("receiver","seesee");
                 startActivity(intent);
             }
         });
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
 
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.i("hyyy", ProfileInfo.getUserRole());
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

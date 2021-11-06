@@ -3,6 +3,7 @@ package com.example.myapplication.DonorUiFrontend;
 public class DnContentPageModel {
     private String name, title, description;
     private int img;
+    private Long current, goal;
 
     public String getName() {
         return name;
@@ -36,4 +37,19 @@ public class DnContentPageModel {
         this.description = description;
     }
 
+    public Long getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(Long current) {
+        this.current = current;
+    }
+
+    public Long getGoal() {
+        return goal;
+    }
+
+    public void setGoal(Long goal) {
+        this.goal = goal;
+    }
 }

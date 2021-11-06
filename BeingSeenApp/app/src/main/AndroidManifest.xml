@@ -40,26 +40,92 @@
             android:name=".SearchUI.HomelessList"
             android:exported="true" />
         <activity
+            android:name=".DonorUiFrontend.DnDonationGoalActivity"
+            android:exported="true"
+            android:label="Donation Goal"/>
+        <activity
+            android:name=".MerchantUiFrontend.MerMainNavbarActivity"
+            android:exported="true"
+            android:label="Merchant"/>
+        <activity
+            android:name=".OrganizationUiFrontend.OrgMainNavbarActivity"
+            android:exported="true"
+            android:label="Organization"/>
+        <activity
+            android:name=".HomelessYouthUiFrontend.HyMainNavbarActivity"
+            android:exported="true"
+            android:label="Youth"/>
+        <activity
+            android:name=".BeingSeenUiFrontend.BsMainNavbarActivity"
+            android:exported="true"
+            android:label="Admin"/>
+        <activity
+            android:name=".DonorUiFrontend.DnMainNavbarActivity"
+            android:exported="true"
+            android:label="Donor"/>
+        <activity
+            android:name=".MerchantUiFrontend.MerUserProfileViewDonationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BeingSeenUiFrontend.BsUserProfileViewDonationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".OrganizationUiFrontend.OrgUserProfileViewDonationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BeingSeenUiFrontend.BsUserProfileViewBalanceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MerchantUiFrontend.MerUserProfileViewBalanceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".OrganizationUiFrontend.OrgUserProfileViewBalanceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DonorUiFrontend.DnContentPageActivity"
+            android:exported="true"
+            android:label="Donation goals"/>
+        <activity
+            android:name=".SearchUI.SearchResult"
+            android:exported="true"
+            android:label="Youth Profile"/>
+        <activity
+            android:name=".SearchUI.SearchPage"
+            android:exported="true" />
+        <activity
             android:name=".DonorUiFrontend.DnUserDonoActivity"
             android:exported="true" />
         <activity
             android:name=".HomelessYouthUiFrontend.HySignUpActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Being Seen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            </activity>
         <activity
             android:name=".HomelessYouthUiFrontend.HySetDonationGoalActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Youth"/>
         <activity
             android:name=".AboutUsFrontend.DonationStatus"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Donation Status"
+            android:parentActivityName=".AboutUsFrontend.Donation" />
         <activity
             android:name=".AboutUsFrontend.Donation"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Make a Donation"
+            android:parentActivityName=".AboutUsFrontend.Aboutus" />
         <activity
             android:name=".AboutUsFrontend.Aboutus"
-            android:exported="true" />
+            android:exported="true"
+            android:label="About Us"/>
         <activity
             android:name=".HomelessYouthUiFrontend.HyUserProfileEditActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Edit Profile"/>
         <activity
             android:name=".HomelessYouthUiFrontend.HyUserProfileViewDonationActivity"
             android:exported="true" />
@@ -71,7 +137,8 @@
             android:exported="true" />
         <activity
             android:name=".HomelessYouthUiFrontend.HyLoginActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Log in"/>
         <activity
             android:name=".DonorUiFrontend.DnUserProfileViewBalanceActivity"
             android:exported="true" />
@@ -80,16 +147,12 @@
             android:exported="true" />
         <activity
             android:name=".DonorUiFrontend.DnUserProfileEditActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Edit Profile"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"

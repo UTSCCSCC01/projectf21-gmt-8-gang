@@ -39,18 +39,18 @@ public class DnUserDonoActivity extends AppCompatActivity {
         });
 
 
-        //quit donate screen
-        final Button exitDonate = (Button) findViewById(R.id.DnDonateBackEditButton);
-
-        exitDonate.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(getApplicationContext(), DnUserProfileViewBalanceActivity.class);
-                startActivity(i);
-            }
-        });
+//        //quit donate screen
+//        final Button exitDonate = (Button) findViewById(R.id.DnDonateBackEditButton);
+//
+//        exitDonate.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent i = new Intent(getApplicationContext(), DnMainNavbarActivity.class);
+//                startActivity(i);
+//            }
+//        });
     }
 
 

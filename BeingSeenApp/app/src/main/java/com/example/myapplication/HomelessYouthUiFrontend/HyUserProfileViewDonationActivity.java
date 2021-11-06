@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.Adapters.TransactionRecyclerAdapter;
+import com.example.myapplication.TransactionHistory.TransactionRecyclerAdapter;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -134,7 +134,7 @@ public class HyUserProfileViewDonationActivity extends AppCompatActivity {
 
         // if data is null then return??? (not sure)
 
-        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(senders, amounts, "HOMELESS");
+        TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(senders, amounts, "HOMELESS", "to");
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
