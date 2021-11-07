@@ -6,30 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".DonorUiFrontend.DnUserDonoActivity">
 
-  <RelativeLayout
-      android:id="@+id/textView"
-      android:layout_width="match_parent"
-      android:layout_height="200dp"
-      android:background="@color/green"
-      android:layout_marginBottom="300px"
-      app:layout_constraintTop_toTopOf="parent"
-      >
+<!--  <RelativeLayout-->
+<!--      android:id="@+id/textView"-->
+<!--      android:layout_width="match_parent"-->
+<!--      android:layout_height="200dp"-->
+<!--      android:background="@color/green"-->
+<!--      android:layout_marginBottom="300px"-->
+<!--      app:layout_constraintTop_toTopOf="parent"-->
+<!--      >-->
 
-  </RelativeLayout>
+<!--  </RelativeLayout>-->
 
-  <ImageView
-      android:id="@+id/imageHy"
-      android:layout_width="150dp"
-      android:layout_height="200dp"
-      android:scaleType="centerCrop"
-      android:src="@drawable/profile"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.5"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.1"
-      tools:srcCompat="@tools:sample/avatars" />
+<!--  <ImageView-->
+<!--      android:id="@+id/imageHy"-->
+<!--      android:layout_width="150dp"-->
+<!--      android:layout_height="200dp"-->
+<!--      android:scaleType="centerCrop"-->
+<!--      android:src="@drawable/profile"-->
+<!--      app:layout_constraintBottom_toBottomOf="parent"-->
+<!--      app:layout_constraintEnd_toEndOf="parent"-->
+<!--      app:layout_constraintHorizontal_bias="0.5"-->
+<!--      app:layout_constraintStart_toStartOf="parent"-->
+<!--      app:layout_constraintTop_toTopOf="parent"-->
+<!--      app:layout_constraintVertical_bias="0.1"-->
+<!--      tools:srcCompat="@tools:sample/avatars" />-->
 
   <TextView
       android:id="@+id/merchant_receiver"
@@ -42,7 +42,7 @@
       android:text="receiver"
       android:textAppearance="@style/TextAppearance.AppCompat.Display2"
       android:textColor="@color/black"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toBottomOf="@+id/donateConfirm"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.5"
       app:layout_constraintVertical_bias="0.35"
@@ -63,70 +63,35 @@
       app:layout_constraintVertical_bias="0.01" />
 
 
-<!--  <EditText-->
-<!--      android:id="@+id/dnDonoAmt"-->
-<!--      android:layout_width="204dp"-->
-<!--      android:layout_height="51dp"-->
-<!--      android:gravity="top|left"-->
-<!--      android:hint="Enter a transfer amount"-->
-<!--      android:inputType="number"-->
-<!--      android:maxHeight="?actionBarSize"-->
-<!--      android:minHeight="?actionBarSize"-->
-<!--      android:paddingLeft="1dp"-->
-<!--      android:paddingTop="1dp"-->
-<!--      android:textColor="@color/black"-->
-<!--      android:textSize="16sp"-->
-<!--      app:layout_constraintBottom_toBottomOf="parent"-->
-<!--      app:layout_constraintEnd_toEndOf="parent"-->
-<!--      app:layout_constraintHorizontal_bias="0.497"-->
-<!--      app:layout_constraintStart_toStartOf="parent"-->
-<!--      app:layout_constraintTop_toTopOf="parent"-->
-<!--      app:layout_constraintVertical_bias="0.62" />-->
-
-  <com.google.android.material.textfield.TextInputLayout
-      android:id="@+id/dnt_amount_frame"
-      android:layout_width="360dp"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:layout_marginTop="16dp"
-      android:layout_marginEnd="8dp"
-      android:layout_marginBottom="16dp"
-      android:hint="Amount"
-      android:textColorHint="@color/black"
-      app:hintAnimationEnabled="false"
-      app:hintEnabled="false"
-      app:hintTextAppearance="@style/TextAppearance.AppCompat.Body1"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.5"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.6">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/dnDonoAmt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:bufferType="editable"
-        android:capitalize="none"
-        android:clickable="true"
-        android:hint="Amount"
-        android:inputType="number"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:textInputLayoutFocusedRectEnabled="true" />
-  </com.google.android.material.textfield.TextInputLayout>
-
   <Button
       android:id="@+id/donateConfirm"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
       android:text="Confirm"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.787" />
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:layout_width="217dp"
+      android:layout_height="61dp"
+      app:layout_constraintBottom_toTopOf="@+id/donateConfirm"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.912">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/dnDonoAmt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:hint="amount"
+        android:inputType="textPersonName" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
