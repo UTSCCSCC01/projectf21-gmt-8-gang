@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profiles.BsUserProfileFragment">
+    tools:context=".Profiles.YouthUserProfileFragment">
+
+
 
     <RelativeLayout
         android:id="@+id/textView"
@@ -17,7 +19,7 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/HyPfPfpDisplay"
         android:layout_width="150dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +34,7 @@
 
 
     <Button
-        android:id="@+id/BsEditPfButton"
+        android:id="@+id/HyEditPfButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit"
@@ -43,8 +45,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
-        android:id="@+id/BsPfLogoutButton"
+        android:id="@+id/HyPfLogoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
@@ -55,8 +58,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01" />
 
+
+
     <TextView
-        android:id="@+id/BsPfUnameDisplay"
+        android:id="@+id/HyPfUnameDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -70,7 +75,7 @@
         />
 
     <TextView
-        android:id="@+id/BsPfUdescDisplay"
+        android:id="@+id/HyPfUdescDisplay"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -84,7 +89,7 @@
         />
 
     <TextView
-        android:id="@+id/bsPfBalance"
+        android:id="@+id/hyPfBalance"
         android:layout_width="200dp"
         android:layout_height="81dp"
         android:text="N/A"
@@ -101,7 +106,7 @@
         android:id="@+id/textCreditUnit"
         android:layout_width="122dp"
         android:layout_height="81dp"
-        android:text="Credit(s) to give"
+        android:text="Credit(s) to spend"
         android:textSize="20dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -111,19 +116,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.83" />
 
-    <!--    <ImageButton-->
-    <!--        android:id="@+id/searchButton"-->
-    <!--        android:layout_width="48dp"-->
-    <!--        android:layout_height="48dp"-->
-    <!--        android:layout_marginStart="16dp"-->
-    <!--        android:backgroundTint="@color/green"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.763"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.939"-->
-    <!--        app:srcCompat="?android:attr/actionModeWebSearchDrawable"-->
-    <!--        tools:ignore="SpeakableTextPresentCheck" />-->
-
-</androidx.constraintlayout.widget.ConstraintLayout >
+</androidx.constraintlayout.widget.ConstraintLayout>

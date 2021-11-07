@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profiles.BsUserProfileFragment">
+    tools:context=".Profiles.MerUserProfileFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
 
 
     <Button
-        android:id="@+id/BsEditPfButton"
+        android:id="@+id/MerEditPfButtonFrag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/BsPfLogoutButton"
+        android:id="@+id/MerPfLogoutButtonFrag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="0.01" />
 
     <TextView
-        android:id="@+id/BsPfUnameDisplay"
+        android:id="@+id/MerPfUnameDisplayFrag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -70,7 +70,7 @@
         />
 
     <TextView
-        android:id="@+id/BsPfUdescDisplay"
+        android:id="@+id/MerPfUdescDisplayFrag"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.5"
@@ -84,7 +84,7 @@
         />
 
     <TextView
-        android:id="@+id/bsPfBalance"
+        android:id="@+id/MerPfBalanceFrag"
         android:layout_width="200dp"
         android:layout_height="81dp"
         android:text="N/A"
@@ -111,19 +111,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.83" />
 
-    <!--    <ImageButton-->
-    <!--        android:id="@+id/searchButton"-->
-    <!--        android:layout_width="48dp"-->
-    <!--        android:layout_height="48dp"-->
-    <!--        android:layout_marginStart="16dp"-->
-    <!--        android:backgroundTint="@color/green"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.763"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.939"-->
-    <!--        app:srcCompat="?android:attr/actionModeWebSearchDrawable"-->
-    <!--        tools:ignore="SpeakableTextPresentCheck" />-->
-
-</androidx.constraintlayout.widget.ConstraintLayout >
+</androidx.constraintlayout.widget.ConstraintLayout>

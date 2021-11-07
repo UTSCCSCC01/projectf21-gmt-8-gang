@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NavbarActivities.DnMainNavbarActivity">
+    tools:context=".NavbarActivities.YouthMainNavbarActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.991"
-        app:menu="@menu/dn_nav_menu"/>
+        app:menu="@menu/hy_nav_menu"/>
 
     <fragment
         android:id="@+id/fragmentContainerView"
@@ -30,5 +30,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.285"
-        app:navGraph="@navigation/dn_navigation" />
+        app:navGraph="@navigation/hy_navigation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

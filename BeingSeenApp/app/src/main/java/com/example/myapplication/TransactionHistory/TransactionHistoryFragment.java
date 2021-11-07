@@ -1,6 +1,5 @@
 package com.example.myapplication.TransactionHistory;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,19 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.Switch;
-import android.widget.TextView;
 
-import com.example.myapplication.DonorUiFrontend.DnContentPageActivity;
-import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
-import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
-import com.example.myapplication.DonorUiFrontend.DnUserProfileViewDonationActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewDonationActivity;
-import com.example.myapplication.MainActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.Transaction;
