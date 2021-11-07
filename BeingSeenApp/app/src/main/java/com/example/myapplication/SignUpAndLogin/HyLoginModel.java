@@ -1,4 +1,4 @@
-package com.example.myapplication.HomelessYouthUiFrontend;
+package com.example.myapplication.SignUpAndLogin;
 
 import android.content.Intent;
 import android.util.Log;
@@ -13,6 +13,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.BeingSeenUiFrontend.BsMainNavbarActivity;
 import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.HyMainNavbarActivity;
+import com.example.myapplication.HomelessYouthUiFrontend.VolleyResponse;
 import com.example.myapplication.MerchantUiFrontend.MerMainNavbarActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
 

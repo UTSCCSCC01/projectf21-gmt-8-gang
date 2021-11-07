@@ -35,7 +35,7 @@
             android:name=".SearchUI.HomelessList"
             android:exported="true" />
         <activity
-            android:name=".DonorUiFrontend.DnDonationGoalActivity"
+            android:name=".ContentPage.DnDonationGoalActivity"
             android:exported="true"
             android:label="Donation Goal"/>
         <activity
@@ -62,7 +62,7 @@
             android:name=".DonorUiFrontend.DnUserDonoActivity"
             android:exported="true" />
         <activity
-            android:name=".HomelessYouthUiFrontend.HySignUpActivity"
+            android:name=".SignUpAndLogin.HySignUpActivity"
             android:exported="true"
             android:label="Being Seen">
             <intent-filter>
@@ -84,7 +84,7 @@
             android:exported="true"
             android:label="Make a Donation" />
         <activity
-            android:name=".HomelessYouthUiFrontend.HyLoginActivity"
+            android:name=".SignUpAndLogin.HyLoginActivity"
             android:exported="true"
             android:label="Log in"/>
         <activity

@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
+import com.example.myapplication.SignUpAndLogin.HySignUpActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;

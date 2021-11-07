@@ -1,29 +1,20 @@
 package com.example.myapplication.HomelessYouthUiFrontend;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextClock;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpResponse;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.SignUpAndLogin.HyLoginActivity;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.net.HttpRetryException;
 import java.util.regex.Pattern;
 
 public class HySetDonationGoalActivity extends AppCompatActivity {

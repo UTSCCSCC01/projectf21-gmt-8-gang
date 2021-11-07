@@ -1,4 +1,4 @@
-package com.example.myapplication.DonorUiFrontend;
+package com.example.myapplication.ContentPage;
 
 import android.content.Intent;
 import android.os.Bundle;

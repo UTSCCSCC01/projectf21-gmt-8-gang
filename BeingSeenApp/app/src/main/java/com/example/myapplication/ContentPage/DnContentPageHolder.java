@@ -1,4 +1,4 @@
-package com.example.myapplication.DonorUiFrontend;
+package com.example.myapplication.ContentPage;
 
 import android.view.View;
 import android.widget.ImageView;

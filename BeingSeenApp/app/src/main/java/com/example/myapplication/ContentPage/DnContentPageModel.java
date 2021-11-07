@@ -1,4 +1,4 @@
-package com.example.myapplication.DonorUiFrontend;
+package com.example.myapplication.ContentPage;
 
 public class DnContentPageModel {
     private String name, title, description;

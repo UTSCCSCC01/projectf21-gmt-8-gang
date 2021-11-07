@@ -1,8 +1,6 @@
 package com.example.myapplication.HomelessYouthUiFrontend;
 
-import android.content.Context;
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -14,6 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.ProfileInfo;
+import com.example.myapplication.SignUpAndLogin.HyLoginActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

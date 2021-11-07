@@ -1,4 +1,4 @@
-package com.example.myapplication.HomelessYouthUiFrontend;
+package com.example.myapplication.SignUpAndLogin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +11,9 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.VolleyError;
+import com.example.myapplication.HomelessYouthUiFrontend.VolleyResponse;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.VolleyCallBack;
 
 import org.json.JSONException;
 import org.json.JSONObject;

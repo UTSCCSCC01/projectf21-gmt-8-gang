@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_search_page" />
     <fragment
         android:id="@+id/dn_content"
-        android:name="com.example.myapplication.DonorUiFrontend.DnContentPageFragment"
+        android:name="com.example.myapplication.ContentPage.DnContentPageFragment"
         android:label="fragment_dn_content_page"
         tools:layout="@layout/fragment_dn_content_page" />
     <fragment

@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
+import com.example.myapplication.SignUpAndLogin.HySignUpActivity;
 import com.example.myapplication.R;
 
 public class DonationStatus extends AppCompatActivity {

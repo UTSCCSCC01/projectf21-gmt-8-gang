@@ -1,4 +1,4 @@
-package com.example.myapplication.HomelessYouthUiFrontend;
+package com.example.myapplication.SignUpAndLogin;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.EditText;
