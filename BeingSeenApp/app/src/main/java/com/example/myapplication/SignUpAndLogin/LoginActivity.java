@@ -18,9 +18,9 @@ import com.example.myapplication.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class HyLoginActivity extends AppCompatActivity implements VolleyResponse {
+public class LoginActivity extends AppCompatActivity implements VolleyResponse {
 
-    private HyLoginModel hyLoginModel;
+    private LoginModel loginModel;
     private VolleyResponse volleyResponse;
     public static final String LOGIN_TAG = "hyLogin";
 
@@ -28,7 +28,7 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hy_login);
+        setContentView(R.layout.activity_login);
         // back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -48,7 +48,7 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
         });
 
         Log.i(LOGIN_TAG, "hy login activity started");
-        hyLoginModel = new HyLoginModel(this, this);
+        loginModel = new LoginModel(this, this);
     }
 
     public void logIn(View view) {
@@ -71,7 +71,7 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
         }
 
         Log.i(LOGIN_TAG, "hy login success");
-        hyLoginModel.logIn(username, password);
+        loginModel.logIn(username, password);
 
         return;
     }
@@ -99,7 +99,7 @@ public class HyLoginActivity extends AppCompatActivity implements VolleyResponse
     // back button
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        startActivity(new Intent(this, HySignUpActivity.class));
+        startActivity(new Intent(this, SignUpActivity.class));
         return super.onOptionsItemSelected(item);
     }
 

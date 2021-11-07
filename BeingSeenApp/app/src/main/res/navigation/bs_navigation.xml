@@ -14,12 +14,12 @@
         android:id="@+id/dn_search"
         android:name="com.example.myapplication.SearchForYouth.SearchForYouthFragment"
         android:label="fragment_search_page"
-        tools:layout="@layout/fragment_search_page" />
+        tools:layout="@layout/fragment_search_for_youth" />
     <fragment
         android:id="@+id/dn_content"
         android:name="com.example.myapplication.ContentPage.ContentPageFragment"
         android:label="fragment_dn_content_page"
-        tools:layout="@layout/fragment_dn_content_page" />
+        tools:layout="@layout/fragment_content_page" />
     <fragment
         android:id="@+id/transaction_history"
         android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"

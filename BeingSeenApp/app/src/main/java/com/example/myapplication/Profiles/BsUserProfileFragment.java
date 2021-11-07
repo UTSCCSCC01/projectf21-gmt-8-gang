@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.SignUpAndLogin.HySignUpActivity;
+import com.example.myapplication.SignUpAndLogin.SignUpActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -89,7 +89,7 @@ public class BsUserProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(activity.getApplicationContext(), HySignUpActivity.class);
+                Intent i = new Intent(activity.getApplicationContext(), SignUpActivity.class);
                 startActivity(i);
             }
         });

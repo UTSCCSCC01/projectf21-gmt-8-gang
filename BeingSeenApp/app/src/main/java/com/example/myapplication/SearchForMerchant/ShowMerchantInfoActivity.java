@@ -19,7 +19,7 @@ public class ShowMerchantInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_merchant_info_page);
+        setContentView(R.layout.activity_show_merchant_info);
 
         // back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

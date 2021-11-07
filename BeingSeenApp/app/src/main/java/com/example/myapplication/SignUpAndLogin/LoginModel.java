@@ -24,21 +24,21 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HyLoginModel {
+public class LoginModel {
 
-    HyLoginActivity hyLoginActivity;
+    LoginActivity loginActivity;
     VolleyResponse volleyResponse;
     public static final String LOGIN_TAG = "hyLogin";
-    public static final String[] ROLES = HySignUpActivity.ROLES;
+    public static final String[] ROLES = SignUpActivity.ROLES;
 
-    public HyLoginModel(HyLoginActivity hyLoginActivity, VolleyResponse volleyResponse) {
-        this.hyLoginActivity = hyLoginActivity;
+    public LoginModel(LoginActivity loginActivity, VolleyResponse volleyResponse) {
+        this.loginActivity = loginActivity;
         this.volleyResponse = volleyResponse;
         Log.i(LOGIN_TAG, "hy login model started");
     }
 
     public void logIn(String username, String password) {
-        RequestQueue queue = Volley.newRequestQueue(hyLoginActivity);
+        RequestQueue queue = Volley.newRequestQueue(loginActivity);
         String url_login = "http://10.0.2.2:8080/auth";
 
         JSONObject loginData = new JSONObject();
@@ -63,32 +63,32 @@ public class HyLoginModel {
                         String urole = response.getString("code");
                         Log.i("UROLE CODE", urole);
                         if (urole.equals("ROLE_" + ROLES[0])){
-                            i = new Intent(hyLoginActivity.getApplicationContext(), YouthMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), YouthMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[1])){
-                            i = new Intent(hyLoginActivity.getApplicationContext(), DnMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), DnMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[2])){
-                            i = new Intent(hyLoginActivity.getApplicationContext(), OrgMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), OrgMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[3])){
-                            i = new Intent(hyLoginActivity.getApplicationContext(), MerMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), MerMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[4])){
-                            i = new Intent(hyLoginActivity.getApplicationContext(), BsMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), BsMainNavbarActivity.class);
                         }
                         else{
                             throw new Exception();
                         }
                     }catch(Exception e){
                         Log.i("UROLE FAIL", "Urole get failed");
-                        Toast.makeText(hyLoginActivity, "Failed to connect", Toast.LENGTH_SHORT).show();
-                        i = new Intent(hyLoginActivity.getApplicationContext(), HyLoginActivity.class);
+                        Toast.makeText(loginActivity, "Failed to connect", Toast.LENGTH_SHORT).show();
+                        i = new Intent(loginActivity.getApplicationContext(), LoginActivity.class);
                     }
 
-                    hyLoginActivity.startActivity(i);
+                    loginActivity.startActivity(i);
                     return;
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError e) {
-                Toast.makeText(hyLoginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
+                Toast.makeText(loginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
                 Log.i(LOGIN_TAG, "hy login request failed qwq, error: " + e.getMessage());
             }
         }) {

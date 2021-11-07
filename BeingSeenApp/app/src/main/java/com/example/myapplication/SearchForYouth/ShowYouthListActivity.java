@@ -22,7 +22,7 @@ public class ShowYouthListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homeless_list);
+        setContentView(R.layout.activity_show_youth_list);
         String username=getIntent().getStringExtra("Username");
         TextView inputText=(TextView) findViewById(R.id.ml_input);
         inputText.setText(username);

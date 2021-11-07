@@ -15,7 +15,7 @@ public class YouthMainNavbarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hy_main_navbar);
+        setContentView(R.layout.activity_youth_main_navbar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 //        NavController navController = Navigation.findNavController(this,  R.id.fragmentContainerView);

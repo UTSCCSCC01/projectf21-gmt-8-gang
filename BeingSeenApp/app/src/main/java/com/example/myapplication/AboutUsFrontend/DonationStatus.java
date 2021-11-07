@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.myapplication.SignUpAndLogin.HySignUpActivity;
+import com.example.myapplication.SignUpAndLogin.SignUpActivity;
 import com.example.myapplication.R;
 
 public class DonationStatus extends AppCompatActivity {
@@ -24,7 +24,7 @@ public class DonationStatus extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(DonationStatus.this, HySignUpActivity.class);
+                intent.setClass(DonationStatus.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });

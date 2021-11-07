@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.SignUpAndLogin.HySignUpActivity;
+import com.example.myapplication.SignUpAndLogin.SignUpActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -78,7 +78,7 @@ public class DnUserProfileFragment extends Fragment {
 
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_dn_user_profile_view_balance, container, false);
+        View view = inflater.inflate(R.layout.fragment_dn_user_profile, container, false);
         FragmentActivity activity = getActivity();
 
         //Logout button
@@ -89,7 +89,7 @@ public class DnUserProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(activity.getApplicationContext(), HySignUpActivity.class);
+                Intent i = new Intent(activity.getApplicationContext(), SignUpActivity.class);
                 startActivity(i);
             }
         });

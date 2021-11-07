@@ -14,9 +14,9 @@ import android.widget.Spinner;
 import com.example.myapplication.R;
 
 
-public class HySignUpActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class SignUpActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private HySignUpModel hySignUpModel;
+    private SignUpModel signUpModel;
     public static final String REGISTER_TAG = "hyRegister";
     String role;
     final String[] ROLE_TEXTS = {"Youth", "Donor", "Organization", "Merchant"};
@@ -25,13 +25,13 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hy_sign_up);
+        setContentView(R.layout.activity_sign_up);
         role = "HOMELESS";
 
         // drop down menu
         Spinner spinner;
         spinner = (Spinner)findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(HySignUpActivity.this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(SignUpActivity.this,
                 android.R.layout.simple_spinner_item, ROLE_TEXTS);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -49,13 +49,13 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(HySignUpActivity.this, HyLoginActivity.class);
+                Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });
 
         Log.i(REGISTER_TAG, "hy sign up activity started");
-        hySignUpModel = new HySignUpModel(this);
+        signUpModel = new SignUpModel(this);
     }
 
     public void signUp(View view) {
@@ -79,7 +79,7 @@ public class HySignUpActivity extends AppCompatActivity implements AdapterView.O
         }
 
         // we start a new activity in here
-        hySignUpModel.signUp(username, password, role);
+        signUpModel.signUp(username, password, role);
 
         Log.i(REGISTER_TAG, "sign up finished");
         return;

@@ -59,7 +59,7 @@
             android:name=".DonorUiFrontend.DnUserDonoActivity"
             android:exported="true" />
         <activity
-            android:name=".SignUpAndLogin.HySignUpActivity"
+            android:name=".SignUpAndLogin.SignUpActivity"
             android:exported="true"
             android:label="Being Seen">
             <intent-filter>
@@ -81,7 +81,7 @@
             android:exported="true"
             android:label="Make a Donation" />
         <activity
-            android:name=".SignUpAndLogin.HyLoginActivity"
+            android:name=".SignUpAndLogin.LoginActivity"
             android:exported="true"
             android:label="Log in"/>
         <activity

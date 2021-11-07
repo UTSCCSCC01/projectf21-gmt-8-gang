@@ -13,18 +13,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.SignUpAndLogin.HyLoginActivity;
+import com.example.myapplication.SignUpAndLogin.LoginActivity;
 
 import java.util.regex.Pattern;
 
 public class SetDonationGoalActivity extends AppCompatActivity {
     SetDonationGoalModel model;
-    String LOGIN_TAG = HyLoginActivity.LOGIN_TAG;
+    String LOGIN_TAG = LoginActivity.LOGIN_TAG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hy_set_donation_goal);
+        setContentView(R.layout.activity_set_donation_goal);
 
         model = new SetDonationGoalModel(this);
 

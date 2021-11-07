@@ -13,14 +13,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.ProfileInfo;
-import com.example.myapplication.SignUpAndLogin.HyLoginActivity;
+import com.example.myapplication.SignUpAndLogin.LoginActivity;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class DeleteDonationGoalModel {
     AppCompatActivity activity;
-    String LOGIN_TAG = HyLoginActivity.LOGIN_TAG;
+    String LOGIN_TAG = LoginActivity.LOGIN_TAG;
 
     public DeleteDonationGoalModel(AppCompatActivity activity) {
         this.activity = activity;

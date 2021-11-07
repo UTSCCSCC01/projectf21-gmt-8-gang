@@ -18,7 +18,7 @@ public class ViewDonationGoalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dn_donation_goal);
+        setContentView(R.layout.activity_view_donation_goal);
 
         // set back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -14,18 +14,18 @@ import com.example.myapplication.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class HySignUpModel {
-    HySignUpActivity hySignUpActivity;
+public class SignUpModel {
+    SignUpActivity signUpActivity;
     public static final String REGISTER_TAG = "hyRegister";
 
-    public HySignUpModel(HySignUpActivity hySignUpActivity) {
-        this.hySignUpActivity = hySignUpActivity;
+    public SignUpModel(SignUpActivity signUpActivity) {
+        this.signUpActivity = signUpActivity;
         Log.i(REGISTER_TAG, "hy sign up model started");
     }
 
     public void signUp(String username, String password, String role) {
         // create http request to backend to sign up
-        RequestQueue queue = Volley.newRequestQueue(hySignUpActivity);
+        RequestQueue queue = Volley.newRequestQueue(signUpActivity);
         String url_register = "http://10.0.2.2:8080/register";
 
         JSONObject registerData = new JSONObject();
@@ -44,8 +44,8 @@ public class HySignUpModel {
                 try {
                     Log.i(REGISTER_TAG, "hy sign up request succeed yay, response: " + response);
 
-                    Intent i = new Intent(hySignUpActivity.getApplicationContext(),HyLoginActivity.class);
-                    hySignUpActivity.startActivity(i);
+                    Intent i = new Intent(signUpActivity.getApplicationContext(), LoginActivity.class);
+                    signUpActivity.startActivity(i);
                     return;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -55,7 +55,7 @@ public class HySignUpModel {
             @Override
             public void onErrorResponse(VolleyError e) {
                 if (e.networkResponse.statusCode == 404) {
-                    EditText usernameField = (EditText) hySignUpActivity.findViewById(R.id.HyUsername);
+                    EditText usernameField = (EditText) signUpActivity.findViewById(R.id.HyUsername);
                     usernameField.setError("someone already used this username");
                     usernameField.requestFocus();
                 } else {

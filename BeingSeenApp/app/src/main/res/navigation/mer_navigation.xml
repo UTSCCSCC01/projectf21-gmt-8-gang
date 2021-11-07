@@ -9,7 +9,7 @@
         android:id="@+id/mer_profile"
         android:name="com.example.myapplication.Profiles.MerUserProfileFragment"
         android:label="fragment_mer_user_profile_view_balance"
-        tools:layout="@layout/fragment_mer_user_profile_view_balance" />
+        tools:layout="@layout/fragment_mer_user_profile" />
     <fragment
         android:id="@+id/transaction_history"
         android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"

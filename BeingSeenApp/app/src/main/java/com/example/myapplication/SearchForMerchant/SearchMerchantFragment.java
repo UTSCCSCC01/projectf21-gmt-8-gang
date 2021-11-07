@@ -68,7 +68,7 @@ public class SearchMerchantFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_search_page, container, false);
+        View view = inflater.inflate(R.layout.fragment_search_for_youth, container, false);
         FragmentActivity activity = getActivity();
 
         TextInputEditText input= (TextInputEditText) view.findViewById(R.id.searchInput);

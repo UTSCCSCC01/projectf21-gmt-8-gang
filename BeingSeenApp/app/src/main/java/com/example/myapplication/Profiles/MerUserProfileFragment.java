@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.SignUpAndLogin.HySignUpActivity;
+import com.example.myapplication.SignUpAndLogin.SignUpActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -73,7 +73,7 @@ public class MerUserProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_mer_user_profile_view_balance, container, false);
+        View view = inflater.inflate(R.layout.fragment_mer_user_profile, container, false);
         FragmentActivity activity = getActivity();
 
         //Logout button
@@ -84,7 +84,7 @@ public class MerUserProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(activity.getApplicationContext(), HySignUpActivity.class);
+                Intent i = new Intent(activity.getApplicationContext(), SignUpActivity.class);
                 startActivity(i);
             }
         });

@@ -13,7 +13,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
 import com.example.myapplication.ProfileInfo;
-import com.example.myapplication.SignUpAndLogin.HyLoginActivity;
+import com.example.myapplication.SignUpAndLogin.LoginActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class SetDonationGoalModel {
     SetDonationGoalActivity activity;
-    String LOGIN_TAG = HyLoginActivity.LOGIN_TAG;
+    String LOGIN_TAG = LoginActivity.LOGIN_TAG;
     public final static String CREATE_GOAL_ERROR = "CREATE_GOAL_ERROR";
     public final static String CREATE_GOAL_DUPLICATE = "CREATE_GOAL_DUPLICATE";
     public final static String CREATE_GOAL_SUCCESS = "CREATE_GOAL_SUCCESS";

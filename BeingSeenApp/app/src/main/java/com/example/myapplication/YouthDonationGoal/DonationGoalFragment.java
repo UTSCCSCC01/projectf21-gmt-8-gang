@@ -87,7 +87,7 @@ public class DonationGoalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_hy_donation_goal, container, false);
+        View view = inflater.inflate(R.layout.fragment_donation_goal, container, false);
         FragmentActivity activity = getActivity();
 
         //this.proPic = view.findViewById(R.id.HyPfPic);
