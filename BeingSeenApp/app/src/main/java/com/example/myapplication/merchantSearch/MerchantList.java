@@ -46,15 +46,6 @@ public class MerchantList extends AppCompatActivity {
                 setAdapter();
             }
         });
-        Button back=(Button) findViewById(R.id.ml_back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i= new Intent();
-                i.setClass(MerchantList.this,SearchMerchant.class);
-                startActivity(i);
-            }
-        });
     }
 
     //Back button on top

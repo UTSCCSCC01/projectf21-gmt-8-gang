@@ -33,7 +33,7 @@ public class YouthInfo extends AppCompatActivity {
         name.setText(nickname);
         TextView desc=(TextView)findViewById(R.id.searchUdescDisplay);
         desc.setText(bio);
-        Button back=(Button) findViewById(R.id.search_back);
+
 
 //        // back button
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
