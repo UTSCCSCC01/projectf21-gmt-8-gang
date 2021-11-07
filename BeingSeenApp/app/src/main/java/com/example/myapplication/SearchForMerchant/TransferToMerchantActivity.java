@@ -44,20 +44,6 @@ public class TransferToMerchantActivity extends AppCompatActivity {
                 sendDono(view, receiverName);
             }
         });
-
-
-//        //quit donate screen
-//        final Button exitDonate = (Button) findViewById(R.id.DnDonateBackEditButton);
-//
-//        exitDonate.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent i = new Intent(getApplicationContext(), YouthMainNavbarActivity.class);
-//                startActivity(i);
-//            }
-//        });
     }
 
     @Override
