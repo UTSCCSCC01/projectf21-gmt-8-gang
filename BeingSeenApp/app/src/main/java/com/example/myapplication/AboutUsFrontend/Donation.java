@@ -1,6 +1,5 @@
 package com.example.myapplication.AboutUsFrontend;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,18 +8,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.myapplication.BeingSeenUiFrontend.BsMainNavbarActivity;
-import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyMainNavbarActivity;
-import com.example.myapplication.MerchantUiFrontend.MerMainNavbarActivity;
-import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
+import com.example.myapplication.NavbarActivities.BsMainNavbarActivity;
+import com.example.myapplication.NavbarActivities.DnMainNavbarActivity;
+import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
+import com.example.myapplication.NavbarActivities.MerMainNavbarActivity;
+import com.example.myapplication.NavbarActivities.OrgMainNavbarActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 import com.google.android.material.textfield.TextInputEditText;
-
-import java.util.ArrayList;
 
 public class Donation extends AppCompatActivity {
     public void createDonation(String username, String password, String receiver, long amount, String comment){
@@ -64,7 +61,7 @@ public class Donation extends AppCompatActivity {
                             @Override
                             public void onSuccess() {
                                 switch (ProfileInfo.getUserRole()) {
-                                    case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class)); break;
+                                    case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), YouthMainNavbarActivity.class)); break;
                                     case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class)); break;
                                     case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class)); break;
                                     case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class)); break;

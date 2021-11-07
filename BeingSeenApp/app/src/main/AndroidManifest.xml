@@ -16,46 +16,43 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".merchantSearch.MerchantInfo"
+            android:name=".SearchForMerchant.ShowMerchantInfoActivity"
             android:exported="true" />
         <activity
-            android:name=".merchantSearch.MerchantList"
+            android:name=".SearchForMerchant.ShowMerchantListActivity"
             android:exported="true" />
         <activity
-            android:name=".HomelessYouthUiFrontend.HySpendMoney"
+            android:name=".SearchForMerchant.TransferToMerchantActivity"
             android:exported="true" />
         <activity
-            android:name=".SearchUI.YouthInfo"
+            android:name=".SearchForYouth.ShowYouthInfoActivity"
             android:exported="true"
             android:label="Youth Profile"/>
         <activity
-            android:name=".SearchUI.SearchYouth"
+            android:name=".SearchForYouth.ShowYouthListActivity"
             android:exported="true" />
         <activity
-            android:name=".SearchUI.HomelessList"
-            android:exported="true" />
-        <activity
-            android:name=".ContentPage.DnDonationGoalActivity"
+            android:name=".ContentPage.ViewDonationGoalActivity"
             android:exported="true"
             android:label="Donation Goal"/>
         <activity
-            android:name=".MerchantUiFrontend.MerMainNavbarActivity"
+            android:name=".NavbarActivities.MerMainNavbarActivity"
             android:exported="true"
             android:label="Merchant"/>
         <activity
-            android:name=".OrganizationUiFrontend.OrgMainNavbarActivity"
+            android:name=".NavbarActivities.OrgMainNavbarActivity"
             android:exported="true"
             android:label="Organization"/>
         <activity
-            android:name=".HomelessYouthUiFrontend.HyMainNavbarActivity"
+            android:name=".NavbarActivities.YouthMainNavbarActivity"
             android:exported="true"
             android:label="Youth"/>
         <activity
-            android:name=".BeingSeenUiFrontend.BsMainNavbarActivity"
+            android:name=".NavbarActivities.BsMainNavbarActivity"
             android:exported="true"
             android:label="Admin"/>
         <activity
-            android:name=".DonorUiFrontend.DnMainNavbarActivity"
+            android:name=".NavbarActivities.DnMainNavbarActivity"
             android:exported="true"
             android:label="Donor"/>
         <activity
@@ -71,7 +68,7 @@
             </intent-filter>
             </activity>
         <activity
-            android:name=".HomelessYouthUiFrontend.HySetDonationGoalActivity"
+            android:name=".YouthDonationGoal.SetDonationGoalActivity"
             android:exported="true"
             android:label="Youth"/>
         <activity
@@ -88,7 +85,7 @@
             android:exported="true"
             android:label="Log in"/>
         <activity
-            android:name=".DonorUiFrontend.DnUserProfileEditActivity"
+            android:name=".Profiles.ProfileEditActivity"
             android:exported="true"
             android:label="Edit Profile"/>
         <activity

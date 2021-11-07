@@ -11,7 +11,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.HomelessYouthUiFrontend.VolleyResponse;
+import com.example.myapplication.YouthDonationGoal.VolleyResponse;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 

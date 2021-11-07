@@ -11,12 +11,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.myapplication.BeingSeenUiFrontend.BsMainNavbarActivity;
-import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.HyMainNavbarActivity;
-import com.example.myapplication.HomelessYouthUiFrontend.VolleyResponse;
-import com.example.myapplication.MerchantUiFrontend.MerMainNavbarActivity;
-import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
+import com.example.myapplication.NavbarActivities.BsMainNavbarActivity;
+import com.example.myapplication.NavbarActivities.DnMainNavbarActivity;
+import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
+import com.example.myapplication.YouthDonationGoal.VolleyResponse;
+import com.example.myapplication.NavbarActivities.MerMainNavbarActivity;
+import com.example.myapplication.NavbarActivities.OrgMainNavbarActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -63,7 +63,7 @@ public class HyLoginModel {
                         String urole = response.getString("code");
                         Log.i("UROLE CODE", urole);
                         if (urole.equals("ROLE_" + ROLES[0])){
-                            i = new Intent(hyLoginActivity.getApplicationContext(), HyMainNavbarActivity.class);
+                            i = new Intent(hyLoginActivity.getApplicationContext(), YouthMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[1])){
                             i = new Intent(hyLoginActivity.getApplicationContext(), DnMainNavbarActivity.class);
                         } else if(urole.equals("ROLE_" + ROLES[2])){

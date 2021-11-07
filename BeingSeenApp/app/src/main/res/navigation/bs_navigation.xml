@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/bs_profile"
-        android:name="com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceFragment"
+        android:name="com.example.myapplication.Profiles.BsUserProfileFragment"
         android:label="fragment_bs_user_profile_view_balance"
         tools:layout="@layout/fragment_bs_user_profile_view_balance" />
     <fragment
         android:id="@+id/dn_search"
-        android:name="com.example.myapplication.SearchUI.SearchPageFragment"
+        android:name="com.example.myapplication.SearchForYouth.SearchForYouthFragment"
         android:label="fragment_search_page"
         tools:layout="@layout/fragment_search_page" />
     <fragment
         android:id="@+id/dn_content"
-        android:name="com.example.myapplication.ContentPage.DnContentPageFragment"
+        android:name="com.example.myapplication.ContentPage.ContentPageFragment"
         android:label="fragment_dn_content_page"
         tools:layout="@layout/fragment_dn_content_page" />
     <fragment

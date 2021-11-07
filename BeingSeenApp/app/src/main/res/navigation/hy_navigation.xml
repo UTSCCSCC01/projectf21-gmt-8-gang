@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/hy_profile"
-        android:name="com.example.myapplication.HomelessYouthUiFrontend.HyUserProfileViewBalanceFragment"
+        android:name="com.example.myapplication.Profiles.YouthUserProfileFragment"
         android:label="fragment_hy_user_profile_view_balance"
         tools:layout="@layout/fragment_hy_user_profile_view_balance" />
     <fragment
         android:id="@+id/hy_send_money"
-        android:name="com.example.myapplication.merchantSearch.SearchMerchantFragment"
+        android:name="com.example.myapplication.SearchForMerchant.SearchMerchantFragment"
         android:label="fragment_send_money"
         tools:layout="@layout/fragment_search_merchant_page" />
     <fragment
@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_transaction_history" />
     <fragment
         android:id="@+id/donation_goal"
-        android:name="com.example.myapplication.HomelessYouthUiFrontend.HyDonationGoalFragment"
+        android:name="com.example.myapplication.YouthDonationGoal.DonationGoalFragment"
         android:label="fragment_donation_goal"
         tools:layout="@layout/fragment_hy_donation_goal" />
 </navigation>
