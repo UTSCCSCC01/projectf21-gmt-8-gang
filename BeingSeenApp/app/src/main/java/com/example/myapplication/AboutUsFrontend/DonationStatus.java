@@ -1,24 +1,14 @@
 package com.example.myapplication.AboutUsFrontend;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
-import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
-import com.example.myapplication.MainActivity;
-import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
-import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
-import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 
 public class DonationStatus extends AppCompatActivity {

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
-import com.example.myapplication.TransactionHistory.YouthRecyclerAdapter;
 import com.example.myapplication.VolleyCallBack;
 
 import org.json.JSONObject;

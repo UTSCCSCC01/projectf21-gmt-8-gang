@@ -4,15 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.DonorUiFrontend.DnUserDonoActivity;
-import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
+import com.example.myapplication.BeingSeenUiFrontend.BsMainNavbarActivity;
+import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
+import com.example.myapplication.MerchantUiFrontend.MerMainNavbarActivity;
+import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
@@ -88,8 +90,13 @@ public class HySpendMoney extends AppCompatActivity {
                             Toast toast = Toast.makeText(getApplicationContext(), "Transaction successful", Toast.LENGTH_LONG);
                             toast.show();
 
-                            Intent i = new Intent(getApplicationContext(), HyMainNavbarActivity.class);
-                            startActivity(i);
+                            switch (ProfileInfo.getUserRole()) {
+                                case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class)); break;
+                                case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class)); break;
+                                case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class)); break;
+                                case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class)); break;
+                                case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class)); break;
+                            }
                         }
 
                         @Override
@@ -100,8 +107,13 @@ public class HySpendMoney extends AppCompatActivity {
                                     "Transaction Failed: Make sure the user has a merchant account", Toast.LENGTH_LONG);
                             toast.show();
 
-                            Intent i = new Intent(getApplicationContext(), HyUserProfileViewBalanceActivity.class);
-                            startActivity(i);
+                            switch (ProfileInfo.getUserRole()) {
+                                case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), HyMainNavbarActivity.class)); break;
+                                case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class)); break;
+                                case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class)); break;
+                                case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class)); break;
+                                case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class)); break;
+                            }
                         }
                     });
         }

@@ -1,4 +1,4 @@
-package com.example.myapplication.Adapters;
+package com.example.myapplication.merchantSearch;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.merchantSearch.MerchantInfo;
 
 import org.json.JSONException;
 import org.json.JSONObject;

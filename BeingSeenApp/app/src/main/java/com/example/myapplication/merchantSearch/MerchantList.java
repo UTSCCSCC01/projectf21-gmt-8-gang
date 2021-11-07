@@ -1,16 +1,18 @@
 package com.example.myapplication.merchantSearch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.myapplication.Adapters.MerchantRecyclerAdapter;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -31,6 +33,10 @@ public class MerchantList extends AppCompatActivity {
         TextView inputText=(TextView) findViewById(R.id.ml_input);
         inputText.setText(username);
         recyclerView = findViewById(R.id.ml_list);
+
+        // back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         ProfileInfo profileInfo=new ProfileInfo();
         profileInfo.setSearchIdName(username);
         profileInfo.searchUser(this, new VolleyCallBack() {
@@ -49,6 +55,17 @@ public class MerchantList extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    //Back button on top
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setAdapter() {

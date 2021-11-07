@@ -12,15 +12,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication.BeingSeenUiFrontend.BsMainNavbarActivity;
-import com.example.myapplication.BeingSeenUiFrontend.BsUserProfileViewBalanceActivity;
 import com.example.myapplication.DonorUiFrontend.DnMainNavbarActivity;
-import com.example.myapplication.DonorUiFrontend.DnUserProfileViewBalanceActivity;
 import com.example.myapplication.MerchantUiFrontend.MerMainNavbarActivity;
-import com.example.myapplication.MerchantUiFrontend.MerUserProfileViewBalanceActivity;
 import com.example.myapplication.OrganizationUiFrontend.OrgMainNavbarActivity;
-import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
-import com.example.myapplication.ProfileInfo;
-import com.example.myapplication.VolleyCallBack;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -82,7 +76,8 @@ public class HyLoginModel {
                         }
                     }catch(Exception e){
                         Log.i("UROLE FAIL", "Urole get failed");
-                        i = new Intent(hyLoginActivity.getApplicationContext(), HyUserInterfaceActivity.class);
+                        Toast.makeText(hyLoginActivity, "Failed to connect", Toast.LENGTH_SHORT).show();
+                        i = new Intent(hyLoginActivity.getApplicationContext(), HyLoginActivity.class);
                     }
 
                     hyLoginActivity.startActivity(i);

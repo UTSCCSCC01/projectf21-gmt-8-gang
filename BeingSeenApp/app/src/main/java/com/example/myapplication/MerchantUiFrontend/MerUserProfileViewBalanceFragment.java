@@ -13,18 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.AboutUsFrontend.Aboutus;
 import com.example.myapplication.DonorUiFrontend.DnUserProfileEditActivity;
 import com.example.myapplication.HomelessYouthUiFrontend.HySignUpActivity;
-import com.example.myapplication.MainActivity;
-import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewBalanceActivity;
-import com.example.myapplication.OrganizationUiFrontend.OrgUserProfileViewDonationActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;

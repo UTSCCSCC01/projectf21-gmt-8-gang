@@ -1,4 +1,4 @@
-package com.example.myapplication.TransactionHistory;
+package com.example.myapplication.SearchUI;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.SearchUI.YouthInfo;
 
 import org.json.JSONException;
 import org.json.JSONObject;
