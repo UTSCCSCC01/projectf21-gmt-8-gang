@@ -4,32 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DonorUiFrontend.DnUserDonoActivity">
+    tools:context=".SearchForMerchant.TransferToMerchantActivity">
 
-<!--  <RelativeLayout-->
-<!--      android:id="@+id/textView"-->
-<!--      android:layout_width="match_parent"-->
-<!--      android:layout_height="200dp"-->
-<!--      android:background="@color/green"-->
-<!--      android:layout_marginBottom="300px"-->
-<!--      app:layout_constraintTop_toTopOf="parent"-->
-<!--      >-->
-
-<!--  </RelativeLayout>-->
-
-<!--  <ImageView-->
-<!--      android:id="@+id/imageHy"-->
-<!--      android:layout_width="150dp"-->
-<!--      android:layout_height="200dp"-->
-<!--      android:scaleType="centerCrop"-->
-<!--      android:src="@drawable/profile"-->
-<!--      app:layout_constraintBottom_toBottomOf="parent"-->
-<!--      app:layout_constraintEnd_toEndOf="parent"-->
-<!--      app:layout_constraintHorizontal_bias="0.5"-->
-<!--      app:layout_constraintStart_toStartOf="parent"-->
-<!--      app:layout_constraintTop_toTopOf="parent"-->
-<!--      app:layout_constraintVertical_bias="0.1"-->
-<!--      tools:srcCompat="@tools:sample/avatars" />-->
 
   <TextView
       android:id="@+id/merchant_receiver"
@@ -42,26 +18,32 @@
       android:text="receiver"
       android:textAppearance="@style/TextAppearance.AppCompat.Display2"
       android:textColor="@color/black"
-      app:layout_constraintBottom_toBottomOf="@+id/donateConfirm"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.5"
-      app:layout_constraintVertical_bias="0.35"
+      app:layout_constraintVertical_bias="0.2"
+      app:layout_constraintBottom_toTopOf="@+id/donateConfirm"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       />
 
-  <Button
-      android:id="@+id/DnDonateBackEditButton"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Back"
-      app:layout_constraintBottom_toBottomOf="parent"
+  <com.google.android.material.textfield.TextInputLayout
+      android:layout_width="217dp"
+      android:layout_height="61dp"
+      app:layout_constraintBottom_toTopOf="@+id/donateConfirm"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.98"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.01" />
+      app:layout_constraintVertical_bias="0.6">
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/dnDonoAmt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:hint="amount"
+        android:inputType="textPersonName" />
+  </com.google.android.material.textfield.TextInputLayout>
 
   <Button
       android:id="@+id/donateConfirm"
@@ -73,25 +55,5 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.787" />
-
-  <com.google.android.material.textfield.TextInputLayout
-      android:layout_width="217dp"
-      android:layout_height="61dp"
-      app:layout_constraintBottom_toTopOf="@+id/donateConfirm"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.912">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/dnDonoAmt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#00000000"
-        android:hint="amount"
-        android:inputType="textPersonName" />
-  </com.google.android.material.textfield.TextInputLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

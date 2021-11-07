@@ -1,9 +1,12 @@
 package com.example.myapplication.SearchForMerchant;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +35,8 @@ public class TransferToMerchantActivity extends AppCompatActivity {
         String receiverName = intent.getStringExtra("receiver");
         TextView receiver=(TextView) findViewById(R.id.merchant_receiver);
         receiver.setText(receiverName);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         donateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -39,22 +44,17 @@ public class TransferToMerchantActivity extends AppCompatActivity {
                 sendDono(view, receiverName);
             }
         });
-
-
-        //quit donate screen
-        final Button exitDonate = (Button) findViewById(R.id.DnDonateBackEditButton);
-
-        exitDonate.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(getApplicationContext(), YouthMainNavbarActivity.class);
-                startActivity(i);
-            }
-        });
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public void sendDono(View view, String rec) {
         // for future pass in username of receiver (e.g. testuser1)

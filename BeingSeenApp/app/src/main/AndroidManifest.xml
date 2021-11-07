@@ -17,12 +17,15 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".SearchForMerchant.ShowMerchantInfoActivity"
+            android:label="Merchant Profile"
             android:exported="true" />
         <activity
             android:name=".SearchForMerchant.ShowMerchantListActivity"
+            android:label="Search Merchant"
             android:exported="true" />
         <activity
             android:name=".SearchForMerchant.TransferToMerchantActivity"
+            android:label="Pay to Merchant"
             android:exported="true" />
         <activity
             android:name=".SearchForYouth.ShowYouthInfoActivity"
@@ -30,6 +33,7 @@
             android:label="Youth Profile"/>
         <activity
             android:name=".SearchForYouth.ShowYouthListActivity"
+            android:label="Search Youth"
             android:exported="true" />
         <activity
             android:name=".ContentPage.ViewDonationGoalActivity"
@@ -55,9 +59,6 @@
             android:name=".NavbarActivities.DnMainNavbarActivity"
             android:exported="true"
             android:label="Donor"/>
-        <activity
-            android:name=".DonorUiFrontend.DnUserDonoActivity"
-            android:exported="true" />
         <activity
             android:name=".SignUpAndLogin.SignUpActivity"
             android:exported="true"

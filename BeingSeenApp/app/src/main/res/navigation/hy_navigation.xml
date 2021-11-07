@@ -8,13 +8,13 @@
     <fragment
         android:id="@+id/hy_profile"
         android:name="com.example.myapplication.Profiles.YouthUserProfileFragment"
-        android:label="fragment_hy_user_profile_view_balance"
+        android:label="fragment_youth_user_profile"
         tools:layout="@layout/fragment_youth_user_profile" />
     <fragment
         android:id="@+id/hy_send_money"
-        android:name="com.example.myapplication.SearchForMerchant.SearchMerchantFragment"
-        android:label="fragment_send_money"
-        tools:layout="@layout/fragment_search_merchant" />
+        android:name="com.example.myapplication.SearchForMerchant.SearchForMerchantFragment"
+        android:label="fragment_search_for_merchant"
+        tools:layout="@layout/fragment_search_for_merchant" />
     <fragment
         android:id="@+id/transaction_history"
         android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"

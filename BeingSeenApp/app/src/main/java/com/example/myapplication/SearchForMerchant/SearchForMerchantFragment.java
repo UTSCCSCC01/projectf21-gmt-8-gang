@@ -18,10 +18,10 @@ import com.google.android.material.textfield.TextInputEditText;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link com.example.myapplication.SearchForMerchant.SearchMerchantFragment#newInstance} factory method to
+ * Use the {@link SearchForMerchantFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchMerchantFragment extends Fragment {
+public class SearchForMerchantFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +32,7 @@ public class SearchMerchantFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SearchMerchantFragment() {
+    public SearchForMerchantFragment() {
         // Required empty public constructor
     }
 
@@ -45,8 +45,8 @@ public class SearchMerchantFragment extends Fragment {
      * @return A new instance of fragment SearchMechantFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static com.example.myapplication.SearchForMerchant.SearchMerchantFragment newInstance(String param1, String param2) {
-        com.example.myapplication.SearchForMerchant.SearchMerchantFragment fragment = new com.example.myapplication.SearchForMerchant.SearchMerchantFragment();
+    public static SearchForMerchantFragment newInstance(String param1, String param2) {
+        SearchForMerchantFragment fragment = new SearchForMerchantFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,7 +68,7 @@ public class SearchMerchantFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_search_for_youth, container, false);
+        View view = inflater.inflate(R.layout.fragment_search_for_merchant, container, false);
         FragmentActivity activity = getActivity();
 
         TextInputEditText input= (TextInputEditText) view.findViewById(R.id.searchInput);
