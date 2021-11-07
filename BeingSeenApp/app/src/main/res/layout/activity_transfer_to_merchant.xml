@@ -16,7 +16,7 @@
       >
 
   </RelativeLayout>
-
+<!--
   <ImageView
       android:id="@+id/imageHy"
       android:layout_width="150dp"
@@ -50,6 +50,7 @@
       app:layout_constraintTop_toTopOf="parent"
       />
 
+-->
   <Button
       android:id="@+id/DnDonateBackEditButton"
       android:layout_width="wrap_content"
