@@ -47,10 +47,10 @@
             android:layout_height="wrap_content"
             android:background="#00000000"
             android:backgroundTint="@color/black"
-            android:hint="Enter Username of merchant"
+            android:hint="Enter Username of Merchant"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/SearchUserName"
-             />
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

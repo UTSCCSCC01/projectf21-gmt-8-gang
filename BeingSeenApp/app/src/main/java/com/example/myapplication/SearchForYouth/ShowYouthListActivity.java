@@ -1,8 +1,10 @@
 package com.example.myapplication.SearchForYouth;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +29,10 @@ public class ShowYouthListActivity extends AppCompatActivity {
         TextView inputText=(TextView) findViewById(R.id.ml_input);
         inputText.setText(username);
         recyclerView = findViewById(R.id.ml_list);
+
+        // back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         ProfileInfo profileInfo=new ProfileInfo();
         profileInfo.setSearchIdName(username);
         profileInfo.searchUser(this, new VolleyCallBack() {
@@ -37,6 +43,17 @@ public class ShowYouthListActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //Back button on top
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setAdapter() {
