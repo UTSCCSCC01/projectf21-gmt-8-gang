@@ -49,8 +49,8 @@
             android:label="Organization"/>
         <activity
             android:name=".NavbarActivities.YouthMainNavbarActivity"
-            android:exported="true"
-            android:label="Youth"/>
+            android:label="Youth"
+            android:exported="true" />
         <activity
             android:name=".NavbarActivities.BsMainNavbarActivity"
             android:exported="true"
@@ -62,7 +62,7 @@
         <activity
             android:name=".SignUpAndLogin.SignUpActivity"
             android:exported="true"
-            android:label="Being Seen">
+            android:label="Let's Get Started">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -71,14 +71,14 @@
         <activity
             android:name=".YouthDonationGoal.SetDonationGoalActivity"
             android:exported="true"
-            android:label="Youth"/>
+            android:label="Donation Goal"/>
         <activity
-            android:name=".AboutUsFrontend.DonationStatus"
+            android:name=".AboutUsFrontend.DonationStatusActivity"
             android:exported="true"
             android:label="Donation Status"
-            android:parentActivityName=".AboutUsFrontend.Donation" />
+            android:parentActivityName=".AboutUsFrontend.DonationActivity" />
         <activity
-            android:name=".AboutUsFrontend.Donation"
+            android:name=".AboutUsFrontend.DonationActivity"
             android:exported="true"
             android:label="Make a Donation" />
         <activity

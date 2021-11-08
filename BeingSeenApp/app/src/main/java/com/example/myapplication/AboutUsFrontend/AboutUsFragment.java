@@ -3,7 +3,6 @@ package com.example.myapplication.AboutUsFrontend;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
@@ -79,9 +78,10 @@ public class AboutUsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(activity, Donation.class);
+                intent.setClass(activity, DonationActivity.class);
                 //info need db complete
-                intent.putExtra("receiver","seesee");
+                intent.putExtra("receiverUsername","seesee");
+                intent.putExtra("receiverName", "Being Seen");
                 startActivity(intent);
             }
         });

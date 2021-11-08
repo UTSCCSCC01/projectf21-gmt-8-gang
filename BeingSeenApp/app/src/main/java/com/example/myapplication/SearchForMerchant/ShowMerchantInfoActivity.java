@@ -26,13 +26,13 @@ public class ShowMerchantInfoActivity extends AppCompatActivity {
 
         //code from SearchResult
         String username=getIntent().getStringExtra("Username");
-        String nickname=getIntent().getStringExtra("name");
+        String name=getIntent().getStringExtra("name");
         String bio=getIntent().getStringExtra("bio");
         String photo=getIntent().getStringExtra("photo");
         ImageView img=(ImageView) findViewById(R.id.searchPhoto);
         img.setImageBitmap(ProfileInfo.decodeProfilePic(photo));
-        TextView name=(TextView) findViewById(R.id.searchNameDisplay);
-        name.setText(nickname);
+        TextView displayName=(TextView) findViewById(R.id.searchNameDisplay);
+        displayName.setText(name);
         TextView desc=(TextView)findViewById(R.id.searchUdescDisplay);
         desc.setText(bio);
 
@@ -45,7 +45,8 @@ public class ShowMerchantInfoActivity extends AppCompatActivity {
                 Intent intent=new Intent();
                 intent.setClass(ShowMerchantInfoActivity.this, TransferToMerchantActivity.class);
                 //info need db complete
-                intent.putExtra("receiver",username);
+                intent.putExtra("receiverUsername",username);
+                intent.putExtra("receiverName", name);
                 intent.putExtra("sender","getCurrentUserId");
                 startActivity(intent);
             }

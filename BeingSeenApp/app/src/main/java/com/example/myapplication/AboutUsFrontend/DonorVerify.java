@@ -18,12 +18,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DonorVerify implements  VolleyResponse {
-    public Donation donation;
+    public DonationActivity donation;
     private String jwt="";
     private String role;
     private boolean valid=false;
     public static final String LOGIN_TAG = "donorVerify";
-    public DonorVerify(Donation donation) {
+    public DonorVerify(DonationActivity donation) {
         this.donation= donation;
         Log.i(LOGIN_TAG, "donor verify started");
     }

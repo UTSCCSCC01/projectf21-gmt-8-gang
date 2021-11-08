@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/hy_send_money"
-        android:title="Shopping"
+        android:title="Search"
         android:icon="@drawable/ic_baseline_person_search_24"
-        android:label="Shopping"/>
+        android:label="Search"/>
 
 
     <item

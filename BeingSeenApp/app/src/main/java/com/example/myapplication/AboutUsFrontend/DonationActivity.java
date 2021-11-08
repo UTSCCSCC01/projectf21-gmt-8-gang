@@ -1,9 +1,11 @@
 package com.example.myapplication.AboutUsFrontend;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,17 +21,18 @@ import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class Donation extends AppCompatActivity {
+public class DonationActivity extends AppCompatActivity {
     public void createDonation(String username, String password, String receiver, long amount, String comment){
 
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.donation);
-        String receiverId = getIntent().getStringExtra("receiver");
+        setContentView(R.layout.activity_donation);
         TextView receiver=(TextView) findViewById(R.id.dnt_reciever);
-        receiver.setText(receiverId);
+        String receiverUsername = getIntent().getStringExtra("receiverUsername");
+        String receiverName = getIntent().getStringExtra("receiverName");
+        receiver.setText(receiverName);
         TextInputEditText amountField=(TextInputEditText) findViewById(R.id.dnt_amount);
 
 
@@ -56,8 +59,8 @@ public class Donation extends AppCompatActivity {
                     return;
                 }
                 Transaction transaction=new Transaction();
-                transaction.makeDnDonationTransaction(receiverId, comment, amount,
-                        Donation.this, new VolleyCallBack() {
+                transaction.makeDnDonationTransaction(receiverUsername, comment, amount,
+                        DonationActivity.this, new VolleyCallBack() {
                             @Override
                             public void onSuccess() {
                                 switch (ProfileInfo.getUserRole()) {
@@ -71,5 +74,16 @@ public class Donation extends AppCompatActivity {
                         });
             }
         });
+    }
+
+    //Back button on top
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -7,9 +7,9 @@
 
     <item
         android:id="@+id/dn_search"
-        android:title="Search For Youth"
+        android:title="Search"
         android:icon="@drawable/ic_baseline_person_search_24"
-        android:label="Search For Youth To Donate To"/>
+        android:label="Search"/>
 
     <item
         android:id="@+id/org_profile"

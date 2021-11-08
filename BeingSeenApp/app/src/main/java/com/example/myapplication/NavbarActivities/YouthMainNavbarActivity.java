@@ -18,7 +18,6 @@ public class YouthMainNavbarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_youth_main_navbar);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-//        NavController navController = Navigation.findNavController(this,  R.id.fragmentContainerView);
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
         NavController navController = navHostFragment.getNavController();
