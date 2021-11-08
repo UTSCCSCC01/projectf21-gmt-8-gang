@@ -79,13 +79,14 @@ public class DonationGoalController  {
                 + owner));
     }
 
-    // Access: All
+    // Access: hy
     // returns donation goal of one homeless given username
     @GetMapping("/donationGoal")
-    private ResponseEntity<?> readGoal(@RequestBody DonationGoalRequest donationGoalRequest) {
+    private ResponseEntity<?> readGoal() {
         DonationGoal donationGoal;
         try {
-            String username = donationGoalRequest.getUsername();
+            System.out.println("start donation goal");
+            String username = SecurityContextHolder.getContext().getAuthentication().getName();
             if (!donationGoalRepos.existsByUsername(username)) {
                 return new ResponseEntity<>("can't get " + username + "bc this username doesn't exist", HttpStatus.NOT_FOUND);
             }
@@ -132,7 +133,7 @@ public class DonationGoalController  {
     private ResponseEntity<?> deleteGoal() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         if (!donationGoalRepos.existsByUsername(username)) {
-            System.out.println("username doesn't exist so can't delete donation goal");
+            System.out.println("username doesn't have a donation goal so can't delete");
             return new ResponseEntity<>("username doesn't exist", HttpStatus.NOT_FOUND);
         }
         try {

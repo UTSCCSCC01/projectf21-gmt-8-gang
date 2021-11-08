@@ -48,6 +48,7 @@ public class ProfileInfo implements Serializable {
     static String searchDescription;
     static String searchProfileImage;
     static String searchIdName;
+    static List<JSONObject> searchResult;
 
 
     public static String getToken() {
@@ -139,7 +140,13 @@ public class ProfileInfo implements Serializable {
         this.username = username;
         this.userDescription = userDescription;
     }
+    public List<JSONObject> getSearchResult(){
+        return this.searchResult;
+    }
 
+    public void setSearchResult(List<JSONObject> searchResult) {
+        this.searchResult = searchResult;
+    }
     public ProfileInfo(){
     }
 
@@ -418,5 +425,59 @@ public class ProfileInfo implements Serializable {
             // Add the request to the RequestQueue.
         queue.add(stringRequest);
         }
+
+    public void searchUser(AppCompatActivity callingActivity, final VolleyCallBack callBack){
+
+        RequestQueue queue = Volley.newRequestQueue(callingActivity);
+
+        // a simple API to test if we can connect to backend
+        String url = "http://10.0.2.2:8080/search?username=";
+        String name_search = this.getSearchIdName();
+        Log.d("RESPONSE_VAR", url + name_search);
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url + name_search, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("RESPONSE_VAR", response);
+                try {
+                    JSONArray jsonResults = new JSONArray(response);
+                    Log.d("Transaction_VAR","TRANSACTION Worked1");
+
+                    List<JSONObject> temp_users = new ArrayList<>();
+                    for (int i = 0; i <jsonResults.length(); i++) {
+                        JSONObject jsonResult = jsonResults.getJSONObject(i);
+                        temp_users.add(jsonResult);
+                    }
+                    setSearchResult(temp_users);
+                    callBack.onSuccess();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Log.d("GET_HEADER", "Made call to search user getHeaders");
+                Map<String, String>  headers = new HashMap<String, String>();
+                String token = ProfileInfo.getToken();
+                Log.d("RESPONSE_VAR", token);
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", token);
+                return headers;
+            }
+        };
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+    }
+
+
     }
 

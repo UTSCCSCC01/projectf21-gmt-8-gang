@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="HyGoalTitle" type="id" />
+    <item name="HyAmount" type="id" />
+    <item name="HyPercentage" type="id" />
+    <item name="HyGoalDescription" type="id" />
+</resources>
