@@ -62,9 +62,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dnt_comment_frame"
         app:rippleColor="@color/teal_700"
         app:strokeColor="@color/teal_700" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
