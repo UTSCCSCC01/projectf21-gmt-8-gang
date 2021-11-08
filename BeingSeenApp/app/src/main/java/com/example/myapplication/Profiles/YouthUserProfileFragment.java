@@ -92,9 +92,8 @@ public class YouthUserProfileFragment extends Fragment {
                 Toast.makeText(activity, "You already have a goal!", Toast.LENGTH_LONG).show();
             }
         }
-        if (intent.hasExtra("toast_profile")) {
-            Toast.makeText(activity, "Successfully edited profile", Toast.LENGTH_LONG).show();
-        }
+        //Temporarily comment this out since this toast always shows up as a bug after transitioning nav bar
+        //Temporarily comment this out since this toast always shows up as a bug after transitioning nav bar
 
         //Logout button
         final Button button = (Button) view.findViewById(R.id.HyPfLogoutButton);
