@@ -1,5 +1,6 @@
 package com.example.myapplication.YouthDonationGoal;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -22,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -123,6 +125,8 @@ public class DonationGoalFragment extends Fragment {
                 DeleteDonationGoalModel model = new DeleteDonationGoalModel((AppCompatActivity)activity);
                 model.deleteDonationGoal();
 //                Toast.makeText(getBaseContext(), "outside delete", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(activity.getApplicationContext(), YouthMainNavbarActivity.class);
+                startActivity(i);
             }
         });
 
@@ -142,7 +146,7 @@ public class DonationGoalFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("RESPONSE_VAR", "Reponse called properly");
+                        Log.d("RESPONSE_VAR", "Response called properly");
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             username = jsonObject.getString("username");

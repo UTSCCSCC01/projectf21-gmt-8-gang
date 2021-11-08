@@ -32,7 +32,8 @@ public class TransferToMerchantActivity extends AppCompatActivity {
         //donate to someone button
         final Button donateButton = (Button) findViewById(R.id.donateConfirm);
         Intent intent = getIntent();
-        String receiverName = intent.getStringExtra("receiver");
+        String receiverUsername = intent.getStringExtra("receiverUsername");
+        String receiverName = intent.getStringExtra("receiverName");
         TextView receiver=(TextView) findViewById(R.id.merchant_receiver);
         receiver.setText(receiverName);
 
@@ -41,7 +42,7 @@ public class TransferToMerchantActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                sendDono(view, receiverName);
+                sendDono(view, receiverUsername);
             }
         });
     }

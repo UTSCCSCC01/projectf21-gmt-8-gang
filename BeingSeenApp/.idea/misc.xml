@@ -67,10 +67,12 @@
         <entry key="app/src/main/res/layout/activity_transfer_to_merchant.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_youth_main_navbar.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/layout/donation.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/fragment_about_us.xml" value="0.13360507246376813" />
         <entry key="app/src/main/res/layout/fragment_bs_user_profile_view_balance.xml" value="0.15489130434782608" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_dn_content_page.xml" value="0.10299987792968751" />
         <entry key="app/src/main/res/layout/fragment_dn_user_profile_view_balance.xml" value="0.11619627038870219" />
+        <entry key="app/src/main/res/layout/fragment_donation_goal.xml" value="0.13360507246376813" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.11875" />
         <entry key="app/src/main/res/layout/fragment_hy_donation_goal.xml" value="0.18072916666666666" />
         <entry key="app/src/main/res/layout/fragment_hy_user_profile_view_balance.xml" value="0.15489130434782608" />

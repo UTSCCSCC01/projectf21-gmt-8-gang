@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.example.myapplication.SignUpAndLogin.SignUpActivity;
 import com.example.myapplication.R;
 
-public class DonationStatus extends AppCompatActivity {
+public class DonationStatusActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class DonationStatus extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent();
-                intent.setClass(DonationStatus.this, SignUpActivity.class);
+                intent.setClass(DonationStatusActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });
@@ -32,16 +32,4 @@ public class DonationStatus extends AppCompatActivity {
 //        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    // prob there's a better way to do this
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        Log.i("hyyy", ProfileInfo.getUserRole());
-//        switch (ProfileInfo.getUserRole()) {
-//            case "ROLE_DONOR": startActivity(new Intent(DonationStatus.this, DnUserProfileViewBalanceActivity.class));
-//            case "ROLE_ORGANIZATION": startActivity(new Intent(DonationStatus.this, OrgUserProfileViewBalanceActivity.class));
-//            case "ROLE_BEING_SEEN": startActivity(new Intent(DonationStatus.this, BsUserProfileViewBalanceActivity.class));
-//            case "ROLE_MERCHANT": startActivity(new Intent(DonationStatus.this, MerUserProfileViewBalanceActivity.class));
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 }
