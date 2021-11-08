@@ -97,9 +97,10 @@ public class DnUserProfileFragment extends Fragment {
         // make toast message if successfully updated profile
         Intent intent = activity.getIntent();
 
-        if (intent.hasExtra("toast_profile")) {
-            Toast.makeText(activity, "Successfully edited profile", Toast.LENGTH_LONG).show();
-        }
+        //Temporarily comment this out since this toast always shows up as a bug after transitioning nav bar
+//        if (intent.hasExtra("toast_profile")) {
+//            Toast.makeText(activity, "Successfully edited profile", Toast.LENGTH_LONG).show();
+//        }
 
 
         /// Set photo and string and stuff based on nav from prev

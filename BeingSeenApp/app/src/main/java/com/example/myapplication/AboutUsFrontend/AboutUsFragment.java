@@ -80,7 +80,7 @@ public class AboutUsFragment extends Fragment {
                 Intent intent=new Intent();
                 intent.setClass(activity, DonationActivity.class);
                 //info need db complete
-                intent.putExtra("receiverUsername","seesee");
+                intent.putExtra("receiverUsername","beingseen");
                 intent.putExtra("receiverName", "Being Seen");
                 startActivity(intent);
             }

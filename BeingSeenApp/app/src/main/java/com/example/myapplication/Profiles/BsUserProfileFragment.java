@@ -96,9 +96,10 @@ public class BsUserProfileFragment extends Fragment {
 
         /// Set photo and string and stuff based on nav from prev
         Intent intent = activity.getIntent();
-        if (intent.hasExtra("toast_profile")) {
-            Toast.makeText(activity, "Successfully edited profile", Toast.LENGTH_LONG).show();
-        }
+        //Temporarily comment this out since this toast always shows up as a bug after transitioning nav bar
+//        if (intent.hasExtra("toast_profile")) {
+//            Toast.makeText(activity, "Successfully edited profile", Toast.LENGTH_LONG).show();
+//        }
 
         if(intent.getExtras() != null && intent.hasExtra("uname")) {
             String uname = intent.getStringExtra("uname");
