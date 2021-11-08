@@ -57,7 +57,7 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
     // when binding the view holder to a timeSlot
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        if (amounts == null || amounts.size() == 0) {
+        if (amounts == null || people == null || people.size() == 0 || amounts.size() == 0) {
             if (userRole.equals("DONOR"))
                 holder.noTransactionField.setText("You have no donations yet, go help homeless youth!");
             else if (userRole.equals("HOMELESS"))
@@ -93,7 +93,7 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
 
     @Override
     public int getItemCount() {
-        if (amounts == null || amounts.size() == 0)
+        if (amounts == null || people == null || people.size() == 0 || amounts.size() == 0)
             return 1;
         return amounts.size();
     }
