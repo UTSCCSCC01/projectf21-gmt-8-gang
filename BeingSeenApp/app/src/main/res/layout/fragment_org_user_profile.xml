@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrganizationUiFrontend.OrgUserProfileViewBalanceActivity">
+    tools:context=".Profiles.OrgUserProfileFragment">
 
     <RelativeLayout
         android:id="@+id/textView"
