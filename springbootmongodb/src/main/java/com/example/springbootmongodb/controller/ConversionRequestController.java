@@ -119,7 +119,7 @@ public class ConversionRequestController {
             try {
                 conversionRequest = conversionRequestRepository.findById(requestId);
                 if (conversionRequest.isPresent()) {
-                    if (conversionRequest.get().getIsDone() == true) {
+                    if (conversionRequest.get().getIsDone()) {
                         System.out.println("this conversion request is already done");
                         return new ResponseEntity<>("this conversion request is already done", HttpStatus.NOT_FOUND);
                     }
