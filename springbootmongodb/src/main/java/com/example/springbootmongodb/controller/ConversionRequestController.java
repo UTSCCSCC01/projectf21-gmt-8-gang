@@ -71,4 +71,19 @@ public class ConversionRequestController {
         System.out.println("successfully get conversion requests");
         return new ResponseEntity<>(conversionRequests, HttpStatus.OK);
     }
+
+    @GetMapping("/allPendingConversionRequests")
+    private ResponseEntity<?> getAllPendingConversionRequests(){
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        List<?> conversionRequests = new ArrayList<>();
+        try {
+            conversionRequests = conversionRequestRepository.findConversionRequestByUsernameAndIsDone(username, false);
+            Collections.reverse(conversionRequests);
+        } catch (Exception e) {
+            System.out.println("error on getting list of conversion request");
+            return new ResponseEntity<>("error on getting list of conversion request", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        System.out.println("successfully get conversion requests");
+        return new ResponseEntity<>(conversionRequests, HttpStatus.OK);
+    }
 }
