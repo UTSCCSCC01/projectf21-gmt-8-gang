@@ -59,11 +59,12 @@ public class ConversionRequest {
         this.amount = amount;
     }
 
-    public Boolean getDone() {
-        return isDone;
+
+    public void setIsDone(Boolean done) {
+        isDone = done;
     }
 
-    public void setDone(Boolean done) {
-        isDone = done;
+    public boolean getIsDone() {
+        return this.isDone;
     }
 }
