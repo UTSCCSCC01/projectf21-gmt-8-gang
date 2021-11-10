@@ -1,38 +1,29 @@
-package com.example.springbootmongodb.model;
+package com.example.springbootmongodb.response;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Setter
-@Getter
-@AllArgsConstructor
-@Document(collection = "ConversionRequest")
-public class ConversionRequest {
-    @Id
-    private ObjectId id;
+public class ConversionRequestResponse {
 
+    private String requestId;
     private String username;
     private String email;
     private Long amount;
     private Boolean isDone; // 1 if done, 0 if pending
 
-    public ConversionRequest() {
-    }
-
-    public ConversionRequest(String username, String email, Long amount, Boolean isDone) {
+    public ConversionRequestResponse(String requestId, String username, String email, Long amount, Boolean isDone) {
+        this.requestId = requestId;
         this.username = username;
         this.email = email;
         this.amount = amount;
         this.isDone = isDone;
     }
 
-    public ObjectId getId() {
-        return id;
+    public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
     }
 
     public String getUsername() {

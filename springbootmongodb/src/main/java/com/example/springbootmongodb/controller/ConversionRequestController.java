@@ -3,21 +3,23 @@ package com.example.springbootmongodb.controller;
 
 import com.example.springbootmongodb.model.ConversionRequest;
 import com.example.springbootmongodb.repository.AccountRepository;
+import com.example.springbootmongodb.repository.AppUserRepository;
 import com.example.springbootmongodb.repository.ConversionRequestRepository;
 import com.example.springbootmongodb.request.ConversionRequestRequest;
+import com.example.springbootmongodb.response.ConversionRequestResponse;
+import org.bson.types.ObjectId;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -28,6 +30,9 @@ public class ConversionRequestController {
 
     @Autowired
     private AccountRepository accountRepository;
+
+    @Autowired
+    private AppUserRepository appUserRepository;
 
     // given email and amount, save a conversion request in db
     @PostMapping("/conversion-request")
@@ -74,7 +79,7 @@ public class ConversionRequestController {
 
     // get all pending conversion requests a specific logged-in merchant made
     @GetMapping("/pending/conversion-requests/merchant")
-    private ResponseEntity<?> getAllPendingConversionRequests(){
+    private ResponseEntity<?> getAllPendingConversionRequests() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         List<?> conversionRequests = new ArrayList<>();
         try {
@@ -88,6 +93,55 @@ public class ConversionRequestController {
         return new ResponseEntity<>(conversionRequests, HttpStatus.OK);
     }
 
+    // update isDone of conversion request specified by ObjectId from false to true
+    @PutMapping("/conversion-request")
+    private ResponseEntity<?> updateConversionRequest(@RequestBody String request) {
+
+        // making sure the user has admin access
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        try {
+            if (!appUserRepository.findByUserName(username).getRole().equals("BEING_SEEN")) {
+                System.out.println("you are not being seen so you have no access");
+                return new ResponseEntity<>("you are not being seen so you have no access", HttpStatus.BAD_REQUEST);
+            }
+        } catch (Exception e) {
+            System.out.println("Exception on getting current user in AppUser");
+            return new ResponseEntity<>("Exception on getting current user in AppUser", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        // get conversion request from db, update, and save
+        Optional<ConversionRequest> conversionRequest;
+        try {
+            JSONObject jsonItem = new JSONObject(request);
+            String stringRequestId = jsonItem.getString("requestId");
+            // convert to ObjectId from String
+            ObjectId requestId = new ObjectId(stringRequestId);
+            try {
+                conversionRequest = conversionRequestRepository.findById(requestId);
+                if (conversionRequest.isPresent()) {
+                    if (conversionRequest.get().getIsDone()) {
+                        System.out.println("this conversion request is already done");
+                        return new ResponseEntity<>("this conversion request is already done", HttpStatus.NOT_FOUND);
+                    }
+                    ConversionRequest newConversionRequest = conversionRequest.get();
+                    newConversionRequest.setIsDone(true);
+                    conversionRequestRepository.save(newConversionRequest);
+                } else {
+                    System.out.println("can't find this conversion request");
+                    return new ResponseEntity<>("can't find this conversion request", HttpStatus.BAD_REQUEST);
+                }
+            } catch (Exception e) {
+                System.out.println("Exception on finding conversion request or saving it in repo");
+                return new ResponseEntity<>("Exception on finding conversion request or saving it in repo", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            System.out.println("successfully updated conversion request");
+            return new ResponseEntity<>("successfully updated conversion request", HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Error during this conversion request. Please check formatting", HttpStatus.BAD_REQUEST);
+        }
+    }
+
     // get all conversion requests regardless of username
     @GetMapping("/conversion-requests")
     private ResponseEntity<?> getConversionRequest() {
@@ -98,7 +152,14 @@ public class ConversionRequestController {
         } catch (Exception e) {
             return new ResponseEntity<>("Error on getting conversion requests", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(conversionRequests, HttpStatus.OK);
+
+        List<ConversionRequestResponse> responses = new ArrayList<>();
+        for (ConversionRequest req : conversionRequests) {
+            ConversionRequestResponse temp = new ConversionRequestResponse(req.getId().toString(), req.getUsername(), req.getEmail(),  req.getAmount(), req.getIsDone());
+            responses.add(temp);
+        }
+
+        return new ResponseEntity<>(responses, HttpStatus.OK);
     }
 
 

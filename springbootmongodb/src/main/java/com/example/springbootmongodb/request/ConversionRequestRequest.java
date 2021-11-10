@@ -1,8 +1,13 @@
 package com.example.springbootmongodb.request;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+
 public class ConversionRequestRequest {
     private String email;
     private Long amount;
+    private ObjectId conversionRequestId;
+    private Boolean isDone;
 
     public ConversionRequestRequest() {
     }
@@ -10,6 +15,18 @@ public class ConversionRequestRequest {
     public ConversionRequestRequest(String email, Long amount) {
         this.email = email;
         this.amount = amount;
+    }
+
+    public ObjectId getConversionRequestId() {
+        return conversionRequestId;
+    }
+
+    public Boolean getDone() {
+        return isDone;
+    }
+
+    public void setDone(Boolean done) {
+        isDone = done;
     }
 
     public String getEmail() {
