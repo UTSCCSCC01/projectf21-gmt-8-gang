@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.NavbarActivities.BsMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.DnMainNavbarActivity;
@@ -63,6 +64,10 @@ public class DonationActivity extends AppCompatActivity {
                         DonationActivity.this, new VolleyCallBack() {
                             @Override
                             public void onSuccess() {
+
+                                //make toast after success
+                                Toast toast = Toast.makeText(getApplicationContext(), "Transaction successful", Toast.LENGTH_LONG);
+                                toast.show();
                                 switch (ProfileInfo.getUserRole()) {
                                     case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), YouthMainNavbarActivity.class)); break;
                                     case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class)); break;
