@@ -12,6 +12,6 @@ import java.util.List;
 public interface ConversionRequestRepository extends MongoRepository<ConversionRequest, String> {
 //    ConversionRequest findConversionRequestById(String conversionRequestId);
     List<ConversionRequest> findConversionRequestByUsername(String username);
-
+    List<ConversionRequest> findConversionRequestByUsernameAndIsDone(String username, Boolean isDone);
     Boolean existsByUsername(String username);
 }
