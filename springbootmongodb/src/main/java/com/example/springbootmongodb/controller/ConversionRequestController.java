@@ -46,6 +46,7 @@ public class ConversionRequestController {
             return new ResponseEntity<>("error on saving conversion request", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+        System.out.println("successfully created conversion request");
         return new ResponseEntity<>("successfully created conversion request", HttpStatus.OK);
 
     }
