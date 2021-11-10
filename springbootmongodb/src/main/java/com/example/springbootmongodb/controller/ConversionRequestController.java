@@ -30,7 +30,7 @@ public class ConversionRequestController {
     private AccountRepository accountRepository;
 
     // given email and amount, save a conversion request in db
-    @PostMapping("/conversionRequest")
+    @PostMapping("/conversion-request")
     private ResponseEntity<?> createConversionRequest(@RequestBody ConversionRequestRequest request) {
 
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -56,7 +56,8 @@ public class ConversionRequestController {
 
     }
 
-    @GetMapping("/allConversionRequestsOfMerchant")
+    // get all conversion requests a specific logged-in merchant made
+    @GetMapping("/conversion-requests/merchant")
     private ResponseEntity<?> getAllConversionRequests(){
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         List<?> conversionRequests = new ArrayList<>();
@@ -71,7 +72,8 @@ public class ConversionRequestController {
         return new ResponseEntity<>(conversionRequests, HttpStatus.OK);
     }
 
-    @GetMapping("/allPendingConversionRequestsOfMerchant")
+    // get all pending conversion requests a specific logged-in merchant made
+    @GetMapping("/pending/conversion-requests/merchant")
     private ResponseEntity<?> getAllPendingConversionRequests(){
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         List<?> conversionRequests = new ArrayList<>();
@@ -87,7 +89,7 @@ public class ConversionRequestController {
     }
 
     // get all conversion requests regardless of username
-    @GetMapping("/conversionRequests")
+    @GetMapping("/conversion-requests")
     private ResponseEntity<?> getConversionRequest() {
         List<ConversionRequest> conversionRequests = conversionRequestRepository.findAll();
         Collections.reverse(conversionRequests);
