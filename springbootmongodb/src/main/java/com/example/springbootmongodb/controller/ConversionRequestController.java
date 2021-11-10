@@ -91,10 +91,12 @@ public class ConversionRequestController {
     // get all conversion requests regardless of username
     @GetMapping("/conversion-requests")
     private ResponseEntity<?> getConversionRequest() {
-        List<ConversionRequest> conversionRequests = conversionRequestRepository.findAll();
-        Collections.reverse(conversionRequests);
-        if (conversionRequests.size() == 0) {
-            return new ResponseEntity<>("No conversion requests available", HttpStatus.NOT_FOUND);
+        List<ConversionRequest> conversionRequests = new ArrayList<>();
+        try {
+            conversionRequests = conversionRequestRepository.findAll();
+            Collections.reverse(conversionRequests);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error on getting conversion requests", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(conversionRequests, HttpStatus.OK);
     }
