@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ConversionRequstRepository extends MongoRepository<ConversionRequest, String> {
+public interface ConversionRequestRepository extends MongoRepository<ConversionRequest, String> {
 //    ConversionRequest findConversionRequestById(String conversionRequestId);
     List<ConversionRequest> findConversionRequestByUsername(String username);
 
