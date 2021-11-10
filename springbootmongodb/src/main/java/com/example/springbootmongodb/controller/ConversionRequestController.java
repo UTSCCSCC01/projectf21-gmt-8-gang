@@ -6,6 +6,7 @@ import com.example.springbootmongodb.repository.AccountRepository;
 import com.example.springbootmongodb.repository.AppUserRepository;
 import com.example.springbootmongodb.repository.ConversionRequestRepository;
 import com.example.springbootmongodb.request.ConversionRequestRequest;
+import com.example.springbootmongodb.response.ConversionRequestResponse;
 import org.bson.types.ObjectId;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -151,7 +152,14 @@ public class ConversionRequestController {
         } catch (Exception e) {
             return new ResponseEntity<>("Error on getting conversion requests", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(conversionRequests, HttpStatus.OK);
+
+        List<ConversionRequestResponse> responses = new ArrayList<>();
+        for (ConversionRequest req : conversionRequests) {
+            ConversionRequestResponse temp = new ConversionRequestResponse(req.getId().toString(), req.getUsername(), req.getEmail(),  req.getAmount(), req.getIsDone());
+            responses.add(temp);
+        }
+
+        return new ResponseEntity<>(responses, HttpStatus.OK);
     }
 
 
