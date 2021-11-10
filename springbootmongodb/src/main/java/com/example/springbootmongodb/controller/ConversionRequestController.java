@@ -5,6 +5,7 @@ import com.example.springbootmongodb.model.AppUser;
 import com.example.springbootmongodb.model.ConversionRequest;
 import com.example.springbootmongodb.repository.AccountRepository;
 import com.example.springbootmongodb.repository.ConversionRequestRepository;
+
 import com.example.springbootmongodb.request.ConversionRequestRequest;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +17,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
 
 @RestController
 public class ConversionRequestController {
 
     @Autowired
     private ConversionRequestRepository conversionRequestRepository;
+
 
     @Autowired
     private AccountRepository accountRepository;
@@ -47,6 +51,7 @@ public class ConversionRequestController {
         try {
             ConversionRequest a = new ConversionRequest(username, email, amount, false);
             conversionRequestRepository.save(a);
+
         } catch (Exception e) {
             System.out.println("error on saving conversion request");
             return new ResponseEntity<>("error on saving conversion request", HttpStatus.INTERNAL_SERVER_ERROR);
