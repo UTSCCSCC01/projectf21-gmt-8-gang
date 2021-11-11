@@ -24,6 +24,10 @@
             android:label="Search Merchant"
             android:exported="true" />
         <activity
+            android:name=".StripeCurrencyConversion.OrgCurrencyConversionActivity"
+            android:label="Purchase Credits"
+            android:exported="true" />
+        <activity
             android:name=".SearchForMerchant.TransferToMerchantActivity"
             android:label="Pay to Merchant"
             android:exported="true" />

@@ -64,4 +64,8 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.4.0-beta01'
     implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'com.stripe:stripe-android:16.3.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.okhttp3:okhttp:4.4.0'
 }
