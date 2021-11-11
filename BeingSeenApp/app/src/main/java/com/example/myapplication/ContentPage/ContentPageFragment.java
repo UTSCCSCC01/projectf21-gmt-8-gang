@@ -105,7 +105,7 @@ public class ContentPageFragment extends Fragment {
 
     private void setAdapter(FragmentActivity activity) {
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-
+        recyclerView.setLayoutAnimation(recyclerView.getLayoutAnimation());
         setOnClickListener();
         adapter = new ContentPageAdapter(activity, models, listener);
         recyclerView.setAdapter(adapter);

@@ -79,7 +79,7 @@ public class ShowYouthListActivity extends AppCompatActivity {
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setLayoutAnimation(recyclerView.getLayoutAnimation());
         recyclerView.setAdapter(adapter);
     }
 }
