@@ -100,6 +100,7 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         startActivity(new Intent(this, SignUpActivity.class));
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
         return super.onOptionsItemSelected(item);
     }
 

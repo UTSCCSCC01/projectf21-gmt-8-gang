@@ -45,8 +45,8 @@ public class ProfileEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_edit);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setDisplayHomeAsUpEnabled(true);
 
         // Save edited profile
         final Button SaveEditPfButton = (Button) findViewById(R.id.DnSavePfButton);
@@ -85,6 +85,7 @@ public class ProfileEditActivity extends AppCompatActivity {
                                     case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class).putExtra("toast_profile", "succeed"));break;
                                     case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class).putExtra("toast_profile", "succeed"));break;
                                 }
+                                overridePendingTransition(R.anim.slide_from_bottom, R.anim.slide_to_top);
                             }
                         });
             }
@@ -127,6 +128,7 @@ public class ProfileEditActivity extends AppCompatActivity {
                     case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class)); break;
                     case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class)); break;
                 }
+                overridePendingTransition(R.anim.slide_from_bottom, R.anim.slide_to_top);
             }
         });
 
@@ -166,16 +168,17 @@ public class ProfileEditActivity extends AppCompatActivity {
     }
 
     //Back button on top
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.i("hyyy", ProfileInfo.getUserRole());
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        Log.i("hyyy", ProfileInfo.getUserRole());
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                finish();
+//                return true;
+//        }
+//        overridePendingTransition(R.anim.slide_from_bottom, R.anim.slide_to_top);
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void requestStoragePermission() {

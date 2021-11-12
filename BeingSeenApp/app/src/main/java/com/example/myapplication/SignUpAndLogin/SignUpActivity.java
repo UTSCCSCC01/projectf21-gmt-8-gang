@@ -51,6 +51,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
             public void onClick(View view) {
                 Intent i = new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
             }
         });
 

@@ -105,6 +105,7 @@ public class YouthUserProfileFragment extends Fragment {
 
                 Intent i = new Intent(activity.getApplicationContext(), SignUpActivity.class);
                 startActivity(i);
+
             }
         });
 
@@ -164,6 +165,8 @@ public class YouthUserProfileFragment extends Fragment {
 
                 Intent i = new Intent(activity.getApplicationContext(), ProfileEditActivity.class);
                 startActivity(i);
+                activity.overridePendingTransition(R.anim.slide_from_top, R.anim.slide_to_bottom);
+
             }
         });
 
