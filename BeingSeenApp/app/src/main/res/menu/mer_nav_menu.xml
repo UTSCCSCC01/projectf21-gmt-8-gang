@@ -11,5 +11,10 @@
         android:icon="@drawable/ic_notifications_black_24dp"
         android:label="Transaction History"
         android:title="Transaction History" />
+    <item
+        android:id="@+id/req_history"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:label="Request History"
+        android:title="Request History" />
 
 </menu>

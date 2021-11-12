@@ -16,62 +16,66 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".SearchForMerchant.ShowMerchantInfoActivity"
-            android:label="Merchant Profile"
+            android:name=".MerchantConversionRequest.MerRequestHistoryFragment"
             android:exported="true" />
+        <activity
+            android:name=".SearchForMerchant.ShowMerchantInfoActivity"
+            android:exported="true"
+            android:label="Merchant Profile" />
         <activity
             android:name=".SearchForMerchant.ShowMerchantListActivity"
-            android:label="Search Merchant"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Search Merchant" />
         <activity
             android:name=".SearchForMerchant.TransferToMerchantActivity"
-            android:label="Pay to Merchant"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Pay to Merchant" />
         <activity
             android:name=".SearchForYouth.ShowYouthInfoActivity"
             android:exported="true"
-            android:label="Youth Profile"/>
+            android:label="Youth Profile" />
         <activity
             android:name=".SearchForYouth.ShowYouthListActivity"
-            android:label="Search Youth"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Search Youth" />
         <activity
             android:name=".ContentPage.ViewDonationGoalActivity"
             android:exported="true"
-            android:label="Donation Goal"/>
+            android:label="Donation Goal" />
         <activity
             android:name=".NavbarActivities.MerMainNavbarActivity"
             android:exported="true"
-            android:label="Merchant"/>
+            android:label="Merchant" />
         <activity
             android:name=".NavbarActivities.OrgMainNavbarActivity"
             android:exported="true"
-            android:label="Organization"/>
+            android:label="Organization" />
         <activity
             android:name=".NavbarActivities.YouthMainNavbarActivity"
-            android:label="Youth"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Youth" />
         <activity
             android:name=".NavbarActivities.BsMainNavbarActivity"
             android:exported="true"
-            android:label="Admin"/>
+            android:label="Admin" />
         <activity
             android:name=".NavbarActivities.DnMainNavbarActivity"
             android:exported="true"
-            android:label="Donor"/>
+            android:label="Donor" />
         <activity
             android:name=".SignUpAndLogin.SignUpActivity"
             android:exported="true"
             android:label="Being Seen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            </activity>
+        </activity>
         <activity
             android:name=".YouthDonationGoal.SetDonationGoalActivity"
             android:exported="true"
-            android:label="Donation Goal"/>
+            android:label="Donation Goal" />
         <activity
             android:name=".AboutUsFrontend.DonationStatusActivity"
             android:exported="true"
@@ -84,11 +88,11 @@
         <activity
             android:name=".SignUpAndLogin.LoginActivity"
             android:exported="true"
-            android:label="Log in"/>
+            android:label="Log in" />
         <activity
             android:name=".Profiles.ProfileEditActivity"
             android:exported="true"
-            android:label="Edit Profile"/>
+            android:label="Edit Profile" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
