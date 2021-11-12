@@ -163,4 +163,29 @@ public class ConversionRequestController {
     }
 
 
+    @PostMapping("/create-payment-intent")
+    private ResponseEntity<?> createPaymentRequest(@RequestBody ConversionRequestRequest request) {
+
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        if (!accountRepository.existsByUsername(username)) {
+            System.out.println("username not registered");
+            return new ResponseEntity<>("username not registered", HttpStatus.BAD_REQUEST);
+        }
+
+        String email = request.getEmail();
+        Long amount = request.getAmount();
+
+        try {
+            ConversionRequest a = new ConversionRequest(username, email, amount, false);
+            conversionRequestRepository.save(a);
+        } catch (Exception e) {
+            System.out.println("error on saving conversion request");
+            return new ResponseEntity<>("error on saving conversion request", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        System.out.println("successfully created conversion request");
+        return new ResponseEntity<>("successfully created conversion request", HttpStatus.OK);
+
+    }
 }
