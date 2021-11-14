@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.myapplication.NavbarActivities.OrgMainNavbarActivity;
 import com.example.myapplication.R;
 
 
@@ -56,6 +57,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
         Log.i(REGISTER_TAG, "hy sign up activity started");
         signUpModel = new SignUpModel(this);
+
     }
 
     public void signUp(View view) {
@@ -104,4 +106,6 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     public void onNothingSelected(AdapterView<?> adapterView) {
         role = "HOMELESS";
     }
+
+
 }

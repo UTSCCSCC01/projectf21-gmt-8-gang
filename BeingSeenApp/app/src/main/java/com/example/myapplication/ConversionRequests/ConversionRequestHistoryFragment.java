@@ -97,7 +97,8 @@ public class ConversionRequestHistoryFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_conversion_requests_history, container, false);
         FragmentActivity activity = getActivity();
         recyclerView=view.findViewById(R.id.rq_recycler_view);
-        getRequestsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
+        //TODO: change next line to call getRequestsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack()
+        mockSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
             @Override
             public void onSuccess() {
                 setAdapter(activity);
@@ -106,6 +107,24 @@ public class ConversionRequestHistoryFragment extends Fragment{
 
         return view;
     }
+
+    //TODO: for test only
+    public void mockSetAdapter(AppCompatActivity callingActivity, final VolleyCallBack callBack){
+        List<String> amount=new ArrayList<String>();
+        List<String> username=new ArrayList<String>();
+        List<String> time=new ArrayList<String>();
+        List<String> status=new ArrayList<String>();
+        amount.add("$114514");
+        username.add("Yajuu");
+        time.add("1919/8/10");
+        status.add("done");
+        this.amount=amount;
+        this.username=username;
+        this.time=time;
+        this.status=status;
+        callBack.onSuccess();
+    }
+
 //TODO: not connect to db yet. Finish and test this function before calling
 
     public void getRequestsFromDbAndSetAdapter(AppCompatActivity callingActivity, final VolleyCallBack callBack){
@@ -133,6 +152,10 @@ public class ConversionRequestHistoryFragment extends Fragment{
                             time.add(jsonObject.getString("time"));
                             status.add(jsonObject.getString("status"));
                         }
+                        this.amount=amount;
+                        this.username=username;
+                        this.time=time;
+                        this.status=status;
                         callBack.onSuccess();
                     } catch (JSONException e) {
                         e.printStackTrace();

@@ -26,6 +26,10 @@ public class RequestDetails extends AppCompatActivity {
         TextView timeField=findViewById(R.id.rq_detail_time_field);
         TextView amountField=findViewById(R.id.rq_detail_amount_field);
         TextView statusField=findViewById(R.id.rq_detail_status_field);
+        receiverField.setText(receiver);
+        timeField.setText(time);
+        amountField.setText(amount);
+        statusField.setText(status);
         Button back=findViewById(R.id.rq_detail_back);
         Button changeStatus=findViewById(R.id.rq_detail_change_status);
         back.setOnClickListener(new View.OnClickListener() {
