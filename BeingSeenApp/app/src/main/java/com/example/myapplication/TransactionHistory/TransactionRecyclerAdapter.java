@@ -58,16 +58,25 @@ public class TransactionRecyclerAdapter extends RecyclerView.Adapter<Transaction
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         if (amounts == null || people == null || people.size() == 0 || amounts.size() == 0) {
-            if (userRole.equals("DONOR"))
-                holder.noTransactionField.setText("You have no donations yet, go help homeless youth!");
-            else if (userRole.equals("HOMELESS"))
-                holder.noTransactionField.setText("You have no donations yet, try setting up profile!");
-            else if (userRole.equals("ORGANIZATION"))
-                holder.noTransactionField.setText("haven't set up transaction method for large org yet");
-            else if (userRole.equals("MERCHANT"))
+            if (userRole.equals("DONOR")) {
+                holder.noTransactionField.setText("You haven't donated yet, go help homeless youth!");
+            } else if (userRole.equals("HOMELESS")) {
+                if (toOrFrom.equals("to")) {
+                    holder.noTransactionField.setText("You haven't bought stuff yet, try buying some groceries at the store!");
+                } else {
+                    holder.noTransactionField.setText("You haven't received any donations yet, try setting up a donation goal!");
+                }
+            } else if (userRole.equals("ORGANIZATION")){
+                holder.noTransactionField.setText("You haven't donated yet, go help homeless youth!");
+            } else if (userRole.equals("MERCHANT")) {
                 holder.noTransactionField.setText("No youth has bought your stuff before");
-            else if (userRole.equals("BEING_SEEN"))
-                holder.noTransactionField.setText("No donations received for being seen!");
+            } else if (userRole.equals("BEING_SEEN")) {
+                if (toOrFrom.equals("to")) {
+                    holder.noTransactionField.setText("You haven't donated to youth yet, try donating to one!");
+                } else {
+                    holder.noTransactionField.setText("You haven't received any donations yet, gl marketing team!");
+                }
+            }
             holder.peopleField.setText("");
             holder.amountField.setText("");
             return;

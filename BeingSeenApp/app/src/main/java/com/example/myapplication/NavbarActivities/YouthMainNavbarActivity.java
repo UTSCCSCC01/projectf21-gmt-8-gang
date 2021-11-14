@@ -23,4 +23,9 @@ public class YouthMainNavbarActivity extends AppCompatActivity {
         NavController navController = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
+
+    @Override public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+    }
 }

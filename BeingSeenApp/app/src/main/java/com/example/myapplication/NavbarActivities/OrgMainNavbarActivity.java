@@ -27,4 +27,9 @@ public class OrgMainNavbarActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 //        NavigationUI.setupWithNavController(navController, appBarConfiguration);
     }
+
+    @Override public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+    }
 }

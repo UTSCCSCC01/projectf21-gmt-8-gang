@@ -1,6 +1,8 @@
 package com.example.myapplication.NavbarActivities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -25,5 +27,10 @@ public class BsMainNavbarActivity extends AppCompatActivity {
 //                new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 //        NavigationUI.setupWithNavController(navController, appBarConfiguration);
+    }
+
+    @Override public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 }
