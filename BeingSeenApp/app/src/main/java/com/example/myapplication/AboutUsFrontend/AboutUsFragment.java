@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.R;
 
 /**
@@ -86,6 +87,11 @@ public class AboutUsFragment extends Fragment {
                 activity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
             }
         });
+
+        // for the animation
+        LottieAnimationView lottieAnimationView = view.findViewById(R.id.beingseen_lottie_animation_view);
+        lottieAnimationView.playAnimation();
+
         // Inflate the layout for this fragment
         return view;
     }
