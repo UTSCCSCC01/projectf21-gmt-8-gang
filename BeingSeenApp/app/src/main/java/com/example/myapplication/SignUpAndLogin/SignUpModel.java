@@ -45,6 +45,7 @@ public class SignUpModel {
                     Log.i(REGISTER_TAG, "hy sign up request succeed yay, response: " + response);
 
                     Intent i = new Intent(signUpActivity.getApplicationContext(), LoginActivity.class);
+                    i.putExtra("Toast", "Sign up completed");
                     signUpActivity.startActivity(i);
                     return;
                 } catch (Exception e) {

@@ -89,6 +89,7 @@ public class SearchForYouthFragment extends Fragment {
                     intent.setClass(activity, ShowYouthListActivity.class);
                     intent.putExtra("Username", target);
                     startActivity(intent);
+                    activity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 }
             }
         });

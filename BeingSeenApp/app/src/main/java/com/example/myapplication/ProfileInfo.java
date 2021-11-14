@@ -50,7 +50,6 @@ public class ProfileInfo implements Serializable {
     static String searchIdName;
     static List<JSONObject> searchResult;
 
-
     public static String getToken() {
         return token;
     }

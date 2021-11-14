@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.myapplication.R;
 
@@ -21,6 +22,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     String role;
     final String[] ROLE_TEXTS = {"Youth", "Donor", "Organization", "Merchant"};
     public static final String[] ROLES = {"HOMELESS", "DONOR", "ORGANIZATION", "MERCHANT", "BEING_SEEN"};
+    Boolean hasPressedBack = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,15 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
         Log.i(REGISTER_TAG, "hy sign up activity started");
         signUpModel = new SignUpModel(this);
+    }
+
+    public void onBackPressed(){
+        if(hasPressedBack){
+            hasPressedBack = false;
+            finish();
+        }
+        Toast.makeText(getApplicationContext(),"Press back button again to leave", Toast.LENGTH_SHORT).show();
+        hasPressedBack = true;
     }
 
     public void signUp(View view) {

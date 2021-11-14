@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,6 +47,11 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
 
             }
         });
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("Toast")) {
+            Toast.makeText(getApplicationContext(), intent.getStringExtra("Toast"), Toast.LENGTH_SHORT).show();
+        }
 
         Log.i(LOGIN_TAG, "hy login activity started");
         loginModel = new LoginModel(this, this);
@@ -99,9 +105,16 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
     // back button
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        startActivity(new Intent(this, SignUpActivity.class));
-        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
         return super.onOptionsItemSelected(item);
+    }
+    @Override public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
 }

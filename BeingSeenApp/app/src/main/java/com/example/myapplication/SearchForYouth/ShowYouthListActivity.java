@@ -56,6 +56,11 @@ public class ShowYouthListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+    }
+
     private void setAdapter() {
         //fetch list of result's username, role, and profile from DB
         List<String> profile = new ArrayList<String>();
@@ -74,8 +79,7 @@ public class ShowYouthListActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        // if data is null then return?
-        YouthListRecyclerAdapter adapter = new YouthListRecyclerAdapter(username, role, profile);
+        YouthListRecyclerAdapter adapter = new YouthListRecyclerAdapter(this, username, role, profile);
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

@@ -126,6 +126,8 @@ public class ContentPageFragment extends Fragment {
                 Long per = (models.get(position).getCurrent() * 100 / models.get(position).getGoal());
                 intent.putExtra("percentage", per.toString());
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+
             }
         };
     }

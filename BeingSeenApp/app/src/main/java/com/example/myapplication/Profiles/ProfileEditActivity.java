@@ -41,6 +41,7 @@ public class ProfileEditActivity extends AppCompatActivity {
     String storagePermission[];
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -167,18 +168,22 @@ public class ProfileEditActivity extends AppCompatActivity {
         });
     }
 
+    @Override public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_bottom, R.anim.slide_to_top);
+    }
+
     //Back button on top
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        Log.i("hyyy", ProfileInfo.getUserRole());
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                finish();
-//                return true;
-//        }
-//        overridePendingTransition(R.anim.slide_from_bottom, R.anim.slide_to_top);
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void requestStoragePermission() {

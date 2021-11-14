@@ -54,6 +54,10 @@ public class ShowMerchantListActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+    }
 
     private void setAdapter() {
         //fetch list of result's username, role, and profile from DB
@@ -74,7 +78,7 @@ public class ShowMerchantListActivity extends AppCompatActivity {
             }
         }
         // if data is null then return?
-        MerchantListRecyclerAdapter adapter = new MerchantListRecyclerAdapter(username, role, profile);
+        MerchantListRecyclerAdapter adapter = new MerchantListRecyclerAdapter(this, username, role, profile);
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

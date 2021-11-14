@@ -83,6 +83,7 @@ public class AboutUsFragment extends Fragment {
                 intent.putExtra("receiverUsername","beingseen");
                 intent.putExtra("receiverName", "Being Seen");
                 startActivity(intent);
+                activity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
             }
         });
         // Inflate the layout for this fragment

@@ -14,6 +14,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.myapplication.NavbarActivities.BsMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.DnMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
+import com.example.myapplication.R;
 import com.example.myapplication.YouthDonationGoal.VolleyResponse;
 import com.example.myapplication.NavbarActivities.MerMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.OrgMainNavbarActivity;
@@ -83,7 +84,9 @@ public class LoginModel {
                     }
 
                     loginActivity.startActivity(i);
-                    return;
+                    loginActivity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+
+                return;
             }
         }, new Response.ErrorListener() {
             @Override

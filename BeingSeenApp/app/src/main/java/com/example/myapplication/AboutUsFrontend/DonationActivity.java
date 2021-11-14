@@ -75,6 +75,8 @@ public class DonationActivity extends AppCompatActivity {
                                     case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class)); break;
                                     case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class)); break;
                                 }
+                                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+
                             }
                         });
             }
@@ -90,5 +92,9 @@ public class DonationActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 }

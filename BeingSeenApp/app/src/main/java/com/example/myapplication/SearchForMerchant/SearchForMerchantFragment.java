@@ -90,6 +90,7 @@ public class SearchForMerchantFragment extends Fragment {
                     intent.setClass(activity, ShowMerchantListActivity.class);
                     intent.putExtra("Username", target);
                     startActivity(intent);
+                    activity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 }
             }
         });
