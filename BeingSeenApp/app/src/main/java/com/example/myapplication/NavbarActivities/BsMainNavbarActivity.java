@@ -33,4 +33,15 @@ public class BsMainNavbarActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
+
+    Boolean hasPressedBack = false;
+    @Override
+    public void onBackPressed(){
+        if(hasPressedBack){
+            hasPressedBack = false;
+            finish();
+        }
+        Toast.makeText(getApplicationContext(),"Press back button again to leave", Toast.LENGTH_SHORT).show();
+        hasPressedBack = true;
+    }
 }

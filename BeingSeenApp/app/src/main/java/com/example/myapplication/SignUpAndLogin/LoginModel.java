@@ -64,15 +64,20 @@ public class LoginModel {
                         String urole = response.getString("code");
                         Log.i("UROLE CODE", urole);
                         if (urole.equals("ROLE_" + ROLES[0])){
-                            i = new Intent(loginActivity.getApplicationContext(), YouthMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), YouthMainNavbarActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         } else if(urole.equals("ROLE_" + ROLES[1])){
-                            i = new Intent(loginActivity.getApplicationContext(), DnMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), DnMainNavbarActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         } else if(urole.equals("ROLE_" + ROLES[2])){
-                            i = new Intent(loginActivity.getApplicationContext(), OrgMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), OrgMainNavbarActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         } else if(urole.equals("ROLE_" + ROLES[3])){
-                            i = new Intent(loginActivity.getApplicationContext(), MerMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), MerMainNavbarActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         } else if(urole.equals("ROLE_" + ROLES[4])){
-                            i = new Intent(loginActivity.getApplicationContext(), BsMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), BsMainNavbarActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         }
                         else{
                             throw new Exception();

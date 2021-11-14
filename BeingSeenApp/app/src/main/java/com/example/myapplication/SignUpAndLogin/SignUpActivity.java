@@ -61,6 +61,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         signUpModel = new SignUpModel(this);
     }
 
+    @Override
     public void onBackPressed(){
         if(hasPressedBack){
             hasPressedBack = false;
