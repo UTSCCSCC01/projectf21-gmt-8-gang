@@ -5,7 +5,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.myapplication.NavbarActivities.OrgMainNavbarActivity;
+import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.VolleyCallBack;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -23,11 +31,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -79,8 +89,8 @@ public class OrgCurrencyConversionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_org_currency_conversion);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+//        ActionBar actionBar = getSupportActionBar();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         //old
@@ -111,7 +121,7 @@ public class OrgCurrencyConversionActivity extends AppCompatActivity {
         //Initialize
         stripe = new Stripe(
                 getApplicationContext(),
-                Objects.requireNonNull("pk_test_51ISLoeDrYpYnN0xnqW7bZ0tJKmtxUEdYOhD8AXoO10S9aMSXZ8Hk6e7EXJvKpn476isXZXgdG5R5TAj7aVXceJZo00bIx1MjgM")
+                Objects.requireNonNull("pk_test_51JrgXOKkv3Y92s58N11ewVcHgzksho49BSOhYOaFfZ9m7E8wBgEO3vkyayLgDm24FkxSwx60JoVoEr2rQdXwb9ZF00zU0lljv9")
         );
 
 
@@ -153,20 +163,22 @@ public class OrgCurrencyConversionActivity extends AppCompatActivity {
 //                + "{\"id\":\"photo_subscription\"}"
 //                + "]"
 //                + "}";
+            String token = ProfileInfo.getToken();
             double amount=amountDouble*100;
             Map<String,Object> payMap=new HashMap<>();
-            Map<String,Object> itemMap=new HashMap<>();
-            List<Map<String,Object>> itemList =new ArrayList<>();
-            payMap.put("currency","INR");
+//            Map<String,Object> itemMap=new HashMap<>();
+//            List<Map<String,Object>> itemList =new ArrayList<>();
+//            payMap.put("currency","CAD");
 //            itemMap.put("id","photo_subscription");
-            itemMap.put("amount",amount);
-            itemList.add(itemMap);
-            payMap.put("items",itemList);
+            payMap.put("amount",amount);
+//            itemList.add(itemMap);
+//            payMap.put("items",itemList);
             String json = new Gson().toJson(payMap);
             RequestBody body = RequestBody.create(json, mediaType);
             Request request = new Request.Builder()
                     .url(BACKEND_URL + "create-payment-intent")
                     .post(body)
+                    .header("Authorization", token)
                     .build();
             httpClient.newCall(request)
                     .enqueue(new PayCallback(this));
@@ -189,7 +201,7 @@ public class OrgCurrencyConversionActivity extends AppCompatActivity {
             }
             activity.runOnUiThread(() ->
                     Toast.makeText(
-                            activity, "Error: " + e.toString(), Toast.LENGTH_LONG
+                            activity, "Internal Error: " + e.toString(), Toast.LENGTH_LONG
                     ).show()
             );
         }
@@ -203,7 +215,7 @@ public class OrgCurrencyConversionActivity extends AppCompatActivity {
             if (!response.isSuccessful()) {
                 activity.runOnUiThread(() ->
                         Toast.makeText(
-                                activity, "Error: " + response.toString(), Toast.LENGTH_LONG
+                                activity, "Payment Error: " + response.toString(), Toast.LENGTH_LONG
                         ).show()
                 );
             } else {
@@ -221,6 +233,7 @@ public class OrgCurrencyConversionActivity extends AppCompatActivity {
                 type
         );
         paymentIntentClientSecret = responseMap.get("clientSecret");
+//        paymentIntentClientSecret = paymentIntentClientSecret.trim();
 
         //once you get the payment client secret start transaction
         //get card detail
@@ -282,6 +295,7 @@ public class OrgCurrencyConversionActivity extends AppCompatActivity {
             if (activity == null) {
                 return;
             }
+            Log.e("StripeInvalid", e.toString());
             // Payment request failed – allow retrying using the same payment method
             activity.displayAlert("Error", e.toString());
         }
@@ -295,50 +309,15 @@ public class OrgCurrencyConversionActivity extends AppCompatActivity {
         builder.create().show();
     }
 
-
-
-
-
-
-
-
-    private void fetchPublishableKey() {
-        Request request = new Request.Builder().url(BACKEND_URL + "config").build();
-
-        httpClient.newCall(request).enqueue(new Callback() {
-//            private String publishableKey;
-
-            @Override
-            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-//                showMessageDialog();
-                Log.e("CurConvError", "Error");
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                if(!response.isSuccessful()){
-                    Log.e("CurConvFailed", "Response went through but did not complete transaction");
-                }
-                else {
-                    Log.e("CurConvSuccess", "waiting to retreive");
-
-                    String responseData = response.body().toString();
-                    JSONObject responseJson = new JSONObject();
-                    try {
-                        responseJson.put("responseData", responseData);
-                    } catch (JSONException e) {
-                    }
-
-                    try {
-                        publishableKey = responseJson.getString("publishableKey");
-                    } catch (JSONException e) {
-                    }
-                }
-            }
-        });
-
-//        this.publishableKey;
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                finish();
+//                return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+        Intent intent = new Intent(getApplicationContext(), OrgMainNavbarActivity.class);
+        startActivity(intent);
+        return true;
     }
-
 }

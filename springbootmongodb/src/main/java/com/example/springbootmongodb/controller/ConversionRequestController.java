@@ -1,6 +1,7 @@
 package com.example.springbootmongodb.controller;
 
 
+import com.example.springbootmongodb.model.AppUser;
 import com.example.springbootmongodb.model.ConversionRequest;
 import com.example.springbootmongodb.repository.AccountRepository;
 import com.example.springbootmongodb.repository.AppUserRepository;
@@ -173,6 +174,10 @@ public class ConversionRequestController {
     @PostMapping("/create-payment-intent")
     private ResponseEntity<?> createPaymentRequest(@RequestBody ConversionRequestRequest request) {
 
+        //Code inspired by node.js code from https://codingwithtashi.medium.com/stripe-payment-integration-with-android-4c588e78f3ea
+
+        System.out.println("Payment request made");
+
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         Stripe.apiKey = "sk_test_51JrgXOKkv3Y92s58QDM3F2ZIraoq74ZVfQqg8v7UZXXqwfSkxasC92G2NjO4Z5yA1AVPgmdLXAPjh1RRSxg35Piu00FpZJJHE1";
 
@@ -181,28 +186,33 @@ public class ConversionRequestController {
             return new ResponseEntity<>("username not registered", HttpStatus.BAD_REQUEST);
         }
 
-        try {
-            if (!appUserRepository.findByUserName(username).getRole().equals("DONOR")) {
-                System.out.println("you are not a donor you have no access");
-                return new ResponseEntity<>("you are not a donor so you have no access", HttpStatus.BAD_REQUEST);
-            }
-        } catch (Exception e) {
-            System.out.println("Exception on getting current user in AppUser");
-            return new ResponseEntity<>("Exception on getting current user in AppUser", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        //get appUser
+        AppUser appUser;
+        appUser = appUserRepository.findByUserName(username);
+        Long currentAmount = appUser.getBalance();
 
-        String email = request.getEmail();
-        Long amount = request.getAmount();
+        System.out.println("Account verified");
 
-        if(email == null){
-            return new ResponseEntity<>("No email", HttpStatus.BAD_REQUEST);
-        } else if (amount == null){
+//        String email = request.getEmail();
+        Long amount = (request.getAmount());
+
+
+        Long currencyAmt = (amount/100);
+        System.out.println("Amt = " + currencyAmt);
+
+//        if(email == null){
+//            return new ResponseEntity<>("No email", HttpStatus.BAD_REQUEST);
+//        } else
+        if (amount == null){
             return new ResponseEntity<>("No amount", HttpStatus.BAD_REQUEST);
         }
 
         try {
-            ConversionRequest a = new ConversionRequest(username, email, amount, false);
+//            ConversionRequest a = new ConversionRequest(username, email, amount, false);
             //conversionRequestRepository.save(a);
+            appUser.setBalance(currentAmount + currencyAmt);
+            appUserRepository.save(appUser);
+
             PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
                     .setAmount(amount)
                     .setCurrency("cad")
@@ -212,6 +222,9 @@ public class ConversionRequestController {
 
             Map<String, Object> responseData = new HashMap<>();
             responseData.put("clientSecret", paymentIntent.getClientSecret());
+
+
+
             return new ResponseEntity<>(responseData.toString(), HttpStatus.OK);
         } catch (Exception e) {
             System.out.println("error on saving conversion request");
