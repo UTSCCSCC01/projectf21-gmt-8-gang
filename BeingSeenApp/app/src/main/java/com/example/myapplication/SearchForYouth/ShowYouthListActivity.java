@@ -2,6 +2,7 @@ package com.example.myapplication.SearchForYouth;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -29,6 +31,14 @@ public class ShowYouthListActivity extends AppCompatActivity {
         TextView inputText=(TextView) findViewById(R.id.ml_input);
         inputText.setText(username);
         recyclerView = findViewById(R.id.ml_list);
+
+        // loading animation
+        getSupportActionBar().hide();
+        inputText.setVisibility(View.GONE);
+        TextView titleField = findViewById(R.id.ml_ititle);
+        titleField.setVisibility(View.GONE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.playAnimation();
 
         // back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -79,6 +89,17 @@ public class ShowYouthListActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
+        // disable loading animation
+        getSupportActionBar().show();
+        TextView inputText=(TextView) findViewById(R.id.ml_input);
+        inputText.setVisibility(View.VISIBLE);
+        TextView titleField = findViewById(R.id.ml_ititle);
+        titleField.setVisibility(View.VISIBLE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.GONE);
+
+        // set up adapter
         YouthListRecyclerAdapter adapter = new YouthListRecyclerAdapter(this, username, role, profile);
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());

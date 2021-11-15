@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.LottieAnimations.PaymentOkAnimation;
 import com.example.myapplication.NavbarActivities.BsMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.DnMainNavbarActivity;
@@ -22,6 +23,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class DonationActivity extends AppCompatActivity {
     public void createDonation(String username, String password, String receiver, long amount, String comment){
@@ -31,6 +33,8 @@ public class DonationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.GONE);
         TextView receiver=(TextView) findViewById(R.id.dnt_reciever);
         String receiverUsername = getIntent().getStringExtra("receiverUsername");
         String receiverName = getIntent().getStringExtra("receiverName");
@@ -60,6 +64,17 @@ public class DonationActivity extends AppCompatActivity {
                     amountField.requestFocus();
                     return;
                 }
+                // loading animation
+                getSupportActionBar().hide();
+                confirm.setVisibility(View.GONE);
+                amountField.setVisibility((View.GONE));
+                receiver.setVisibility(View.GONE);
+                TextInputLayout textInputLayout = findViewById(R.id.dnt_amount_textfield);
+                textInputLayout.setVisibility(View.GONE);
+                lottieAnimationView.setVisibility(View.VISIBLE);
+                lottieAnimationView.playAnimation();
+
+                // process transaction
                 Transaction transaction=new Transaction();
                 transaction.makeDnDonationTransaction(receiverUsername, comment, amount,
                         DonationActivity.this, new VolleyCallBack() {

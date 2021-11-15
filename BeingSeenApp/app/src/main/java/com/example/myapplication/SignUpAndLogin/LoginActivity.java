@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.Lottie;
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.YouthDonationGoal.VolleyResponse;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -30,6 +32,10 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // don't see loading animation
+        findViewById(R.id.loading_lottie_animation_view).setVisibility(View.GONE);
+
         // back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -42,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
 
                 /*Intent i = new Intent(getApplicationContext(),HyUserInterfaceActivity.class);
                 startActivity(i);*/
-
+                showLoadingScreen();
                 logIn(view);
 
             }
@@ -55,6 +61,18 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
 
         Log.i(LOGIN_TAG, "hy login activity started");
         loginModel = new LoginModel(this, this);
+    }
+
+    public void showLoadingScreen() {
+        getSupportActionBar().hide();
+        findViewById(R.id.HyUsername).setVisibility(View.GONE);
+        findViewById(R.id.HyUsernameFrame).setVisibility(View.GONE);
+        findViewById(R.id.HyPassword).setVisibility(View.GONE);
+        findViewById(R.id.HyPasswordFrame).setVisibility(View.GONE);
+        findViewById(R.id.HyLoginButton).setVisibility(View.GONE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.VISIBLE);
+        lottieAnimationView.playAnimation();
     }
 
     public void logIn(View view) {

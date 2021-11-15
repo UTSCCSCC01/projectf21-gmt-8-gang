@@ -22,6 +22,7 @@ public class PaymentOkAnimation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_ok_animation);
+        getSupportActionBar().hide();
 
         lottieAnimationView = findViewById(R.id.payment_ok_lottie_animation_view);
         lottieAnimationView.animate();

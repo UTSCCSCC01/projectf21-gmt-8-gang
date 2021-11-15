@@ -11,6 +11,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.LottieAnimations.NotFoundAnimation;
 import com.example.myapplication.NavbarActivities.BsMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.DnMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
@@ -96,7 +97,14 @@ public class LoginModel {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError e) {
-                Toast.makeText(loginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
+                if (e == null || e.networkResponse == null) {
+                    loginActivity.startActivity(new Intent(loginActivity.getApplicationContext(), NotFoundAnimation.class)
+                        .putExtra("message", "You don't seem to have internet")
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                } else {
+                    if (e.networkResponse.statusCode == 400)
+                        Toast.makeText(loginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
+                }
                 Log.i(LOGIN_TAG, "hy login request failed qwq, error: " + e.getMessage());
             }
         }) {

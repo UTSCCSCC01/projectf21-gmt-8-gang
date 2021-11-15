@@ -7,6 +7,18 @@
     android:background="@color/white"
     android:foregroundTint="@color/teal_700">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_lottie_animation_view"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_animation" />
+
     <TextView
         android:id="@+id/dnt_reciever"
         android:layout_width="wrap_content"
@@ -26,6 +38,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dnt_amount_textfield"
         android:layout_width="217dp"
         android:layout_height="61dp"
         app:layout_constraintBottom_toTopOf="@+id/dnt_confirm"
@@ -62,7 +75,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dnt_comment_frame"
         app:rippleColor="@color/teal_700"
         app:strokeColor="@color/teal_700" />
 
