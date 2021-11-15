@@ -26,8 +26,10 @@ public class MerchantListRecyclerAdapter extends RecyclerView.Adapter<MerchantLi
     private List<String> username;
     private List<String> nickname;
     private List<String> role;
+    private ShowMerchantListActivity showMerchantListActivity;
 
-    public MerchantListRecyclerAdapter(List<String> username, List<String> role, List<String> profile) {
+    public MerchantListRecyclerAdapter(ShowMerchantListActivity showMerchantListActivity ,List<String> username, List<String> role, List<String> profile) {
+        this.showMerchantListActivity = showMerchantListActivity;
         this.profile = profile;
         this.profileJson= new ArrayList<JSONObject>();
         this.username=username;
@@ -101,6 +103,7 @@ public class MerchantListRecyclerAdapter extends RecyclerView.Adapter<MerchantLi
                             e.printStackTrace();
                         }
                         holder.context.startActivity(i);
+                        showMerchantListActivity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                     }
                 }
             });

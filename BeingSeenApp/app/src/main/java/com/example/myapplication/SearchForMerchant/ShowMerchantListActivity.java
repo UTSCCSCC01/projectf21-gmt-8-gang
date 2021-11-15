@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.VolleyCallBack;
@@ -21,6 +23,7 @@ import java.util.List;
 public class ShowMerchantListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<JSONObject> result;
+    Boolean isLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +32,15 @@ public class ShowMerchantListActivity extends AppCompatActivity {
         TextView inputText=(TextView) findViewById(R.id.ml_input);
         inputText.setText(username);
         recyclerView = findViewById(R.id.ml_list);
+
+        // loading animation
+        isLoading = true;
+        inputText.setVisibility(View.GONE);
+        TextView titleField = findViewById(R.id.ml_ititle);
+        titleField.setVisibility(View.GONE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.playAnimation();
+        getSupportActionBar().hide();
 
         // back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -54,6 +66,11 @@ public class ShowMerchantListActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override public void finish() {
+        if (isLoading)return;
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+    }
 
     private void setAdapter() {
         //fetch list of result's username, role, and profile from DB
@@ -73,12 +90,24 @@ public class ShowMerchantListActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        // if data is null then return?
-        MerchantListRecyclerAdapter adapter = new MerchantListRecyclerAdapter(username, role, profile);
+
+        // disable loading animation
+        isLoading = false;
+        getSupportActionBar().show();
+        TextView inputText=(TextView) findViewById(R.id.ml_input);
+        inputText.setVisibility(View.VISIBLE);
+        TextView titleField = findViewById(R.id.ml_ititle);
+        titleField.setVisibility(View.VISIBLE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.GONE);
+
+
+        // set up adapter
+        MerchantListRecyclerAdapter adapter = new MerchantListRecyclerAdapter(this, username, role, profile);
         // sets the layout, default animator, and adapter of recycler view
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setLayoutAnimation(recyclerView.getLayoutAnimation());
         recyclerView.setAdapter(adapter);
     }
 }

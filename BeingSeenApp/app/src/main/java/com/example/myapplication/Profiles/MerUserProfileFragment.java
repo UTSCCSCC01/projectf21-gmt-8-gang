@@ -83,9 +83,10 @@ public class MerUserProfileFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-
                 Intent i = new Intent(activity.getApplicationContext(), SignUpActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
+                activity.overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
             }
         });
 
@@ -153,6 +154,8 @@ public class MerUserProfileFragment extends Fragment {
                 Log.i("hyyyy", "in mer we clicked edit button");
                 Intent i = new Intent(activity.getApplicationContext(), ProfileEditActivity.class);
                 startActivity(i);
+                activity.overridePendingTransition(R.anim.slide_from_top, R.anim.slide_to_bottom);
+
             }
         });
 
