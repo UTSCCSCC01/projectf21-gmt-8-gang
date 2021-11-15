@@ -68,7 +68,15 @@ public class BsUserProfileFragment extends Fragment {
 //            mParam2 = getArguments().getString(ARG_PARAM2);
 //        }
     }
-
+//    Boolean hasPressedBack = false;
+//    public void onBackPressed(){
+//        if(hasPressedBack){
+//            hasPressedBack = false;
+//            getActivity().finish();
+//        }
+//        Toast.makeText(getActivity().getApplicationContext(),"Press back button again to Logout", Toast.LENGTH_SHORT).show();
+//        hasPressedBack = true;
+//    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -88,9 +96,10 @@ public class BsUserProfileFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-
                 Intent i = new Intent(activity.getApplicationContext(), SignUpActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
+                activity.overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
             }
         });
 
@@ -123,7 +132,6 @@ public class BsUserProfileFragment extends Fragment {
         ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.imageView);
         TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.BsPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.BsPfUdescDisplay);
-
         TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.bsPfBalance);
 
 
@@ -151,10 +159,13 @@ public class BsUserProfileFragment extends Fragment {
 
                 Intent i = new Intent(activity.getApplicationContext(), ProfileEditActivity.class);
                 startActivity(i);
+                activity.overridePendingTransition(R.anim.slide_from_top, R.anim.slide_to_bottom);
             }
         });
 
 
         return view;
     }
+
+
 }

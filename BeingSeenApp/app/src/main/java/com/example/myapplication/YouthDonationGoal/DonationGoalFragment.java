@@ -122,11 +122,10 @@ public class DonationGoalFragment extends Fragment {
         deleteGoal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                DeleteDonationGoalModel model = new DeleteDonationGoalModel((AppCompatActivity)activity);
+                DeleteDonationGoalModel model = new DeleteDonationGoalModel(DonationGoalFragment.this, (AppCompatActivity)activity);
                 model.deleteDonationGoal();
 //                Toast.makeText(getBaseContext(), "outside delete", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(activity.getApplicationContext(), YouthMainNavbarActivity.class);
-                startActivity(i);
+
             }
         });
 
