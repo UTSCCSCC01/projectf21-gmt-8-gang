@@ -95,7 +95,7 @@ public class MerRequestHistoryFragment extends Fragment {
         FragmentActivity activity = getActivity();
         String url = "http://10.0.2.2:8080/conversion-requests/merchant";
         recyclerView = view.findViewById(R.id.req_hist_recycler_view);
-        getRequestsFromDbAndSetAdapter((AppCompatActivity) getActivity(), url, new VolleyCallBack() {
+        getRequestsFromDb((AppCompatActivity) getActivity(), url, new VolleyCallBack() {
             @Override
             public void onSuccess() {
                 setAdapter(activity);
@@ -110,7 +110,7 @@ public class MerRequestHistoryFragment extends Fragment {
                     unprocessedSwitch.setText("Pending");
                     // a simple API to test if we can connect to backend
                     String url = "http://10.0.2.2:8080/pending/conversion-requests/merchant";
-                    getRequestsFromDbAndSetAdapter((AppCompatActivity) activity, url, new VolleyCallBack() {
+                    getRequestsFromDb((AppCompatActivity) activity, url, new VolleyCallBack() {
                         @Override
                         public void onSuccess() {
                             setAdapter(activity);
@@ -121,7 +121,7 @@ public class MerRequestHistoryFragment extends Fragment {
                     unprocessedSwitch.setText("All requests");
                     // a simple API to test if we can connect to backend
                     String url = "http://10.0.2.2:8080/conversion-requests/merchant";
-                    getRequestsFromDbAndSetAdapter((AppCompatActivity) activity, url, new VolleyCallBack() {
+                    getRequestsFromDb((AppCompatActivity) activity, url, new VolleyCallBack() {
                         @Override
                         public void onSuccess() {
                             setAdapter(activity);
@@ -141,7 +141,7 @@ public class MerRequestHistoryFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
-    public void getRequestsFromDbAndSetAdapter(AppCompatActivity callingActivity, String url, final VolleyCallBack callBack){
+    public void getRequestsFromDb(AppCompatActivity callingActivity, String url, final VolleyCallBack callBack){
 
         RequestQueue queue = Volley.newRequestQueue(callingActivity);
 
