@@ -12,7 +12,7 @@
         android:label="Transaction History"
         android:title="Transaction History" />
     <item
-        android:id="@+id/req_history"
+        android:id="@+id/merRequestHistoryFragment"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:label="Request History"
         android:title="Request History" />

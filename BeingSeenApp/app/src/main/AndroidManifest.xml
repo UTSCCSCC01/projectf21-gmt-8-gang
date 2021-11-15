@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +18,9 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".MerchantConversionRequest.MerRequestHistoryFragment"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Merchant Conversion Request History"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".SearchForMerchant.ShowMerchantInfoActivity"
             android:exported="true"

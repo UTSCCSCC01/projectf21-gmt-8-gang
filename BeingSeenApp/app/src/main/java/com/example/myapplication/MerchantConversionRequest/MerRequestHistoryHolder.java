@@ -10,7 +10,7 @@ import com.example.myapplication.R;
 
 public class MerRequestHistoryHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    TextView username, amount, status;
+    TextView amount, status;
 
     //    private AdapterView.OnItemClickListener listener;
     private MerRequestHistoryAdapter.MerRequestHistoryRecyclerViewClickListener listener;
@@ -18,8 +18,6 @@ public class MerRequestHistoryHolder extends RecyclerView.ViewHolder implements 
     public MerRequestHistoryHolder(@NonNull View itemView, MerRequestHistoryAdapter.MerRequestHistoryRecyclerViewClickListener listener) {
         super(itemView);
 
-        //this.proPic = itemView.findViewById(R.id.proPic);
-        this.username = itemView.findViewById(R.id.merUsername);
         this.amount = itemView.findViewById(R.id.merAmount);
         this.status = itemView.findViewById(R.id.merStatus);
 

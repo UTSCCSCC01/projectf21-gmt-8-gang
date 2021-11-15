@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -91,14 +93,43 @@ public class MerRequestHistoryFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mer_request_history, container, false);
         FragmentActivity activity = getActivity();
+        String url = "http://10.0.2.2:8080/conversion-requests/merchant";
         recyclerView = view.findViewById(R.id.req_hist_recycler_view);
-//        getMerRequestsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
-//            @Override
-//            public void onSuccess() {
-//                setAdapter(activity);
-//            }
-//        });
+        getRequestsFromDbAndSetAdapter((AppCompatActivity) getActivity(), url, new VolleyCallBack() {
+            @Override
+            public void onSuccess() {
+                setAdapter(activity);
+            }
+        });
 
+        Switch unprocessedSwitch = (Switch) view.findViewById(R.id.unprocessedSwitch);
+        unprocessedSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                    unprocessedSwitch.setText("Pending");
+                    // a simple API to test if we can connect to backend
+                    String url = "http://10.0.2.2:8080/pending/conversion-requests/merchant";
+                    getRequestsFromDbAndSetAdapter((AppCompatActivity) activity, url, new VolleyCallBack() {
+                        @Override
+                        public void onSuccess() {
+                            setAdapter(activity);
+                        }
+                    });
+
+                } else {
+                    unprocessedSwitch.setText("All requests");
+                    // a simple API to test if we can connect to backend
+                    String url = "http://10.0.2.2:8080/conversion-requests/merchant";
+                    getRequestsFromDbAndSetAdapter((AppCompatActivity) activity, url, new VolleyCallBack() {
+                        @Override
+                        public void onSuccess() {
+                            setAdapter(activity);
+                        }
+                    });
+                }
+            }
+        });
         return view;
     }
 
@@ -110,31 +141,9 @@ public class MerRequestHistoryFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
-//    private void setOnClickListener() {
-//        listener = new MerRequestHistoryAdapter.MerRequestHistoryRecyclerViewClickListener() {
-//            @Override
-//            public void onClick(View v, int position) {
-//                Log.i("suppp", "we clicked, position: " + position + ", user: "
-//                        + models.get(position).getUsername());
-//                Intent intent = new Intent(getActivity(), ViewDonationGoalActivity.class);
-//                intent.putExtra("username", models.get(position).getUsername());
-//                intent.putExtra("amount", models.get(position).getAmount().toString());
-//                intent.putExtra("status", models.get(position).getStatus());
-////                intent.putExtra("current", models.get(position).getCurrent().toString());
-////                intent.putExtra("goal", models.get(position).getGoal().toString());
-////                Long per = (models.get(position).getCurrent() * 100 / models.get(position).getGoal());
-////                intent.putExtra("percentage", per.toString());
-//                startActivity(intent);
-//            }
-//        };
-//    }
-
-    public void getMerRequestsFromDbAndSetAdapter(AppCompatActivity callingActivity, final VolleyCallBack callBack){
+    public void getRequestsFromDbAndSetAdapter(AppCompatActivity callingActivity, String url, final VolleyCallBack callBack){
 
         RequestQueue queue = Volley.newRequestQueue(callingActivity);
-
-        // a simple API to test if we can connect to backend
-        String url = "http://10.0.2.2:8080/conversion-requests/merchant";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -148,9 +157,8 @@ public class MerRequestHistoryFragment extends Fragment {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             MerRequestHistoryModel model = new MerRequestHistoryModel();
-                            model.setUsername(jsonObject.getString("username"));
                             model.setAmount(jsonObject.getLong("amount"));
-                            model.setStatus(jsonObject.getBoolean("status"));
+                            model.setStatus(jsonObject.getBoolean("isDone"));
                             models.add(model);
                         }
                         callBack.onSuccess();

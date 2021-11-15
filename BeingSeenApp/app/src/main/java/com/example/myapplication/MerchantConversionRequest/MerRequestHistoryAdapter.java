@@ -42,12 +42,12 @@ public class MerRequestHistoryAdapter extends RecyclerView.Adapter<MerRequestHis
     @Override
     public void onBindViewHolder(@NonNull MerRequestHistoryHolder holder, int position) {
         //holder.proPic.setImageResource(models.get(position).getImg());
-        holder.username.setText(models.get(position).getUsername());
         holder.amount.setText(models.get(position).getAmount().toString());
+
         if (models.get(position).getStatus()==true){
-            holder.status.setText("Processed");
+            holder.status.setText("Processed.");
         }else{
-            holder.status.setText("Money not converted. Please wait.");
+            holder.status.setText("Not processed. Please wait.");
         }
 //        holder.status.setText(models.get(position).getStatus().toString());
 //        Long percentage = (models.get(position).getCurrent() * 100 / models.get(position).getGoal());

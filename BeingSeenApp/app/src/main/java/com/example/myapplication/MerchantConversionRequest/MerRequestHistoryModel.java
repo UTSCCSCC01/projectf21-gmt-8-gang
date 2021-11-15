@@ -1,17 +1,8 @@
 package com.example.myapplication.MerchantConversionRequest;
 
 public class MerRequestHistoryModel {
-    private String username;
     private Long amount;
     private Boolean status;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public Long getAmount() {
         return amount;
@@ -21,11 +12,11 @@ public class MerRequestHistoryModel {
         this.amount = amount;
     }
 
-    public boolean getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
