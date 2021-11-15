@@ -15,6 +15,7 @@
         android:layout_marginEnd="200dp"
         android:layout_marginBottom="320dp"
         android:text="Status:"
+        android:textSize="25dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,29 +33,15 @@
         android:layout_marginEnd="200dp"
         android:layout_marginBottom="400dp"
         android:text="Amount:"
+        android:textSize="25dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rq_detail_time" />
+        app:layout_constraintTop_toBottomOf="@+id/rq_detail_email" />
 
-    <Button
-        android:id="@+id/rq_detail_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/rq_detail_receiver"
@@ -65,23 +52,24 @@
         android:layout_marginEnd="200dp"
         android:layout_marginBottom="500dp"
         android:text="Receiver:"
+        android:textSize="25dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rq_detail_back" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/rq_detail_time"
+        android:id="@+id/rq_detail_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="200dp"
         android:layout_marginBottom="440dp"
-        android:text="Time:"
+        android:text="Email:"
+        android:textSize="25dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -113,6 +101,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:text="Receiver"
+        android:textSize="25dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="@+id/rq_detail_receiver"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,18 +110,19 @@
         app:layout_constraintTop_toTopOf="@+id/rq_detail_receiver" />
 
     <TextView
-        android:id="@+id/rq_detail_time_field"
+        android:id="@+id/rq_detail_email_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Time"
+        android:text="Email"
+        android:textSize="18dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="@+id/rq_detail_time"
+        app:layout_constraintBottom_toBottomOf="@+id/rq_detail_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rq_detail_time"
-        app:layout_constraintTop_toTopOf="@+id/rq_detail_time" />
+        app:layout_constraintStart_toEndOf="@+id/rq_detail_email"
+        app:layout_constraintTop_toTopOf="@+id/rq_detail_email" />
 
     <TextView
         android:id="@+id/rq_detail_amount_field"
@@ -141,6 +131,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:text="Amount"
+        android:textSize="25dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="@+id/rq_detail_amount"
         app:layout_constraintEnd_toEndOf="parent"
@@ -155,6 +146,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:text="Status"
+        android:textSize="25dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="@+id/rq_detail_status"
         app:layout_constraintEnd_toEndOf="parent"

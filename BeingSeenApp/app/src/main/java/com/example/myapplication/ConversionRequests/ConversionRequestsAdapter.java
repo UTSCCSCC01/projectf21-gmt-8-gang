@@ -13,30 +13,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ConversionRequestsAdapter extends RecyclerView.Adapter<ConversionRequestsAdapter.RecyclerViewHolder>{
     //code base on TransactionRecyclerAdapter
     private List<String> amount;
     private List<String> username;
-    private List<String> time;
     private List<String> status;
+    private List<String> requestIds;
+    private List<String> emails;
 
-    public ConversionRequestsAdapter(List<String> username, List<String> amount, List<String> time, List<String> status) {
+    public ConversionRequestsAdapter(List<String> username, List<String> amount, List<String> status, List<String> requestIds, List<String> emails) {
         this.amount = amount;
         this.username=username;
-        this.time=time;
         this.status=status;
+        this.requestIds=requestIds;
+        this.emails=emails;
     }
 
     // represents a recycler item
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
         private TextView userField;
-        private TextView timeField;
         private TextView amountField;
         private TextView statusField;
         private Button goButton;
@@ -46,11 +43,9 @@ public class ConversionRequestsAdapter extends RecyclerView.Adapter<ConversionRe
             super(view);
             context = itemView.getContext();
             userField = view.findViewById(R.id.rq_item_receiver);
-            timeField=view.findViewById(R.id.rq__item_time);
             amountField=view.findViewById(R.id.rq_item_amount);
             statusField=view.findViewById(R.id.rq_item_status);
             goButton = view.findViewById(R.id.rq_item_go);
-
         }
 
     }
@@ -59,7 +54,7 @@ public class ConversionRequestsAdapter extends RecyclerView.Adapter<ConversionRe
     @NonNull
     @Override
     public ConversionRequestsAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.request_recycler_item, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.conversion_request_recycler_item, parent, false);
         return new ConversionRequestsAdapter.RecyclerViewHolder(itemView);
     }
 
@@ -73,13 +68,17 @@ public class ConversionRequestsAdapter extends RecyclerView.Adapter<ConversionRe
         }
         String user = this.username.get(position);
         holder.userField.setText(user);
-        String time=this.time.get(position);
-        holder.timeField.setText(time);
         String amount=this.amount.get(position);
         holder.amountField.setText(amount);
         String status=this.status.get(position);
-        holder.statusField.setText(status);
-        holder.goButton.setText("GO");
+        String requestId=this.requestIds.get(position);
+        String email=this.emails.get(position);
+        if (Boolean.valueOf(status)) {
+            holder.statusField.setText("Done");
+        } else {
+            holder.statusField.setText("Pending");
+        }
+        holder.goButton.setText("Detail");
         holder.goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,9 +87,10 @@ public class ConversionRequestsAdapter extends RecyclerView.Adapter<ConversionRe
                     Intent i=new Intent(holder.context, RequestDetails.class);
                     try{
                         i.putExtra("receiver",user);
-                        i.putExtra("time",time);
                         i.putExtra("amount",amount);
                         i.putExtra("status",status);
+                        i.putExtra("requestId", requestId);
+                        i.putExtra("email", email);
                     }
                     catch(Exception e){
                         e.printStackTrace();

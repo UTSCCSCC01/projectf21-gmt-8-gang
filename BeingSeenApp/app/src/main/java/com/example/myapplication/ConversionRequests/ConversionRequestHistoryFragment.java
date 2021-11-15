@@ -64,9 +64,10 @@ public class ConversionRequestHistoryFragment extends Fragment{
      */
     RecyclerView recyclerView;
     List<String> username;
-    List<String> time;
+    List<String> emails;
     List<String> amount;
     List<String> status;
+    List<String> requestIds;
 
 
     // TODO: Rename and change types and number of parameters
@@ -97,8 +98,7 @@ public class ConversionRequestHistoryFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_conversion_requests_history, container, false);
         FragmentActivity activity = getActivity();
         recyclerView=view.findViewById(R.id.rq_recycler_view);
-        //TODO: change next line to call getRequestsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack()
-        mockSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
+        getRequestsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
             @Override
             public void onSuccess() {
                 setAdapter(activity);
@@ -108,54 +108,38 @@ public class ConversionRequestHistoryFragment extends Fragment{
         return view;
     }
 
-    //TODO: for test only
-    public void mockSetAdapter(AppCompatActivity callingActivity, final VolleyCallBack callBack){
-        List<String> amount=new ArrayList<String>();
-        List<String> username=new ArrayList<String>();
-        List<String> time=new ArrayList<String>();
-        List<String> status=new ArrayList<String>();
-        amount.add("$114514");
-        username.add("Yajuu");
-        time.add("1919/8/10");
-        status.add("done");
-        this.amount=amount;
-        this.username=username;
-        this.time=time;
-        this.status=status;
-        callBack.onSuccess();
-    }
-
 //TODO: not connect to db yet. Finish and test this function before calling
 
     public void getRequestsFromDbAndSetAdapter(AppCompatActivity callingActivity, final VolleyCallBack callBack){
         RequestQueue queue = Volley.newRequestQueue(callingActivity);
 
-        // a simple API to test if we can connect to backend
-        String url = "http://10.0.2.2:8080/allRequest";
+        // API to get all conversion requests made
+        String url = "http://10.0.2.2:8080/conversion-requests";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 response -> {
-
-                    Log.d("RESPONSE_VAR", "Reponse called properly");
                     JSONObject jsonItem;
                     List<String> amount=new ArrayList<String>();
                     List<String> username=new ArrayList<String>();
-                    List<String> time=new ArrayList<String>();
                     List<String> status=new ArrayList<String>();
+                    List<String> requestIds=new ArrayList<String>();
+                    List<String> emails=new ArrayList<String>();
                     try {
                         JSONArray jsonArray = new JSONArray(response);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             username.add(jsonObject.getString("username"));
                             amount.add(jsonObject.getString("amount"));
-                            time.add(jsonObject.getString("time"));
-                            status.add(jsonObject.getString("status"));
+                            status.add(jsonObject.getString("isDone"));
+                            requestIds.add(jsonObject.getString("requestId"));
+                            emails.add(jsonObject.getString("email"));
                         }
                         this.amount=amount;
                         this.username=username;
-                        this.time=time;
                         this.status=status;
+                        this.requestIds=requestIds;
+                        this.emails=emails;
                         callBack.onSuccess();
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -182,7 +166,7 @@ public class ConversionRequestHistoryFragment extends Fragment{
 
     private void setAdapter(FragmentActivity activity) {
         // if data is null then return?
-        ConversionRequestsAdapter adapter = new ConversionRequestsAdapter(username, amount,time,status);
+        ConversionRequestsAdapter adapter = new ConversionRequestsAdapter(username, amount, status, requestIds, emails);
         // sets the layout, default animator, and adapter of recycler view
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
