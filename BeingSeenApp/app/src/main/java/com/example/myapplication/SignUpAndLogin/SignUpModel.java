@@ -2,6 +2,7 @@ package com.example.myapplication.SignUpAndLogin;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -9,6 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.LottieAnimations.NotFoundAnimation;
 import com.example.myapplication.R;
 
 import org.json.JSONException;
@@ -55,10 +57,15 @@ public class SignUpModel {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError e) {
-                if (e.networkResponse.statusCode == 404) {
-                    EditText usernameField = (EditText) signUpActivity.findViewById(R.id.HyUsername);
-                    usernameField.setError("someone already used this username");
-                    usernameField.requestFocus();
+                if (e == null || e.networkResponse == null) {
+                    signUpActivity.startActivity(new Intent(signUpActivity.getApplicationContext(), NotFoundAnimation.class)
+                            .putExtra("message", "can't connect to server")
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                } else if (e.networkResponse.statusCode == 404) {
+                        EditText usernameField = (EditText) signUpActivity.findViewById(R.id.HyUsername);
+                        usernameField.setError("someone already used this username");
+                        usernameField.requestFocus();
+
                 } else {
                     Log.i(REGISTER_TAG, "hy sign up request failed qwq, error: " + e.getMessage());
                 }
