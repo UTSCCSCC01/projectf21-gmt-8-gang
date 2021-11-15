@@ -16,6 +16,11 @@
         android:title="Profile"
         android:icon="@drawable/ic_profile_icon"
         android:label="Profile"/>
+    <item
+        android:id="@+id/conversion_history"
+        android:icon="@drawable/ic_baseline_attach_money_24"
+        android:label="Conversion History"
+        android:title="Conversion History" />
 
     <item
         android:id="@+id/transaction_history"

@@ -27,7 +27,7 @@ public class SetDonationGoalModel {
     public final static String CREATE_GOAL_ERROR = "CREATE_GOAL_ERROR";
     public final static String CREATE_GOAL_DUPLICATE = "CREATE_GOAL_DUPLICATE";
     public final static String CREATE_GOAL_SUCCESS = "CREATE_GOAL_SUCCESS";
-    private Object HyUserInterfaceActivity;
+
 
     public SetDonationGoalModel(SetDonationGoalActivity activity) {
         this.activity = activity;
@@ -55,6 +55,7 @@ public class SetDonationGoalModel {
                 Log.i(LOGIN_TAG, "create donation goal success");
                 Intent i = new Intent(activity.getApplicationContext(), YouthMainNavbarActivity.class);
                 Toast.makeText(activity.getApplicationContext(), "Donation goal created!", Toast.LENGTH_LONG).show();
+
 //                i.putExtra("toast", CREATE_GOAL_SUCCESS);
                 activity.startActivity(i);
                 return;

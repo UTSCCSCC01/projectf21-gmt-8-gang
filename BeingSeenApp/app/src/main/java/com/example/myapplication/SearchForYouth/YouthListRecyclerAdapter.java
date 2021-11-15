@@ -27,8 +27,10 @@ public class YouthListRecyclerAdapter extends RecyclerView.Adapter<YouthListRecy
     private List<String> username;
     private List<String> nickname;
     private List<String> role;
+    private ShowYouthListActivity showYouthListActivity;
 
-    public YouthListRecyclerAdapter(List<String> username, List<String> role, List<String> profile) {
+    public YouthListRecyclerAdapter(ShowYouthListActivity showYouthListActivity,List<String> username, List<String> role, List<String> profile) {
+        this.showYouthListActivity = showYouthListActivity;
         this.profile = profile;
         this.profileJson= new ArrayList<JSONObject>();
         this.username=username;
@@ -103,6 +105,7 @@ public class YouthListRecyclerAdapter extends RecyclerView.Adapter<YouthListRecy
                             e.printStackTrace();
                         }
                         holder.context.startActivity(i);
+                        showYouthListActivity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                     }
                 }
             });

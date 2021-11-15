@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -146,8 +147,9 @@ public class TransactionHistoryFragment extends Fragment {
         Log.i("hyyy", userRole);
         TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(people, amounts, userRole, toOrFrom);
         // sets the layout, default animator, and adapter of recycler view
-//        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setLayoutAnimation(recyclerView.getLayoutAnimation());
         recyclerView.swapAdapter(adapter, false);
     }
 
@@ -161,7 +163,7 @@ public class TransactionHistoryFragment extends Fragment {
         TransactionRecyclerAdapter adapter = new TransactionRecyclerAdapter(people, amounts, userRole, toOrFrom);
         // sets the layout, default animator, and adapter of recycler view
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-        //recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setLayoutAnimation(recyclerView.getLayoutAnimation());
         recyclerView.setAdapter(adapter);
     }
 }

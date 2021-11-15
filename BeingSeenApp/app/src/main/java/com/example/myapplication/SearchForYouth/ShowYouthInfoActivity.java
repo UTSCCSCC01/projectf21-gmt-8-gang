@@ -50,6 +50,7 @@ public class ShowYouthInfoActivity extends AppCompatActivity {
                 intent.putExtra("receiverName", name);
                 intent.putExtra("sender","getCurrentUserId");
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
             }
         });
     }
@@ -57,12 +58,15 @@ public class ShowYouthInfoActivity extends AppCompatActivity {
     // back button
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Log.i("hyyy", ProfileInfo.getUserRole());
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 }

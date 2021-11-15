@@ -11,9 +11,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.LottieAnimations.NotFoundAnimation;
 import com.example.myapplication.NavbarActivities.BsMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.DnMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
+import com.example.myapplication.R;
 import com.example.myapplication.YouthDonationGoal.VolleyResponse;
 import com.example.myapplication.NavbarActivities.MerMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.OrgMainNavbarActivity;
@@ -63,15 +65,20 @@ public class LoginModel {
                         String urole = response.getString("code");
                         Log.i("UROLE CODE", urole);
                         if (urole.equals("ROLE_" + ROLES[0])){
-                            i = new Intent(loginActivity.getApplicationContext(), YouthMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), YouthMainNavbarActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         } else if(urole.equals("ROLE_" + ROLES[1])){
-                            i = new Intent(loginActivity.getApplicationContext(), DnMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), DnMainNavbarActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         } else if(urole.equals("ROLE_" + ROLES[2])){
-                            i = new Intent(loginActivity.getApplicationContext(), OrgMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), OrgMainNavbarActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         } else if(urole.equals("ROLE_" + ROLES[3])){
-                            i = new Intent(loginActivity.getApplicationContext(), MerMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), MerMainNavbarActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         } else if(urole.equals("ROLE_" + ROLES[4])){
-                            i = new Intent(loginActivity.getApplicationContext(), BsMainNavbarActivity.class);
+                            i = new Intent(loginActivity.getApplicationContext(), BsMainNavbarActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         }
                         else{
                             throw new Exception();
@@ -83,12 +90,21 @@ public class LoginModel {
                     }
 
                     loginActivity.startActivity(i);
-                    return;
+                    loginActivity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+
+                return;
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError e) {
-                Toast.makeText(loginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
+                if (e == null || e.networkResponse == null) {
+                    loginActivity.startActivity(new Intent(loginActivity.getApplicationContext(), NotFoundAnimation.class)
+                        .putExtra("message", "can't connect to server")
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                } else {
+                    if (e.networkResponse.statusCode == 400)
+                        Toast.makeText(loginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
+                }
                 Log.i(LOGIN_TAG, "hy login request failed qwq, error: " + e.getMessage());
             }
         }) {
