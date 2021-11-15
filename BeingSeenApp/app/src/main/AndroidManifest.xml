@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ConversionRequests.RequestDetails"
+            android:exported="true" />
+        <activity
             android:name=".LottieAnimations.NotFoundAnimation"
             android:exported="true" />
         <activity
