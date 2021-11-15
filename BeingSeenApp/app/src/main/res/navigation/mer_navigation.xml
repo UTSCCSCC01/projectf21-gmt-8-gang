@@ -15,4 +15,9 @@
         android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"
         android:label="fragment_transaction_history"
         tools:layout="@layout/fragment_transaction_history" />
+    <fragment
+        android:id="@+id/merRequestHistoryFragment"
+        android:name="com.example.myapplication.MerchantConversionRequest.MerRequestHistoryFragment"
+        android:label="fragment_mer_request_history"
+        tools:layout="@layout/fragment_mer_request_history" />
 </navigation>

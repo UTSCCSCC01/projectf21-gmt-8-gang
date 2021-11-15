@@ -31,7 +31,7 @@ import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link com.example.myapplication.ContentPage.ContentPageFragment#newInstance} factory method to
+ * Use the {@link com.example.myapplication.MerchantConversionRequest.MerRequestHistoryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class MerRequestHistoryFragment extends Fragment {
@@ -92,12 +92,12 @@ public class MerRequestHistoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_mer_request_history, container, false);
         FragmentActivity activity = getActivity();
         recyclerView = view.findViewById(R.id.req_hist_recycler_view);
-        getAllRequestsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
-            @Override
-            public void onSuccess() {
-                setAdapter(activity);
-            }
-        });
+//        getMerRequestsFromDbAndSetAdapter((AppCompatActivity) getActivity(), new VolleyCallBack() {
+//            @Override
+//            public void onSuccess() {
+//                setAdapter(activity);
+//            }
+//        });
 
         return view;
     }
@@ -129,7 +129,7 @@ public class MerRequestHistoryFragment extends Fragment {
 //        };
 //    }
 
-    public void getAllRequestsFromDbAndSetAdapter(AppCompatActivity callingActivity, final VolleyCallBack callBack){
+    public void getMerRequestsFromDbAndSetAdapter(AppCompatActivity callingActivity, final VolleyCallBack callBack){
 
         RequestQueue queue = Volley.newRequestQueue(callingActivity);
 
@@ -151,7 +151,6 @@ public class MerRequestHistoryFragment extends Fragment {
                             model.setUsername(jsonObject.getString("username"));
                             model.setAmount(jsonObject.getLong("amount"));
                             model.setStatus(jsonObject.getBoolean("status"));
-                            //model.setImg(R.drawable.profile);
                             models.add(model);
                         }
                         callBack.onSuccess();

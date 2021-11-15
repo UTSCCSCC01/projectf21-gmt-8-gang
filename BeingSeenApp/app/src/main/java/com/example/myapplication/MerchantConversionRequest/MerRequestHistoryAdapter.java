@@ -45,7 +45,7 @@ public class MerRequestHistoryAdapter extends RecyclerView.Adapter<MerRequestHis
         holder.username.setText(models.get(position).getUsername());
         holder.amount.setText(models.get(position).getAmount().toString());
         if (models.get(position).getStatus()==true){
-            holder.status.setText("Money converted!");
+            holder.status.setText("Processed");
         }else{
             holder.status.setText("Money not converted. Please wait.");
         }
