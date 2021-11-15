@@ -99,7 +99,7 @@ public class LoginModel {
             public void onErrorResponse(VolleyError e) {
                 if (e == null || e.networkResponse == null) {
                     loginActivity.startActivity(new Intent(loginActivity.getApplicationContext(), NotFoundAnimation.class)
-                        .putExtra("message", "You don't seem to have internet")
+                        .putExtra("message", "can't connect to server")
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 } else {
                     if (e.networkResponse.statusCode == 400)

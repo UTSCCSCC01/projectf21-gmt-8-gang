@@ -48,7 +48,6 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
 
                 /*Intent i = new Intent(getApplicationContext(),HyUserInterfaceActivity.class);
                 startActivity(i);*/
-                showLoadingScreen();
                 logIn(view);
 
             }
@@ -94,6 +93,7 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
             return;
         }
 
+        showLoadingScreen();
         Log.i(LOGIN_TAG, "hy login success");
         loginModel.logIn(username, password);
 
