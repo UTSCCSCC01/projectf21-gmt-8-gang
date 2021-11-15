@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
     private LoginModel loginModel;
     private VolleyResponse volleyResponse;
     public static final String LOGIN_TAG = "hyLogin";
-
+    Boolean isLoading = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
     }
 
     public void showLoadingScreen() {
+        isLoading = true;
         getSupportActionBar().hide();
         findViewById(R.id.HyUsername).setVisibility(View.GONE);
         findViewById(R.id.HyUsernameFrame).setVisibility(View.GONE);
@@ -131,6 +132,7 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
         return super.onOptionsItemSelected(item);
     }
     @Override public void finish() {
+        if (isLoading) return;
         super.finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }

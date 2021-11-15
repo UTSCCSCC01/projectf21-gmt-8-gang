@@ -23,6 +23,7 @@ import java.util.List;
 public class ShowYouthListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<JSONObject> result;
+    Boolean isLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,7 @@ public class ShowYouthListActivity extends AppCompatActivity {
         titleField.setVisibility(View.GONE);
         LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
         lottieAnimationView.playAnimation();
+        isLoading = true;
 
         // back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -67,6 +69,7 @@ public class ShowYouthListActivity extends AppCompatActivity {
     }
 
     @Override public void finish() {
+        if(isLoading)return;
         super.finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
@@ -91,6 +94,7 @@ public class ShowYouthListActivity extends AppCompatActivity {
         }
 
         // disable loading animation
+        isLoading = false;
         getSupportActionBar().show();
         TextView inputText=(TextView) findViewById(R.id.ml_input);
         inputText.setVisibility(View.VISIBLE);

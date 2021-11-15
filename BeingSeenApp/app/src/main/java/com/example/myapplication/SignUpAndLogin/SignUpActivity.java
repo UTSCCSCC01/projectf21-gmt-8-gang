@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.R;
 
 
@@ -23,12 +24,16 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     final String[] ROLE_TEXTS = {"Youth", "Donor", "Organization", "Merchant"};
     public static final String[] ROLES = {"HOMELESS", "DONOR", "ORGANIZATION", "MERCHANT", "BEING_SEEN"};
     Boolean hasPressedBack = false;
-
+    Boolean isLoading = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         role = "HOMELESS";
+
+        // animation
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.GONE);
 
         // drop down menu
         Spinner spinner;
@@ -61,6 +66,21 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         signUpModel = new SignUpModel(this);
     }
 
+    public void showLoadingScreen() {
+        isLoading = true;
+        getSupportActionBar().hide();
+        findViewById(R.id.spinner).setVisibility(View.GONE);
+        findViewById(R.id.HySignUpButton).setVisibility(View.GONE);
+        findViewById(R.id.GoToLogIn).setVisibility(View.GONE);
+        findViewById(R.id.HyPasswordFrame).setVisibility(View.GONE);
+        findViewById(R.id.HyPassword).setVisibility(View.GONE);
+        findViewById(R.id.HyUsernameFrame).setVisibility(View.GONE);
+        findViewById(R.id.HyUsername).setVisibility(View.GONE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.VISIBLE);
+        lottieAnimationView.playAnimation();
+    }
+
     @Override
     public void onBackPressed(){
         if(hasPressedBack){
@@ -69,6 +89,11 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         }
         Toast.makeText(getApplicationContext(),"Press back button again to leave", Toast.LENGTH_SHORT).show();
         hasPressedBack = true;
+    }
+    @Override public void finish() {
+        if (isLoading) return;
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
     public void signUp(View view) {
@@ -90,7 +115,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
             passwordField.requestFocus();
             return;
         }
-
+        showLoadingScreen();
         // we start a new activity in here
         signUpModel.signUp(username, password, role);
 

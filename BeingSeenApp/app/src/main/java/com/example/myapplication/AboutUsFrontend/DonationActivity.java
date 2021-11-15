@@ -29,6 +29,8 @@ public class DonationActivity extends AppCompatActivity {
     public void createDonation(String username, String password, String receiver, long amount, String comment){
 
     }
+    Boolean isLoading = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,7 @@ public class DonationActivity extends AppCompatActivity {
                     return;
                 }
                 // loading animation
+                isLoading = true;
                 getSupportActionBar().hide();
                 confirm.setVisibility(View.GONE);
                 amountField.setVisibility((View.GONE));
@@ -111,7 +114,9 @@ public class DonationActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     @Override public void finish() {
+        if (isLoading) return;
         super.finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
+
 }

@@ -23,6 +23,7 @@ import java.util.List;
 public class ShowMerchantListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<JSONObject> result;
+    Boolean isLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,7 @@ public class ShowMerchantListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.ml_list);
 
         // loading animation
+        isLoading = true;
         inputText.setVisibility(View.GONE);
         TextView titleField = findViewById(R.id.ml_ititle);
         titleField.setVisibility(View.GONE);
@@ -65,6 +67,7 @@ public class ShowMerchantListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     @Override public void finish() {
+        if (isLoading)return;
         super.finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
@@ -89,6 +92,7 @@ public class ShowMerchantListActivity extends AppCompatActivity {
         }
 
         // disable loading animation
+        isLoading = false;
         getSupportActionBar().show();
         TextView inputText=(TextView) findViewById(R.id.ml_input);
         inputText.setVisibility(View.VISIBLE);
