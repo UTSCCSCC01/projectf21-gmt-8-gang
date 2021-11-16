@@ -2,8 +2,10 @@ package com.example.myapplication.YouthDonationGoal;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -56,6 +59,7 @@ public class DonationGoalFragment extends Fragment {
 
     ImageView proPic;
     TextView usernameField, titleField, descriptionField, progressField, percentageField;
+    ProgressBar progressBarField;
     String username, title, description, progress, percentage;
     Long current, goal;
 
@@ -98,6 +102,8 @@ public class DonationGoalFragment extends Fragment {
         this.descriptionField = view.findViewById(R.id.HyGoalDescription);
         this.progressField = view.findViewById(R.id.HyAmount);
         this.percentageField = view.findViewById(R.id.HyPercentage);
+        this.progressBarField = view.findViewById(R.id.HyProgressBar);
+        progressBarField.setProgress(0);
 
         getDonationGoalFromDb((AppCompatActivity) getActivity(), new VolleyCallBack() {
             @Override
@@ -110,7 +116,6 @@ public class DonationGoalFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-
 
                 Intent i = new Intent(activity.getApplicationContext(), SetDonationGoalActivity.class);
                 startActivity(i);
@@ -143,6 +148,7 @@ public class DonationGoalFragment extends Fragment {
         // Request a string response from the provided URL.
         StringRequest jsonObjectRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
+                    @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
                     public void onResponse(String response) {
                         Log.d("RESPONSE_VAR", "Response called properly");
@@ -158,8 +164,9 @@ public class DonationGoalFragment extends Fragment {
                             usernameField.setText(username);
                             titleField.setText(title);
                             descriptionField.setText(description);
-                            progressField.setText("current: " + current);
+                            progressField.setText(current + " / " + goal);
                             percentageField.setText(per.toString() + "%");
+                            progressBarField.setProgress(Math.toIntExact(per));
 
 //                            model.setImg(R.drawable.profile);
                             callBack.onSuccess();
