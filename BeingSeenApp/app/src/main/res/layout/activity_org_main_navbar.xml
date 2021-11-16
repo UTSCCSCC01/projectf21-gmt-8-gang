@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/orgFragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="612dp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@+id/orgBottomNavigationView"
