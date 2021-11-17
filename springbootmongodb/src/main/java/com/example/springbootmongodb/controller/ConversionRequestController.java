@@ -8,6 +8,7 @@ import com.example.springbootmongodb.repository.ConversionRequestRepository;
 import com.example.springbootmongodb.request.ConversionRequestRequest;
 import com.example.springbootmongodb.response.ConversionRequestResponse;
 import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
 import com.stripe.param.PaymentIntentCreateParams;
 import org.bson.types.ObjectId;
@@ -19,6 +20,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import com.google.gson.*;
 
+import javax.script.SimpleBindings;
 import java.util.*;
 
 
@@ -206,10 +208,22 @@ public class ConversionRequestController {
             Map<String, Object> responseData = new HashMap<>();
             responseData.put("clientSecret", paymentIntent.getClientSecret());
             return new ResponseEntity<>(responseData.toString(), HttpStatus.OK);
-        } catch (Exception e) {
-            System.out.println("error on saving conversion request");
-            e.printStackTrace();
-            return new ResponseEntity<>("error on saving conversion request", HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (StripeException e){
+            Map<String, Object> errorData = new HashMap<>();
+            errorData.put("message", e.getUserMessage());
+            Map<String, Object> responseData = new HashMap<>();
+            responseData.put("error", errorData);
+
+            return new ResponseEntity<>(responseData, HttpStatus.BAD_REQUEST);
+
+        } catch (Exception e){
+            Map<String, Object> errorData = new HashMap<>();
+            errorData.put("message", e.toString());
+            Map<String, Object> responseData = new HashMap<>();
+            responseData.put("error", errorData);
+
+            return new ResponseEntity<>(responseData, HttpStatus.INTERNAL_SERVER_ERROR);
+
         }
 
         //System.out.println("successfully created conversion request");
