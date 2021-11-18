@@ -23,12 +23,12 @@
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginStart="32dp"
-      android:layout_marginTop="86dp"
+      android:layout_marginTop="46dp"
       android:layout_marginEnd="32dp"
       android:background="@drawable/pf_info_border"
       android:padding="18dp"
-      android:text="Please Enter the amount of credits you wish to purchase.
-                        \n (Every dollar spent is converted into 1 credit [Note: There is a 2.7% transaction fee incurred by Stripe])"
+      android:text="Please Enter the amount of credits you wish to convert into cash.\n We will e-transfer you the amount through the given email in three business days.
+                        \n (Every credit spent is converted into 1 dollar [Note: There is a 2.7% transaction fee incurred by Stripe])"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@color/black"
       app:layout_constraintBottom_toBottomOf="parent"

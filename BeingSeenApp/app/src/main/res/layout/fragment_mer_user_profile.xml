@@ -35,11 +35,11 @@
 
     <Button
         android:id="@+id/ButtonConvertCash"
-        android:layout_width="88dp"
+        android:layout_width="96dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="62dp"
-        android:text="Buy Credits"
+        android:text="Convert To Cash"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
