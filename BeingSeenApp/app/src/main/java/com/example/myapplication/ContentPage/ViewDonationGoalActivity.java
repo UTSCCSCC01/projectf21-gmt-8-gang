@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import com.example.myapplication.R;
 public class ViewDonationGoalActivity extends AppCompatActivity {
     ImageView proPic;
     TextView username, title, description, progress, percentage;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class ViewDonationGoalActivity extends AppCompatActivity {
         this.description = findViewById(R.id.HyGoalDescription);
         this.progress = findViewById(R.id.HyAmount);
         this.percentage = findViewById(R.id.HyPercentage);
+        this.progressBar = findViewById(R.id.HyProgressBar);
 
         Intent intent = getIntent();
         //byte[] mBytes = getIntent().getByteArrayExtra("proPic");
@@ -48,6 +51,7 @@ public class ViewDonationGoalActivity extends AppCompatActivity {
         //progress.setText("current: " + mCurrent);
         progress.setText(mCurrent + " / " + mGoal);
         percentage.setText(mPercentage + "%");
+        progressBar.setProgress(Integer.parseInt(mPercentage));
 
     }
 
