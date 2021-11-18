@@ -41,16 +41,35 @@ tools:context=".AboutUsFrontend.AboutUsFragment">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/aboutus_title" />
 
-<Button
-    android:id="@+id/donateus_btn"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="64dp"
-    android:text="Donate"
-    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-    android:textColor="@color/white"
-    android:textColorHighlight="#00BFA5"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/donateus_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="Donate"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/white"
+        android:textColorHighlight="#00BFA5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/beingseen_lottie_animation_view"
+        app:layout_constraintVertical_bias="0.771" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/beingseen_lottie_animation_view"
+        android:layout_width="383dp"
+        android:layout_height="276dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutus_txt"
+        app:layout_constraintVertical_bias="0.112"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/aboutus_animation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

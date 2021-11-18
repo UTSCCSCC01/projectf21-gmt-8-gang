@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".SearchForMerchant.ShowMerchantListActivity">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_lottie_animation_view"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_animation" />
 
     <TextView
         android:id="@+id/ml_ititle"
@@ -49,5 +60,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ml_input"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:layoutAnimation="@anim/recycler_view_layout_animation"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

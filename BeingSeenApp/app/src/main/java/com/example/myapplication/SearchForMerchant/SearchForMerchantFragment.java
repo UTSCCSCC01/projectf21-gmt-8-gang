@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.R;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -90,9 +91,15 @@ public class SearchForMerchantFragment extends Fragment {
                     intent.setClass(activity, ShowMerchantListActivity.class);
                     intent.putExtra("Username", target);
                     startActivity(intent);
+                    activity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 }
             }
         });
+
+        // for the animation
+        LottieAnimationView lottieAnimationView = view.findViewById(R.id.search_for_merchant_lottie_animation_view);
+        lottieAnimationView.playAnimation();
+
         return view;
     }
 }

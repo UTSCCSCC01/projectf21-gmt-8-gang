@@ -1,9 +1,13 @@
 package com.example.myapplication.YouthDonationGoal;
 
+import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -12,7 +16,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
 import com.example.myapplication.ProfileInfo;
+import com.example.myapplication.R;
 import com.example.myapplication.SignUpAndLogin.LoginActivity;
 
 import java.util.HashMap;
@@ -21,8 +27,10 @@ import java.util.Map;
 public class DeleteDonationGoalModel {
     AppCompatActivity activity;
     String LOGIN_TAG = LoginActivity.LOGIN_TAG;
+    DonationGoalFragment donationGoalFragment;
 
-    public DeleteDonationGoalModel(AppCompatActivity activity) {
+    public DeleteDonationGoalModel(DonationGoalFragment donationGoalFragment, AppCompatActivity activity) {
+        this.donationGoalFragment = donationGoalFragment;
         this.activity = activity;
     }
 
@@ -35,6 +43,13 @@ public class DeleteDonationGoalModel {
             public void onResponse(String response) {
                 Log.i(LOGIN_TAG, "delete donation goal success");
                 Toast.makeText(activity.getApplicationContext(), "successfully deleted donation goal", Toast.LENGTH_LONG).show();
+                donationGoalFragment.usernameField.setText("You don't have a goal now.\nGo create one!");
+                donationGoalFragment.titleField.setText("");
+                donationGoalFragment.descriptionField.setText("");
+                donationGoalFragment.progressField.setText("");
+                donationGoalFragment.percentageField.setText("");
+                donationGoalFragment.progressBarField.setVisibility(View.GONE);
+
                 return;
             }
         }, new Response.ErrorListener() {
