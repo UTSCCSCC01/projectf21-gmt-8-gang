@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpAndLogin.SignUpActivity">
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading_lottie_animation_view"
         android:layout_width="0dp"
         android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.549"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loading_animation" />
@@ -26,9 +29,10 @@
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintVertical_bias="0.547" />
 
     <Button
         android:id="@+id/HySignUpButton"
@@ -41,17 +45,17 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/HyPasswordFrame"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintVertical_bias="0.65999997" />
 
     <Button
         android:id="@+id/GoToLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="172dp"
-        android:text="I have an account"
+        android:layout_marginBottom="140dp"
+        android:text="login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/HyPasswordFrame"
         app:layout_constraintVertical_bias="1.10" />
@@ -64,14 +68,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467">
+        app:layout_constraintVertical_bias="0.45">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/HyPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"
-            android:hint="password"
+            android:hint="Password"
             android:inputType="textPassword"
             app:passwordToggleEnabled="true" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,6 +84,7 @@
         android:id="@+id/HyUsernameFrame"
         android:layout_width="217dp"
         android:layout_height="61dp"
+        app:boxStrokeColor="@color/green"
         app:layout_constraintBottom_toTopOf="@+id/HyPasswordFrame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,8 +96,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"
-            android:hint="username"
+            android:backgroundTint="@color/black"
+            android:hint="Username"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="132dp"
+        android:layout_height="139dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/HyUsernameFrame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/being_seen_logo_round" />
+
+    <TextView
+        android:id="@+id/LogInHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Have an account?"
+        android:textColor="@color/purple_700"
+        app:layout_constraintBottom_toTopOf="@+id/GoToLogIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HySignUpButton"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

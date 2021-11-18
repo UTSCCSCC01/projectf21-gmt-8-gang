@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.CashConversion.CashConversionRequestActivity;
 import com.example.myapplication.SignUpAndLogin.SignUpActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -94,10 +95,6 @@ public class MerUserProfileFragment extends Fragment {
         /// Set photo and string and stuff based on nav from prev
         Intent intent = activity.getIntent();
 
-        //Temporarily comment this out since this toast always shows up as a bug after transitioning nav bar
-//        if (intent.hasExtra("toast_profile")) {
-//            Toast.makeText(activity, "Successfully edited profile", Toast.LENGTH_LONG).show();
-//        }
 
         if(intent.getExtras() != null && intent.hasExtra("uname")) {
             String uname = intent.getStringExtra("uname");
@@ -156,6 +153,19 @@ public class MerUserProfileFragment extends Fragment {
                 startActivity(i);
                 activity.overridePendingTransition(R.anim.slide_from_top, R.anim.slide_to_bottom);
 
+            }
+        });
+
+
+        //Cash Conversion Button
+        final Button CashConversionPfButton = (Button) view.findViewById(R.id.ButtonConvertCash);
+
+        CashConversionPfButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(activity.getApplicationContext(), CashConversionRequestActivity.class);
+                startActivity(i);
             }
         });
 
