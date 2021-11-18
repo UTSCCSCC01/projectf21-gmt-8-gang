@@ -45,7 +45,7 @@ public class ViewDonationGoalActivity extends AppCompatActivity {
         String mPercentage = intent.getStringExtra("percentage");
 
         //proPic.setImageBitmap(bitmap);
-        username.setText("by: " +  mUsername);
+        username.setText("id: " +  mUsername);
         title.setText(mTitle);
         description.setText(mDescription);
         //progress.setText("current: " + mCurrent);
