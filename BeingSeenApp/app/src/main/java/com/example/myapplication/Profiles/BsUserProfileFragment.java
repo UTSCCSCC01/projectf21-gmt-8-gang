@@ -132,7 +132,7 @@ public class BsUserProfileFragment extends Fragment {
         ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.imageView);
         TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.BsPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.BsPfUdescDisplay);
-        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.bsPfBalance);
+        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.BsPfBalance);
 
 
         profileInf.getInfoFromDb(((AppCompatActivity) activity),

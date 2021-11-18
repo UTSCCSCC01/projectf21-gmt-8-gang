@@ -7,13 +7,15 @@
     tools:context=".YouthDonationGoal.SetDonationGoalActivity">
 
     <RelativeLayout
-        android:id="@+id/textView"
-        android:layout_width="417dp"
-        android:layout_height="242dp"
-        android:background="@color/green"
+        android:layout_width="411dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/testbg4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="300dp"
@@ -51,6 +53,21 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextClock
+            android:id="@+id/date"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:format12Hour="dd-MMM-yyyy"
+            android:gravity="center_horizontal"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="552dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="38dp" />
     </RelativeLayout>
 
     <Button
@@ -89,16 +106,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <TextClock
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
-        android:format12Hour="dd-MMM-yyyy"
-        android:gravity="center_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

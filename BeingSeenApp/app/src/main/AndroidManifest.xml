@@ -15,7 +15,12 @@
         android:roundIcon="@mipmap/being_seen_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <activity
+            android:name=".CashConversion.CashConversionRequestActivity"
+            android:label="Convert Cash"
+            android:exported="true" />
         <activity
             android:name=".LottieAnimations.SplashScreenAnimation"
             android:exported="true" >
@@ -37,6 +42,17 @@
             android:name=".LottieAnimations.NotFoundAnimation"
             android:exported="true" />
         <activity
+            android:name=".StripeCurrencyConversion.OrgCurrencyConversionActivity"
+            android:label="Purchase Credits"
+            android:exported="true" />
+        <activity
+            android:name=".StripeCurrencyConversion.DnCurrencyConversionActivity"
+            android:label="Purchase Credits"
+            android:exported="true" />
+        <activity
+            android:name=".SearchForMerchant.TransferToMerchantActivity"
+            android:label="Pay to Merchant"
+
             android:name=".LottieAnimations.PaymentOkAnimation"
             android:exported="true" />
         <activity
@@ -113,5 +129,6 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
     </application>
+
 
 </manifest>

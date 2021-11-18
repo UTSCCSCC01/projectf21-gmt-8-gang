@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/green"
+        android:background="@color/bg_green"
         android:layout_marginBottom="300px"
         app:layout_constraintTop_toTopOf="parent"
         >
