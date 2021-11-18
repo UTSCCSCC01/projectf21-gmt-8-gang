@@ -84,36 +84,36 @@ public class Transaction {
             @Override
             public void onResponse(String response) {
                 Log.d("RESPONSE_VAR", "Transaction called properly");
-                    try {
-                        JSONArray jsonTransactions = new JSONArray(response);
-                        Log.d("Transaction_VAR","TRANSACTION Worked1");
+                try {
+                    JSONArray jsonTransactions = new JSONArray(response);
+                    Log.d("Transaction_VAR","TRANSACTION Worked1");
 
 
-                        List<String> temp_receivers = new ArrayList<String>();
-                        List<Long> temp_amounts = new ArrayList<Long>();
-                        for (int i = 0; i <jsonTransactions.length(); i++) {
-                            JSONObject jsonTransaction = jsonTransactions.getJSONObject(i);
-                            String receiver = jsonTransaction.getString("receiver");
-                            Long amount = jsonTransaction.getLong("amount");
+                    List<String> temp_receivers = new ArrayList<String>();
+                    List<Long> temp_amounts = new ArrayList<Long>();
+                    for (int i = 0; i <jsonTransactions.length(); i++) {
+                        JSONObject jsonTransaction = jsonTransactions.getJSONObject(i);
+                        String receiver = jsonTransaction.getString("receiver");
+                        Long amount = jsonTransaction.getLong("amount");
 
-                            temp_receivers.add(receiver);
-                            setReceivers(temp_receivers);
+                        temp_receivers.add(receiver);
+                        setReceivers(temp_receivers);
 
-                            temp_amounts.add(amount);
-                            setAmounts(temp_amounts);
-                        }
-                callBack.onSuccess();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                        temp_amounts.add(amount);
+                        setAmounts(temp_amounts);
                     }
+                    callBack.onSuccess();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         },
                 new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        }) {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Log.d("GET_HEADER", "Made call to Transaction getHeaders");
@@ -152,7 +152,7 @@ public class Transaction {
                 try {
                     JSONArray jsonTransactions = new JSONArray(response);
                     Log.d("Transaction_VAR","TRANSACTION Worked1");
-                  
+
                     List<String> temp_senders = new ArrayList<String>();
                     List<Long> temp_amounts = new ArrayList<Long>();
                     for (int i = 0; i <jsonTransactions.length(); i++) {
