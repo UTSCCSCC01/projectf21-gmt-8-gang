@@ -16,6 +16,10 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CashConversion.CashConversionRequestActivity"
+            android:label="Convert Cash"
+            android:exported="true" />
+        <activity
             android:name=".SearchForMerchant.ShowMerchantInfoActivity"
             android:label="Merchant Profile"
             android:exported="true" />

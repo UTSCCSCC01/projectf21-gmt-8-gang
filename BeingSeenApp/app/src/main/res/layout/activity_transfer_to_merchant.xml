@@ -8,7 +8,7 @@
 
 
   <TextView
-      android:id="@+id/amount"
+      android:id="@+id/merchant_receiver"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="50dp"
@@ -22,7 +22,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.5"
       app:layout_constraintVertical_bias="0.2"
-      app:layout_constraintBottom_toTopOf="@+id/convertConfirm"
+      app:layout_constraintBottom_toTopOf="@+id/donateConfirm"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       />
@@ -30,14 +30,14 @@
   <com.google.android.material.textfield.TextInputLayout
       android:layout_width="217dp"
       android:layout_height="61dp"
-      app:layout_constraintBottom_toTopOf="@+id/convertConfirm"
+      app:layout_constraintBottom_toTopOf="@+id/donateConfirm"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.6">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/amount_convert"
+        android:id="@+id/dnDonoAmt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00000000"
@@ -46,7 +46,7 @@
   </com.google.android.material.textfield.TextInputLayout>
 
   <Button
-      android:id="@+id/convertConfirm"
+      android:id="@+id/donateConfirm"
       android:layout_width="match_parent"
       android:layout_height="60dp"
       android:text="Confirm"

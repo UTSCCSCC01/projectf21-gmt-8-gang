@@ -29,11 +29,11 @@ public class TransferToMerchantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer_to_merchant);
         //donate to someone button
-        final Button donateButton = (Button) findViewById(R.id.convertConfirm);
+        final Button donateButton = (Button) findViewById(R.id.donateConfirm);
         Intent intent = getIntent();
         String receiverUsername = intent.getStringExtra("receiverUsername");
         String receiverName = intent.getStringExtra("receiverName");
-        TextView receiver=(TextView) findViewById(R.id.amount);
+        TextView receiver=(TextView) findViewById(R.id.merchant_receiver);
         receiver.setText(receiverName);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -61,7 +61,7 @@ public class TransferToMerchantActivity extends AppCompatActivity {
         // then set as fixed textbox same retreival but is fixed
 
         // After clicking save all objects on screen into a object
-        EditText amount = (EditText)findViewById(R.id.amount_convert);
+        EditText amount = (EditText)findViewById(R.id.dnDonoAmt);
 
         Transaction transactionObj = new Transaction();
 

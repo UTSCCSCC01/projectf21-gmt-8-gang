@@ -16,16 +16,16 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONObject;
 
-public class CashConversionRequestActivity extends AppCompatActivity implements VolleyResponse {
+public class CashConversionRequestActivity extends AppCompatActivity {
 
-    private CashConversionRequestModel model;
-    private VolleyResponse response;
+    CashConversionRequestModel model;
     public static final String CONVERT_TAG = "cashConvert";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cash_conversion);
+        model = new CashConversionRequestModel(this);
 
         // back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -39,7 +39,6 @@ public class CashConversionRequestActivity extends AppCompatActivity implements 
             }
         });
         Log.i(CONVERT_TAG, "cash conversion activity started");
-        model = new CashConversionRequestModel(this, this);
 
     }
 
@@ -47,12 +46,19 @@ public class CashConversionRequestActivity extends AppCompatActivity implements 
 
         TextInputEditText amountField = (TextInputEditText) findViewById(R.id.amount_convert);
         String amountString = amountField.getText().toString();
-        String merchantEmail = getIntent().getStringExtra("email");
-        long amount = Long.parseLong(amountField.getText().toString());
+        TextInputEditText emailField = (TextInputEditText) findViewById(R.id.email_convert);
+        String emailString = emailField.getText().toString();
+        long amount = Long.parseLong(amountString);
 
         if (amountString.isEmpty()) {
             amountField.setError("please enter an amount");
             amountField.requestFocus();
+            return;
+        }
+
+        if (emailString.isEmpty()) {
+            emailField.setError("please enter an amount");
+            emailField.requestFocus();
             return;
         }
 
@@ -61,9 +67,8 @@ public class CashConversionRequestActivity extends AppCompatActivity implements 
             amountField.requestFocus();
             return;
         }
-
-        Log.i(CONVERT_TAG, "convert request success");
-        CashConversionRequestModel.cashConvert(merchantEmail, amount);
+        model.cashConvert(emailString, amount);
+        model.updateBalance(amount);
 
         return;
     }
@@ -79,8 +84,4 @@ public class CashConversionRequestActivity extends AppCompatActivity implements 
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onVolleySuccess(JSONObject response) {
-
-    }
 }
