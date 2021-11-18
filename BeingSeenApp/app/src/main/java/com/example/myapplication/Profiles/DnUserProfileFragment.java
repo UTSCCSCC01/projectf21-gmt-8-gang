@@ -96,7 +96,7 @@ public class DnUserProfileFragment extends Fragment {
         });
         
         //Purchase credit button
-        final Button purchasebutton = (Button) view.findViewById(R.id.orgPurchaseCurrency);
+        final Button purchasebutton = (Button) view.findViewById(R.id.dnPurchaseCurrency);
 
         purchasebutton.setOnClickListener(new View.OnClickListener() {
 
