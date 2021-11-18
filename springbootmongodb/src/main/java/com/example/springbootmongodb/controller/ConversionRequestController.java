@@ -197,8 +197,8 @@ public class ConversionRequestController {
         Long amount = (request.getAmount());
 
 
-        Long currencyAmt = (amount/100);
-        System.out.println("Amt = " + currencyAmt);
+//        Long currencyAmt = (amount/100);
+//        System.out.println("Amt = " + currencyAmt);
 
 //        if(email == null){
 //            return new ResponseEntity<>("No email", HttpStatus.BAD_REQUEST);
@@ -211,8 +211,8 @@ public class ConversionRequestController {
         try {
 //            ConversionRequest a = new ConversionRequest(username, email, amount, false);
             //conversionRequestRepository.save(a);
-            appUser.setBalance(currentAmount + currencyAmt);
-            appUserRepository.save(appUser);
+//            appUser.setBalance(currentAmount + currencyAmt);
+//            appUserRepository.save(appUser);
 
             PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
                     .setAmount(amount)
@@ -227,6 +227,72 @@ public class ConversionRequestController {
 
 
             return new ResponseEntity<>(responseData.toString(), HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println("error on saving conversion request");
+            e.printStackTrace();
+            return new ResponseEntity<>("error on saving conversion request", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        //System.out.println("successfully created conversion request");
+        //return new ResponseEntity<>("successfully created conversion request", HttpStatus.OK);
+    }
+
+
+    @PostMapping("/payment-success-intent")
+    private ResponseEntity<?> successfulAddCurrency(@RequestBody ConversionRequestRequest request) {
+
+        //Code inspired by node.js code from https://codingwithtashi.medium.com/stripe-payment-integration-with-android-4c588e78f3ea
+
+//        System.out.println("Payment request made");
+
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+//        Stripe.apiKey = "sk_test_51JrgXOKkv3Y92s58QDM3F2ZIraoq74ZVfQqg8v7UZXXqwfSkxasC92G2NjO4Z5yA1AVPgmdLXAPjh1RRSxg35Piu00FpZJJHE1";
+
+        if (!accountRepository.existsByUsername(username)) {
+            System.out.println("username not registered");
+            return new ResponseEntity<>("username not registered", HttpStatus.BAD_REQUEST);
+        }
+
+        //get appUser
+        AppUser appUser;
+        appUser = appUserRepository.findByUserName(username);
+        Long currentAmount = appUser.getBalance();
+
+//        System.out.println("Account verified");
+
+//        String email = request.getEmail();
+        Long amount = (request.getAmount());
+
+
+        Long currencyAmt = (amount/100);
+        System.out.println("Amt = " + currencyAmt);
+
+//        if(email == null){
+//            return new ResponseEntity<>("No email", HttpStatus.BAD_REQUEST);
+//        } else
+        if (amount == null){
+            return new ResponseEntity<>("No amount", HttpStatus.BAD_REQUEST);
+        }
+
+        try {
+//            ConversionRequest a = new ConversionRequest(username, email, amount, false);
+            //conversionRequestRepository.save(a);
+            appUser.setBalance(currentAmount + currencyAmt);
+            appUserRepository.save(appUser);
+
+//            PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
+//                    .setAmount(amount)
+//                    .setCurrency("cad")
+//                    .build();
+//
+//            PaymentIntent paymentIntent = PaymentIntent.create(params);
+//
+//            Map<String, Object> responseData = new HashMap<>();
+//            responseData.put("clientSecret", paymentIntent.getClientSecret());
+
+
+
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             System.out.println("error on saving conversion request");
             e.printStackTrace();
