@@ -6,11 +6,10 @@
         <entry key="../../../.gradle/caches/transforms-3/25012fcc08d4c5cf5a2844c1a21a6fbe/transformed/material-1.4.0/res/layout/text_view_with_theme_line_height.xml" value="0.13697916666666668" />
         <entry key="..\:/Users/12265/Documents/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_hy_login.xml" value="0.23596014492753623" />
         <entry key="..\:/Users/12265/Documents/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_bs_main_navbar.xml" value="0.17889492753623187" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_bs_main_navbar.xml" value="0.16666666666666666" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_bs_user_profile_view_balance.xml" value="0.22735507246376813" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_bs_user_profile_view_donation.xml" value="0.21875" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_dn_content_page_card.xml" value="0.2033514492753623" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_dn_main_navbar.xml" value="0.17889492753623187" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_dn_user_profile_view_balance.xml" value="0.22735507246376813" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_donor_sign_up.xml" value="0.2427536231884058" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_hy_login.xml" value="0.22735507246376813" />
@@ -18,35 +17,18 @@
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_hy_user_profile_view_balance.xml" value="0.22735507246376813" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_hy_user_profile_view_donation.xml" value="0.22735507246376813" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_main.xml" value="0.1598731884057971" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_mer_main_navbar.xml" value="0.17889492753623187" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_mer_user_profile_view_balance.xml" value="0.22735507246376813" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_mer_user_profile_view_donation.xml" value="0.21739130434782608" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_not_found_animation.xml" value="0.17291666666666666" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_org_main_navbar.xml" value="0.17889492753623187" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_org_user_profile_view_balance.xml" value="0.22735507246376813" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_org_user_profile_view_donation.xml" value="0.22735507246376813" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_payment_ok_animation.xml" value="0.19610507246376813" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_profile_edit.xml" value="0.17889492753623187" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_show_merchant_list.xml" value="0.1933876811594203" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_show_youth_list.xml" value="0.1933876811594203" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_splash_screen_animation.xml" value="0.17889492753623187" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_set_donation_goal.xml" value="0.22146739130434784" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_testtt.xml" value="0.23369565217391305" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_view_donation_goal.xml" value="0.19610507246376813" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_youth_main_navbar.xml" value="0.17889492753623187" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/conversion_request_recycler_item.xml" value="0.264" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_about_us.xml" value="0.19610507246376813" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_content_page.xml" value="0.1933876811594203" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_conversion_requests_history.xml" value="0.17889492753623187" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_org_user_profile_view_balance.xml" value="0.22735507246376813" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_org_user_profile_view_donation.xml" value="0.22735507246376813" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_testtt.xml" value="0.23369565217391305" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_bs_user_profile_view_balance.xml" value="0.1" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.1598731884057971" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_donation_goal.xml" value="0.17889492753623187" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_dn_user_profile.xml" value="0.22146739130434784" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_donation_goal.xml" value="0.16666666666666666" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_home.xml" value="0.2427536231884058" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_notifications.xml" value="0.2427536231884058" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_search_for_merchant.xml" value="0.2" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_search_for_youth.xml" value="0.1" />
-        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.13333333333333333" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/pfp_border.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/drawable-v24/pfp_frame.xml" value="0.15185185185185185" />

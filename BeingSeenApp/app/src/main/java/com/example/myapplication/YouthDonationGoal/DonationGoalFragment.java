@@ -167,6 +167,8 @@ public class DonationGoalFragment extends Fragment {
                             progressField.setText(current + " / " + goal);
                             percentageField.setText(per.toString() + "%");
                             progressBarField.setProgress(Math.toIntExact(per));
+                            progressBarField.setVisibility(View.VISIBLE);
+
 
 //                            model.setImg(R.drawable.profile);
                             callBack.onSuccess();
@@ -180,6 +182,7 @@ public class DonationGoalFragment extends Fragment {
             public void onErrorResponse(VolleyError error) {
                 if (error.networkResponse.statusCode == 404) {
                     usernameField.setText("You don't have a goal now.\nGo create one!");
+                    progressBarField.setVisibility(View.GONE);
                 } else {
                     Log.i("uh-oh", "something's wrong with internet or your code!");
                 }

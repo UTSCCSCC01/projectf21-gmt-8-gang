@@ -2,6 +2,7 @@ package com.example.myapplication.YouthDonationGoal;
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,6 +48,8 @@ public class DeleteDonationGoalModel {
                 donationGoalFragment.descriptionField.setText("");
                 donationGoalFragment.progressField.setText("");
                 donationGoalFragment.percentageField.setText("");
+                donationGoalFragment.progressBarField.setVisibility(View.GONE);
+
                 return;
             }
         }, new Response.ErrorListener() {
