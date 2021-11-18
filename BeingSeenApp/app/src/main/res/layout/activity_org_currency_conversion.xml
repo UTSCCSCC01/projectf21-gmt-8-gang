@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".StripeCurrencyConversion.OrgCurrencyConversionActivity">
 
+    <RelativeLayout
+        android:id="@+id/textView"
+        android:layout_width="411dp"
+        android:layout_height="641dp"
+        android:background="@drawable/lightbg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077"/>
+
 <!--    Code inspired by https://codingwithtashi.medium.com/stripe-payment-integration-with-android-4c588e78f3ea-->
 
     <TextView
@@ -15,6 +27,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/pf_info_border"
+        android:padding="18dp"
         android:text="Please Enter the amount of credits you wish to purchase.
                         \n (Every dollar spent is converted into 1 credit [Note: There is a 2.7% transaction fee incurred by Stripe])"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -51,6 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="348dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
