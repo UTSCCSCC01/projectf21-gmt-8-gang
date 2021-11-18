@@ -34,13 +34,15 @@ public class ShowMerchantListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.ml_list);
 
         // loading animation
-        isLoading = true;
+        getSupportActionBar().hide();
         inputText.setVisibility(View.GONE);
         TextView titleField = findViewById(R.id.ml_ititle);
         titleField.setVisibility(View.GONE);
+        TextView resultField = findViewById(R.id.no_result);
+        resultField.setVisibility(View.GONE);
         LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
         lottieAnimationView.playAnimation();
-        getSupportActionBar().hide();
+        isLoading = true;
 
         // back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -51,7 +53,21 @@ public class ShowMerchantListActivity extends AppCompatActivity {
             @Override
             public void onSuccess() {
                 result=profileInfo.getSearchResult();
-                setAdapter();
+                if (result.isEmpty()) {
+                    // disable loading animation
+                    isLoading = false;
+                    getSupportActionBar().show();
+                    TextView inputText=(TextView) findViewById(R.id.ml_input);
+                    inputText.setVisibility(View.VISIBLE);
+                    TextView titleField = findViewById(R.id.ml_ititle);
+                    titleField.setVisibility(View.VISIBLE);
+                    TextView resultField=(TextView) findViewById(R.id.no_result);
+                    resultField.setVisibility(View.VISIBLE);
+                    LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+                    lottieAnimationView.setVisibility(View.GONE);
+                } else {
+                    setAdapter();
+                }
             }
         });
     }

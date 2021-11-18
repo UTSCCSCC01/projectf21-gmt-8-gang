@@ -33,18 +33,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01" />
 
-
     <Button
         android:id="@+id/dnPurchaseCurrency"
-        android:layout_width="wrap_content"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:text="Purchase Credits"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="62dp"
+        android:text="Buy Credits"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintVertical_bias="0.00001" />
     
 <!--     <TextView
         android:id="@+id/DnPfUnameDisplay"
@@ -158,12 +160,12 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="283dp"
+                android:layout_marginTop="303dp"
                 android:layout_marginEnd="180dp"
                 android:layout_marginBottom="44dp"
                 android:text="N/A"
                 android:textColor="@color/green"
-                android:textSize="70dp" />
+                android:textSize="55dp" />
 
             <TextView
                 android:id="@+id/textCreditUnit"
