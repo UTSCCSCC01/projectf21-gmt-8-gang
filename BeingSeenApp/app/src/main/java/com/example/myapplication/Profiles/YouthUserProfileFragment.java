@@ -119,7 +119,7 @@ public class YouthUserProfileFragment extends Fragment {
 
             Bitmap bmp = ProfileInfo.decodeProfilePic(base64Pfp);
 
-            ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.HyPfPfpDisplay);
+            ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.imageView);
             TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.HyPfUnameDisplay);
             TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.HyPfUdescDisplay);
 
@@ -134,11 +134,11 @@ public class YouthUserProfileFragment extends Fragment {
         //when db setup
         ProfileInfo profileInf = new ProfileInfo();
 
-        ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.HyPfPfpDisplay);
+        ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.imageView);
         TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.HyPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.HyPfUdescDisplay);
 
-        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.hyPfBalance);
+        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.HyPfBalance);
 
 
         profileInf.getInfoFromDb(((AppCompatActivity) activity),
