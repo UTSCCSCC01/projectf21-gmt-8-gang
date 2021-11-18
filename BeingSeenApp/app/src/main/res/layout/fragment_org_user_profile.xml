@@ -135,6 +135,21 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/orgPurchaseCurrency"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="62dp"
+        android:text="Buy Credits"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.00001" />
+
+    <Button
         android:id="@+id/OrgEditPfButtonFrag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -145,6 +160,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/OrgPfLogoutButtonFrag"
@@ -158,19 +174,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01" />
 
-    <Button
-        android:id="@+id/orgPurchaseCurrency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Purchase Credits"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
-
-<!--     <TextView
+    <!--     <TextView
         android:id="@+id/OrgPfUnameDisplayFrag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
