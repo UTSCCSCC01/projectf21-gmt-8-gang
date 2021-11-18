@@ -73,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@drawable/border"
+
         android:hint="amount"
         android:inputType="textPersonName" />
   </com.google.android.material.textfield.TextInputLayout>
