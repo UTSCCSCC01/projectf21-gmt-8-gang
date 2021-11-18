@@ -87,7 +87,7 @@ public class DnCurrencyConversionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_org_currency_conversion);
+        setContentView(R.layout.activity_dn_currency_conversion);
 
 //        ActionBar actionBar = getSupportActionBar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -182,7 +182,6 @@ public class DnCurrencyConversionActivity extends AppCompatActivity {
                     .build();
             httpClient.newCall(request)
                     .enqueue(new PayCallback(this));
-
         }
     }
 
@@ -248,6 +247,62 @@ public class DnCurrencyConversionActivity extends AppCompatActivity {
         Log.i("TAG", "onPaymentSuccess: "+paymentIntentClientSecret);
     }
 
+    private void creditCardChargeSuccess() {
+        /// successful then add currency
+        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
+        String token = ProfileInfo.getToken();
+        double amount=amountDouble*100;
+        Map<String,Object> payMap=new HashMap<>();
+//            Map<String,Object> itemMap=new HashMap<>();
+//            List<Map<String,Object>> itemList =new ArrayList<>();
+//            payMap.put("currency","CAD");
+//            itemMap.put("id","photo_subscription");
+        payMap.put("amount",amount);
+//            itemList.add(itemMap);
+//            payMap.put("items",itemList);
+        String json = new Gson().toJson(payMap);
+        RequestBody body = RequestBody.create(json, mediaType);
+        Request request = new Request.Builder()
+                .url(BACKEND_URL + "payment-success-intent")
+                .post(body)
+                .header("Authorization", token)
+                .build();
+        httpClient.newCall(request)
+                .enqueue(new AddCurrencyCallback(this));
+
+    }
+
+    private final class AddCurrencyCallback implements Callback {
+        @NonNull
+        private final WeakReference<DnCurrencyConversionActivity> activityRef;
+        AddCurrencyCallback(@NonNull DnCurrencyConversionActivity activity) {
+            activityRef = new WeakReference<>(activity);
+        }
+        @Override
+        public void onResponse(@NonNull Call call, @NonNull final Response response)
+                throws IOException {
+            final DnCurrencyConversionActivity activity = activityRef.get();
+            if (!response.isSuccessful()) {
+//                // Payment completed successfully
+//                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//                Toast toast =Toast.makeText(OrgCurrencyConversionActivity.this, "Ordered Successful", Toast.LENGTH_SHORT);
+//                toast.setGravity(Gravity.CENTER, 0, 0);
+//                toast.show();
+            } else {
+                // Payment completed successfully
+//                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//                Toast toast =Toast.makeText(OrgCurrencyConversionActivity.this, "Ordered Successful", Toast.LENGTH_SHORT);
+//                toast.setGravity(Gravity.CENTER, 0, 0);
+//                toast.show();
+            }
+        }
+
+        @Override
+        public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+        }
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -274,7 +329,11 @@ public class DnCurrencyConversionActivity extends AppCompatActivity {
             PaymentIntent paymentIntent = result.getIntent();
             PaymentIntent.Status status = paymentIntent.getStatus();
             if (status == PaymentIntent.Status.Succeeded) {
-                // Payment completed successfully
+
+
+                creditCardChargeSuccess();
+
+//                // Payment completed successfully
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                 Toast toast =Toast.makeText(activity, "Ordered Successful", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
@@ -300,6 +359,7 @@ public class DnCurrencyConversionActivity extends AppCompatActivity {
             activity.displayAlert("Error", e.toString());
         }
     }
+
     private void displayAlert(@NonNull String title,
                               @Nullable String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
