@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"
-            android:hint="password"
+            android:hint="Password"
             android:inputType="textPassword"
             app:passwordToggleEnabled="true" />
 
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"
-            android:hint="username"
+            android:hint="Username"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
