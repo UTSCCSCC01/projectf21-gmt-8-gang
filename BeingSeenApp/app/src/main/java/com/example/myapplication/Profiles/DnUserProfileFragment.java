@@ -129,7 +129,7 @@ public class DnUserProfileFragment extends Fragment {
         TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.DnPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.DnPfUdescDisplay);
 
-        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.dnPfBalance);
+        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.DnPfBalance);
 
 
         profileInf.getInfoFromDb(((AppCompatActivity) activity),

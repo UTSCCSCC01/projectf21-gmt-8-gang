@@ -107,8 +107,8 @@ public class MerUserProfileFragment extends Fragment {
             Bitmap bmp = ProfileInfo.decodeProfilePic(base64Pfp);
 
             ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.imageView);
-            TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.DnPfUnameDisplay);
-            TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.DnPfUdescDisplay);
+            TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.MerPfUnameDisplayFrag);
+            TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.MerPfUdescDisplayFrag);
 
             currentProfilePhoto.setImageBitmap(bmp);
             usernameTextboxInfo.setText(uname);

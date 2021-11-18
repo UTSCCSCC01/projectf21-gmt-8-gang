@@ -17,6 +17,15 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".LottieAnimations.SplashScreenAnimation"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".MerchantConversionRequest.MerRequestHistoryFragment"
             android:exported="true"
             android:label="Merchant Conversion Request History"
@@ -78,11 +87,6 @@
             android:name=".SignUpAndLogin.SignUpActivity"
             android:exported="true"
             android:label="Being Seen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".YouthDonationGoal.SetDonationGoalActivity"
