@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.myapplication.SignUpAndLogin.SignUpActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
+import com.example.myapplication.StripeCurrencyConversion.OrgCurrencyConversionActivity;
 import com.example.myapplication.VolleyCallBack;
 
 /**
@@ -93,7 +94,19 @@ public class DnUserProfileFragment extends Fragment {
                 startActivity(i);
             }
         });
+        
+        //Purchase credit button
+        final Button purchasebutton = (Button) view.findViewById(R.id.orgPurchaseCurrency);
 
+        purchasebutton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(activity.getApplicationContext(), OrgCurrencyConversionActivity.class);
+                startActivity(i);
+            }
+        });
         // make toast message if successfully updated profile
         Intent intent = activity.getIntent();
 
