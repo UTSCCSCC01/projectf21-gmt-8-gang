@@ -49,6 +49,7 @@ public class ShowMerchantInfoActivity extends AppCompatActivity {
                 intent.putExtra("receiverName", name);
                 intent.putExtra("sender","getCurrentUserId");
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
             }
         });
     }
@@ -62,5 +63,9 @@ public class ShowMerchantInfoActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 }

@@ -21,6 +21,11 @@
         android:label="fragment_dn_content_page"
         tools:layout="@layout/fragment_content_page" />
     <fragment
+        android:id="@+id/conversion_history"
+        android:name="com.example.myapplication.ConversionRequests.ConversionRequestHistoryFragment"
+        android:label="fragment_conversion_requests"
+        tools:layout="@layout/fragment_conversion_requests_history" />
+    <fragment
         android:id="@+id/transaction_history"
         android:name="com.example.myapplication.TransactionHistory.TransactionHistoryFragment"
         android:label="fragment_transaction_history"

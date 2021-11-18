@@ -102,9 +102,10 @@ public class YouthUserProfileFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-
                 Intent i = new Intent(activity.getApplicationContext(), SignUpActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
+                activity.overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
             }
         });
 
@@ -118,7 +119,7 @@ public class YouthUserProfileFragment extends Fragment {
 
             Bitmap bmp = ProfileInfo.decodeProfilePic(base64Pfp);
 
-            ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.HyPfPfpDisplay);
+            ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.imageView);
             TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.HyPfUnameDisplay);
             TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.HyPfUdescDisplay);
 
@@ -133,11 +134,11 @@ public class YouthUserProfileFragment extends Fragment {
         //when db setup
         ProfileInfo profileInf = new ProfileInfo();
 
-        ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.HyPfPfpDisplay);
+        ImageView currentProfilePhoto = (ImageView) view.findViewById(R.id.imageView);
         TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.HyPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.HyPfUdescDisplay);
 
-        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.hyPfBalance);
+        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.HyPfBalance);
 
 
         profileInf.getInfoFromDb(((AppCompatActivity) activity),
@@ -164,6 +165,8 @@ public class YouthUserProfileFragment extends Fragment {
 
                 Intent i = new Intent(activity.getApplicationContext(), ProfileEditActivity.class);
                 startActivity(i);
+                activity.overridePendingTransition(R.anim.slide_from_top, R.anim.slide_to_bottom);
+
             }
         });
 

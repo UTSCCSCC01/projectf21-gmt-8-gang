@@ -64,21 +64,18 @@ public class DnUserProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_dn_user_profile_view_balance);
 
 
         // Inflate the layout for this fragment
-
         View view = inflater.inflate(R.layout.fragment_dn_user_profile, container, false);
         FragmentActivity activity = getActivity();
 
@@ -89,9 +86,10 @@ public class DnUserProfileFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-
                 Intent i = new Intent(activity.getApplicationContext(), SignUpActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
+                activity.overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
             }
         });
         
@@ -144,7 +142,7 @@ public class DnUserProfileFragment extends Fragment {
         TextView usernameTextboxInfo = (TextView) view.findViewById(R.id.DnPfUnameDisplay);
         TextView descriptionTextboxInfo = (TextView) view.findViewById(R.id.DnPfUdescDisplay);
 
-        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.dnPfBalance);
+        TextView balanceTextbookInfo = (TextView) view.findViewById(R.id.DnPfBalance);
 
 
         profileInf.getInfoFromDb(((AppCompatActivity) activity),
@@ -173,6 +171,8 @@ public class DnUserProfileFragment extends Fragment {
 
                 Intent i = new Intent(activity.getApplicationContext(), ProfileEditActivity.class);
                 startActivity(i);
+                activity.overridePendingTransition(R.anim.slide_from_top, R.anim.slide_to_bottom);
+
             }
         });
 
