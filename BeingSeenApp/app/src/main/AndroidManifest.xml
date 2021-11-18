@@ -50,9 +50,6 @@
             android:label="Purchase Credits"
             android:exported="true" />
         <activity
-            android:name=".SearchForMerchant.TransferToMerchantActivity"
-            android:label="Pay to Merchant"
-
             android:name=".LottieAnimations.PaymentOkAnimation"
             android:exported="true" />
         <activity
