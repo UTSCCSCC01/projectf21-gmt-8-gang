@@ -8,6 +8,7 @@
         <entry key="..\:/Users/12265/Documents/GitHub/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_bs_user_profile_view_balance.xml" value="0.22735507246376813" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_bs_user_profile_view_donation.xml" value="0.21875" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_cash_conversion.xml" value="0.21195652173913043" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_dn_content_page_card.xml" value="0.2033514492753623" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_dn_user_profile_view_balance.xml" value="0.22735507246376813" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_donor_sign_up.xml" value="0.2427536231884058" />
@@ -18,15 +19,25 @@
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_main.xml" value="0.1598731884057971" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_mer_user_profile_view_balance.xml" value="0.22735507246376813" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_mer_user_profile_view_donation.xml" value="0.21739130434782608" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_org_currency_conversion.xml" value="0.264" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_org_user_profile_view_balance.xml" value="0.22735507246376813" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_org_user_profile_view_donation.xml" value="0.22735507246376813" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_set_donation_goal.xml" value="0.22146739130434784" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/activity_testtt.xml" value="0.23369565217391305" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_conversion_requests_history.xml" value="0.21195652173913043" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.1598731884057971" />
-
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_dn_user_profile.xml" value="0.1634963768115942" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/content_recycler_item.xml" value="0.22146739130434784" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_bs_user_profile_view_balance.xml" value="0.1" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_content_page.xml" value="0.22146739130434784" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.1598731884057971" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_dn_user_profile.xml" value="0.22146739130434784" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_donation_goal.xml" value="0.16666666666666666" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_home.xml" value="0.2427536231884058" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_mer_user_profile.xml" value="0.4" />
         <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_notifications.xml" value="0.2427536231884058" />
+        <entry key="..\:/course/c01csc/projectf21-gmt-8-gang/BeingSeenApp/app/src/main/res/layout/fragment_org_user_profile.xml" value="0.2" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
-
         <entry key="app/src/main/res/drawable/ic_dashboard.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.10364583333333334" />
         <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
@@ -38,7 +49,6 @@
         <entry key="app/src/main/res/layout/activity_direct_transfer.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_dn_content_page.xml" value="0.17864583333333334" />
         <entry key="app/src/main/res/layout/activity_dn_content_page_card.xml" value="0.1461499493414387" />
-        <entry key="app/src/main/res/layout/activity_dn_currency_conversion.xml" value="0.1974524691490236" />
         <entry key="app/src/main/res/layout/activity_dn_main_navbar.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dn_navbar.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dn_user_donation.xml" value="0.17284406069846553" />
@@ -63,12 +73,12 @@
         <entry key="app/src/main/res/layout/activity_mer_main_navbar.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_merchant_info_page.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_merchant_list.xml" value="0.20416666666666666" />
-
         <entry key="app/src/main/res/layout/activity_search_homeless.xml" value="0.18072916666666666" />
         <entry key="app/src/main/res/layout/activity_search_merchant.xml" value="0.18072916666666666" />
         <entry key="app/src/main/res/layout/activity_search_page.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_search_result.xml" value="0.23541666666666666" />
-
+        <entry key="app/src/main/res/layout/activity_set_donation_goal.xml" value="0.3223958333333333" />
+        <entry key="app/src/main/res/layout/activity_show_merchant_info.xml" value="0.3223958333333333" />
         <entry key="app/src/main/res/layout/activity_show_merchant_list.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/activity_show_youth_info.xml" value="0.3223958333333333" />
         <entry key="app/src/main/res/layout/activity_show_youth_list.xml" value="0.2328125" />
@@ -78,13 +88,12 @@
         <entry key="app/src/main/res/layout/content_recycler_item.xml" value="0.3223958333333333" />
         <entry key="app/src/main/res/layout/conversion_request_recycler_item.xml" value="0.26145833333333335" />
         <entry key="app/src/main/res/layout/donation.xml" value="0.20416666666666666" />
-        <entry key="app/src/main/res/layout/fragment_about_us.xml" value="0.6992744492259192" />
+        <entry key="app/src/main/res/layout/fragment_about_us.xml" value="0.13360507246376813" />
         <entry key="app/src/main/res/layout/fragment_bs_user_profile_view_balance.xml" value="0.15489130434782608" />
         <entry key="app/src/main/res/layout/fragment_content_page.xml" value="0.3223958333333333" />
         <entry key="app/src/main/res/layout/fragment_conversion_requests_history.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_dn_content_page.xml" value="0.10299987792968751" />
-
         <entry key="app/src/main/res/layout/fragment_dn_user_profile_view_balance.xml" value="0.11619627038870219" />
         <entry key="app/src/main/res/layout/fragment_donation_goal.xml" value="0.13360507246376813" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.11875" />
@@ -94,15 +103,18 @@
         <entry key="app/src/main/res/layout/fragment_mer_user_profile.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/fragment_mer_user_profile_view_balance.xml" value="0.215625" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.11875" />
-        <entry key="app/src/main/res/layout/fragment_org_user_profile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_org_user_profile.xml" value="0.16266299286126018" />
         <entry key="app/src/main/res/layout/fragment_org_user_profile_view_balance.xml" value="0.215625" />
         <entry key="app/src/main/res/layout/fragment_search_for_merchant.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/layout/fragment_search_for_youth.xml" value="0.2328125" />
         <entry key="app/src/main/res/layout/fragment_search_merchant.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/layout/fragment_search_page.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_send_money.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/fragment_transaction_history.xml" value="0.20364583333333333" />
         <entry key="app/src/main/res/layout/fragment_youth_user_profile.xml" value="0.14375" />
         <entry key="app/src/main/res/layout/merchant_list_item.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/request_history_recycler_item.xml" value="0.20364583333333333" />
+        <entry key="app/src/main/res/layout/transactions_recycler_item.xml" value="0.22239583333333332" />
         <entry key="app/src/main/res/layout/youth_recycler_item.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
         <entry key="app/src/main/res/menu/bs_nav_menu.xml" value="0.215625" />
@@ -110,6 +122,7 @@
         <entry key="app/src/main/res/menu/hy_nav_menu.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/menu/mer_nav_menu.xml" value="0.2328125" />
         <entry key="app/src/main/res/menu/org_nav_menu.xml" value="0.2328125" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/being_seen_logo_round.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.24635416666666668" />
       </map>
     </option>
