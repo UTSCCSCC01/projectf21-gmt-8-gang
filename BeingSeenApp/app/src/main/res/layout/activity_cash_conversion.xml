@@ -31,6 +31,8 @@
                         \n (Every credit spent is converted into 1 dollar [Note: There is a 2.7% transaction fee incurred by Stripe])"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@color/black"
+      android:typeface="monospace"
+      android:textSize="14dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.0"
