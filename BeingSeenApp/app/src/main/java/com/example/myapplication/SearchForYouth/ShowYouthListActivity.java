@@ -63,6 +63,7 @@ public class ShowYouthListActivity extends AppCompatActivity {
                 result=profileInfo.getSearchResult();
                 if (result.isEmpty()) {
                     setNoResult();
+
                 } else {
                     setAdapter();
                 }
