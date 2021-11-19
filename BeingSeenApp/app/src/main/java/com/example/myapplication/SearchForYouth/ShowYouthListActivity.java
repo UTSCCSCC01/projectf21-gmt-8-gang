@@ -1,6 +1,7 @@
 package com.example.myapplication.SearchForYouth;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -61,21 +62,7 @@ public class ShowYouthListActivity extends AppCompatActivity {
             public void onSuccess() {
                 result=profileInfo.getSearchResult();
                 if (result.isEmpty()) {
-                    // disable loading animation
-                    isLoading = false;
-                    getSupportActionBar().show();
-                    RelativeLayout resultTitleLayout = findViewById(R.id.youth_result_layout);
-                    resultTitleLayout.setVisibility(View.VISIBLE);
-                    TextView titleField = (TextView)findViewById(R.id.ml_ititle);
-                    titleField.setVisibility(View.VISIBLE);
-                    TextView resultField=(TextView) findViewById(R.id.no_result_title);
-                    resultField.setVisibility(View.VISIBLE);
-                    TextView resultExplanationField = findViewById(R.id.no_result_explanation);
-                    resultExplanationField.setVisibility(View.VISIBLE);
-                    LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
-                    lottieAnimationView.setVisibility(View.GONE);
-                    LottieAnimationView lottieAnimationViewOfSearch = findViewById(R.id.no_search_result_lottie_animation_view);
-                    lottieAnimationViewOfSearch.setVisibility(View.VISIBLE);
+                    setNoResult();
                 } else {
                     setAdapter();
                 }
@@ -106,18 +93,22 @@ public class ShowYouthListActivity extends AppCompatActivity {
         List<String> profile = new ArrayList<String>();
         List<String> username = new ArrayList<String>();
         List<String> role = new ArrayList<String>();
-        if(result!=null){
-            try {
-                for (int i = 0; i < result.size(); i++) {
-
+        try {
+            for (int i = 0; i < result.size(); i++) {
+                if (result.get(i).getString("role").equals("HOMELESS")) {
                     profile.add(result.get(i).getString("profileInfo"));
                     username.add(result.get(i).getString("userName"));
                     role.add(result.get(i).getString("role"));
                 }
             }
-            catch(Exception e){
-                e.printStackTrace();
+            Log.i("here", username.toString());
+            if (profile.isEmpty()) {
+                setNoResult();
+                return;
             }
+        }
+        catch(Exception e){
+            e.printStackTrace();
         }
 
         // disable loading animation
@@ -137,5 +128,23 @@ public class ShowYouthListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setLayoutAnimation(recyclerView.getLayoutAnimation());
         recyclerView.setAdapter(adapter);
+    }
+
+    private void setNoResult() {
+        // disable loading animation
+        isLoading = false;
+        getSupportActionBar().show();
+        RelativeLayout resultTitleLayout = findViewById(R.id.youth_result_layout);
+        resultTitleLayout.setVisibility(View.VISIBLE);
+        TextView titleField = (TextView)findViewById(R.id.ml_ititle);
+        titleField.setVisibility(View.VISIBLE);
+        TextView resultField=(TextView) findViewById(R.id.no_result_title);
+        resultField.setVisibility(View.VISIBLE);
+        TextView resultExplanationField = findViewById(R.id.no_result_explanation);
+        resultExplanationField.setVisibility(View.VISIBLE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.GONE);
+        LottieAnimationView lottieAnimationViewOfSearch = findViewById(R.id.no_search_result_lottie_animation_view);
+        lottieAnimationViewOfSearch.setVisibility(View.VISIBLE);
     }
 }

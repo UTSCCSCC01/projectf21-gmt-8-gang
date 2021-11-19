@@ -106,6 +106,7 @@
         <entry key="app/src/main/res/layout/fragment_transaction_history.xml" value="0.20364583333333333" />
         <entry key="app/src/main/res/layout/fragment_youth_user_profile.xml" value="0.14375" />
         <entry key="app/src/main/res/layout/merchant_list_item.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/request_history_recycler_item.xml" value="0.20364583333333333" />
         <entry key="app/src/main/res/layout/youth_recycler_item.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
         <entry key="app/src/main/res/menu/bs_nav_menu.xml" value="0.215625" />

@@ -77,43 +77,30 @@ public class YouthListRecyclerAdapter extends RecyclerView.Adapter<YouthListRecy
     // when binding the view holder to a timeSlot
     @Override
     public void onBindViewHolder(@NonNull YouthListRecyclerAdapter.RecyclerViewHolder holder, int position) {
-        if (username == null) {
-            holder.nickField.setText("No more result");
-            holder.goButton.setText("X");
-            return;
-        }
         String user = username.get(position);
         holder.userField.setText(user);
-        if(role.get(position).equals("HOMELESS")){
-            String nick = nickname.get(position);
-            holder.userField.setText(user);
-            holder.nickField.setText(nick);
-            holder.goButton.setText("GO");
-            holder.goButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //jump to merchant page with extra "Username"=username
-                    if(!holder.goButton.getText().equals("X")){
-                        Intent i=new Intent(holder.context, ShowYouthInfoActivity.class);
-                        try{
-                            i.putExtra("Username",user);
-                            i.putExtra("name",nick);
-                            i.putExtra("bio",profileJson.get(holder.getBindingAdapterPosition()).getString("bio"));
-                            i.putExtra("photo",profileJson.get(holder.getBindingAdapterPosition()).getString("photo"));
-                        }
-                        catch(Exception e){
-                            e.printStackTrace();
-                        }
-                        holder.context.startActivity(i);
-                        showYouthListActivity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
-                    }
+        String nick = nickname.get(position);
+        holder.userField.setText(user);
+        holder.nickField.setText(nick);
+        holder.goButton.setText("GO");
+        holder.goButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //jump to merchant page with extra "Username"=username
+                Intent i=new Intent(holder.context, ShowYouthInfoActivity.class);
+                try{
+                    i.putExtra("Username",user);
+                    i.putExtra("name",nick);
+                    i.putExtra("bio",profileJson.get(holder.getBindingAdapterPosition()).getString("bio"));
+                    i.putExtra("photo",profileJson.get(holder.getBindingAdapterPosition()).getString("photo"));
                 }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+                holder.context.startActivity(i);
+                showYouthListActivity.overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+            }
             });
-        }
-        else{
-            holder.nickField.setText("Not Youth");
-            holder.goButton.setText("X");
-        }
     }
 
     @Override
