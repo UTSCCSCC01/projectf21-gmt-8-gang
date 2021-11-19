@@ -32,11 +32,14 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="32dp"
         android:padding="18dp"
+
         android:text="Please Enter the amount of credits you wish to purchase.
                         \n (Every dollar spent is converted into 1 credit [Note: There is a 2.7% transaction fee incurred by Stripe])"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
-        android:background="@drawable/pf_info_border"
+        android:textColor="#111111"
+        android:textStyle="bold"
+        android:textSize="23dp"
+        android:background="@drawable/transaction_info_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
