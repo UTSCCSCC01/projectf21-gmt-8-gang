@@ -26,8 +26,6 @@ public class ShowYouthInfoActivity extends AppCompatActivity {
         String name=getIntent().getStringExtra("name");
         String bio=getIntent().getStringExtra("bio");
         String photo=getIntent().getStringExtra("photo");
-//        ImageView img=(ImageView) findViewById(R.id.searchPhoto);
-//        img.setImageBitmap(ProfileInfo.decodeProfilePic(photo));
         TextView displayName=(TextView) findViewById(R.id.searchNameDisplay);
         displayName.setText(name);
         TextView desc=(TextView)findViewById(R.id.searchUdescDisplay);
