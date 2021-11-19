@@ -53,12 +53,12 @@
                 android:id="@+id/dnt_reciever"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="77dp"
                 android:layout_marginTop="80dp"
+                android:layout_marginStart="60dp"
+                android:layout_gravity="center_horizontal"
                 android:text="reciever"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toTopOf="@+id/dnt_confirm" />
+                android:textColor="@color/black" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/dnt_amount_textfield"
