@@ -4,77 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DonorUiFrontend.DnUserProfileViewDonationActivity">
+    tools:context=".SearchForMerchant.ShowMerchantInfoActivity">
 
     <RelativeLayout
         android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/green"
-        android:layout_marginBottom="300px"
+        android:layout_width="411dp"
+        android:layout_height="641dp"
+        android:background="@drawable/testbg4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintVertical_bias="0.077">
 
+        <RelativeLayout
+            android:layout_width="141dp"
+            android:layout_height="186dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="134dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="146dp"
+            android:layout_marginBottom="399dp"
+            android:background="@drawable/pfp_frame"
+            android:translationZ="90dp">
+
+            <ImageView
+                android:id="@+id/searchPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile"
+                tools:srcCompat="@tools:sample/avatars" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="351dp"
+            android:layout_height="541dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="152dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="68dp"
+            android:background="@drawable/pf_info_border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/searchNameDisplay"
+                android:layout_width="281dp"
+                android:layout_height="44dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="127dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="250dp"
+                android:text="name"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <TextView
+                android:id="@+id/searchUdescDisplay"
+                android:layout_width="wrap_content"
+                android:layout_height="88dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="171dp"
+                android:layout_marginEnd="39dp"
+                android:layout_marginBottom="162dp"
+                android:text="bio"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <Button
+                android:id="@+id/searchDonate"
+                android:layout_width="140dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="330dp"
+                android:text="PAY"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="30sp"
+                app:layout_constraintTop_toBottomOf="@+id/searchUdescDisplay" />
+
+        </RelativeLayout>
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/searchPhoto"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/profile"
-        tools:srcCompat="@tools:sample/avatars" />
-
-
-    <TextView
-        android:id="@+id/searchNameDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.45"
-        android:textSize="30dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/searchUdescDisplay"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="120dp"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchPhoto"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/searchDonate"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="PAY"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchUdescDisplay"
-        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,76 +7,96 @@
     android:background="@color/white"
     android:foregroundTint="@color/teal_700">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/loading_lottie_animation_view"
-        android:layout_width="0dp"
-        android:layout_height="400dp"
+    <RelativeLayout
+        android:id="@+id/textView"
+        android:layout_width="411dp"
+        android:layout_height="641dp"
+        android:background="@drawable/testbg4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/loading_animation" />
+        app:layout_constraintVertical_bias="0.077">
 
-    <TextView
-        android:id="@+id/dnt_reciever"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="32dp"
-        android:text="reciever"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/dnt_confirm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <RelativeLayout
+            android:id="@+id/payment_layout"
+            android:layout_width="351dp"
+            android:layout_height="541dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="152dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="68dp"
+            android:background="@drawable/pf_info_border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/dnt_amount_textfield"
-        android:layout_width="217dp"
-        android:layout_height="61dp"
-        app:layout_constraintBottom_toTopOf="@+id/dnt_confirm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6">
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loading_lottie_animation_view"
+                android:layout_width="0dp"
+                android:layout_height="400dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading_animation" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dnt_amount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#00000000"
-            android:hint="amount"
-            android:inputType="textPersonName" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/dnt_reciever"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="77dp"
+                android:layout_marginTop="80dp"
+                android:text="reciever"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/dnt_confirm" />
 
-    <Button
-        android:id="@+id/dnt_confirm"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="80dp"
-        android:textSize="30dp"
-        android:background="@color/teal_700"
-        android:backgroundTint="@color/teal_700"
-        android:foregroundTint="@color/teal_700"
-        android:shadowColor="@color/teal_700"
-        android:text="Confirm"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textIsSelectable="false"
-        android:visibility="visible"
-        app:iconTint="@color/teal_700"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="@color/teal_700"
-        app:strokeColor="@color/teal_700" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dnt_amount_textfield"
+                android:layout_width="217dp"
+                android:layout_height="61dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="200dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dnt_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:hint="amount"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/dnt_confirm"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="330dp"
+                android:background="@color/teal_700"
+                android:backgroundTint="@color/teal_700"
+                android:foregroundTint="@color/teal_700"
+                android:shadowColor="@color/teal_700"
+                android:text="Confirm"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textIsSelectable="false"
+                android:textSize="30dp"
+                android:visibility="visible"
+                app:iconTint="@color/teal_700"
+                app:rippleColor="@color/teal_700"
+                app:strokeColor="@color/teal_700" />
+
+        </RelativeLayout>
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

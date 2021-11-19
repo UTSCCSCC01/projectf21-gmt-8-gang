@@ -102,6 +102,7 @@ public class LoginModel {
                         .putExtra("message", "can't connect to server")
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 } else {
+                    loginActivity.hideLoadingScreen();
                     if (e.networkResponse.statusCode == 400)
                         Toast.makeText(loginActivity.getApplicationContext(),"Invalid username or password",Toast.LENGTH_SHORT).show();
                 }
