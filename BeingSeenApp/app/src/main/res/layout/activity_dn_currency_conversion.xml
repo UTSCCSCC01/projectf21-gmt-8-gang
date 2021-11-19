@@ -9,19 +9,18 @@
 
     <RelativeLayout
         android:id="@+id/textView"
-        android:layout_width="414dp"
-        android:layout_height="734dp"
+        android:layout_width="475dp"
+        android:layout_height="373dp"
         android:background="@drawable/lightbg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0" />
 
 
-<!--    Code inspired by https://codingwithtashi.medium.com/stripe-payment-integration-with-android-4c588e78f3ea-->
-
+    <!--    Code inspired by https://codingwithtashi.medium.com/stripe-payment-integration-with-android-4c588e78f3ea-->
 
 
     <TextView
@@ -31,12 +30,16 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/transaction_info_border"
+
         android:padding="18dp"
         android:text="Please Enter the amount of credits you wish to purchase.
-                        \n (Every dollar spent is converted into 1 credit [Note: There is a 2.7% transaction fee incurred by Stripe])"
+                        \n(Every dollar spent is converted into 1 credit [Note: There is a 2.7% transaction fee incurred by Stripe])"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
-        android:background="@drawable/pf_info_border"
+        android:textColor="#111111"
+        android:textSize="23dp"
+        android:layout_gravity="center_vertical|end"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
