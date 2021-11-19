@@ -54,6 +54,7 @@
         <entry key="app/src/main/res/layout/activity_dn_user_profile_edit.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dn_user_profile_view_balance.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dn_user_profile_view_donation.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_donation.xml" value="0.1359375" />
         <entry key="app/src/main/res/layout/activity_donation_status.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_homeless_list.xml" value="0.20516304347826086" />
         <entry key="app/src/main/res/layout/activity_hy_login.xml" value="0.1" />
