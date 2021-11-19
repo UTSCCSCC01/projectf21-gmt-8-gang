@@ -68,7 +68,7 @@ public class MerchantListRecyclerAdapter extends RecyclerView.Adapter<MerchantLi
     @NonNull
     @Override
     public MerchantListRecyclerAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.merchant_list_item, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.merchant_recycler_item, parent, false);
         return new MerchantListRecyclerAdapter.RecyclerViewHolder(itemView);
     }
 
@@ -80,7 +80,7 @@ public class MerchantListRecyclerAdapter extends RecyclerView.Adapter<MerchantLi
         String nick=nickname.get(position);
         holder.userField.setText(user);
         holder.nickField.setText(nick);
-        holder.goButton.setText("GO");
+        holder.goButton.setText("Proceed");
         holder.goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

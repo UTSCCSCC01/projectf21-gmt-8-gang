@@ -82,7 +82,7 @@ public class YouthListRecyclerAdapter extends RecyclerView.Adapter<YouthListRecy
         String nick = nickname.get(position);
         holder.userField.setText(user);
         holder.nickField.setText(nick);
-        holder.goButton.setText("GO");
+        holder.goButton.setText("Proceed");
         holder.goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
