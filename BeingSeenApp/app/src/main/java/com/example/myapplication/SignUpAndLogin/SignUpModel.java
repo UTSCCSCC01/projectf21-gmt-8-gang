@@ -62,11 +62,13 @@ public class SignUpModel {
                             .putExtra("message", "can't connect to server")
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 } else if (e.networkResponse.statusCode == 404) {
+                        signUpActivity.hideLoadingScreen();
                         EditText usernameField = (EditText) signUpActivity.findViewById(R.id.HyUsername);
                         usernameField.setError("someone already used this username");
                         usernameField.requestFocus();
 
                 } else {
+                    signUpActivity.hideLoadingScreen();
                     Log.i(REGISTER_TAG, "hy sign up request failed qwq, error: " + e.getMessage());
                 }
             }

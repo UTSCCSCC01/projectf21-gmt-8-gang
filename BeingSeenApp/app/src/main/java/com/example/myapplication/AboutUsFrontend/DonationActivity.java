@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -74,6 +75,8 @@ public class DonationActivity extends AppCompatActivity {
                 receiver.setVisibility(View.GONE);
                 TextInputLayout textInputLayout = findViewById(R.id.dnt_amount_textfield);
                 textInputLayout.setVisibility(View.GONE);
+                RelativeLayout payLayout = findViewById(R.id.payment_layout);
+                payLayout.setVisibility(View.GONE);
                 lottieAnimationView.setVisibility(View.VISIBLE);
                 lottieAnimationView.playAnimation();
 
@@ -87,14 +90,6 @@ public class DonationActivity extends AppCompatActivity {
                                 //make toast after success
                                 Toast toast = Toast.makeText(getApplicationContext(), "Transaction successful", Toast.LENGTH_LONG);
                                 toast.show();
-//                                switch (ProfileInfo.getUserRole()) {
-//                                    case "ROLE_HOMELESS": startActivity(new Intent(getApplicationContext(), YouthMainNavbarActivity.class)); break;
-//                                    case "ROLE_DONOR": startActivity(new Intent(getApplicationContext(), DnMainNavbarActivity.class)); break;
-//                                    case "ROLE_ORGANIZATION": startActivity(new Intent(getApplicationContext(), OrgMainNavbarActivity.class)); break;
-//                                    case "ROLE_BEING_SEEN": startActivity(new Intent(getApplicationContext(), BsMainNavbarActivity.class)); break;
-//                                    case "ROLE_MERCHANT": startActivity(new Intent(getApplicationContext(), MerMainNavbarActivity.class)); break;
-//                                }
-//                                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                                 startActivity(new Intent(getApplicationContext(), PaymentOkAnimation.class));
 
                             }

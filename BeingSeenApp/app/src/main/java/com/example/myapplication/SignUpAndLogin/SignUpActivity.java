@@ -85,6 +85,21 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         lottieAnimationView.playAnimation();
     }
 
+    public void hideLoadingScreen() {
+        isLoading = false;
+        getSupportActionBar().show();
+        findViewById(R.id.spinner).setVisibility(View.VISIBLE);
+        findViewById(R.id.HySignUpButton).setVisibility(View.VISIBLE);
+        findViewById(R.id.GoToLogIn).setVisibility(View.VISIBLE);
+        findViewById(R.id.HyPasswordFrame).setVisibility(View.VISIBLE);
+        findViewById(R.id.HyPassword).setVisibility(View.VISIBLE);
+        findViewById(R.id.HyUsernameFrame).setVisibility(View.VISIBLE);
+        findViewById(R.id.HyUsername).setVisibility(View.VISIBLE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.GONE);
+        lottieAnimationView.pauseAnimation();
+    }
+
     @Override
     public void onBackPressed(){
         if(hasPressedBack){

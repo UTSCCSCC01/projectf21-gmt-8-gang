@@ -62,6 +62,19 @@ public class LoginActivity extends AppCompatActivity implements VolleyResponse {
         loginModel = new LoginModel(this, this);
     }
 
+    public void hideLoadingScreen() {
+        isLoading = false;
+        getSupportActionBar().show();
+        findViewById(R.id.HyUsername).setVisibility(View.VISIBLE);
+        findViewById(R.id.HyUsernameFrame).setVisibility(View.VISIBLE);
+        findViewById(R.id.HyPassword).setVisibility(View.VISIBLE);
+        findViewById(R.id.HyPasswordFrame).setVisibility(View.VISIBLE);
+        findViewById(R.id.HyLoginButton).setVisibility(View.VISIBLE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.GONE);
+        lottieAnimationView.pauseAnimation();
+    }
+
     public void showLoadingScreen() {
         isLoading = true;
         getSupportActionBar().hide();
