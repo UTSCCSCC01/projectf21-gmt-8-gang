@@ -6,151 +6,160 @@
     android:layout_height="match_parent"
     tools:context=".ConversionRequests.RequestDetails">
 
-    <TextView
-        android:id="@+id/rq_detail_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="320dp"
-        android:text="Status:"
-        android:textSize="25dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/black"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/textView"
+        android:layout_width="411dp"
+        android:layout_height="641dp"
+        android:background="@drawable/testbg4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rq_detail_amount" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077">
 
-    <TextView
-        android:id="@+id/rq_detail_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="400dp"
-        android:text="Amount:"
-        android:textSize="25dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rq_detail_email" />
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="381dp"
+            android:layout_height="392dp"
+            android:background="@drawable/pf_info_border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.22000003">
+
+            <TextView
+                android:id="@+id/rq_detail_receiver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="Receiver:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/green"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/rq_detail_receiver_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/rq_detail_email_field"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toEndOf="@+id/rq_detail_receiver"
+                android:text="Receiver"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/rq_detail_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rq_detail_receiver_field"
+                android:layout_alignStart="@+id/rq_detail_receiver"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="440dp"
+                android:text="Email:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/green"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/rq_detail_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rq_detail_email_field"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="400dp"
+                android:text="Amount:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/green"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/rq_detail_amount_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/rq_detail_amount"
+                android:layout_alignEnd="@+id/rq_detail_email_field"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toEndOf="@+id/rq_detail_amount"
+                android:text="Amount"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/rq_detail_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rq_detail_amount_field"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="Status:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/green"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/rq_detail_status_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/rq_detail_status"
+                android:layout_alignEnd="@+id/rq_detail_amount_field"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toEndOf="@+id/rq_detail_status"
+                android:background="#00FFFFFF"
+                android:text="Status"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/rq_detail_email_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/rq_detail_email"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_toEndOf="@+id/rq_detail_email"
+                android:text="Email"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/rq_detail_change_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foregroundTint="@color/bg_green"
+            android:text="Change Status"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:icon="@android:drawable/ic_menu_edit"
+            app:iconPadding="2dp"
+            app:iconSize="40dp"
+            app:iconTint="@color/white"
+            app:iconTintMode="multiply"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            app:layout_constraintVertical_bias="0.39" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <TextView
-        android:id="@+id/rq_detail_receiver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="500dp"
-        android:text="Receiver:"
-        android:textSize="25dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/rq_detail_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="440dp"
-        android:text="Email:"
-        android:textSize="25dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rq_detail_receiver" />
-
-    <Button
-        android:id="@+id/rq_detail_change_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:text="Change Status"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rq_detail_status"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/rq_detail_receiver_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Receiver"
-        android:textSize="25dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="@+id/rq_detail_receiver"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rq_detail_receiver"
-        app:layout_constraintTop_toTopOf="@+id/rq_detail_receiver" />
-
-    <TextView
-        android:id="@+id/rq_detail_email_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Email"
-        android:textSize="18dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="@+id/rq_detail_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rq_detail_email"
-        app:layout_constraintTop_toTopOf="@+id/rq_detail_email" />
-
-    <TextView
-        android:id="@+id/rq_detail_amount_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Amount"
-        android:textSize="25dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="@+id/rq_detail_amount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rq_detail_amount"
-        app:layout_constraintTop_toTopOf="@+id/rq_detail_amount" />
-
-    <TextView
-        android:id="@+id/rq_detail_status_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Status"
-        android:textSize="25dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="@+id/rq_detail_status"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rq_detail_status"
-        app:layout_constraintTop_toTopOf="@+id/rq_detail_status" />
 </androidx.constraintlayout.widget.ConstraintLayout>

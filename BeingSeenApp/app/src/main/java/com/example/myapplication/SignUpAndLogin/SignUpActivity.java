@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.myapplication.ConversionRequests.RequestDetails;
 import com.example.myapplication.NavbarActivities.OrgMainNavbarActivity;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.R;
@@ -65,6 +66,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
         Log.i(REGISTER_TAG, "hy sign up activity started");
         signUpModel = new SignUpModel(this);
+
 
     }
 
