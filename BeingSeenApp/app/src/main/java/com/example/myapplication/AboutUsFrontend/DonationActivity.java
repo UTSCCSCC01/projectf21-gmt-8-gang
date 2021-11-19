@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -74,6 +75,8 @@ public class DonationActivity extends AppCompatActivity {
                 receiver.setVisibility(View.GONE);
                 TextInputLayout textInputLayout = findViewById(R.id.dnt_amount_textfield);
                 textInputLayout.setVisibility(View.GONE);
+                RelativeLayout payLayout = findViewById(R.id.payment_layout);
+                payLayout.setVisibility(View.GONE);
                 lottieAnimationView.setVisibility(View.VISIBLE);
                 lottieAnimationView.playAnimation();
 
