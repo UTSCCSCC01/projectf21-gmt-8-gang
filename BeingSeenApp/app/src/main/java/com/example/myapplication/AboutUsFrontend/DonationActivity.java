@@ -67,18 +67,8 @@ public class DonationActivity extends AppCompatActivity {
                     amountField.requestFocus();
                     return;
                 }
-                // loading animation
-                isLoading = true;
-                getSupportActionBar().hide();
-                confirm.setVisibility(View.GONE);
-                amountField.setVisibility((View.GONE));
-                receiver.setVisibility(View.GONE);
-                TextInputLayout textInputLayout = findViewById(R.id.dnt_amount_textfield);
-                textInputLayout.setVisibility(View.GONE);
-                RelativeLayout payLayout = findViewById(R.id.payment_layout);
-                payLayout.setVisibility(View.GONE);
-                lottieAnimationView.setVisibility(View.VISIBLE);
-                lottieAnimationView.playAnimation();
+
+                showLoadingScreen();
 
                 // process transaction
                 Transaction transaction=new Transaction();
@@ -96,6 +86,20 @@ public class DonationActivity extends AppCompatActivity {
                         });
             }
         });
+    }
+
+    private void showLoadingScreen() {
+        isLoading = true;
+        getSupportActionBar().hide();
+        findViewById(R.id.relativeLayoutOuter).setVisibility(View.GONE);
+        findViewById(R.id.payment_layout).setVisibility(View.GONE);
+        findViewById(R.id.dnt_reciever).setVisibility(View.GONE);
+        findViewById(R.id.dnt_amount_textfield).setVisibility(View.GONE);
+        findViewById(R.id.dnt_amount).setVisibility(View.GONE);
+        findViewById(R.id.dnt_confirm).setVisibility(View.GONE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.VISIBLE);
+        lottieAnimationView.playAnimation();
     }
 
     //Back button on top
