@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.LottieAnimations.PaymentOkAnimation;
 import com.example.myapplication.NavbarActivities.BsMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.DnMainNavbarActivity;
@@ -45,6 +46,26 @@ public class TransferToMerchantActivity extends AppCompatActivity {
                 sendDono(view, receiverUsername);
             }
         });
+
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.GONE);
+        lottieAnimationView.pauseAnimation();
+
+    }
+
+    Boolean isLoading = false;
+    private void showLoadingScreen() {
+        isLoading = true;
+        getSupportActionBar().hide();
+        findViewById(R.id.relativeLayoutOuter).setVisibility(View.GONE);
+        findViewById(R.id.relativeLayoutInner).setVisibility(View.GONE);
+        findViewById(R.id.merchant_receiver).setVisibility(View.GONE);
+        findViewById(R.id.dnDonoAmtFrame).setVisibility(View.GONE);
+        findViewById(R.id.dnDonoAmt).setVisibility(View.GONE);
+        findViewById(R.id.donateConfirm).setVisibility(View.GONE);
+        LottieAnimationView lottieAnimationView = findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.VISIBLE);
+        lottieAnimationView.playAnimation();
     }
 
     @Override
@@ -55,6 +76,12 @@ public class TransferToMerchantActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override public void finish() {
+        if (isLoading) return;
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
     public void sendDono(View view, String rec) {
@@ -80,6 +107,8 @@ public class TransferToMerchantActivity extends AppCompatActivity {
             amount.requestFocus();
             return;
         }
+
+        showLoadingScreen();
 
         if (  !( (amt == null || amt <= 0) || (receiver.isEmpty()) )  ) {
             //call transaction in db
