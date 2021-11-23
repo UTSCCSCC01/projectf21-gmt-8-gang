@@ -7,10 +7,22 @@
     android:background="@color/white"
     android:foregroundTint="@color/teal_700">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_lottie_animation_view"
+        android:layout_width="match_parent"
+        android:layout_height="422dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_animation" />
+
     <RelativeLayout
-        android:id="@+id/textView"
-        android:layout_width="411dp"
-        android:layout_height="641dp"
+        android:id="@+id/relativeLayoutOuter"
+        android:layout_width="410dp"
+        android:layout_height="730dp"
         android:background="@drawable/testbg4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,25 +49,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/loading_lottie_animation_view"
-                android:layout_width="0dp"
-                android:layout_height="400dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/loading_animation" />
-
             <TextView
                 android:id="@+id/dnt_reciever"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:layout_marginStart="60dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="80dp"
                 android:text="reciever"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="@color/black" />
