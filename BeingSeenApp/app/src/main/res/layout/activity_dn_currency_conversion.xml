@@ -28,9 +28,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="15dp"
             android:layout_marginTop="351dp"
             android:layout_marginBottom="244dp"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </RelativeLayout>
 
 
@@ -101,14 +105,13 @@
         android:id="@+id/payButton"
         android:layout_width="228dp"
         android:layout_height="54dp"
-        android:layout_marginTop="96dp"
         android:text="Pay with stripe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74" />
+        app:layout_constraintVertical_bias="0.8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,7 @@ import com.stripe.android.model.ConfirmPaymentIntentParams;
 import com.stripe.android.model.PaymentIntent;
 import com.stripe.android.model.PaymentMethodCreateParams;
 import com.stripe.android.view.CardInputWidget;
+import com.stripe.android.view.CardMultilineWidget;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -71,7 +72,7 @@ public class DnCurrencyConversionActivity extends AppCompatActivity {
     // and https://www.youtube.com/watch?v=DsWjws60Ss0
 
     EditText amountText;
-    CardInputWidget cardInputWidget;
+    CardMultilineWidget cardInputWidget;
     Button payButton;
 
     // we need paymentIntentClientSecret to start transaction
