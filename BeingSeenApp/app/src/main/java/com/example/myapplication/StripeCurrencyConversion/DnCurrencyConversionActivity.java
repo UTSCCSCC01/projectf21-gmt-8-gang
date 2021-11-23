@@ -10,6 +10,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.LottieAnimations.PaymentOkAnimation;
 import com.example.myapplication.NavbarActivities.DnMainNavbarActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -335,9 +336,10 @@ public class DnCurrencyConversionActivity extends AppCompatActivity {
 
 //                // Payment completed successfully
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                Toast toast =Toast.makeText(activity, "Ordered Successful", Toast.LENGTH_SHORT);
+                Toast toast =Toast.makeText(activity, "Bought credit Successfully", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
+                startActivity(new Intent(getApplicationContext(), PaymentOkAnimation.class));
             } else if (status == PaymentIntent.Status.RequiresPaymentMethod) {
                 // Payment failed – allow retrying using a different payment method
                 activity.displayAlert(
