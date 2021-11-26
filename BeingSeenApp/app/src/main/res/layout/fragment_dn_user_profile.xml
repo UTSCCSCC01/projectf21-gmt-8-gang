@@ -40,16 +40,17 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="62dp"
         android:background="#0000"
-        android:text="Buy Credits"
+        android:text="(Buy Credits?)"
+        android:letterSpacing="0.01"
         android:textColor="#0000FF"
-        android:textSize="12dp"
+        android:textSize="10dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintHorizontal_bias="0.80"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintVertical_bias="0.678" />
 
 <!--     <TextView
         android:id="@+id/DnPfUnameDisplay"

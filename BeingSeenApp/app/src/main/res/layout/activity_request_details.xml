@@ -89,13 +89,13 @@
                 android:layout_alignTop="@+id/rq_detail_amount"
                 android:layout_alignEnd="@+id/rq_detail_email_field"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="3dp"
                 android:layout_marginEnd="0dp"
                 android:layout_toEndOf="@+id/rq_detail_amount"
                 android:text="Amount"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="26dp" />
 
             <TextView
                 android:id="@+id/rq_detail_status"
@@ -116,14 +116,14 @@
                 android:layout_alignTop="@+id/rq_detail_status"
                 android:layout_alignEnd="@+id/rq_detail_amount_field"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="3dp"
                 android:layout_marginEnd="0dp"
                 android:layout_toEndOf="@+id/rq_detail_status"
                 android:background="#00FFFFFF"
                 android:text="Status"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="26dp" />
 
             <TextView
                 android:id="@+id/rq_detail_email_field"
