@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="411dp"
         android:layout_height="641dp"
-        android:background="@drawable/testbg4"
+        android:background="@drawable/testbg5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -48,13 +48,13 @@
                 android:layout_alignEnd="@+id/rq_detail_email_field"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="38dp"
                 android:layout_marginEnd="0dp"
                 android:layout_toEndOf="@+id/rq_detail_receiver"
                 android:text="Receiver"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="26dp" />
 
             <TextView
                 android:id="@+id/rq_detail_email"
@@ -132,13 +132,13 @@
                 android:layout_alignTop="@+id/rq_detail_email"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_toEndOf="@+id/rq_detail_email"
                 android:text="Email"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="20dp" />
         </RelativeLayout>
 
         <Button
@@ -146,7 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:foregroundTint="@color/bg_green"
-            android:text="Change Status"
+            android:text="Mark As Done"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:icon="@android:drawable/ic_menu_edit"
             app:iconPadding="2dp"
