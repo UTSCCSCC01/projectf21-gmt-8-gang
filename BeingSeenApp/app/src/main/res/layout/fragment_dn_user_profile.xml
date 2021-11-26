@@ -35,19 +35,19 @@
 
     <Button
         android:id="@+id/dnPurchaseCurrency"
-        android:layout_width="126dp"
-        android:layout_height="33dp"
+        android:layout_width="123dp"
+        android:layout_height="68dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="62dp"
         android:background="#0000"
-        android:text="(Buy Credits?)"
         android:letterSpacing="0.01"
+        android:text="Add Credits"
         android:textColor="#0000FF"
-        android:textSize="10dp"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.80"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.678" />
@@ -173,19 +173,19 @@
 
             <TextView
                 android:id="@+id/textCreditUnit"
-                android:layout_width="wrap_content"
-                android:layout_height="59dp"
+                android:layout_width="63dp"
+                android:layout_height="48dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="182dp"
-                android:layout_marginTop="311dp"
-                android:layout_marginEnd="19dp"
-                android:layout_marginBottom="51dp"
+                android:layout_marginStart="167dp"
+                android:layout_marginTop="328dp"
+                android:layout_marginEnd="111dp"
+                android:layout_marginBottom="45dp"
                 android:text="Credit(s) to give"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="13dp" />
         </RelativeLayout>
     </RelativeLayout>
 
