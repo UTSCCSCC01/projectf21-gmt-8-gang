@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.LottieAnimations.NotFoundAnimation;
 import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -60,6 +62,7 @@ public class DonationGoalFragment extends Fragment {
     ImageView proPic;
     TextView usernameField, titleField, descriptionField, progressField, percentageField;
     ProgressBar progressBarField;
+    LottieAnimationView lottieAnimationView;
     String username, title, description, progress, percentage;
     Long current, goal;
 
@@ -104,6 +107,9 @@ public class DonationGoalFragment extends Fragment {
         this.percentageField = view.findViewById(R.id.HyPercentage);
         this.progressBarField = view.findViewById(R.id.HyProgressBar);
         progressBarField.setProgress(0);
+        this.lottieAnimationView = view.findViewById(R.id.havent_set_up_donation_goal_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.GONE);
+        lottieAnimationView.pauseAnimation();
 
         getDonationGoalFromDb((AppCompatActivity) getActivity(), new VolleyCallBack() {
             @Override
@@ -136,6 +142,13 @@ public class DonationGoalFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    private void displayNoResultPage(){
+        usernameField.setText("You don't have a goal now.");
+        progressBarField.setVisibility(View.GONE);
+        lottieAnimationView.setVisibility(View.VISIBLE);
+        lottieAnimationView.playAnimation();
     }
 
     public void getDonationGoalFromDb(AppCompatActivity callingActivity, final VolleyCallBack callBack){
@@ -181,10 +194,12 @@ public class DonationGoalFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 if (error.networkResponse.statusCode == 404) {
-                    usernameField.setText("You don't have a goal now.\nGo create one!");
-                    progressBarField.setVisibility(View.GONE);
+                    displayNoResultPage();
                 } else {
                     Log.i("uh-oh", "something's wrong with internet or your code!");
+                    getActivity().startActivity(new Intent(getActivity().getApplicationContext(), NotFoundAnimation.class)
+                            .putExtra("message", "something went wrong with server")
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 }
             }
         }) {
