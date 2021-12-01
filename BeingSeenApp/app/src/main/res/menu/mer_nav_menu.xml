@@ -17,4 +17,11 @@
         android:label="Request History"
         android:title="Request History" />
 
+    <item
+        android:id="@+id/cash_conversion"
+        android:icon="@drawable/ic_baseline_attach_money_24"
+        android:label="Cash Conversion"
+        android:title="Cash Conversion" />
+
+
 </menu>

@@ -42,6 +42,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.077">
 
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="537dp"
@@ -59,7 +60,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/havent_set_up_donation_goal_lottie_animation_view"
+                android:layout_width="301dp"
+                android:layout_height="350dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="60dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/havent_set_up_donation_goal_animation" />
             <TextView
                 android:id="@+id/HyUsername"
                 android:layout_width="280dp"

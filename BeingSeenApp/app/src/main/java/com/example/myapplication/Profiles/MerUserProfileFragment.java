@@ -15,9 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.myapplication.CashConversion.CashConversionRequestActivity;
 import com.example.myapplication.SignUpAndLogin.SignUpActivity;
 import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
@@ -158,16 +156,16 @@ public class MerUserProfileFragment extends Fragment {
 
 
         //Cash Conversion Button
-        final Button CashConversionPfButton = (Button) view.findViewById(R.id.ButtonConvertCash);
-
-        CashConversionPfButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(activity.getApplicationContext(), CashConversionRequestActivity.class);
-                startActivity(i);
-            }
-        });
+//        final Button CashConversionPfButton = (Button) view.findViewById(R.id.ButtonConvertCash);
+//
+//        CashConversionPfButton.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(activity.getApplicationContext(), CashConversionRequestActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
         return view;
     }
