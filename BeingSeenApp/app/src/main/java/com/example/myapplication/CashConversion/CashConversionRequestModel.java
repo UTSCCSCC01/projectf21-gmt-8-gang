@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,10 +28,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CashConversionRequestModel {
-    CashConversionRequestActivity activity;
+    AppCompatActivity activity;
     public static final String CONVERT_TAG = "cashConvert";
 
-    public CashConversionRequestModel(CashConversionRequestActivity activity) {
+    public CashConversionRequestModel(AppCompatActivity activity) {
         this.activity = activity;
     }
 

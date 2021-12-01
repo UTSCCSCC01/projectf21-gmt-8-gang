@@ -20,4 +20,9 @@
         android:name="com.example.myapplication.MerchantConversionRequest.MerRequestHistoryFragment"
         android:label="fragment_mer_request_history"
         tools:layout="@layout/fragment_mer_request_history" />
+    <fragment
+        android:id="@+id/cash_conversion"
+        android:name="com.example.myapplication.CashConversion.CashConversionFragment"
+        android:label="fragment_cash_conversion"
+        tools:layout="@layout/fragment_cash_conversion" />
 </navigation>
