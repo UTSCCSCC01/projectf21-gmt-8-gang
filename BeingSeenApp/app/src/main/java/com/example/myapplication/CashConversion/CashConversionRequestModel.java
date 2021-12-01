@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -11,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.LottieAnimations.PaymentOkAnimation;
 import com.example.myapplication.NavbarActivities.MerMainNavbarActivity;
 import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
 import com.example.myapplication.ProfileInfo;
@@ -25,10 +29,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CashConversionRequestModel {
-    CashConversionRequestActivity activity;
+    AppCompatActivity activity;
     public static final String CONVERT_TAG = "cashConvert";
 
-    public CashConversionRequestModel(CashConversionRequestActivity activity) {
+    public CashConversionRequestModel(AppCompatActivity activity) {
         this.activity = activity;
     }
 
@@ -91,9 +95,10 @@ public class CashConversionRequestModel {
                 body, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Intent i = new Intent(activity.getApplicationContext(), MerMainNavbarActivity.class);
+//                Intent i = new Intent(activity.getApplicationContext(), MerMainNavbarActivity.class);
                 Toast.makeText(activity.getApplicationContext(), "Request sent", Toast.LENGTH_LONG).show();
-                activity.startActivity(i);
+                activity.startActivity(new Intent(activity.getApplicationContext(), PaymentOkAnimation.class));
+//                activity.startActivity(i);
                 return;
             }
         }, new Response.ErrorListener() {
@@ -102,9 +107,10 @@ public class CashConversionRequestModel {
                 Log.i(CONVERT_TAG, "cash conversion request Failed" + e);
 
 //              This has to be handled better in the future because right now the default response leads to error
-                Intent i = new Intent(activity.getApplicationContext(), MerMainNavbarActivity.class);
+//                Intent i = new Intent(activity.getApplicationContext(), MerMainNavbarActivity.class);
                 Toast.makeText(activity.getApplicationContext(), "Request sent", Toast.LENGTH_LONG).show();
-                activity.startActivity(i);
+                activity.startActivity(new Intent(activity.getApplicationContext(), PaymentOkAnimation.class));
+//                activity.startActivity(i);
                 return;
             }
         }) {
