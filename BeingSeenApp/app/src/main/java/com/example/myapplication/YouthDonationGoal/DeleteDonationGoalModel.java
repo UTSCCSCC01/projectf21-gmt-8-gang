@@ -51,6 +51,7 @@ public class DeleteDonationGoalModel {
                 donationGoalFragment.progressField.setText("");
                 donationGoalFragment.percentageField.setText("");
                 donationGoalFragment.progressBarField.setVisibility(View.GONE);
+                donationGoalFragment.descriptionBackground.setVisibility(View.GONE);
 
                 return;
             }
