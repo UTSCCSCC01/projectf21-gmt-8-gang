@@ -43,7 +43,9 @@ public class DeleteDonationGoalModel {
             public void onResponse(String response) {
                 Log.i(LOGIN_TAG, "delete donation goal success");
                 Toast.makeText(activity.getApplicationContext(), "successfully deleted donation goal", Toast.LENGTH_LONG).show();
-                donationGoalFragment.usernameField.setText("You don't have a goal now.\nGo create one!");
+                donationGoalFragment.usernameField.setText("You don't have a goal now.");
+                donationGoalFragment.lottieAnimationView.setVisibility(View.VISIBLE);
+                donationGoalFragment.lottieAnimationView.playAnimation();
                 donationGoalFragment.titleField.setText("");
                 donationGoalFragment.descriptionField.setText("");
                 donationGoalFragment.progressField.setText("");

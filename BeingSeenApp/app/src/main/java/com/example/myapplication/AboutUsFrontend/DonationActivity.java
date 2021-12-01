@@ -14,12 +14,6 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.LottieAnimations.PaymentOkAnimation;
-import com.example.myapplication.NavbarActivities.BsMainNavbarActivity;
-import com.example.myapplication.NavbarActivities.DnMainNavbarActivity;
-import com.example.myapplication.NavbarActivities.YouthMainNavbarActivity;
-import com.example.myapplication.NavbarActivities.MerMainNavbarActivity;
-import com.example.myapplication.NavbarActivities.OrgMainNavbarActivity;
-import com.example.myapplication.ProfileInfo;
 import com.example.myapplication.R;
 import com.example.myapplication.Transaction;
 import com.example.myapplication.VolleyCallBack;
