@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 
 /**
@@ -63,6 +65,7 @@ public class CashConversionFragment extends Fragment {
     }
 
     CashConversionRequestModel model;
+    Boolean isLoading = false;
     public static final String CONVERT_TAG = "cashConvert";
 
     @Override
@@ -72,6 +75,7 @@ public class CashConversionFragment extends Fragment {
         FragmentActivity activity = getActivity();
 
         model = new CashConversionRequestModel((AppCompatActivity) activity);
+        hideLoadingScreen(view);
 
         Button confirm = view.findViewById(R.id.convertConfirm);
         confirm.setOnClickListener(new View.OnClickListener() {
@@ -111,9 +115,39 @@ public class CashConversionFragment extends Fragment {
             amountField.requestFocus();
             return;
         }
+        showLoadingScreen();
         model.cashConvert(emailString, amount);
         model.updateBalance(amount);
 
         return;
     }
+
+    private void showLoadingScreen(){
+        getActivity().findViewById(R.id.merBottomNavigationView).setVisibility(View.GONE);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        getActivity().findViewById(R.id.textView).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.aboutus_txt).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.email_convert_frame).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.email_convert).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.amount_convert).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.amount_convert_frame).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.convertConfirm).setVisibility(View.GONE);
+        LottieAnimationView lottieAnimationView = getActivity().findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.VISIBLE);
+        lottieAnimationView.playAnimation();
+    }
+
+    private void hideLoadingScreen(View view) {
+        view.findViewById(R.id.textView).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.aboutus_txt).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.email_convert_frame).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.email_convert).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.amount_convert).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.amount_convert_frame).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.convertConfirm).setVisibility(View.VISIBLE);
+        LottieAnimationView lottieAnimationView = view.findViewById(R.id.loading_lottie_animation_view);
+        lottieAnimationView.setVisibility(View.GONE);
+        lottieAnimationView.pauseAnimation();
+    }
+
 }

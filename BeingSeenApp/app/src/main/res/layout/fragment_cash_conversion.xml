@@ -6,7 +6,6 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".CashConversion.CashConversionFragment">
 
-
 <RelativeLayout
     android:id="@+id/textView"
     android:layout_width="411dp"
@@ -18,6 +17,20 @@ tools:context=".CashConversion.CashConversionFragment">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintVertical_bias="0.077" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_lottie_animation_view"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.549"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_animation" />
 
 <TextView
     android:id="@+id/aboutus_txt"
@@ -42,7 +55,7 @@ tools:context=".CashConversion.CashConversionFragment">
     app:layout_constraintVertical_bias="0.011" />
 
 <com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/email_convert_frame"
+    android:id="@+id/amount_convert_frame"
     android:layout_width="300dp"
     android:layout_height="61dp"
     app:layout_constraintBottom_toTopOf="@+id/convertConfirm"
@@ -62,7 +75,7 @@ tools:context=".CashConversion.CashConversionFragment">
 </com.google.android.material.textfield.TextInputLayout>
 
 <com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/amount_convert_frame"
+    android:id="@+id/email_convert_frame"
     android:layout_width="300dp"
     android:layout_height="61dp"
     app:layout_constraintBottom_toTopOf="@+id/convertConfirm"
