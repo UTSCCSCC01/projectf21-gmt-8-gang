@@ -60,7 +60,7 @@ public class DonationGoalFragment extends Fragment {
     }
 
     ImageView proPic;
-    TextView usernameField, titleField, descriptionField, progressField, percentageField;
+    TextView usernameField, titleField, descriptionField, progressField, percentageField,descriptionBackground;
     ProgressBar progressBarField;
     LottieAnimationView lottieAnimationView;
     String username, title, description, progress, percentage;
@@ -105,6 +105,7 @@ public class DonationGoalFragment extends Fragment {
         this.descriptionField = view.findViewById(R.id.HyGoalDescription);
         this.progressField = view.findViewById(R.id.HyAmount);
         this.percentageField = view.findViewById(R.id.HyPercentage);
+        this.descriptionBackground=view.findViewById(R.id.HyGoalDescriptionBackground);
         this.progressBarField = view.findViewById(R.id.HyProgressBar);
         progressBarField.setProgress(0);
         this.lottieAnimationView = view.findViewById(R.id.havent_set_up_donation_goal_lottie_animation_view);
@@ -147,6 +148,7 @@ public class DonationGoalFragment extends Fragment {
     private void displayNoResultPage(){
         usernameField.setText("You don't have a goal now.");
         progressBarField.setVisibility(View.GONE);
+        descriptionBackground.setVisibility(View.GONE);
         lottieAnimationView.setVisibility(View.VISIBLE);
         lottieAnimationView.playAnimation();
     }
